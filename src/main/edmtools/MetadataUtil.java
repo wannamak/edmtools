@@ -16,30 +16,39 @@
 
 package edmtools;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.google.common.base.Function;
 
+import edmtools.Proto.FlightMetadata;
 import edmtools.Proto.Fuel.FuelFlowUnits;
 import edmtools.Proto.Metadata;
 
 public class MetadataUtil {
   private Metadata metadata;
-  
+  private List<Integer> flightNumbers;
+
   public MetadataUtil(Metadata metadata) {
     this.metadata = metadata;
+    this.flightNumbers = new ArrayList<>();
+    for (FlightMetadata flightMetadata : metadata.getFlightMetadataList()) {
+      flightNumbers.add(flightMetadata.getFlightNumber());
+    }
   }
-  
+
   public boolean hasProtocolHeader() {
     return metadata.hasProtocolVersion();
   }
-  
+
   public boolean hasExtraFlightHeaderConfiguration() {
     return hasProtocolHeader() || isModelNumberAtLeast(900);
   }
-  
+
   public boolean isDecodeMaskSingleByte() {
     return !hasProtocolHeader() && !isModelNumberAtLeast(900);
   }
-  
+
   public boolean isModelNumber(int modelNumber) {
     return metadata.getFeatures().getModelNumber() == modelNumber;
   }
@@ -47,40 +56,37 @@ public class MetadataUtil {
   public boolean isModelNumberAtLeast(int modelNumber) {
     return metadata.getFeatures().getModelNumber() >= modelNumber;
   }
-  
+
   public boolean isBuildNumberAtLeast(int buildNumber) {
     return metadata.getFeatures().getBuildNumber() >= buildNumber;
   }
-  
+
   public boolean isFirmwareVersionAtLeast(int versionNumber) {
     return metadata.getFeatures().getFirmwareVersion() >= versionNumber;
   }
-  
+
   public boolean isTwinEngine() {
-    return isModelNumber(760) || isModelNumber(960); 
+    return isModelNumber(760) || isModelNumber(960);
   }
-  
+
   public boolean isGallonsPerHour() {
     return metadata.getFuel().getFuelFlowUnits() == FuelFlowUnits.GPH;
   }
-  
-  public static final Function<MetadataUtil, Boolean> IS_TWIN_ENGINE = 
+
+  public static final Function<MetadataUtil, Boolean> IS_TWIN_ENGINE =
       new Function<MetadataUtil, Boolean>() {
+    @Override
     public Boolean apply(MetadataUtil metadataUtil) {
-      return metadataUtil.isTwinEngine(); 
+      return metadataUtil.isTwinEngine();
     }
   };
-  
-  public int findFlightMetadataIndexByFlightNumber(int flightNumber) {
-    for (int i = 0; i < metadata.getFlightMetadataCount(); ++i) {
-      if (metadata.getFlightMetadata(i).getFlightNumber() == flightNumber) {
-        return i;
-      }
-    }
-    throw new IllegalStateException("Flight " + flightNumber + " not found");
+
+  /** Returns the next flight number in file order, or throws if called on last flight in file. */
+  public int getNextFlightNumber(int flightNumber) {
+    return flightNumbers.get(flightNumbers.indexOf(flightNumber) + 1);
   }
-  
+
   public boolean isLastFlight(int flightNumber) {
-    return metadata.getFlightMetadata(metadata.getFlightMetadataCount() - 1).getFlightNumber() == flightNumber;
+    return flightNumbers.get(flightNumbers.size() - 1) == flightNumber;
   }
 }

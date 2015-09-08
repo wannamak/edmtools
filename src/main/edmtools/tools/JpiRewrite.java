@@ -35,31 +35,36 @@ import com.google.common.io.Files;
 import edmtools.JpiDecoder;
 import edmtools.JpiDecoder.JpiDecoderConfiguration;
 import edmtools.JpiInputStream;
-import edmtools.MetadataUtil;
 import edmtools.Proto.Flight;
 import edmtools.Proto.JpiFile;
 
 /**
  * Demo tool which extracts all or part of one JPI file into another JPI file.
- * 
+ *
  * <p>Useful for extracting a flight or two for functional tests.
  */
 public class JpiRewrite extends CommandLineTool {
   private static final Logger logger = Logger.getLogger(JpiRewrite.class.getName());
 
-  @Option(name = "-start", usage="beginning flight number, -1 for first",
-      aliases={"--start", "-start"})
-  private int startFlight = -1;
-
-  @Option(name = "-end", usage="ending flight number, -1 for last",
-      aliases={"--end", "-end"})
-  private int endFlight = -1;
-
   @Option(name = "-reg", usage="replace registration string", aliases={"--reg", "-reg"})
   private String registration;
 
+  @Option(name = "-flights", usage="comma-delimited flight numbers",
+      aliases={"--flights", "-flights"})
+  private List<Integer> flightNumbers = new ArrayList<>();
+
   public static void main(String args[]) throws Exception {
     CommandLineTool.initAndRun(args, new JpiRewrite());
+  }
+
+  private class Offset {
+    private Offset(int start, int length) {
+      this.start = start;
+      this.length = length;
+    }
+
+    final int start;
+    final int length;
   }
 
   @Override
@@ -69,64 +74,57 @@ public class JpiRewrite extends CommandLineTool {
     Files.write(b, new File(args.get(1)));
     logger.info("Read " + args.get(0) + " and wrote " + args.get(1));
   }
-  
+
   private byte[] modifyJpiFile(byte b[]) throws IOException {
     JpiInputStream inputStream = new JpiInputStream(new ByteArrayInputStream(b));
     JpiFile jpiFile = JpiDecoder.decode(
         inputStream,
         JpiDecoderConfiguration.newBuilder().withFlightHeadersOnly().build());
-    
-    // Determine which $D (flight metadata) headers to include.
-    MetadataUtil metadataUtil = new MetadataUtil(jpiFile.getMetadata());
-    int startHeader = (startFlight == -1)
-        ? 0 
-        : metadataUtil.findFlightMetadataIndexByFlightNumber(startFlight);
-    int endHeader = (endFlight == -1) 
-        ? jpiFile.getMetadata().getFlightMetadataCount()
-        : metadataUtil.findFlightMetadataIndexByFlightNumber(endFlight);
-    logger.fine(String.format("Retaining metadata flight headers %d through %d", startHeader, endHeader));
 
-    // Determine data record offset to include.
-    int startDataOffset = jpiFile.getMetadata().getLength();
-    int endDataOffset = b.length;
-    if (startFlight != -1 || endFlight != -1) {
-      int offset = jpiFile.getMetadata().getLength();
-      for (Flight flight : jpiFile.getFlightList()) {
-        int flightNumber = flight.getFlightNumber();
-        logger.fine(String.format("Flight %d's data is %d", flightNumber, flight.getHeaderLength() + flight.getDataLength()));
-        if (startFlight != -1 && startFlight == flightNumber) { startDataOffset = offset; }
-        offset += flight.getHeaderLength() + flight.getDataLength();
-        if (endFlight != -1 && endFlight == flightNumber) { endDataOffset = offset; }
-      }
-    }
-    
-    logger.fine(String.format("Retaining data offset %d through %d", startDataOffset, endDataOffset));
-    
+    // Retain selected $D (flight metadata) headers.
     byte newHeader[] = modifyFileHeader(
         new String(
             Arrays.copyOfRange(b, 0, jpiFile.getMetadata().getLength()),
             Charsets.US_ASCII),
-        startHeader,
-        endHeader)
+        flightNumbers)
             .getBytes(Charsets.US_ASCII);
-    int dataLength = endDataOffset - startDataOffset;
-    byte out[] = new byte[newHeader.length + dataLength];
+
+    // Select data records to include.
+    List<Offset> offsets = new ArrayList<>();
+    int currentOffset = jpiFile.getMetadata().getLength();
+    int newDataLength = 0;
+    for (Flight flight : jpiFile.getFlightList()) {
+      int recordLength = flight.getHeaderLength() + flight.getDataLength();
+      if (flightNumbers.contains(flight.getFlightNumber())) {
+        offsets.add(new Offset(currentOffset, recordLength));
+        newDataLength += recordLength;
+        logger.fine("Adding flight " + flight.getFlightNumber() + " from " + currentOffset +
+            " to " + (currentOffset + recordLength));
+      }
+      currentOffset += recordLength;
+    }
+
+    byte out[] = new byte[newHeader.length + newDataLength];
     System.arraycopy(newHeader, 0, out, 0, newHeader.length);
-    System.arraycopy(b, startDataOffset, out, newHeader.length, dataLength);
+    int outOffset = newHeader.length;
+    for (Offset offset : offsets) {
+      System.arraycopy(b, offset.start, out, outOffset, offset.length);
+      outOffset += offset.length;
+    }
     return out;
   }
-  
+
   private static final String CR_LF = "\r\n";
-  private static final Splitter LINE = Splitter.on(CR_LF).omitEmptyStrings();
-  
-  private String modifyFileHeader(String headers, int startHeader, int endHeader) {
-    List<String> lines = LINE.splitToList(headers);
-    return Joiner.on(CR_LF).join(modifyFileHeader(lines, startHeader, endHeader)) + CR_LF;
+  private static final Splitter NEWLINE = Splitter.on(CR_LF).omitEmptyStrings();
+  private static final Splitter COMMA = Splitter.on(",").trimResults();
+
+  private String modifyFileHeader(String headers, List<Integer> flightNumbers) {
+    List<String> lines = NEWLINE.splitToList(headers);
+    return Joiner.on(CR_LF).join(modifyFileHeader(lines, flightNumbers)) + CR_LF;
   }
-  
-  private List<String> modifyFileHeader(List<String> lines, int startHeader, int endHeader) {
+
+  private List<String> modifyFileHeader(List<String> lines, List<Integer> flightNumbers) {
     List<String> output = new ArrayList<>();
-    int headerIndex = 0;
     for (String line : lines) {
       if (registration != null && line.startsWith("$U,")) {
         line = String.format("U,%s", registration);
@@ -136,8 +134,8 @@ public class JpiRewrite extends CommandLineTool {
         }
         line = String.format("$%s*%X", line, checksum);  // $ and * are not part of checksum.
       } else if (line.startsWith("$D,")) {
-        headerIndex++;
-        if (headerIndex - 1 < startHeader || headerIndex - 1 > endHeader) {
+        List<String> parts = COMMA.splitToList(line);
+        if (!flightNumbers.contains(Integer.parseInt(parts.get(1)))) {
           continue;
         }
       }

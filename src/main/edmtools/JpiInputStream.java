@@ -37,11 +37,11 @@ public class JpiInputStream {
 
   /** Current byte counter, independent of currentRecord. */
   private int counter;
-  
+
   public JpiInputStream(String filename) throws FileNotFoundException {
     this(new BufferedInputStream(new FileInputStream(new File(filename))));
   }
-  
+
   public JpiInputStream(InputStream stream) {
     this.stream = stream;
     this.currentRecord = new ArrayList<>();
@@ -52,21 +52,21 @@ public class JpiInputStream {
   public void clearCurrentRecord() {
     currentRecord.clear();
   }
-  
+
   public Optional<String> getChecksumFailureMessage() throws IOException {
     read();  // Read the checksum into currentRecord
     int computedChecksum = computeCurrentRecordChecksum();
     if (computedChecksum != 0) {
       String failureMessage = String.format("Checksum mismatch actual %2X vs expected %2X:\n%s",
           currentRecord.get(currentRecord.size() - 1),
-          -computedChecksum & 0xff, 
+          -computedChecksum & 0xff,
           getCurrentRecord());
       return Optional.of(failureMessage);
     } else {
       return Optional.absent();
     }
   }
-  
+
   private int computeCurrentRecordChecksum() {
     // TODO: firmware < 3.00 used ^=.  Implement if we get a file to test.
     int computedChecksum = 0;
@@ -75,15 +75,15 @@ public class JpiInputStream {
     }
     return (-computedChecksum) & 0xff;
   }
-  
+
   public void resetCounter() {
     counter = 0;
   }
-  
+
   public int getCounter() {
     return counter;
   }
-  
+
   /** Reads two bytes.  If the stream is at EOF, throw an {@link IOException}. */
   public int readWord() throws IOException {
     int result = read() << 8;
@@ -101,11 +101,11 @@ public class JpiInputStream {
     currentRecord.add(read);
     return read;
   }
-  
+
   public int getCurrentRecordSize() {
     return currentRecord.size();
   }
-  
+
   /** Peeks at the next {@code numBytes} in the underlying {@link InputStream}. */
   public byte[] peek(int numBytes) throws IOException {
     mark(numBytes);
@@ -118,16 +118,16 @@ public class JpiInputStream {
       reset();
     }
   }
-  
+
   public void mark(int readLimit) {
     stream.mark(readLimit);
   }
-  
+
   public void reset() throws IOException {
     stream.reset();
     // TODO: counter and currentRecord are not updated.
   }
-  
+
   public void skip(long numBytes) throws IOException {
     counter += numBytes;
     do {
@@ -135,7 +135,15 @@ public class JpiInputStream {
     } while (numBytes > 0);
     // TODO: currentRecord is not updated.
   }
-  
+
+  public int skipToEndOfFile() throws IOException {
+    int length = 0;
+    while (stream.read() != -1) {
+      length++;
+    }
+    return length;
+  }
+
   public String getCurrentRecord() {
     String result = "";
     for (int b : currentRecord) {

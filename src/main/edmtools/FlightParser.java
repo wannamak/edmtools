@@ -44,7 +44,7 @@ class FlightParser {
    */
   private final int estimatedFlightLengthBytes;
   private final MetadataUtil metadataUtil;
-  
+
   public FlightParser(JpiInputStream stream, FlightMetadata metadata, MetadataUtil metadataUtil) {
     this.inputStream = stream;
     this.flightNumber = metadata.getFlightNumber();
@@ -62,7 +62,7 @@ class FlightParser {
     parseFlightData(builder);
     return builder.build();
   }
-  
+
   /**
    * Parses a flight header and skips all data records associated with the flight.
    * The stream should be at the beginning of the flight.
@@ -70,9 +70,7 @@ class FlightParser {
   public Flight parseHeaderAndSkipData() throws IOException {
     Flight.Builder builder = Flight.newBuilder();
     parseFlightHeader(builder);
-    if (!metadataUtil.isLastFlight(builder.getFlightNumber())) {
-      builder.setDataLength(skipDataRecords(builder.getHeaderLength(), builder.getFlightNumber()));
-    }
+    builder.setDataLength(skipDataRecords(builder.getHeaderLength(), builder.getFlightNumber()));
     return builder.build();
   }
 
@@ -84,6 +82,9 @@ class FlightParser {
    * Returns the number of bytes skipped.
    */
   private int skipDataRecords(int headerLength, int flightNumber) throws IOException {
+    if (metadataUtil.isLastFlight(flightNumber)) {
+      return inputStream.skipToEndOfFile();
+    }
     int numSkip = estimatedFlightLengthBytes - headerLength - 1;
     logger.finest("Skipping " + numSkip + " bytes " +
         "(" + estimatedFlightLengthBytes + " - " + headerLength + " - 1)");
@@ -91,7 +92,7 @@ class FlightParser {
     // Each flight header begins with the flight number.
     byte peek[] = inputStream.peek(3);
     logger.finest(String.format("Peeked at %02X %02X %02X\n", peek[0], peek[1], peek[2]));
-    int nextFlightNumber = flightNumber + 1;
+    int nextFlightNumber = metadataUtil.getNextFlightNumber(flightNumber);
     if (((peek[0] << 8) + peek[1]) != nextFlightNumber) {
       if (((peek[1] << 8) + peek[2]) != nextFlightNumber) {
         throw new IOException("Could not find next flight header");
@@ -101,22 +102,22 @@ class FlightParser {
     }
     return numSkip;
   }
-  
+
   private void parseFlightHeader(Flight.Builder builder) throws IOException {
     inputStream.resetCounter();
     inputStream.clearCurrentRecord();
-    
+
     builder.setFlightNumber(inputStream.readWord());
     if (builder.getFlightNumber() != flightNumber) {
       builder.addParseWarning(String.format(
-          "Unexpected flight number %d (0x%04X) instead of expected %d (0x%04X)", 
+          "Unexpected flight number %d (0x%04X) instead of expected %d (0x%04X)",
           builder.getFlightNumber(), builder.getFlightNumber(), flightNumber, flightNumber));
     }
     logger.finest(String.format("Parsing flight %d header", builder.getFlightNumber()));
     int low = inputStream.readWord();
     int high = inputStream.readWord();
     builder.setSensors(new SensorParser(low, high).parse());
-    
+
     if (metadataUtil.hasExtraFlightHeaderConfiguration()) {
       @SuppressWarnings("unused")
       int unusedConfigLow = inputStream.readWord();
@@ -127,35 +128,35 @@ class FlightParser {
         int unusedConfig = inputStream.readWord();
       }
     }
-    
+
     @SuppressWarnings("unused")
     int unknown = inputStream.readWord();
-    
+
     int recordingInterval = inputStream.readWord();
-    
+
     builder.setRecordingIntervalSecs(recordingInterval);
     int packedDate = inputStream.readWord();
     int packedTime = inputStream.readWord();
     builder.setStartTimestamp(parseUnixTimestamp(packedDate, packedTime));
-    
+
     Optional<String> checksumFailureMessage = inputStream.getChecksumFailureMessage();
     if (checksumFailureMessage.isPresent()) {
       builder.addParseWarning(checksumFailureMessage.get());
     }
-    
+
     builder.setHeaderLength(inputStream.getCurrentRecordSize());
-    
-    logger.finest(String.format("Parsed %d header bytes [%s]", 
+
+    logger.finest(String.format("Parsed %d header bytes [%s]",
         inputStream.getCurrentRecordSize(), inputStream.getCurrentRecord()));
-    logger.finer(String.format("Flight header:\n%s", builder.build()));       
+    logger.finer(String.format("Flight header:\n%s", builder.build()));
   }
-  
+
   private void parseFlightData(Flight.Builder builder) throws IOException {
     DataRecordParser parser = new DataRecordParser(metadataUtil, inputStream);
     DataRecord previousDataRecord = null;
     while (inputStream.getCounter() + getMinimumRecordSize() < estimatedFlightLengthBytes) {
       DataRecord dataRecord = parser.parse(previousDataRecord);
-      
+
       // TODO: verify this logic.  We believe the count means "add the previous record N times".
       int repeatCount = parser.getPreviousRecordRepeatCount();
       while (repeatCount-- > 0) {
@@ -166,11 +167,11 @@ class FlightParser {
     }
     builder.setDataLength(inputStream.getCounter());
   }
-  
+
   private int getMinimumRecordSize() {
     return metadataUtil.isDecodeMaskSingleByte() ? 3 : 5;  // Two decode masks + repeat count byte.
   }
-  
+
   private long parseUnixTimestamp(int packedDate, int packedTime) {
     int year = (packedDate & 0xfe00) >> 9;
     year += (year >= 75) ? 1900 : 2000;

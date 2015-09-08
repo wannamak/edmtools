@@ -33,8 +33,8 @@ import edmtools.Proto.JpiFile;
 public class JpiDecode extends CommandLineTool {
   @Option(name = "-list", usage="list available flights", aliases="--list")
   private boolean listAllFlights;
-  
-  @Option(name = "-flightNumber", usage="flight number to parse (-1 to decode all)", 
+
+  @Option(name = "-flightNumber", usage="flight number to parse (-1 to decode all)",
       aliases={"--flightNumber", "-flight", "--flight"})
   private int flightNumber = -1;
 
@@ -51,12 +51,12 @@ public class JpiDecode extends CommandLineTool {
           inputStream,
           JpiDecoderConfiguration.newBuilder().withFlightHeadersOnly().build());
       for (Flight flight : jpiFile.getFlightList()) {
-        System.out.printf("Flight number %4d at %s\n", flight.getFlightNumber(), 
+        System.out.printf("Flight number %4d at %s\n", flight.getFlightNumber(),
             new DateTime(flight.getStartTimestamp() * 1000));
       }
       return;
     }
-    
+
     JpiDecoderConfiguration.Builder configBuilder = JpiDecoderConfiguration.newBuilder();
     if (flightNumber != -1) {
       configBuilder.withExactFlightNumber(flightNumber);

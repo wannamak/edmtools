@@ -29,16 +29,16 @@ public class BuilderUtilTest {
   private static final String CHT = "engine[0].cylinder_head_temperature[0]";
   private static final String MARK = "mark";
   private static final String MAP = "engine[0].manifold_pressure";
-  
+
   private DataRecord.Builder builder = DataRecord.newBuilder();
   private BuilderUtil util = new BuilderUtil(builder);
-  
+
   @Test
   public void testHasValue() {
     assertFalse(util.hasField(OAT));
     assertFalse(util.hasField("engine[0].exhaust_gas_temperature[1]"));
   }
-  
+
   @Test
   public void testSetGetSingle() {
     util.setFieldValue(OAT, 1);
@@ -46,7 +46,7 @@ public class BuilderUtilTest {
     util.setFieldValue(MAP, 1.0f);
     assertEquals(1.0f, util.getFieldValue(MAP));
   }
-  
+
   @Test
   public void testCoerceNumericToInt() {
     util.setFieldValue(CHT, 1);
@@ -70,7 +70,7 @@ public class BuilderUtilTest {
     util.setFieldValue(MAP, 1L);
     assertEquals(1.0f, util.getFieldValue(MAP));
   }
-  
+
   @Test
   public void testCoerceNumericToEnum() {
     util.setFieldValue(MARK, Mark.MARKED.getValueDescriptor());

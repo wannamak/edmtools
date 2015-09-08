@@ -32,14 +32,14 @@ import edmtools.Proto.EngineDataRecord;
 
 class DataRecordParser {
   private static final Logger logger = Logger.getLogger(DataRecordParser.class.getName());
-  
+
   /** A recorded value of 0 means the value is "not available". */
   private static final int NOT_AVAILABLE_VALUE_MARKER = 0;
-  
+
   /**
    * The decode byte is a 8- or 16- bit number which maps to changes in a bitmask of 8 or 16 bytes
    * (the valueFlags and signFlags).  The bits in these 8 or 16 byte flags determine which metrics
-   * are updated, and the sign of the update. 
+   * are updated, and the sign of the update.
    * We allocate 16 bytes for the value mask to cover all cases.
    */
   private static final int MAX_NUM_VALUE_BYTES = 16;
@@ -57,7 +57,7 @@ class DataRecordParser {
    * Preserve the last good value here for use with subsequent deltas.
    */
   private Map<Metric, Object> naValues = new HashMap<>();
-    
+
   public DataRecordParser(MetadataUtil metadataUtil, JpiInputStream inputStream) {
     this.metadataUtil = metadataUtil;
     this.inputStream = inputStream;
@@ -69,11 +69,11 @@ class DataRecordParser {
     signFlags.clear();
     previousRecordRepeatCount = 0;
     inputStream.clearCurrentRecord();
-    
+
     DataRecord.Builder builder = previousDataRecord == null
         ? DataRecord.newBuilder() : previousDataRecord.toBuilder();
     builder.clearParseWarning();
-    
+
     BuilderUtil util = new BuilderUtil(builder);
     for (int bitIndex : getBitIndexesFromMasks(builder)) {
       updateProtoValue(util, builder, bitIndex, inputStream.read());
@@ -84,10 +84,10 @@ class DataRecordParser {
     if (checksumFailureMessage.isPresent()) {
       builder.addParseWarning(checksumFailureMessage.get());
     }
-    
+
     logger.finest(String.format("Parsed %d record bytes [%s]",
         inputStream.getCurrentRecordSize(), inputStream.getCurrentRecord()));
-    logger.finer(String.format("DataRecord:\n%s", builder.build()));    
+    logger.finer(String.format("DataRecord:\n%s", builder.build()));
     return builder.build();
   }
 
@@ -109,7 +109,7 @@ class DataRecordParser {
       util.setFieldValue(metric.getProtoPath(), naValues.get(metric));
       naValues.remove(metric);
     }
-    
+
     // For high bytes, use the low byte sign bit.
     if (signFlags.testBit(metric.getLowByteBit())) {
       value = -value;
@@ -120,9 +120,9 @@ class DataRecordParser {
     float newValue = metric.scale(metadataUtil, value);
 
     Number existingValue = getExistingValueOrDefault(util, metric);
-    logger.finer(String.format("Updating %s = %s + %s", 
+    logger.finer(String.format("Updating %s = %s + %s",
         metric.getProtoPath(), existingValue.toString(), ((Float) newValue).toString()));
-    
+
     util.setFieldValue(metric.getProtoPath(), existingValue.floatValue() + newValue);
   }
 
@@ -138,11 +138,11 @@ class DataRecordParser {
       return metric.getDefaultValue(metadataUtil);
     }
   }
-  
+
   public int getPreviousRecordRepeatCount() {
     return previousRecordRepeatCount;
   }
-  
+
   private List<Integer> getBitIndexesFromMasks(DataRecord.Builder builder) throws IOException {
     int decodeMask;
     int secondDecodeMask;
@@ -154,11 +154,11 @@ class DataRecordParser {
       secondDecodeMask = inputStream.readWord();
     }
     if (decodeMask != secondDecodeMask) {
-      throw new IOException(String.format("Expected the decode byte %02X to appear twice: %s", 
+      throw new IOException(String.format("Expected the decode byte %02X to appear twice: %s",
             decodeMask, inputStream.getCurrentRecord()));
     }
     logger.finest(String.format("Decode mask is %04X", decodeMask));
-    
+
     previousRecordRepeatCount = inputStream.read();
 
     int numDecodeBits = metadataUtil.isDecodeMaskSingleByte() ? 8 : 16;
@@ -182,7 +182,7 @@ class DataRecordParser {
         logger.finest(String.format("Sign byte %d is %02X", i, nextByte));
       }
     }
-    
+
     List<Integer> bitIndex = new ArrayList<>();
     for (int i = 0; i < valueFlags.numBits(); ++i) {
       if (valueFlags.testBit(i)) {

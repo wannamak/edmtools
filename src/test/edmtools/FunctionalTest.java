@@ -46,10 +46,10 @@ import edmtools.Proto.JpiFile;
 public class FunctionalTest {
   @Test
   public void testEdm830() throws IOException {
-    diff("testdata/edm830.45.jpi", 45, "testdata/edm830.45.txt");
-    diff("testdata/edm830.72.jpi", 72, "testdata/edm830.72.txt");
+    diff("testdata/edm830.jpi", 45, "testdata/edm830.45.txt");
+    diff("testdata/edm830.jpi", 72, "testdata/edm830.72.txt");
   }
-  
+
   private void diff(String jpiFile, int flightNumber, String goldenCsv) throws IOException {
     Flight golden = readGoldenCsvToProto(goldenCsv);
     Flight parsed = readJpiFile(jpiFile, flightNumber);
@@ -66,9 +66,9 @@ public class FunctionalTest {
           unequalDiffs.isEmpty());
     }
   }
-  
+
   private static final Splitter SPLITTER = Splitter.on(',').trimResults();
-  
+
   // TODO: this is 830 specific.  Use header row when we have samples from other models.
   private static Flight readGoldenCsvToProto(String filename) throws IOException {
     List<String> lines = Files.readLines(new File(filename), Charsets.UTF_8);
@@ -104,7 +104,7 @@ public class FunctionalTest {
     }
     return builder.build();
   }
-  
+
   private static Iterable<Integer> intSublist(List<String> list, int start, int end) {
     ImmutableList.Builder<Integer> result = ImmutableList.builder();
     for (int i = start; i <= end; ++i) {
@@ -116,7 +116,7 @@ public class FunctionalTest {
   private static Flight readJpiFile(String filename, int flightNumber) throws IOException {
     JpiInputStream inputStream = new JpiInputStream(filename);
     JpiFile jpiFile = JpiDecoder.decode(
-        inputStream, 
+        inputStream,
         JpiDecoderConfiguration.newBuilder().withExactFlightNumber(flightNumber).build());
     assertEquals(1, jpiFile.getFlightCount());
     return jpiFile.getFlight(0);

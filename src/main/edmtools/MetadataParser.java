@@ -39,11 +39,11 @@ class MetadataParser {
   private static final int MAX_NUM_HEADERS = 128;
 
   private final HeaderInputStream headerInputStream;
-  
+
   public MetadataParser(JpiInputStream inputStream) {
-    this.headerInputStream = new HeaderInputStream(inputStream);  
+    this.headerInputStream = new HeaderInputStream(inputStream);
   }
-  
+
   private class HeaderInputStream {
     private static final char HEADER_PREFIX = '$';
     private static final char HEADER_POSTFIX = '*';
@@ -57,12 +57,12 @@ class MetadataParser {
 
     private final JpiInputStream inputStream;
     private Optional<String> currentFailureMessage;
-    
+
     public HeaderInputStream(JpiInputStream inputStream) {
       this.inputStream = inputStream;
       inputStream.resetCounter();
     }
-    
+
     public List<String> nextHeader() throws IOException {
       currentFailureMessage = Optional.absent();
       String line = readLine();
@@ -93,11 +93,11 @@ class MetadataParser {
         throw new IOException("Checksum byte malformed: " + nfe + " in line " + line);
       }
     }
-    
+
     public Optional<String> getChecksumFailureMessage() throws IOException {
       return currentFailureMessage;
     }
-    
+
     // InputStreamReader, without reading ahead.
     private String readLine() throws IOException {
       int i = 0;
@@ -110,7 +110,7 @@ class MetadataParser {
       }
       throw new IOException("Header input too large");
     }
-    
+
     public int getCounter() {
       return inputStream.getCounter();
     }
@@ -118,9 +118,9 @@ class MetadataParser {
 
   /**
    * Parses JPI headers into a {@code edmtools.Proto.Metadata} proto.
-   * 
+   *
    * <p>If an unexpected error disrupts the stream, throw an {@link IOException}.  Otherwise,
-   * add the warning to the {@code edmtools.Proto.Metadata} proto. 
+   * add the warning to the {@code edmtools.Proto.Metadata} proto.
    */
   public Metadata parse() throws IOException {
     Metadata.Builder data = Metadata.newBuilder();
@@ -140,7 +140,7 @@ class MetadataParser {
     logger.finer(String.format("Parsed %d headers to Metadata:\n%s", numHeaders, data.build()));
     return data.build();
   }
-  
+
   /**
    * Parses parts of a header line into appropriate {@link jpi.Jpi.Metadata} submessages.
    * Returns true to continue parsing headers.
@@ -197,7 +197,7 @@ class MetadataParser {
     builder.setMaxOilTemperature(Integer.parseInt(parts.next()));
     builder.setMinOilTemperature(Integer.parseInt(parts.next()));
   }
-  
+
   private void parseFuelConfiguration(Iterator<String> parts, Fuel.Builder builder) {
     builder.setFuelFlowUnits(FuelFlowUnits.valueOf(Integer.parseInt(parts.next()) + 1));
     builder.setFullQuantity(Integer.parseInt(parts.next()));
@@ -205,7 +205,7 @@ class MetadataParser {
     builder.setKFactor1(Integer.parseInt(parts.next()));
     builder.setKFactor2(Integer.parseInt(parts.next()));
   }
-  
+
   private long parseUnixTimestamp(Iterator<String> parts) {
     int month = Integer.parseInt(parts.next());
     int day = Integer.parseInt(parts.next());
@@ -215,18 +215,18 @@ class MetadataParser {
 
     @SuppressWarnings("unused")
     int unknown = Integer.parseInt(parts.next());
-    
+
     DateTime parsed = new DateTime(year, month, day, hour, minute, 0);
     return parsed.getMillis() / 1000;
   }
-  
+
   private void parseFeatures(Iterator<String> parts, Features.Builder features) {
     features.setModelNumber(Integer.parseInt(parts.next()));
-    
+
     int low = Integer.parseInt(parts.next());
     int high = Integer.parseInt(parts.next());
     features.setSensors(new SensorParser(low, high).parse());
-    
+
     BitSet units = new BitSet(2);
     units.setWord(0, high);
     features.setEngineTemperatureUnit(

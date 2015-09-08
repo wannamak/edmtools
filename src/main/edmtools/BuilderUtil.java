@@ -24,7 +24,7 @@ import com.google.common.base.Splitter;
 import com.google.protobuf.Descriptors.FieldDescriptor;
 import com.google.protobuf.Message.Builder;
 
-/** 
+/**
  * Addresses and updates a proto {@code Builder} using a simple xpath-like syntax.
  * Path is something like field_name[index].field_name
  */
@@ -32,15 +32,15 @@ class BuilderUtil {
   private Builder rootBuilder;
   private Splitter PATH_SPLITTER = Splitter.on('.');
   private Splitter INDEX_SPLITTER = Splitter.on(CharMatcher.anyOf("[]"));
-  
+
   public BuilderUtil(Builder rootBuilder) {
     this.rootBuilder = rootBuilder;
   }
-  
+
   public boolean hasField(String path) {
     return new Context(rootBuilder, path).hasField();
   }
-  
+
   public Object getFieldValue(String path) {
     Context context = new Context(rootBuilder, path);
     if (!context.hasField()) {
@@ -48,11 +48,11 @@ class BuilderUtil {
     }
     return context.getFieldValue();
   }
-  
+
   public void setFieldValue(String path, Object object) {
     new Context(rootBuilder, path).setFieldValue(object);
   }
-  
+
   public void clearField(String path) {
     new Context(rootBuilder, path).clearField();
   }
@@ -84,7 +84,7 @@ class BuilderUtil {
             // We can't get an added builder directly (or I don't know how to do this).
             // Adds and empty message to avoid the IndexOutOfBounds for getRepeatedFieldBuilder.
             while (builder.getRepeatedFieldCount(fieldDescriptor) <= repeatedFieldIndex) {
-              builder.addRepeatedField(fieldDescriptor, 
+              builder.addRepeatedField(fieldDescriptor,
                   builder.newBuilderForField(fieldDescriptor).build());
             }
             builder = builder.getRepeatedFieldBuilder(fieldDescriptor, repeatedFieldIndex);
@@ -94,7 +94,7 @@ class BuilderUtil {
         }
       }
     }
-    
+
     public boolean hasField() {
       if (!foundField) {
         return false;
@@ -103,14 +103,14 @@ class BuilderUtil {
           ? builder.getRepeatedFieldCount(fieldDescriptor) > repeatedFieldIndex
           : builder.hasField(fieldDescriptor);
     }
-    
+
     public Object getFieldValue() {
       Preconditions.checkState(foundField);
       return fieldDescriptor.isRepeated()
           ? builder.getRepeatedField(fieldDescriptor, repeatedFieldIndex)
           : builder.getField(fieldDescriptor);
     }
-        
+
     public void setFieldValue(Object object) {
       Preconditions.checkState(foundField);
       object = maybeCoerceTypes(object);
@@ -124,7 +124,7 @@ class BuilderUtil {
         builder.setField(fieldDescriptor, object);
       }
     }
-    
+
     private Object maybeCoerceTypes(Object object) {
       switch (fieldDescriptor.getJavaType()) {
         case INT:  return ((Number) object).intValue();
@@ -136,7 +136,7 @@ class BuilderUtil {
         default:  return object;
       }
     }
-    
+
     /** "Clearing" a repeated field means setting it to 0. */
     public void clearField() {
       if (!hasField() || !foundField) {

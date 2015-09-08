@@ -26,6 +26,11 @@ import org.kohsuke.args4j.Argument;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 import org.kohsuke.args4j.Option;
+import org.kohsuke.args4j.OptionDef;
+import org.kohsuke.args4j.OptionHandlerRegistry;
+import org.kohsuke.args4j.spi.DelimitedOptionHandler;
+import org.kohsuke.args4j.spi.IntOptionHandler;
+import org.kohsuke.args4j.spi.Setter;
 
 /** Tool superclass to parse arguments and programatically configure java logging. */
 abstract class CommandLineTool {
@@ -34,16 +39,24 @@ abstract class CommandLineTool {
 
   @Option(name = "-h", usage="get help", aliases={"-h", "--help", "--h"})
   private boolean showHelp;
-  
+
   @Argument
   protected List<String> args = new ArrayList<>();
-  
+
+  public static class MultiIntegerOptionHandler extends DelimitedOptionHandler<Integer> {
+    public MultiIntegerOptionHandler(CmdLineParser parser, OptionDef option, Setter<? super Integer> setter) {
+      super(parser, option, setter, ",", new IntOptionHandler(parser, option, setter));
+    }
+  }
+
   public static void initAndRun(String rawArgs[], CommandLineTool instance) throws Exception {
+    OptionHandlerRegistry.getRegistry().registerHandler(Integer.class, MultiIntegerOptionHandler.class);
     CmdLineParser parser = new CmdLineParser(instance);
     try {
       parser.parseArgument(rawArgs);
       setVerbosity(instance.verbosity);
     } catch (CmdLineException e) {
+      System.out.println(e);
       parser.printUsage(System.out);
       System.exit(1);
     }
@@ -53,7 +66,7 @@ abstract class CommandLineTool {
     }
     instance.run();
   }
-  
+
   public static void setVerbosity(int verbosity) {
     Level level = mapVerbosityToLevel(verbosity);
     Logger logger = Logger.getLogger("edmtools");
@@ -65,7 +78,7 @@ abstract class CommandLineTool {
       handlers[0].setLevel(level);
     }
   }
-  
+
   private static Level mapVerbosityToLevel(int verbosity) {
     switch (verbosity) {
       case 0:  return Level.INFO;
@@ -76,6 +89,6 @@ abstract class CommandLineTool {
         return verbosity > 3 ? Level.FINEST : Level.OFF;
     }
   }
-  
+
   public abstract void run() throws Exception;
 }

@@ -22,7 +22,7 @@ import edmtools.Proto.FlightMetadata;
 import edmtools.Proto.JpiFile;
 
 /**
- * Public API for decoding a JPI data file. 
+ * Public API for decoding a JPI data file.
  */
 public class JpiDecoder {
   public static class JpiDecoderConfiguration {
@@ -31,19 +31,19 @@ public class JpiDecoder {
       this.startFlightNumber = startFlightNumber;
       this.endFlightNumber = endFlightNumber;
     }
-    
+
     private boolean headersOnly;
     private Integer startFlightNumber;
     private Integer endFlightNumber;
-    
+
     public static Builder newBuilder() { return new Builder(); }
-    
+
     public static class Builder {
       private Builder() {}
       private boolean headersOnly;
       private Integer startFlightNumber;
       private Integer endFlightNumber;
-   
+
       /**
        * If called, only the metadata for each flight will be parsed.  The actual data will be
        * skipped.  The returned {@code Flight} will not have the {@code data} field populated.
@@ -52,7 +52,7 @@ public class JpiDecoder {
         headersOnly = true;
         return this;
       }
-      
+
       /**
        * Selects a minimum flight number to parse.  Flight numbers smaller than this will be skipped.
        */
@@ -60,7 +60,7 @@ public class JpiDecoder {
         this.startFlightNumber = startFlightNumber;
         return this;
       }
-      
+
       /**
        * Selects a maximum flight number to parse.  Flight numbers larger than this will be skipped.
        */
@@ -68,7 +68,7 @@ public class JpiDecoder {
         this.endFlightNumber = endFlightNumber;
         return this;
       }
-      
+
       /**
        * Selects a single flight number to parse.
        */
@@ -77,13 +77,13 @@ public class JpiDecoder {
         this.endFlightNumber = flightNumber;
         return this;
       }
-      
+
       public JpiDecoderConfiguration build() {
         return new JpiDecoderConfiguration(headersOnly, startFlightNumber, endFlightNumber);
       }
     }
   }
-  
+
   /**
    * Decodes a {@link JpiInputStream}, based on the settings of {@link JpiDecoderConfiguration},
    * into a {@link JpiFile} protocol buffer.

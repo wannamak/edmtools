@@ -20,30 +20,30 @@ import edmtools.Proto.Sensors;
 
 class SensorParser {
   private BitSet mask;
-  
+
   public SensorParser(int low, int high) {
     mask = new BitSet(4);
     mask.setWord(0, low);
     mask.setWord(2, high);
   }
-  
+
   public Sensors parse() {
     Sensors.Builder builder = Sensors.newBuilder();
-    
+
     // 63741 =                     1111 1000 1111 1101
     // 24561 = 0101 1111 1111 0001
     // 32273 = 0111 1110 0001 0001
     //         -m-u fpai r2to eeee eeee eccc cccc cc-b
-    
+
     // Unknown bits are 1, 28, 29, and 31.
 
     if (mask.testBit(0)) {
       builder.setVoltage(true);
     }
-    // TODO: is it useful to capture if, eg probe 2 is configured ?  
+    // TODO: is it useful to capture if, eg probe 2 is configured ?
     int numEgt = mask.countBits(11, 19);
     if (numEgt > 0) {
-      builder.setNumExhaustGasTemperature(numEgt);    
+      builder.setNumExhaustGasTemperature(numEgt);
     }
     int numCht = mask.countBits(2, 10);
     if (numCht > 0) {

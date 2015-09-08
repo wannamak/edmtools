@@ -25,19 +25,19 @@ import com.google.common.base.Joiner;
 class BitSet {
   private int[] data;  // only 8 bits of each int are used.
   private int length;  // in bytes
-  
+
   public BitSet(int numBytes) {
     data = new int[numBytes];  // Low = 0.
     length = numBytes;
     clear();
   }
-  
+
   public void clear() {
     for (int i = 0; i < length; ++i) {
       data[i] = 0;
     }
   }
-  
+
   /** Sets a single byte.  Index 0 contains the lowest-order bits. */
   public void setByte(int index, int value) {
     data[index] = value;
@@ -48,21 +48,21 @@ class BitSet {
     data[index + 1] = (value >> 8) & 0xff;
     data[index] = value & 0xff;
   }
-  
+
   public int numBytes() {
     return length;
   }
-  
+
   public int numBits() {
     return length * 8;
   }
-  
+
   public boolean testBit(int bitIndex) {
     int byteIndex = bitIndex / 8;
     bitIndex = bitIndex % 8;
     return (data[byteIndex] & (1 << bitIndex)) > 0;
   }
-  
+
   public void setBit(int bitIndex) {
     int byteIndex = bitIndex / 8;
     bitIndex = bitIndex % 8;
@@ -74,7 +74,7 @@ class BitSet {
     bitIndex = bitIndex % 8;
     data[byteIndex] = data[byteIndex] & ~(1 << bitIndex);
   }
-  
+
   public int extractBits(int startIndex, int endIndex) {
     int result = 0;
     for (int i = endIndex; i >= startIndex; --i) {
@@ -83,7 +83,7 @@ class BitSet {
     }
     return result;
   }
-  
+
   public int countBits(int startIndex, int endIndex) {
     int result = 0;
     for (int i = startIndex; i <= endIndex; ++i) {
@@ -93,7 +93,8 @@ class BitSet {
   }
 
   private static final Joiner JOINER = Joiner.on(' ');
-  
+
+  @Override
   public String toString() {
     List<String> bitStrings = new ArrayList<>();
     for (int i = length - 1; i >= 0; --i) {

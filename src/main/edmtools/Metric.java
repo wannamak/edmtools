@@ -24,9 +24,9 @@ import com.google.common.base.Optional;
  * A Metric maps a protocol buffer field (expressed with protoPath, see {@link BuilderUtil})
  * to a particular bit in the EDM mask which indicates what values have changed in the latest
  * record cycle.
- * 
+ *
  * <p>The low byte of all fields are mapped to a particular bit.  Some fields also map a high byte
- * to a different bit. 
+ * to a different bit.
  */
 class Metric {
   public static final String UNSUPPORTED_METRIC = "";
@@ -53,43 +53,43 @@ class Metric {
   public Metric(int versionMask, int lowByteBit, int highByteBit, String protoPath) {
     this(versionMask, lowByteBit, protoPath);
     this.highByteBit = Optional.of(highByteBit);
-  }  
+  }
 
   public Metric(int versionMask, int lowByteBit, int highByteBit, String protoPath, ScaleFactor scaleFactor) {
     this(versionMask, lowByteBit, protoPath, scaleFactor);
     this.highByteBit = Optional.of(highByteBit);
-  }  
+  }
 
   public Metric(int versionMask, int lowByteBit, String protoPath, ScaleFactor scaleFactor) {
     this(versionMask, lowByteBit, protoPath);
     this.scaleFactor = Optional.of(scaleFactor);
   }
-  
+
   public int getVersionMask() {
     return versionMask;
   }
-  
+
   public int getLowByteBit() {
     return lowByteBit;
   }
-  
+
   public Optional<Integer> getHighByteBit() {
     return highByteBit;
   }
-  
+
   public String getProtoPath() {
     return protoPath;
   }
-  
+
   public boolean isUnsupported() {
     return protoPath.equals(UNSUPPORTED_METRIC);
   }
-  
+
   public float getDefaultValue(MetadataUtil metadataUtil) {
     // sic.  One exception to the rule.
     return protoPath.equals("engine[0].horsepower") ? 0 : scale(metadataUtil, DEFAULT_VALUE);
   }
-  
+
   public float scale(MetadataUtil metadataUtil, float value) {
     if (!scaleFactor.isPresent()) {
       return value;
@@ -104,7 +104,7 @@ class Metric {
   public boolean isHighByteBit(int index) {
     return highByteBit.isPresent() && highByteBit.get() == index;
   }
- 
+
   @Override
   public String toString() {
     return MoreObjects.toStringHelper(this)
@@ -115,7 +115,7 @@ class Metric {
         .add("scaleFactor", scaleFactor)
         .toString();
   }
-  
+
   @Override
   public boolean equals(Object object) {
     if (object == null || !(object instanceof Metric)) {
@@ -128,7 +128,7 @@ class Metric {
         && Objects.equal(this.protoPath, that.protoPath)
         && Objects.equal(this.scaleFactor, that.scaleFactor);
   }
-  
+
   @Override
   public int hashCode() {
     return toString().hashCode();
