@@ -44,10 +44,8 @@ This was written to extract samples for functional tests.
 <dl>
 <dt>-v</dt>
 <dd>verbosity, 0-3</dd>
-<dt>-start</dt>
-<dd>the starting flight number (omit to start with the first flight)</dd>
-<dt>-end</dt>
-<dd>the ending flight number (omit to end with the last flight)</dd>
+<dt>-flights</dt>
+<dd>comma-separated list of flight numbers</dd>
 <dt>-reg</dt>
 <dd>replace the registration (eg tail or serial number) with an arbitrary string</dd>
 </dl>
