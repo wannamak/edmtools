@@ -73,7 +73,7 @@ message Features {
   enum TemperatureUnit {
     FAHRENHEIT = 1;
     CELSIUS = 2;
-  };
+  }
   optional TemperatureUnit engine_temperature_unit = 4;
   optional int32 beta_number = 5;
   optional int32 build_number = 6;
