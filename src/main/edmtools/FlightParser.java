@@ -94,6 +94,7 @@ class FlightParser {
     logger.finest(String.format("Peeked at %02X %02X %02X\n", peek[0], peek[1], peek[2]));
     int nextFlightNumber = metadataUtil.getNextFlightNumber(flightNumber);
     if (((peek[0] << 8) + peek[1]) != nextFlightNumber) {
+      logger.finest(String.format("Skip one more byte for next flight %d\n", nextFlightNumber));
       if (((peek[1] << 8) + peek[2]) != nextFlightNumber) {
         throw new IOException("Could not find next flight header");
       }
@@ -165,6 +166,23 @@ class FlightParser {
       builder.addData(dataRecord);
       previousDataRecord = dataRecord;
     }
+    // Each flight header begins with the flight number.
+    try { 
+      byte peek[] = inputStream.peek(3);
+      logger.finest(String.format("Peeked after data parsing %02X %02X %02X\n", peek[0], peek[1], peek[2]));
+      int nextFlightNumber = metadataUtil.getNextFlightNumber(flightNumber);
+      if (((peek[0] << 8) + peek[1]) != nextFlightNumber) {
+        logger.finest(String.format("Skip one byte for next flight %d\n", nextFlightNumber));
+        if (((peek[1] << 8) + peek[2]) != nextFlightNumber) {
+          throw new IOException("Could not find next flight header");
+        }
+        inputStream.skip(1);
+      }
+    }
+    catch (java.io.EOFException e){
+      logger.finer(String.format("Tried to peek beyond EOF\n"));
+    }
+    
     builder.setDataLength(inputStream.getCounter());
   }
 
