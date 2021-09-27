@@ -16,13 +16,16 @@
 
 <project name="edmtools" default="build">
   <property name="bin" location="bin/"/>
+  <property name="debug" value="false"/>
 
   <path id="main-classpath">
     <path location="lib/args4j-2.32.jar" />
     <path location="lib/diff.jar" />
     <path location="lib/guava-18.0.jar" />
     <path location="lib/joda-time-2.8.2.jar" />
-    <path location="lib/proto-3.0.0.jar" />
+    <path location="lib/gson-2.8.8.jar" />
+    <path location="lib/protobuf-java-4.0.0-rc-2.jar" />
+    <path location="lib/protobuf-java-util-3.9.1.jar" />
     <path location="${bin}" />
   </path>
 
@@ -49,7 +52,7 @@
 
   <target name="build" depends="build-proto">
     <mkdir dir="${bin}" />
-    <javac srcdir="src/main" includes="**" destdir="${bin}" includeantruntime="false" >
+    <javac srcdir="src/main" debug="${debug}" includes="**" destdir="${bin}" includeantruntime="false" >
       <classpath>
         <path refid="main-classpath"/>
       </classpath>

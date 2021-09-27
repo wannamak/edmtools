@@ -19,7 +19,9 @@ package edmtools.tools;
 import org.joda.time.DateTime;
 import org.kohsuke.args4j.Option;
 
+import com.google.gson.*;
 import com.google.common.base.Preconditions;
+import com.google.protobuf.util.JsonFormat;
 
 import edmtools.JpiDecoder;
 import edmtools.JpiDecoder.JpiDecoderConfiguration;
@@ -37,6 +39,10 @@ public class JpiDecode extends CommandLineTool {
   @Option(name = "-flightNumber", usage="flight number to parse (-1 to decode all)",
       aliases={"--flightNumber", "-flight", "--flight"})
   private int flightNumber = -1;
+
+  @Option(name = "-j", usage="output in json format",
+      aliases="--json")
+  private boolean outputJson = false;
 
   public static void main(String args[]) throws Exception {
     CommandLineTool.initAndRun(args, new JpiDecode());
@@ -66,6 +72,11 @@ public class JpiDecode extends CommandLineTool {
       System.out.printf("Flight number %d not found.\n", flightNumber);
       return;
     }
-    System.out.println(jpiFile);
+
+    if (outputJson){
+      System.out.println(JsonFormat.printer().print(jpiFile));
+    } else {
+      System.out.println(jpiFile);
+    }
   }
 }
