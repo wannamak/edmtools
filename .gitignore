@@ -1,1 +1,3 @@
 bin/*
+.idea/
+edmtools.iml
