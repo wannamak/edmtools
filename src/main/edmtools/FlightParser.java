@@ -17,9 +17,11 @@
 package edmtools;
 
 import java.io.IOException;
+import java.time.ZonedDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.logging.Logger;
-
-import org.joda.time.DateTime;
 
 import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
@@ -179,7 +181,7 @@ class FlightParser {
         inputStream.skip(1);
       }
     }
-    catch (java.io.EOFException e){
+    catch (java.io.EOFException e) {
       logger.finer(String.format("Tried to peek beyond EOF\n"));
     }
     
@@ -193,13 +195,38 @@ class FlightParser {
   private long parseUnixTimestamp(int packedDate, int packedTime) {
     int year = (packedDate & 0xfe00) >> 9;
     year += (year >= 75) ? 1900 : 2000;
-    DateTime dateTime = new DateTime(
+    int monthOfYear = (packedDate & 0x01e0) >> 5;
+    int dayOfMonth = packedDate & 0x001f;
+    int hourOfDay = (packedTime & 0xf800) >> 11;
+    int minuteOfHour = (packedTime & 0x07e0) >> 5;
+    int secondOfMinute = (packedTime & 0x001f) * 2;
+
+    logger.finest(String.format("Date/Time: %x %x\n",
+        packedDate,
+        packedTime));
+
+    // TODO: How does JPI encode flights that operate during a DST shift?
+    // This constructor will silently push the time forward if JPI logs
+    // a time during the 'spring forward'.  There is also ambiguity during
+    // a 'fall back'.
+    ZonedDateTime parsedDateTime = ZonedDateTime.of(
         year,
-        (packedDate & 0x01e0) >> 5,
-        packedDate & 0x001f,
-        (packedTime & 0xf800) >> 11,
-        (packedTime & 0x07e0) >> 5,
-        (packedTime & 0x001f) * 2);
-    return dateTime.getMillis() / 1000;
+        monthOfYear,
+        dayOfMonth,
+        hourOfDay,
+        minuteOfHour,
+        secondOfMinute,
+        0,  // nanos
+        ZoneId.systemDefault());
+
+    String formattedDateTime = parsedDateTime
+        .format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM));
+
+    logger.finest(String.format("Date/Time: %x %x -> %s\n",
+        packedDate,
+        packedTime,
+        parsedDateTime));
+
+    return parsedDateTime.toEpochSecond();
   }
 }

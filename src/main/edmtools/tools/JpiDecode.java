@@ -16,7 +16,12 @@
 
 package edmtools.tools;
 
-import org.joda.time.DateTime;
+import java.time.Instant;
+import java.time.ZonedDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+
 import org.kohsuke.args4j.Option;
 
 import com.google.gson.*;
@@ -57,8 +62,15 @@ public class JpiDecode extends CommandLineTool {
           inputStream,
           JpiDecoderConfiguration.newBuilder().withFlightHeadersOnly().build());
       for (Flight flight : jpiFile.getFlightList()) {
-        System.out.printf("Flight number %4d at %s\n", flight.getFlightNumber(),
-            new DateTime(flight.getStartTimestamp() * 1000));
+        ZonedDateTime dateTime = Instant.ofEpochSecond(flight.getStartTimestamp())
+            .atZone(ZoneId.systemDefault());
+
+        String formattedDateTime = dateTime
+            .format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM));
+
+        System.out.printf("Flight number %4d at %s\n",
+            flight.getFlightNumber(),
+            formattedDateTime);
       }
       return;
     }

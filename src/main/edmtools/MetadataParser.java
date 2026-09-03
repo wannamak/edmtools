@@ -17,12 +17,12 @@
 package edmtools;
 
 import java.io.IOException;
+import java.time.ZonedDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
-
-import org.joda.time.DateTime;
 
 import com.google.common.base.Optional;
 import com.google.common.base.Splitter;
@@ -207,17 +207,26 @@ class MetadataParser {
   }
 
   private long parseUnixTimestamp(Iterator<String> parts) {
-    int month = Integer.parseInt(parts.next());
-    int day = Integer.parseInt(parts.next());
+    int monthOfYear = Integer.parseInt(parts.next());
+    int dayOfMonth = Integer.parseInt(parts.next());
     int year = Integer.parseInt(parts.next()) + 2000;
-    int hour = Integer.parseInt(parts.next());
-    int minute = Integer.parseInt(parts.next());
+    int hourOfDay = Integer.parseInt(parts.next());
+    int minuteOfHour = Integer.parseInt(parts.next());
 
     @SuppressWarnings("unused")
     int unknown = Integer.parseInt(parts.next());
 
-    DateTime parsed = new DateTime(year, month, day, hour, minute, 0);
-    return parsed.getMillis() / 1000;
+    ZonedDateTime parsedDateTime = ZonedDateTime.of(
+        year,
+        monthOfYear,
+        dayOfMonth,
+        hourOfDay,
+        minuteOfHour,
+        0,  // seconds
+        0,  // nanos
+        ZoneId.systemDefault());
+
+    return parsedDateTime.toEpochSecond();
   }
 
   private void parseFeatures(Iterator<String> parts, Features.Builder features) {
