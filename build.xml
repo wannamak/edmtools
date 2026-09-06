@@ -16,7 +16,7 @@
 
 <project name="edmtools" default="build">
   <property name="bin" location="bin/"/>
-  <property name="debug" value="false"/>
+  <property name="debug" value="true"/>
 
   <path id="main-classpath">
     <path location="lib/args4j-2.32.jar" />
