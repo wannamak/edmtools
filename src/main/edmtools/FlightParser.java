@@ -110,14 +110,14 @@ class FlightParser {
     // Heuristic copied from EzTrends2.  Frankly embarrassing.
     byte[] buf = inputStream.peek(25);
     byte[] prev = inputStream.getAlreadyReadRing();
-    logger.fine(String.format("Comparing +19/+21 %2x/%2x and +20/+22 %2x/%2x",
+    logger.fine(String.format("Comparing +19/+21 %02X/%02X and +20/+22 %02X/%02X",
         buf[19], buf[21], buf[20], buf[22]));
     if (buf[19] == buf[21] && buf[20] == buf[22]) {
       return true;
     }
     if (prev.length == 8) {
       logger.fine(String.format(
-          "Comparing +21/-8 %2x/%2x and +22/-7 %2x/%2x and +23/-6 %2x/%2x and +24/-5 %2x/%2x",
+          "Comparing +21/-8 %02X/%02X and +22/-7 %02X/%02X and +23/-6 %02X/%02X and +24/-5 %02X/%02X",
           buf[21], prev[0], buf[22], prev[1], buf[23], prev[2], buf[24], prev[3]));
       // 21 == -8, 22 == -7, 23 == -6, 24 == -5
       if (buf[21] == prev[0] && buf[22] == prev[1] && buf[23] == prev[2] && buf[24] == prev[3]) {
@@ -126,11 +126,11 @@ class FlightParser {
     } else {
       logger.warning("Unexpectedly short previous buffer");
     }
-    logger.fine(String.format("Comparing +11/+13 %2x/%2x", buf[11], buf[13]));
+    logger.fine(String.format("Comparing +11/+13 %02X/%02X", buf[11], buf[13]));
     if (buf[11] == buf[13]) {
       return true;
     }
-    logger.fine(String.format("Comparing +12/+14 %2x/%2x", buf[12], buf[14]));
+    logger.fine(String.format("Comparing +12/+14 %02X/%02X", buf[12], buf[14]));
     if (buf[12] == buf[14]) {
       return true;
     }
@@ -240,7 +240,7 @@ class FlightParser {
     int minuteOfHour = (packedTime & 0x07e0) >> 5;
     int secondOfMinute = (packedTime & 0x001f) * 2;
 
-    logger.finest(String.format("Date/Time: %x %x\n",
+    logger.finest(String.format("Date/Time: %02X %02X",
         packedDate,
         packedTime));
 
@@ -261,7 +261,7 @@ class FlightParser {
     String formattedDateTime = parsedDateTime
         .format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM));
 
-    logger.finest(String.format("Date/Time: %x %x -> %s\n",
+    logger.finest(String.format("Date/Time: %02X %02X -> %s",
         packedDate,
         packedTime,
         parsedDateTime));
