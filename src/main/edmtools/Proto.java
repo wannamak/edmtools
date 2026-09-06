@@ -6,7 +6,13 @@ package edmtools;
 public final class Proto {
   private Proto() {}
   public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistryLite registry) {
+  }
+
+  public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions(
+        (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   public interface MetadataOrBuilder extends
       // @@protoc_insertion_point(interface_extends:edmtools.Metadata)
@@ -14,49 +20,56 @@ public final class Proto {
 
     /**
      * <code>optional string registration = 1;</code>
+     * @return Whether the registration field is set.
      */
     boolean hasRegistration();
     /**
      * <code>optional string registration = 1;</code>
+     * @return The registration.
      */
     java.lang.String getRegistration();
     /**
      * <code>optional string registration = 1;</code>
+     * @return The bytes for registration.
      */
     com.google.protobuf.ByteString
         getRegistrationBytes();
 
     /**
-     * <code>optional .edmtools.AlarmThresholds alarm_thresholds = 2;</code>
-     *
      * <pre>
      * Configured alarm thresholds for sensor data.
      * </pre>
+     *
+     * <code>optional .edmtools.AlarmThresholds alarm_thresholds = 2;</code>
+     * @return Whether the alarmThresholds field is set.
      */
     boolean hasAlarmThresholds();
     /**
-     * <code>optional .edmtools.AlarmThresholds alarm_thresholds = 2;</code>
-     *
      * <pre>
      * Configured alarm thresholds for sensor data.
      * </pre>
+     *
+     * <code>optional .edmtools.AlarmThresholds alarm_thresholds = 2;</code>
+     * @return The alarmThresholds.
      */
     edmtools.Proto.AlarmThresholds getAlarmThresholds();
     /**
-     * <code>optional .edmtools.AlarmThresholds alarm_thresholds = 2;</code>
-     *
      * <pre>
      * Configured alarm thresholds for sensor data.
      * </pre>
+     *
+     * <code>optional .edmtools.AlarmThresholds alarm_thresholds = 2;</code>
      */
     edmtools.Proto.AlarmThresholdsOrBuilder getAlarmThresholdsOrBuilder();
 
     /**
      * <code>optional .edmtools.Fuel fuel = 3;</code>
+     * @return Whether the fuel field is set.
      */
     boolean hasFuel();
     /**
      * <code>optional .edmtools.Fuel fuel = 3;</code>
+     * @return The fuel.
      */
     edmtools.Proto.Fuel getFuel();
     /**
@@ -65,37 +78,43 @@ public final class Proto {
     edmtools.Proto.FuelOrBuilder getFuelOrBuilder();
 
     /**
-     * <code>optional int64 download_timestamp = 4;</code>
-     *
      * <pre>
      * Unix timestamp of download time.  JPI does not preserve zone.
      * </pre>
+     *
+     * <code>optional int64 download_timestamp = 4;</code>
+     * @return Whether the downloadTimestamp field is set.
      */
     boolean hasDownloadTimestamp();
     /**
-     * <code>optional int64 download_timestamp = 4;</code>
-     *
      * <pre>
      * Unix timestamp of download time.  JPI does not preserve zone.
      * </pre>
+     *
+     * <code>optional int64 download_timestamp = 4;</code>
+     * @return The downloadTimestamp.
      */
     long getDownloadTimestamp();
 
     /**
      * <code>optional int32 protocol_version = 5;</code>
+     * @return Whether the protocolVersion field is set.
      */
     boolean hasProtocolVersion();
     /**
      * <code>optional int32 protocol_version = 5;</code>
+     * @return The protocolVersion.
      */
     int getProtocolVersion();
 
     /**
      * <code>optional .edmtools.Features features = 6;</code>
+     * @return Whether the features field is set.
      */
     boolean hasFeatures();
     /**
      * <code>optional .edmtools.Features features = 6;</code>
+     * @return The features.
      */
     edmtools.Proto.Features getFeatures();
     /**
@@ -128,247 +147,129 @@ public final class Proto {
         int index);
 
     /**
-     * <code>optional int32 length = 8;</code>
-     *
      * <pre>
      * Length of the metadata in the original JPI file, in bytes.
      * </pre>
+     *
+     * <code>optional int32 length = 8;</code>
+     * @return Whether the length field is set.
      */
     boolean hasLength();
     /**
-     * <code>optional int32 length = 8;</code>
-     *
      * <pre>
      * Length of the metadata in the original JPI file, in bytes.
      * </pre>
+     *
+     * <code>optional int32 length = 8;</code>
+     * @return The length.
      */
     int getLength();
 
     /**
-     * <code>repeated string parse_warning = 9;</code>
-     *
      * <pre>
      * Non-fatal parse warnings.
      * </pre>
+     *
+     * <code>repeated string parse_warning = 9;</code>
+     * @return A list containing the parseWarning.
      */
-    com.google.protobuf.ProtocolStringList
+    java.util.List<java.lang.String>
         getParseWarningList();
     /**
-     * <code>repeated string parse_warning = 9;</code>
-     *
      * <pre>
      * Non-fatal parse warnings.
      * </pre>
+     *
+     * <code>repeated string parse_warning = 9;</code>
+     * @return The count of parseWarning.
      */
     int getParseWarningCount();
     /**
-     * <code>repeated string parse_warning = 9;</code>
-     *
      * <pre>
      * Non-fatal parse warnings.
      * </pre>
+     *
+     * <code>repeated string parse_warning = 9;</code>
+     * @param index The index of the element to return.
+     * @return The parseWarning at the given index.
      */
     java.lang.String getParseWarning(int index);
     /**
-     * <code>repeated string parse_warning = 9;</code>
-     *
      * <pre>
      * Non-fatal parse warnings.
      * </pre>
+     *
+     * <code>repeated string parse_warning = 9;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the parseWarning at the given index.
      */
     com.google.protobuf.ByteString
         getParseWarningBytes(int index);
   }
   /**
-   * Protobuf type {@code edmtools.Metadata}
-   *
    * <pre>
    * Primary message for information contained in the text headers.
    * </pre>
+   *
+   * Protobuf type {@code edmtools.Metadata}
    */
   public static final class Metadata extends
-      com.google.protobuf.GeneratedMessage implements
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:edmtools.Metadata)
       MetadataOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use Metadata.newBuilder() to construct.
-    private Metadata(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private Metadata(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private Metadata(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final Metadata defaultInstance;
-    public static Metadata getDefaultInstance() {
-      return defaultInstance;
+    private Metadata() {
+      registration_ = "";
+      flightMetadata_ = java.util.Collections.emptyList();
+      parseWarning_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
-    public Metadata getDefaultInstanceForType() {
-      return defaultInstance;
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Metadata();
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
-    }
-    private Metadata(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000001;
-              registration_ = bs;
-              break;
-            }
-            case 18: {
-              edmtools.Proto.AlarmThresholds.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) == 0x00000002)) {
-                subBuilder = alarmThresholds_.toBuilder();
-              }
-              alarmThresholds_ = input.readMessage(edmtools.Proto.AlarmThresholds.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(alarmThresholds_);
-                alarmThresholds_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000002;
-              break;
-            }
-            case 26: {
-              edmtools.Proto.Fuel.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000004) == 0x00000004)) {
-                subBuilder = fuel_.toBuilder();
-              }
-              fuel_ = input.readMessage(edmtools.Proto.Fuel.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(fuel_);
-                fuel_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000004;
-              break;
-            }
-            case 32: {
-              bitField0_ |= 0x00000008;
-              downloadTimestamp_ = input.readInt64();
-              break;
-            }
-            case 40: {
-              bitField0_ |= 0x00000010;
-              protocolVersion_ = input.readInt32();
-              break;
-            }
-            case 50: {
-              edmtools.Proto.Features.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000020) == 0x00000020)) {
-                subBuilder = features_.toBuilder();
-              }
-              features_ = input.readMessage(edmtools.Proto.Features.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(features_);
-                features_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000020;
-              break;
-            }
-            case 58: {
-              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
-                flightMetadata_ = new java.util.ArrayList<edmtools.Proto.FlightMetadata>();
-                mutable_bitField0_ |= 0x00000040;
-              }
-              flightMetadata_.add(input.readMessage(edmtools.Proto.FlightMetadata.PARSER, extensionRegistry));
-              break;
-            }
-            case 64: {
-              bitField0_ |= 0x00000040;
-              length_ = input.readInt32();
-              break;
-            }
-            case 74: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
-                parseWarning_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000100;
-              }
-              parseWarning_.add(bs);
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
-          flightMetadata_ = java.util.Collections.unmodifiableList(flightMetadata_);
-        }
-        if (((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
-          parseWarning_ = parseWarning_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return edmtools.Proto.internal_static_edmtools_Metadata_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return edmtools.Proto.internal_static_edmtools_Metadata_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               edmtools.Proto.Metadata.class, edmtools.Proto.Metadata.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<Metadata> PARSER =
-        new com.google.protobuf.AbstractParser<Metadata>() {
-      public Metadata parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Metadata(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Metadata> getParserForType() {
-      return PARSER;
-    }
-
     private int bitField0_;
     public static final int REGISTRATION_FIELD_NUMBER = 1;
-    private java.lang.Object registration_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object registration_ = "";
     /**
      * <code>optional string registration = 1;</code>
+     * @return Whether the registration field is set.
      */
+    @java.lang.Override
     public boolean hasRegistration() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>optional string registration = 1;</code>
+     * @return The registration.
      */
+    @java.lang.Override
     public java.lang.String getRegistration() {
       java.lang.Object ref = registration_;
       if (ref instanceof java.lang.String) {
@@ -385,7 +286,9 @@ public final class Proto {
     }
     /**
      * <code>optional string registration = 1;</code>
+     * @return The bytes for registration.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getRegistrationBytes() {
       java.lang.Object ref = registration_;
@@ -403,91 +306,109 @@ public final class Proto {
     public static final int ALARM_THRESHOLDS_FIELD_NUMBER = 2;
     private edmtools.Proto.AlarmThresholds alarmThresholds_;
     /**
-     * <code>optional .edmtools.AlarmThresholds alarm_thresholds = 2;</code>
-     *
      * <pre>
      * Configured alarm thresholds for sensor data.
      * </pre>
+     *
+     * <code>optional .edmtools.AlarmThresholds alarm_thresholds = 2;</code>
+     * @return Whether the alarmThresholds field is set.
      */
+    @java.lang.Override
     public boolean hasAlarmThresholds() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>optional .edmtools.AlarmThresholds alarm_thresholds = 2;</code>
-     *
      * <pre>
      * Configured alarm thresholds for sensor data.
      * </pre>
+     *
+     * <code>optional .edmtools.AlarmThresholds alarm_thresholds = 2;</code>
+     * @return The alarmThresholds.
      */
+    @java.lang.Override
     public edmtools.Proto.AlarmThresholds getAlarmThresholds() {
-      return alarmThresholds_;
+      return alarmThresholds_ == null ? edmtools.Proto.AlarmThresholds.getDefaultInstance() : alarmThresholds_;
     }
     /**
-     * <code>optional .edmtools.AlarmThresholds alarm_thresholds = 2;</code>
-     *
      * <pre>
      * Configured alarm thresholds for sensor data.
      * </pre>
+     *
+     * <code>optional .edmtools.AlarmThresholds alarm_thresholds = 2;</code>
      */
+    @java.lang.Override
     public edmtools.Proto.AlarmThresholdsOrBuilder getAlarmThresholdsOrBuilder() {
-      return alarmThresholds_;
+      return alarmThresholds_ == null ? edmtools.Proto.AlarmThresholds.getDefaultInstance() : alarmThresholds_;
     }
 
     public static final int FUEL_FIELD_NUMBER = 3;
     private edmtools.Proto.Fuel fuel_;
     /**
      * <code>optional .edmtools.Fuel fuel = 3;</code>
+     * @return Whether the fuel field is set.
      */
+    @java.lang.Override
     public boolean hasFuel() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <code>optional .edmtools.Fuel fuel = 3;</code>
+     * @return The fuel.
      */
+    @java.lang.Override
     public edmtools.Proto.Fuel getFuel() {
-      return fuel_;
+      return fuel_ == null ? edmtools.Proto.Fuel.getDefaultInstance() : fuel_;
     }
     /**
      * <code>optional .edmtools.Fuel fuel = 3;</code>
      */
+    @java.lang.Override
     public edmtools.Proto.FuelOrBuilder getFuelOrBuilder() {
-      return fuel_;
+      return fuel_ == null ? edmtools.Proto.Fuel.getDefaultInstance() : fuel_;
     }
 
     public static final int DOWNLOAD_TIMESTAMP_FIELD_NUMBER = 4;
-    private long downloadTimestamp_;
+    private long downloadTimestamp_ = 0L;
     /**
-     * <code>optional int64 download_timestamp = 4;</code>
-     *
      * <pre>
      * Unix timestamp of download time.  JPI does not preserve zone.
      * </pre>
+     *
+     * <code>optional int64 download_timestamp = 4;</code>
+     * @return Whether the downloadTimestamp field is set.
      */
+    @java.lang.Override
     public boolean hasDownloadTimestamp() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
-     * <code>optional int64 download_timestamp = 4;</code>
-     *
      * <pre>
      * Unix timestamp of download time.  JPI does not preserve zone.
      * </pre>
+     *
+     * <code>optional int64 download_timestamp = 4;</code>
+     * @return The downloadTimestamp.
      */
+    @java.lang.Override
     public long getDownloadTimestamp() {
       return downloadTimestamp_;
     }
 
     public static final int PROTOCOL_VERSION_FIELD_NUMBER = 5;
-    private int protocolVersion_;
+    private int protocolVersion_ = 0;
     /**
      * <code>optional int32 protocol_version = 5;</code>
+     * @return Whether the protocolVersion field is set.
      */
+    @java.lang.Override
     public boolean hasProtocolVersion() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <code>optional int32 protocol_version = 5;</code>
+     * @return The protocolVersion.
      */
+    @java.lang.Override
     public int getProtocolVersion() {
       return protocolVersion_;
     }
@@ -496,34 +417,42 @@ public final class Proto {
     private edmtools.Proto.Features features_;
     /**
      * <code>optional .edmtools.Features features = 6;</code>
+     * @return Whether the features field is set.
      */
+    @java.lang.Override
     public boolean hasFeatures() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <code>optional .edmtools.Features features = 6;</code>
+     * @return The features.
      */
+    @java.lang.Override
     public edmtools.Proto.Features getFeatures() {
-      return features_;
+      return features_ == null ? edmtools.Proto.Features.getDefaultInstance() : features_;
     }
     /**
      * <code>optional .edmtools.Features features = 6;</code>
      */
+    @java.lang.Override
     public edmtools.Proto.FeaturesOrBuilder getFeaturesOrBuilder() {
-      return features_;
+      return features_ == null ? edmtools.Proto.Features.getDefaultInstance() : features_;
     }
 
     public static final int FLIGHT_METADATA_FIELD_NUMBER = 7;
+    @SuppressWarnings("serial")
     private java.util.List<edmtools.Proto.FlightMetadata> flightMetadata_;
     /**
      * <code>repeated .edmtools.FlightMetadata flight_metadata = 7;</code>
      */
+    @java.lang.Override
     public java.util.List<edmtools.Proto.FlightMetadata> getFlightMetadataList() {
       return flightMetadata_;
     }
     /**
      * <code>repeated .edmtools.FlightMetadata flight_metadata = 7;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends edmtools.Proto.FlightMetadataOrBuilder> 
         getFlightMetadataOrBuilderList() {
       return flightMetadata_;
@@ -531,103 +460,107 @@ public final class Proto {
     /**
      * <code>repeated .edmtools.FlightMetadata flight_metadata = 7;</code>
      */
+    @java.lang.Override
     public int getFlightMetadataCount() {
       return flightMetadata_.size();
     }
     /**
      * <code>repeated .edmtools.FlightMetadata flight_metadata = 7;</code>
      */
+    @java.lang.Override
     public edmtools.Proto.FlightMetadata getFlightMetadata(int index) {
       return flightMetadata_.get(index);
     }
     /**
      * <code>repeated .edmtools.FlightMetadata flight_metadata = 7;</code>
      */
+    @java.lang.Override
     public edmtools.Proto.FlightMetadataOrBuilder getFlightMetadataOrBuilder(
         int index) {
       return flightMetadata_.get(index);
     }
 
     public static final int LENGTH_FIELD_NUMBER = 8;
-    private int length_;
+    private int length_ = 0;
     /**
-     * <code>optional int32 length = 8;</code>
-     *
      * <pre>
      * Length of the metadata in the original JPI file, in bytes.
      * </pre>
+     *
+     * <code>optional int32 length = 8;</code>
+     * @return Whether the length field is set.
      */
+    @java.lang.Override
     public boolean hasLength() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
-     * <code>optional int32 length = 8;</code>
-     *
      * <pre>
      * Length of the metadata in the original JPI file, in bytes.
      * </pre>
+     *
+     * <code>optional int32 length = 8;</code>
+     * @return The length.
      */
+    @java.lang.Override
     public int getLength() {
       return length_;
     }
 
     public static final int PARSE_WARNING_FIELD_NUMBER = 9;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList parseWarning_;
     /**
-     * <code>repeated string parse_warning = 9;</code>
-     *
      * <pre>
      * Non-fatal parse warnings.
      * </pre>
+     *
+     * <code>repeated string parse_warning = 9;</code>
+     * @return A list containing the parseWarning.
      */
     public com.google.protobuf.ProtocolStringList
         getParseWarningList() {
       return parseWarning_;
     }
     /**
-     * <code>repeated string parse_warning = 9;</code>
-     *
      * <pre>
      * Non-fatal parse warnings.
      * </pre>
+     *
+     * <code>repeated string parse_warning = 9;</code>
+     * @return The count of parseWarning.
      */
     public int getParseWarningCount() {
       return parseWarning_.size();
     }
     /**
-     * <code>repeated string parse_warning = 9;</code>
-     *
      * <pre>
      * Non-fatal parse warnings.
      * </pre>
+     *
+     * <code>repeated string parse_warning = 9;</code>
+     * @param index The index of the element to return.
+     * @return The parseWarning at the given index.
      */
     public java.lang.String getParseWarning(int index) {
       return parseWarning_.get(index);
     }
     /**
-     * <code>repeated string parse_warning = 9;</code>
-     *
      * <pre>
      * Non-fatal parse warnings.
      * </pre>
+     *
+     * <code>repeated string parse_warning = 9;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the parseWarning at the given index.
      */
     public com.google.protobuf.ByteString
         getParseWarningBytes(int index) {
       return parseWarning_.getByteString(index);
     }
 
-    private void initFields() {
-      registration_ = "";
-      alarmThresholds_ = edmtools.Proto.AlarmThresholds.getDefaultInstance();
-      fuel_ = edmtools.Proto.Fuel.getDefaultInstance();
-      downloadTimestamp_ = 0L;
-      protocolVersion_ = 0;
-      features_ = edmtools.Proto.Features.getDefaultInstance();
-      flightMetadata_ = java.util.Collections.emptyList();
-      length_ = 0;
-      parseWarning_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-    }
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -637,98 +570,202 @@ public final class Proto {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getRegistrationBytes());
+      if (((bitField0_ & 0x00000001) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, registration_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeMessage(2, alarmThresholds_);
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeMessage(2, getAlarmThresholds());
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeMessage(3, fuel_);
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeMessage(3, getFuel());
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         output.writeInt64(4, downloadTimestamp_);
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         output.writeInt32(5, protocolVersion_);
       }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeMessage(6, features_);
+      if (((bitField0_ & 0x00000020) != 0)) {
+        output.writeMessage(6, getFeatures());
       }
       for (int i = 0; i < flightMetadata_.size(); i++) {
         output.writeMessage(7, flightMetadata_.get(i));
       }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+      if (((bitField0_ & 0x00000040) != 0)) {
         output.writeInt32(8, length_);
       }
       for (int i = 0; i < parseWarning_.size(); i++) {
-        output.writeBytes(9, parseWarning_.getByteString(i));
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, parseWarning_.getRaw(i));
       }
       getUnknownFields().writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
+    @java.lang.Override
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getRegistrationBytes());
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, registration_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, alarmThresholds_);
+          .computeMessageSize(2, getAlarmThresholds());
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, fuel_);
+          .computeMessageSize(3, getFuel());
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(4, downloadTimestamp_);
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(5, protocolVersion_);
       }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+      if (((bitField0_ & 0x00000020) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(6, features_);
+          .computeMessageSize(6, getFeatures());
       }
       for (int i = 0; i < flightMetadata_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, flightMetadata_.get(i));
       }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+      if (((bitField0_ & 0x00000040) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(8, length_);
       }
       {
         int dataSize = 0;
         for (int i = 0; i < parseWarning_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeBytesSizeNoTag(parseWarning_.getByteString(i));
+          dataSize += computeStringSizeNoTag(parseWarning_.getRaw(i));
         }
         size += dataSize;
         size += 1 * getParseWarningList().size();
       }
       size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof edmtools.Proto.Metadata)) {
+        return super.equals(obj);
+      }
+      edmtools.Proto.Metadata other = (edmtools.Proto.Metadata) obj;
+
+      if (hasRegistration() != other.hasRegistration()) return false;
+      if (hasRegistration()) {
+        if (!getRegistration()
+            .equals(other.getRegistration())) return false;
+      }
+      if (hasAlarmThresholds() != other.hasAlarmThresholds()) return false;
+      if (hasAlarmThresholds()) {
+        if (!getAlarmThresholds()
+            .equals(other.getAlarmThresholds())) return false;
+      }
+      if (hasFuel() != other.hasFuel()) return false;
+      if (hasFuel()) {
+        if (!getFuel()
+            .equals(other.getFuel())) return false;
+      }
+      if (hasDownloadTimestamp() != other.hasDownloadTimestamp()) return false;
+      if (hasDownloadTimestamp()) {
+        if (getDownloadTimestamp()
+            != other.getDownloadTimestamp()) return false;
+      }
+      if (hasProtocolVersion() != other.hasProtocolVersion()) return false;
+      if (hasProtocolVersion()) {
+        if (getProtocolVersion()
+            != other.getProtocolVersion()) return false;
+      }
+      if (hasFeatures() != other.hasFeatures()) return false;
+      if (hasFeatures()) {
+        if (!getFeatures()
+            .equals(other.getFeatures())) return false;
+      }
+      if (!getFlightMetadataList()
+          .equals(other.getFlightMetadataList())) return false;
+      if (hasLength() != other.hasLength()) return false;
+      if (hasLength()) {
+        if (getLength()
+            != other.getLength()) return false;
+      }
+      if (!getParseWarningList()
+          .equals(other.getParseWarningList())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
     }
 
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasRegistration()) {
+        hash = (37 * hash) + REGISTRATION_FIELD_NUMBER;
+        hash = (53 * hash) + getRegistration().hashCode();
+      }
+      if (hasAlarmThresholds()) {
+        hash = (37 * hash) + ALARM_THRESHOLDS_FIELD_NUMBER;
+        hash = (53 * hash) + getAlarmThresholds().hashCode();
+      }
+      if (hasFuel()) {
+        hash = (37 * hash) + FUEL_FIELD_NUMBER;
+        hash = (53 * hash) + getFuel().hashCode();
+      }
+      if (hasDownloadTimestamp()) {
+        hash = (37 * hash) + DOWNLOAD_TIMESTAMP_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getDownloadTimestamp());
+      }
+      if (hasProtocolVersion()) {
+        hash = (37 * hash) + PROTOCOL_VERSION_FIELD_NUMBER;
+        hash = (53 * hash) + getProtocolVersion();
+      }
+      if (hasFeatures()) {
+        hash = (37 * hash) + FEATURES_FIELD_NUMBER;
+        hash = (53 * hash) + getFeatures().hashCode();
+      }
+      if (getFlightMetadataCount() > 0) {
+        hash = (37 * hash) + FLIGHT_METADATA_FIELD_NUMBER;
+        hash = (53 * hash) + getFlightMetadataList().hashCode();
+      }
+      if (hasLength()) {
+        hash = (37 * hash) + LENGTH_FIELD_NUMBER;
+        hash = (53 * hash) + getLength();
+      }
+      if (getParseWarningCount() > 0) {
+        hash = (37 * hash) + PARSE_WARNING_FIELD_NUMBER;
+        hash = (53 * hash) + getParseWarningList().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static edmtools.Proto.Metadata parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static edmtools.Proto.Metadata parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static edmtools.Proto.Metadata parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -752,58 +789,71 @@ public final class Proto {
     }
     public static edmtools.Proto.Metadata parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static edmtools.Proto.Metadata parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static edmtools.Proto.Metadata parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static edmtools.Proto.Metadata parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static edmtools.Proto.Metadata parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static edmtools.Proto.Metadata parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(edmtools.Proto.Metadata prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(edmtools.Proto.Metadata prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
-     * Protobuf type {@code edmtools.Metadata}
-     *
      * <pre>
      * Primary message for information contained in the text headers.
      * </pre>
+     *
+     * Protobuf type {@code edmtools.Metadata}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:edmtools.Metadata)
         edmtools.Proto.MetadataOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -811,7 +861,8 @@ public final class Proto {
         return edmtools.Proto.internal_static_edmtools_Metadata_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return edmtools.Proto.internal_static_edmtools_Metadata_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -824,74 +875,66 @@ public final class Proto {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
           getAlarmThresholdsFieldBuilder();
           getFuelFieldBuilder();
           getFeaturesFieldBuilder();
           getFlightMetadataFieldBuilder();
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
+      @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         registration_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
-        if (alarmThresholdsBuilder_ == null) {
-          alarmThresholds_ = edmtools.Proto.AlarmThresholds.getDefaultInstance();
-        } else {
-          alarmThresholdsBuilder_.clear();
+        alarmThresholds_ = null;
+        if (alarmThresholdsBuilder_ != null) {
+          alarmThresholdsBuilder_.dispose();
+          alarmThresholdsBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
-        if (fuelBuilder_ == null) {
-          fuel_ = edmtools.Proto.Fuel.getDefaultInstance();
-        } else {
-          fuelBuilder_.clear();
+        fuel_ = null;
+        if (fuelBuilder_ != null) {
+          fuelBuilder_.dispose();
+          fuelBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
         downloadTimestamp_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000008);
         protocolVersion_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000010);
-        if (featuresBuilder_ == null) {
-          features_ = edmtools.Proto.Features.getDefaultInstance();
-        } else {
-          featuresBuilder_.clear();
+        features_ = null;
+        if (featuresBuilder_ != null) {
+          featuresBuilder_.dispose();
+          featuresBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000020);
         if (flightMetadataBuilder_ == null) {
           flightMetadata_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000040);
         } else {
+          flightMetadata_ = null;
           flightMetadataBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000040);
         length_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000080);
         parseWarning_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000100);
         return this;
       }
 
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return edmtools.Proto.internal_static_edmtools_Metadata_descriptor;
       }
 
+      @java.lang.Override
       public edmtools.Proto.Metadata getDefaultInstanceForType() {
         return edmtools.Proto.Metadata.getDefaultInstance();
       }
 
+      @java.lang.Override
       public edmtools.Proto.Metadata build() {
         edmtools.Proto.Metadata result = buildPartial();
         if (!result.isInitialized()) {
@@ -900,48 +943,18 @@ public final class Proto {
         return result;
       }
 
+      @java.lang.Override
       public edmtools.Proto.Metadata buildPartial() {
         edmtools.Proto.Metadata result = new edmtools.Proto.Metadata(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.registration_ = registration_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        if (alarmThresholdsBuilder_ == null) {
-          result.alarmThresholds_ = alarmThresholds_;
-        } else {
-          result.alarmThresholds_ = alarmThresholdsBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        if (fuelBuilder_ == null) {
-          result.fuel_ = fuel_;
-        } else {
-          result.fuel_ = fuelBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000008;
-        }
-        result.downloadTimestamp_ = downloadTimestamp_;
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-          to_bitField0_ |= 0x00000010;
-        }
-        result.protocolVersion_ = protocolVersion_;
-        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
-          to_bitField0_ |= 0x00000020;
-        }
-        if (featuresBuilder_ == null) {
-          result.features_ = features_;
-        } else {
-          result.features_ = featuresBuilder_.build();
-        }
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(edmtools.Proto.Metadata result) {
         if (flightMetadataBuilder_ == null) {
-          if (((bitField0_ & 0x00000040) == 0x00000040)) {
+          if (((bitField0_ & 0x00000040) != 0)) {
             flightMetadata_ = java.util.Collections.unmodifiableList(flightMetadata_);
             bitField0_ = (bitField0_ & ~0x00000040);
           }
@@ -949,20 +962,86 @@ public final class Proto {
         } else {
           result.flightMetadata_ = flightMetadataBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
-          to_bitField0_ |= 0x00000040;
-        }
-        result.length_ = length_;
-        if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        if (((bitField0_ & 0x00000100) != 0)) {
           parseWarning_ = parseWarning_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000100);
         }
         result.parseWarning_ = parseWarning_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
       }
 
+      private void buildPartial0(edmtools.Proto.Metadata result) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.registration_ = registration_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.alarmThresholds_ = alarmThresholdsBuilder_ == null
+              ? alarmThresholds_
+              : alarmThresholdsBuilder_.build();
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.fuel_ = fuelBuilder_ == null
+              ? fuel_
+              : fuelBuilder_.build();
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.downloadTimestamp_ = downloadTimestamp_;
+          to_bitField0_ |= 0x00000008;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.protocolVersion_ = protocolVersion_;
+          to_bitField0_ |= 0x00000010;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.features_ = featuresBuilder_ == null
+              ? features_
+              : featuresBuilder_.build();
+          to_bitField0_ |= 0x00000020;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.length_ = length_;
+          to_bitField0_ |= 0x00000040;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof edmtools.Proto.Metadata) {
           return mergeFrom((edmtools.Proto.Metadata)other);
@@ -975,8 +1054,8 @@ public final class Proto {
       public Builder mergeFrom(edmtools.Proto.Metadata other) {
         if (other == edmtools.Proto.Metadata.getDefaultInstance()) return this;
         if (other.hasRegistration()) {
-          bitField0_ |= 0x00000001;
           registration_ = other.registration_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasAlarmThresholds()) {
@@ -1013,7 +1092,7 @@ public final class Proto {
               flightMetadata_ = other.flightMetadata_;
               bitField0_ = (bitField0_ & ~0x00000040);
               flightMetadataBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getFlightMetadataFieldBuilder() : null;
             } else {
               flightMetadataBuilder_.addAllMessages(other.flightMetadata_);
@@ -1034,28 +1113,104 @@ public final class Proto {
           onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        edmtools.Proto.Metadata parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (edmtools.Proto.Metadata) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
         }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                registration_ = input.readBytes();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getAlarmThresholdsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getFuelFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 32: {
+                downloadTimestamp_ = input.readInt64();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 40: {
+                protocolVersion_ = input.readInt32();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              case 50: {
+                input.readMessage(
+                    getFeaturesFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
+              case 58: {
+                edmtools.Proto.FlightMetadata m =
+                    input.readMessage(
+                        edmtools.Proto.FlightMetadata.PARSER,
+                        extensionRegistry);
+                if (flightMetadataBuilder_ == null) {
+                  ensureFlightMetadataIsMutable();
+                  flightMetadata_.add(m);
+                } else {
+                  flightMetadataBuilder_.addMessage(m);
+                }
+                break;
+              } // case 58
+              case 64: {
+                length_ = input.readInt32();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 64
+              case 74: {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                ensureParseWarningIsMutable();
+                parseWarning_.add(bs);
+                break;
+              } // case 74
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1063,12 +1218,14 @@ public final class Proto {
       private java.lang.Object registration_ = "";
       /**
        * <code>optional string registration = 1;</code>
+       * @return Whether the registration field is set.
        */
       public boolean hasRegistration() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <code>optional string registration = 1;</code>
+       * @return The registration.
        */
       public java.lang.String getRegistration() {
         java.lang.Object ref = registration_;
@@ -1086,6 +1243,7 @@ public final class Proto {
       }
       /**
        * <code>optional string registration = 1;</code>
+       * @return The bytes for registration.
        */
       public com.google.protobuf.ByteString
           getRegistrationBytes() {
@@ -1102,73 +1260,76 @@ public final class Proto {
       }
       /**
        * <code>optional string registration = 1;</code>
+       * @param value The registration to set.
+       * @return This builder for chaining.
        */
       public Builder setRegistration(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+        if (value == null) { throw new NullPointerException(); }
         registration_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
        * <code>optional string registration = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearRegistration() {
-        bitField0_ = (bitField0_ & ~0x00000001);
         registration_ = getDefaultInstance().getRegistration();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
       /**
        * <code>optional string registration = 1;</code>
+       * @param value The bytes for registration to set.
+       * @return This builder for chaining.
        */
       public Builder setRegistrationBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+        if (value == null) { throw new NullPointerException(); }
         registration_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
 
-      private edmtools.Proto.AlarmThresholds alarmThresholds_ = edmtools.Proto.AlarmThresholds.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private edmtools.Proto.AlarmThresholds alarmThresholds_;
+      private com.google.protobuf.SingleFieldBuilderV3<
           edmtools.Proto.AlarmThresholds, edmtools.Proto.AlarmThresholds.Builder, edmtools.Proto.AlarmThresholdsOrBuilder> alarmThresholdsBuilder_;
       /**
-       * <code>optional .edmtools.AlarmThresholds alarm_thresholds = 2;</code>
-       *
        * <pre>
        * Configured alarm thresholds for sensor data.
        * </pre>
+       *
+       * <code>optional .edmtools.AlarmThresholds alarm_thresholds = 2;</code>
+       * @return Whether the alarmThresholds field is set.
        */
       public boolean hasAlarmThresholds() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>optional .edmtools.AlarmThresholds alarm_thresholds = 2;</code>
-       *
        * <pre>
        * Configured alarm thresholds for sensor data.
        * </pre>
+       *
+       * <code>optional .edmtools.AlarmThresholds alarm_thresholds = 2;</code>
+       * @return The alarmThresholds.
        */
       public edmtools.Proto.AlarmThresholds getAlarmThresholds() {
         if (alarmThresholdsBuilder_ == null) {
-          return alarmThresholds_;
+          return alarmThresholds_ == null ? edmtools.Proto.AlarmThresholds.getDefaultInstance() : alarmThresholds_;
         } else {
           return alarmThresholdsBuilder_.getMessage();
         }
       }
       /**
-       * <code>optional .edmtools.AlarmThresholds alarm_thresholds = 2;</code>
-       *
        * <pre>
        * Configured alarm thresholds for sensor data.
        * </pre>
+       *
+       * <code>optional .edmtools.AlarmThresholds alarm_thresholds = 2;</code>
        */
       public Builder setAlarmThresholds(edmtools.Proto.AlarmThresholds value) {
         if (alarmThresholdsBuilder_ == null) {
@@ -1176,77 +1337,77 @@ public final class Proto {
             throw new NullPointerException();
           }
           alarmThresholds_ = value;
-          onChanged();
         } else {
           alarmThresholdsBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
-       * <code>optional .edmtools.AlarmThresholds alarm_thresholds = 2;</code>
-       *
        * <pre>
        * Configured alarm thresholds for sensor data.
        * </pre>
+       *
+       * <code>optional .edmtools.AlarmThresholds alarm_thresholds = 2;</code>
        */
       public Builder setAlarmThresholds(
           edmtools.Proto.AlarmThresholds.Builder builderForValue) {
         if (alarmThresholdsBuilder_ == null) {
           alarmThresholds_ = builderForValue.build();
-          onChanged();
         } else {
           alarmThresholdsBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
-       * <code>optional .edmtools.AlarmThresholds alarm_thresholds = 2;</code>
-       *
        * <pre>
        * Configured alarm thresholds for sensor data.
        * </pre>
+       *
+       * <code>optional .edmtools.AlarmThresholds alarm_thresholds = 2;</code>
        */
       public Builder mergeAlarmThresholds(edmtools.Proto.AlarmThresholds value) {
         if (alarmThresholdsBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002) &&
-              alarmThresholds_ != edmtools.Proto.AlarmThresholds.getDefaultInstance()) {
-            alarmThresholds_ =
-              edmtools.Proto.AlarmThresholds.newBuilder(alarmThresholds_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            alarmThresholds_ != null &&
+            alarmThresholds_ != edmtools.Proto.AlarmThresholds.getDefaultInstance()) {
+            getAlarmThresholdsBuilder().mergeFrom(value);
           } else {
             alarmThresholds_ = value;
           }
-          onChanged();
         } else {
           alarmThresholdsBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
-       * <code>optional .edmtools.AlarmThresholds alarm_thresholds = 2;</code>
-       *
        * <pre>
        * Configured alarm thresholds for sensor data.
        * </pre>
+       *
+       * <code>optional .edmtools.AlarmThresholds alarm_thresholds = 2;</code>
        */
       public Builder clearAlarmThresholds() {
-        if (alarmThresholdsBuilder_ == null) {
-          alarmThresholds_ = edmtools.Proto.AlarmThresholds.getDefaultInstance();
-          onChanged();
-        } else {
-          alarmThresholdsBuilder_.clear();
-        }
         bitField0_ = (bitField0_ & ~0x00000002);
+        alarmThresholds_ = null;
+        if (alarmThresholdsBuilder_ != null) {
+          alarmThresholdsBuilder_.dispose();
+          alarmThresholdsBuilder_ = null;
+        }
+        onChanged();
         return this;
       }
       /**
-       * <code>optional .edmtools.AlarmThresholds alarm_thresholds = 2;</code>
-       *
        * <pre>
        * Configured alarm thresholds for sensor data.
        * </pre>
+       *
+       * <code>optional .edmtools.AlarmThresholds alarm_thresholds = 2;</code>
        */
       public edmtools.Proto.AlarmThresholds.Builder getAlarmThresholdsBuilder() {
         bitField0_ |= 0x00000002;
@@ -1254,31 +1415,32 @@ public final class Proto {
         return getAlarmThresholdsFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .edmtools.AlarmThresholds alarm_thresholds = 2;</code>
-       *
        * <pre>
        * Configured alarm thresholds for sensor data.
        * </pre>
+       *
+       * <code>optional .edmtools.AlarmThresholds alarm_thresholds = 2;</code>
        */
       public edmtools.Proto.AlarmThresholdsOrBuilder getAlarmThresholdsOrBuilder() {
         if (alarmThresholdsBuilder_ != null) {
           return alarmThresholdsBuilder_.getMessageOrBuilder();
         } else {
-          return alarmThresholds_;
+          return alarmThresholds_ == null ?
+              edmtools.Proto.AlarmThresholds.getDefaultInstance() : alarmThresholds_;
         }
       }
       /**
-       * <code>optional .edmtools.AlarmThresholds alarm_thresholds = 2;</code>
-       *
        * <pre>
        * Configured alarm thresholds for sensor data.
        * </pre>
+       *
+       * <code>optional .edmtools.AlarmThresholds alarm_thresholds = 2;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           edmtools.Proto.AlarmThresholds, edmtools.Proto.AlarmThresholds.Builder, edmtools.Proto.AlarmThresholdsOrBuilder> 
           getAlarmThresholdsFieldBuilder() {
         if (alarmThresholdsBuilder_ == null) {
-          alarmThresholdsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          alarmThresholdsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               edmtools.Proto.AlarmThresholds, edmtools.Proto.AlarmThresholds.Builder, edmtools.Proto.AlarmThresholdsOrBuilder>(
                   getAlarmThresholds(),
                   getParentForChildren(),
@@ -1288,21 +1450,23 @@ public final class Proto {
         return alarmThresholdsBuilder_;
       }
 
-      private edmtools.Proto.Fuel fuel_ = edmtools.Proto.Fuel.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private edmtools.Proto.Fuel fuel_;
+      private com.google.protobuf.SingleFieldBuilderV3<
           edmtools.Proto.Fuel, edmtools.Proto.Fuel.Builder, edmtools.Proto.FuelOrBuilder> fuelBuilder_;
       /**
        * <code>optional .edmtools.Fuel fuel = 3;</code>
+       * @return Whether the fuel field is set.
        */
       public boolean hasFuel() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <code>optional .edmtools.Fuel fuel = 3;</code>
+       * @return The fuel.
        */
       public edmtools.Proto.Fuel getFuel() {
         if (fuelBuilder_ == null) {
-          return fuel_;
+          return fuel_ == null ? edmtools.Proto.Fuel.getDefaultInstance() : fuel_;
         } else {
           return fuelBuilder_.getMessage();
         }
@@ -1316,11 +1480,11 @@ public final class Proto {
             throw new NullPointerException();
           }
           fuel_ = value;
-          onChanged();
         } else {
           fuelBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1330,11 +1494,11 @@ public final class Proto {
           edmtools.Proto.Fuel.Builder builderForValue) {
         if (fuelBuilder_ == null) {
           fuel_ = builderForValue.build();
-          onChanged();
         } else {
           fuelBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1342,31 +1506,31 @@ public final class Proto {
        */
       public Builder mergeFuel(edmtools.Proto.Fuel value) {
         if (fuelBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004) &&
-              fuel_ != edmtools.Proto.Fuel.getDefaultInstance()) {
-            fuel_ =
-              edmtools.Proto.Fuel.newBuilder(fuel_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            fuel_ != null &&
+            fuel_ != edmtools.Proto.Fuel.getDefaultInstance()) {
+            getFuelBuilder().mergeFrom(value);
           } else {
             fuel_ = value;
           }
-          onChanged();
         } else {
           fuelBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
        * <code>optional .edmtools.Fuel fuel = 3;</code>
        */
       public Builder clearFuel() {
-        if (fuelBuilder_ == null) {
-          fuel_ = edmtools.Proto.Fuel.getDefaultInstance();
-          onChanged();
-        } else {
-          fuelBuilder_.clear();
-        }
         bitField0_ = (bitField0_ & ~0x00000004);
+        fuel_ = null;
+        if (fuelBuilder_ != null) {
+          fuelBuilder_.dispose();
+          fuelBuilder_ = null;
+        }
+        onChanged();
         return this;
       }
       /**
@@ -1384,17 +1548,18 @@ public final class Proto {
         if (fuelBuilder_ != null) {
           return fuelBuilder_.getMessageOrBuilder();
         } else {
-          return fuel_;
+          return fuel_ == null ?
+              edmtools.Proto.Fuel.getDefaultInstance() : fuel_;
         }
       }
       /**
        * <code>optional .edmtools.Fuel fuel = 3;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           edmtools.Proto.Fuel, edmtools.Proto.Fuel.Builder, edmtools.Proto.FuelOrBuilder> 
           getFuelFieldBuilder() {
         if (fuelBuilder_ == null) {
-          fuelBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          fuelBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               edmtools.Proto.Fuel, edmtools.Proto.Fuel.Builder, edmtools.Proto.FuelOrBuilder>(
                   getFuel(),
                   getParentForChildren(),
@@ -1406,44 +1571,52 @@ public final class Proto {
 
       private long downloadTimestamp_ ;
       /**
-       * <code>optional int64 download_timestamp = 4;</code>
-       *
        * <pre>
        * Unix timestamp of download time.  JPI does not preserve zone.
        * </pre>
+       *
+       * <code>optional int64 download_timestamp = 4;</code>
+       * @return Whether the downloadTimestamp field is set.
        */
+      @java.lang.Override
       public boolean hasDownloadTimestamp() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
-       * <code>optional int64 download_timestamp = 4;</code>
-       *
        * <pre>
        * Unix timestamp of download time.  JPI does not preserve zone.
        * </pre>
+       *
+       * <code>optional int64 download_timestamp = 4;</code>
+       * @return The downloadTimestamp.
        */
+      @java.lang.Override
       public long getDownloadTimestamp() {
         return downloadTimestamp_;
       }
       /**
-       * <code>optional int64 download_timestamp = 4;</code>
-       *
        * <pre>
        * Unix timestamp of download time.  JPI does not preserve zone.
        * </pre>
+       *
+       * <code>optional int64 download_timestamp = 4;</code>
+       * @param value The downloadTimestamp to set.
+       * @return This builder for chaining.
        */
       public Builder setDownloadTimestamp(long value) {
-        bitField0_ |= 0x00000008;
+        
         downloadTimestamp_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int64 download_timestamp = 4;</code>
-       *
        * <pre>
        * Unix timestamp of download time.  JPI does not preserve zone.
        * </pre>
+       *
+       * <code>optional int64 download_timestamp = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDownloadTimestamp() {
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -1455,27 +1628,35 @@ public final class Proto {
       private int protocolVersion_ ;
       /**
        * <code>optional int32 protocol_version = 5;</code>
+       * @return Whether the protocolVersion field is set.
        */
+      @java.lang.Override
       public boolean hasProtocolVersion() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <code>optional int32 protocol_version = 5;</code>
+       * @return The protocolVersion.
        */
+      @java.lang.Override
       public int getProtocolVersion() {
         return protocolVersion_;
       }
       /**
        * <code>optional int32 protocol_version = 5;</code>
+       * @param value The protocolVersion to set.
+       * @return This builder for chaining.
        */
       public Builder setProtocolVersion(int value) {
-        bitField0_ |= 0x00000010;
+        
         protocolVersion_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
       /**
        * <code>optional int32 protocol_version = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearProtocolVersion() {
         bitField0_ = (bitField0_ & ~0x00000010);
@@ -1484,21 +1665,23 @@ public final class Proto {
         return this;
       }
 
-      private edmtools.Proto.Features features_ = edmtools.Proto.Features.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private edmtools.Proto.Features features_;
+      private com.google.protobuf.SingleFieldBuilderV3<
           edmtools.Proto.Features, edmtools.Proto.Features.Builder, edmtools.Proto.FeaturesOrBuilder> featuresBuilder_;
       /**
        * <code>optional .edmtools.Features features = 6;</code>
+       * @return Whether the features field is set.
        */
       public boolean hasFeatures() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
        * <code>optional .edmtools.Features features = 6;</code>
+       * @return The features.
        */
       public edmtools.Proto.Features getFeatures() {
         if (featuresBuilder_ == null) {
-          return features_;
+          return features_ == null ? edmtools.Proto.Features.getDefaultInstance() : features_;
         } else {
           return featuresBuilder_.getMessage();
         }
@@ -1512,11 +1695,11 @@ public final class Proto {
             throw new NullPointerException();
           }
           features_ = value;
-          onChanged();
         } else {
           featuresBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -1526,11 +1709,11 @@ public final class Proto {
           edmtools.Proto.Features.Builder builderForValue) {
         if (featuresBuilder_ == null) {
           features_ = builderForValue.build();
-          onChanged();
         } else {
           featuresBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -1538,31 +1721,31 @@ public final class Proto {
        */
       public Builder mergeFeatures(edmtools.Proto.Features value) {
         if (featuresBuilder_ == null) {
-          if (((bitField0_ & 0x00000020) == 0x00000020) &&
-              features_ != edmtools.Proto.Features.getDefaultInstance()) {
-            features_ =
-              edmtools.Proto.Features.newBuilder(features_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000020) != 0) &&
+            features_ != null &&
+            features_ != edmtools.Proto.Features.getDefaultInstance()) {
+            getFeaturesBuilder().mergeFrom(value);
           } else {
             features_ = value;
           }
-          onChanged();
         } else {
           featuresBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
        * <code>optional .edmtools.Features features = 6;</code>
        */
       public Builder clearFeatures() {
-        if (featuresBuilder_ == null) {
-          features_ = edmtools.Proto.Features.getDefaultInstance();
-          onChanged();
-        } else {
-          featuresBuilder_.clear();
-        }
         bitField0_ = (bitField0_ & ~0x00000020);
+        features_ = null;
+        if (featuresBuilder_ != null) {
+          featuresBuilder_.dispose();
+          featuresBuilder_ = null;
+        }
+        onChanged();
         return this;
       }
       /**
@@ -1580,17 +1763,18 @@ public final class Proto {
         if (featuresBuilder_ != null) {
           return featuresBuilder_.getMessageOrBuilder();
         } else {
-          return features_;
+          return features_ == null ?
+              edmtools.Proto.Features.getDefaultInstance() : features_;
         }
       }
       /**
        * <code>optional .edmtools.Features features = 6;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           edmtools.Proto.Features, edmtools.Proto.Features.Builder, edmtools.Proto.FeaturesOrBuilder> 
           getFeaturesFieldBuilder() {
         if (featuresBuilder_ == null) {
-          featuresBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          featuresBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               edmtools.Proto.Features, edmtools.Proto.Features.Builder, edmtools.Proto.FeaturesOrBuilder>(
                   getFeatures(),
                   getParentForChildren(),
@@ -1603,13 +1787,13 @@ public final class Proto {
       private java.util.List<edmtools.Proto.FlightMetadata> flightMetadata_ =
         java.util.Collections.emptyList();
       private void ensureFlightMetadataIsMutable() {
-        if (!((bitField0_ & 0x00000040) == 0x00000040)) {
+        if (!((bitField0_ & 0x00000040) != 0)) {
           flightMetadata_ = new java.util.ArrayList<edmtools.Proto.FlightMetadata>(flightMetadata_);
           bitField0_ |= 0x00000040;
          }
       }
 
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           edmtools.Proto.FlightMetadata, edmtools.Proto.FlightMetadata.Builder, edmtools.Proto.FlightMetadataOrBuilder> flightMetadataBuilder_;
 
       /**
@@ -1825,14 +2009,14 @@ public final class Proto {
            getFlightMetadataBuilderList() {
         return getFlightMetadataFieldBuilder().getBuilderList();
       }
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           edmtools.Proto.FlightMetadata, edmtools.Proto.FlightMetadata.Builder, edmtools.Proto.FlightMetadataOrBuilder> 
           getFlightMetadataFieldBuilder() {
         if (flightMetadataBuilder_ == null) {
-          flightMetadataBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          flightMetadataBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               edmtools.Proto.FlightMetadata, edmtools.Proto.FlightMetadata.Builder, edmtools.Proto.FlightMetadataOrBuilder>(
                   flightMetadata_,
-                  ((bitField0_ & 0x00000040) == 0x00000040),
+                  ((bitField0_ & 0x00000040) != 0),
                   getParentForChildren(),
                   isClean());
           flightMetadata_ = null;
@@ -1842,44 +2026,52 @@ public final class Proto {
 
       private int length_ ;
       /**
-       * <code>optional int32 length = 8;</code>
-       *
        * <pre>
        * Length of the metadata in the original JPI file, in bytes.
        * </pre>
+       *
+       * <code>optional int32 length = 8;</code>
+       * @return Whether the length field is set.
        */
+      @java.lang.Override
       public boolean hasLength() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
+        return ((bitField0_ & 0x00000080) != 0);
       }
       /**
-       * <code>optional int32 length = 8;</code>
-       *
        * <pre>
        * Length of the metadata in the original JPI file, in bytes.
        * </pre>
+       *
+       * <code>optional int32 length = 8;</code>
+       * @return The length.
        */
+      @java.lang.Override
       public int getLength() {
         return length_;
       }
       /**
-       * <code>optional int32 length = 8;</code>
-       *
        * <pre>
        * Length of the metadata in the original JPI file, in bytes.
        * </pre>
+       *
+       * <code>optional int32 length = 8;</code>
+       * @param value The length to set.
+       * @return This builder for chaining.
        */
       public Builder setLength(int value) {
-        bitField0_ |= 0x00000080;
+        
         length_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 length = 8;</code>
-       *
        * <pre>
        * Length of the metadata in the original JPI file, in bytes.
        * </pre>
+       *
+       * <code>optional int32 length = 8;</code>
+       * @return This builder for chaining.
        */
       public Builder clearLength() {
         bitField0_ = (bitField0_ & ~0x00000080);
@@ -1890,93 +2082,102 @@ public final class Proto {
 
       private com.google.protobuf.LazyStringList parseWarning_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureParseWarningIsMutable() {
-        if (!((bitField0_ & 0x00000100) == 0x00000100)) {
+        if (!((bitField0_ & 0x00000100) != 0)) {
           parseWarning_ = new com.google.protobuf.LazyStringArrayList(parseWarning_);
           bitField0_ |= 0x00000100;
          }
       }
       /**
-       * <code>repeated string parse_warning = 9;</code>
-       *
        * <pre>
        * Non-fatal parse warnings.
        * </pre>
+       *
+       * <code>repeated string parse_warning = 9;</code>
+       * @return A list containing the parseWarning.
        */
       public com.google.protobuf.ProtocolStringList
           getParseWarningList() {
         return parseWarning_.getUnmodifiableView();
       }
       /**
-       * <code>repeated string parse_warning = 9;</code>
-       *
        * <pre>
        * Non-fatal parse warnings.
        * </pre>
+       *
+       * <code>repeated string parse_warning = 9;</code>
+       * @return The count of parseWarning.
        */
       public int getParseWarningCount() {
         return parseWarning_.size();
       }
       /**
-       * <code>repeated string parse_warning = 9;</code>
-       *
        * <pre>
        * Non-fatal parse warnings.
        * </pre>
+       *
+       * <code>repeated string parse_warning = 9;</code>
+       * @param index The index of the element to return.
+       * @return The parseWarning at the given index.
        */
       public java.lang.String getParseWarning(int index) {
         return parseWarning_.get(index);
       }
       /**
-       * <code>repeated string parse_warning = 9;</code>
-       *
        * <pre>
        * Non-fatal parse warnings.
        * </pre>
+       *
+       * <code>repeated string parse_warning = 9;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the parseWarning at the given index.
        */
       public com.google.protobuf.ByteString
           getParseWarningBytes(int index) {
         return parseWarning_.getByteString(index);
       }
       /**
-       * <code>repeated string parse_warning = 9;</code>
-       *
        * <pre>
        * Non-fatal parse warnings.
        * </pre>
+       *
+       * <code>repeated string parse_warning = 9;</code>
+       * @param index The index to set the value at.
+       * @param value The parseWarning to set.
+       * @return This builder for chaining.
        */
       public Builder setParseWarning(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureParseWarningIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureParseWarningIsMutable();
         parseWarning_.set(index, value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string parse_warning = 9;</code>
-       *
        * <pre>
        * Non-fatal parse warnings.
        * </pre>
+       *
+       * <code>repeated string parse_warning = 9;</code>
+       * @param value The parseWarning to add.
+       * @return This builder for chaining.
        */
       public Builder addParseWarning(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureParseWarningIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureParseWarningIsMutable();
         parseWarning_.add(value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string parse_warning = 9;</code>
-       *
        * <pre>
        * Non-fatal parse warnings.
        * </pre>
+       *
+       * <code>repeated string parse_warning = 9;</code>
+       * @param values The parseWarning to add.
+       * @return This builder for chaining.
        */
       public Builder addAllParseWarning(
           java.lang.Iterable<java.lang.String> values) {
@@ -1987,11 +2188,12 @@ public final class Proto {
         return this;
       }
       /**
-       * <code>repeated string parse_warning = 9;</code>
-       *
        * <pre>
        * Non-fatal parse warnings.
        * </pre>
+       *
+       * <code>repeated string parse_warning = 9;</code>
+       * @return This builder for chaining.
        */
       public Builder clearParseWarning() {
         parseWarning_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -2000,32 +2202,84 @@ public final class Proto {
         return this;
       }
       /**
-       * <code>repeated string parse_warning = 9;</code>
-       *
        * <pre>
        * Non-fatal parse warnings.
        * </pre>
+       *
+       * <code>repeated string parse_warning = 9;</code>
+       * @param value The bytes of the parseWarning to add.
+       * @return This builder for chaining.
        */
       public Builder addParseWarningBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureParseWarningIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureParseWarningIsMutable();
         parseWarning_.add(value);
         onChanged();
         return this;
       }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:edmtools.Metadata)
     }
 
+    // @@protoc_insertion_point(class_scope:edmtools.Metadata)
+    private static final edmtools.Proto.Metadata DEFAULT_INSTANCE;
     static {
-      defaultInstance = new Metadata(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new edmtools.Proto.Metadata();
     }
 
-    // @@protoc_insertion_point(class_scope:edmtools.Metadata)
+    public static edmtools.Proto.Metadata getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<Metadata>
+        PARSER = new com.google.protobuf.AbstractParser<Metadata>() {
+      @java.lang.Override
+      public Metadata parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<Metadata> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Metadata> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public edmtools.Proto.Metadata getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface AlarmThresholdsOrBuilder extends
@@ -2034,359 +2288,307 @@ public final class Proto {
 
     /**
      * <code>optional double min_volts = 1;</code>
+     * @return Whether the minVolts field is set.
      */
     boolean hasMinVolts();
     /**
      * <code>optional double min_volts = 1;</code>
+     * @return The minVolts.
      */
     double getMinVolts();
 
     /**
      * <code>optional double max_volts = 2;</code>
+     * @return Whether the maxVolts field is set.
      */
     boolean hasMaxVolts();
     /**
      * <code>optional double max_volts = 2;</code>
+     * @return The maxVolts.
      */
     double getMaxVolts();
 
     /**
      * <code>optional int32 max_exhaust_gas_temperature_difference = 3;</code>
+     * @return Whether the maxExhaustGasTemperatureDifference field is set.
      */
     boolean hasMaxExhaustGasTemperatureDifference();
     /**
      * <code>optional int32 max_exhaust_gas_temperature_difference = 3;</code>
+     * @return The maxExhaustGasTemperatureDifference.
      */
     int getMaxExhaustGasTemperatureDifference();
 
     /**
      * <code>optional int32 max_cylinder_head_temperature = 4;</code>
+     * @return Whether the maxCylinderHeadTemperature field is set.
      */
     boolean hasMaxCylinderHeadTemperature();
     /**
      * <code>optional int32 max_cylinder_head_temperature = 4;</code>
+     * @return The maxCylinderHeadTemperature.
      */
     int getMaxCylinderHeadTemperature();
 
     /**
-     * <code>optional int32 max_cylinder_head_temperature_cooling_rate = 5;</code>
-     *
      * <pre>
      * In degrees per minute.
      * </pre>
+     *
+     * <code>optional int32 max_cylinder_head_temperature_cooling_rate = 5;</code>
+     * @return Whether the maxCylinderHeadTemperatureCoolingRate field is set.
      */
     boolean hasMaxCylinderHeadTemperatureCoolingRate();
     /**
-     * <code>optional int32 max_cylinder_head_temperature_cooling_rate = 5;</code>
-     *
      * <pre>
      * In degrees per minute.
      * </pre>
+     *
+     * <code>optional int32 max_cylinder_head_temperature_cooling_rate = 5;</code>
+     * @return The maxCylinderHeadTemperatureCoolingRate.
      */
     int getMaxCylinderHeadTemperatureCoolingRate();
 
     /**
      * <code>optional int32 max_exhaust_gas_temperature = 6;</code>
+     * @return Whether the maxExhaustGasTemperature field is set.
      */
     boolean hasMaxExhaustGasTemperature();
     /**
      * <code>optional int32 max_exhaust_gas_temperature = 6;</code>
+     * @return The maxExhaustGasTemperature.
      */
     int getMaxExhaustGasTemperature();
 
     /**
      * <code>optional int32 min_oil_temperature = 7;</code>
+     * @return Whether the minOilTemperature field is set.
      */
     boolean hasMinOilTemperature();
     /**
      * <code>optional int32 min_oil_temperature = 7;</code>
+     * @return The minOilTemperature.
      */
     int getMinOilTemperature();
 
     /**
      * <code>optional int32 max_oil_temperature = 8;</code>
+     * @return Whether the maxOilTemperature field is set.
      */
     boolean hasMaxOilTemperature();
     /**
      * <code>optional int32 max_oil_temperature = 8;</code>
+     * @return The maxOilTemperature.
      */
     int getMaxOilTemperature();
   }
   /**
-   * Protobuf type {@code edmtools.AlarmThresholds}
-   *
    * <pre>
    * Configured alarm thresholds.
    * </pre>
+   *
+   * Protobuf type {@code edmtools.AlarmThresholds}
    */
   public static final class AlarmThresholds extends
-      com.google.protobuf.GeneratedMessage implements
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:edmtools.AlarmThresholds)
       AlarmThresholdsOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use AlarmThresholds.newBuilder() to construct.
-    private AlarmThresholds(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private AlarmThresholds(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private AlarmThresholds(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final AlarmThresholds defaultInstance;
-    public static AlarmThresholds getDefaultInstance() {
-      return defaultInstance;
+    private AlarmThresholds() {
     }
 
-    public AlarmThresholds getDefaultInstanceForType() {
-      return defaultInstance;
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AlarmThresholds();
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
-    }
-    private AlarmThresholds(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 9: {
-              bitField0_ |= 0x00000001;
-              minVolts_ = input.readDouble();
-              break;
-            }
-            case 17: {
-              bitField0_ |= 0x00000002;
-              maxVolts_ = input.readDouble();
-              break;
-            }
-            case 24: {
-              bitField0_ |= 0x00000004;
-              maxExhaustGasTemperatureDifference_ = input.readInt32();
-              break;
-            }
-            case 32: {
-              bitField0_ |= 0x00000008;
-              maxCylinderHeadTemperature_ = input.readInt32();
-              break;
-            }
-            case 40: {
-              bitField0_ |= 0x00000010;
-              maxCylinderHeadTemperatureCoolingRate_ = input.readInt32();
-              break;
-            }
-            case 48: {
-              bitField0_ |= 0x00000020;
-              maxExhaustGasTemperature_ = input.readInt32();
-              break;
-            }
-            case 56: {
-              bitField0_ |= 0x00000040;
-              minOilTemperature_ = input.readInt32();
-              break;
-            }
-            case 64: {
-              bitField0_ |= 0x00000080;
-              maxOilTemperature_ = input.readInt32();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return edmtools.Proto.internal_static_edmtools_AlarmThresholds_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return edmtools.Proto.internal_static_edmtools_AlarmThresholds_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               edmtools.Proto.AlarmThresholds.class, edmtools.Proto.AlarmThresholds.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<AlarmThresholds> PARSER =
-        new com.google.protobuf.AbstractParser<AlarmThresholds>() {
-      public AlarmThresholds parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AlarmThresholds(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<AlarmThresholds> getParserForType() {
-      return PARSER;
-    }
-
     private int bitField0_;
     public static final int MIN_VOLTS_FIELD_NUMBER = 1;
-    private double minVolts_;
+    private double minVolts_ = 0D;
     /**
      * <code>optional double min_volts = 1;</code>
+     * @return Whether the minVolts field is set.
      */
+    @java.lang.Override
     public boolean hasMinVolts() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>optional double min_volts = 1;</code>
+     * @return The minVolts.
      */
+    @java.lang.Override
     public double getMinVolts() {
       return minVolts_;
     }
 
     public static final int MAX_VOLTS_FIELD_NUMBER = 2;
-    private double maxVolts_;
+    private double maxVolts_ = 0D;
     /**
      * <code>optional double max_volts = 2;</code>
+     * @return Whether the maxVolts field is set.
      */
+    @java.lang.Override
     public boolean hasMaxVolts() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <code>optional double max_volts = 2;</code>
+     * @return The maxVolts.
      */
+    @java.lang.Override
     public double getMaxVolts() {
       return maxVolts_;
     }
 
     public static final int MAX_EXHAUST_GAS_TEMPERATURE_DIFFERENCE_FIELD_NUMBER = 3;
-    private int maxExhaustGasTemperatureDifference_;
+    private int maxExhaustGasTemperatureDifference_ = 0;
     /**
      * <code>optional int32 max_exhaust_gas_temperature_difference = 3;</code>
+     * @return Whether the maxExhaustGasTemperatureDifference field is set.
      */
+    @java.lang.Override
     public boolean hasMaxExhaustGasTemperatureDifference() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <code>optional int32 max_exhaust_gas_temperature_difference = 3;</code>
+     * @return The maxExhaustGasTemperatureDifference.
      */
+    @java.lang.Override
     public int getMaxExhaustGasTemperatureDifference() {
       return maxExhaustGasTemperatureDifference_;
     }
 
     public static final int MAX_CYLINDER_HEAD_TEMPERATURE_FIELD_NUMBER = 4;
-    private int maxCylinderHeadTemperature_;
+    private int maxCylinderHeadTemperature_ = 0;
     /**
      * <code>optional int32 max_cylinder_head_temperature = 4;</code>
+     * @return Whether the maxCylinderHeadTemperature field is set.
      */
+    @java.lang.Override
     public boolean hasMaxCylinderHeadTemperature() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <code>optional int32 max_cylinder_head_temperature = 4;</code>
+     * @return The maxCylinderHeadTemperature.
      */
+    @java.lang.Override
     public int getMaxCylinderHeadTemperature() {
       return maxCylinderHeadTemperature_;
     }
 
     public static final int MAX_CYLINDER_HEAD_TEMPERATURE_COOLING_RATE_FIELD_NUMBER = 5;
-    private int maxCylinderHeadTemperatureCoolingRate_;
+    private int maxCylinderHeadTemperatureCoolingRate_ = 0;
     /**
-     * <code>optional int32 max_cylinder_head_temperature_cooling_rate = 5;</code>
-     *
      * <pre>
      * In degrees per minute.
      * </pre>
+     *
+     * <code>optional int32 max_cylinder_head_temperature_cooling_rate = 5;</code>
+     * @return Whether the maxCylinderHeadTemperatureCoolingRate field is set.
      */
+    @java.lang.Override
     public boolean hasMaxCylinderHeadTemperatureCoolingRate() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
-     * <code>optional int32 max_cylinder_head_temperature_cooling_rate = 5;</code>
-     *
      * <pre>
      * In degrees per minute.
      * </pre>
+     *
+     * <code>optional int32 max_cylinder_head_temperature_cooling_rate = 5;</code>
+     * @return The maxCylinderHeadTemperatureCoolingRate.
      */
+    @java.lang.Override
     public int getMaxCylinderHeadTemperatureCoolingRate() {
       return maxCylinderHeadTemperatureCoolingRate_;
     }
 
     public static final int MAX_EXHAUST_GAS_TEMPERATURE_FIELD_NUMBER = 6;
-    private int maxExhaustGasTemperature_;
+    private int maxExhaustGasTemperature_ = 0;
     /**
      * <code>optional int32 max_exhaust_gas_temperature = 6;</code>
+     * @return Whether the maxExhaustGasTemperature field is set.
      */
+    @java.lang.Override
     public boolean hasMaxExhaustGasTemperature() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <code>optional int32 max_exhaust_gas_temperature = 6;</code>
+     * @return The maxExhaustGasTemperature.
      */
+    @java.lang.Override
     public int getMaxExhaustGasTemperature() {
       return maxExhaustGasTemperature_;
     }
 
     public static final int MIN_OIL_TEMPERATURE_FIELD_NUMBER = 7;
-    private int minOilTemperature_;
+    private int minOilTemperature_ = 0;
     /**
      * <code>optional int32 min_oil_temperature = 7;</code>
+     * @return Whether the minOilTemperature field is set.
      */
+    @java.lang.Override
     public boolean hasMinOilTemperature() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <code>optional int32 min_oil_temperature = 7;</code>
+     * @return The minOilTemperature.
      */
+    @java.lang.Override
     public int getMinOilTemperature() {
       return minOilTemperature_;
     }
 
     public static final int MAX_OIL_TEMPERATURE_FIELD_NUMBER = 8;
-    private int maxOilTemperature_;
+    private int maxOilTemperature_ = 0;
     /**
      * <code>optional int32 max_oil_temperature = 8;</code>
+     * @return Whether the maxOilTemperature field is set.
      */
+    @java.lang.Override
     public boolean hasMaxOilTemperature() {
-      return ((bitField0_ & 0x00000080) == 0x00000080);
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <code>optional int32 max_oil_temperature = 8;</code>
+     * @return The maxOilTemperature.
      */
+    @java.lang.Override
     public int getMaxOilTemperature() {
       return maxOilTemperature_;
     }
 
-    private void initFields() {
-      minVolts_ = 0D;
-      maxVolts_ = 0D;
-      maxExhaustGasTemperatureDifference_ = 0;
-      maxCylinderHeadTemperature_ = 0;
-      maxCylinderHeadTemperatureCoolingRate_ = 0;
-      maxExhaustGasTemperature_ = 0;
-      minOilTemperature_ = 0;
-      maxOilTemperature_ = 0;
-    }
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2396,86 +2598,192 @@ public final class Proto {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         output.writeDouble(1, minVolts_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         output.writeDouble(2, maxVolts_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         output.writeInt32(3, maxExhaustGasTemperatureDifference_);
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         output.writeInt32(4, maxCylinderHeadTemperature_);
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         output.writeInt32(5, maxCylinderHeadTemperatureCoolingRate_);
       }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+      if (((bitField0_ & 0x00000020) != 0)) {
         output.writeInt32(6, maxExhaustGasTemperature_);
       }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+      if (((bitField0_ & 0x00000040) != 0)) {
         output.writeInt32(7, minOilTemperature_);
       }
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+      if (((bitField0_ & 0x00000080) != 0)) {
         output.writeInt32(8, maxOilTemperature_);
       }
       getUnknownFields().writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
+    @java.lang.Override
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(1, minVolts_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(2, maxVolts_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, maxExhaustGasTemperatureDifference_);
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(4, maxCylinderHeadTemperature_);
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(5, maxCylinderHeadTemperatureCoolingRate_);
       }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+      if (((bitField0_ & 0x00000020) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(6, maxExhaustGasTemperature_);
       }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+      if (((bitField0_ & 0x00000040) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(7, minOilTemperature_);
       }
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+      if (((bitField0_ & 0x00000080) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(8, maxOilTemperature_);
       }
       size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof edmtools.Proto.AlarmThresholds)) {
+        return super.equals(obj);
+      }
+      edmtools.Proto.AlarmThresholds other = (edmtools.Proto.AlarmThresholds) obj;
+
+      if (hasMinVolts() != other.hasMinVolts()) return false;
+      if (hasMinVolts()) {
+        if (java.lang.Double.doubleToLongBits(getMinVolts())
+            != java.lang.Double.doubleToLongBits(
+                other.getMinVolts())) return false;
+      }
+      if (hasMaxVolts() != other.hasMaxVolts()) return false;
+      if (hasMaxVolts()) {
+        if (java.lang.Double.doubleToLongBits(getMaxVolts())
+            != java.lang.Double.doubleToLongBits(
+                other.getMaxVolts())) return false;
+      }
+      if (hasMaxExhaustGasTemperatureDifference() != other.hasMaxExhaustGasTemperatureDifference()) return false;
+      if (hasMaxExhaustGasTemperatureDifference()) {
+        if (getMaxExhaustGasTemperatureDifference()
+            != other.getMaxExhaustGasTemperatureDifference()) return false;
+      }
+      if (hasMaxCylinderHeadTemperature() != other.hasMaxCylinderHeadTemperature()) return false;
+      if (hasMaxCylinderHeadTemperature()) {
+        if (getMaxCylinderHeadTemperature()
+            != other.getMaxCylinderHeadTemperature()) return false;
+      }
+      if (hasMaxCylinderHeadTemperatureCoolingRate() != other.hasMaxCylinderHeadTemperatureCoolingRate()) return false;
+      if (hasMaxCylinderHeadTemperatureCoolingRate()) {
+        if (getMaxCylinderHeadTemperatureCoolingRate()
+            != other.getMaxCylinderHeadTemperatureCoolingRate()) return false;
+      }
+      if (hasMaxExhaustGasTemperature() != other.hasMaxExhaustGasTemperature()) return false;
+      if (hasMaxExhaustGasTemperature()) {
+        if (getMaxExhaustGasTemperature()
+            != other.getMaxExhaustGasTemperature()) return false;
+      }
+      if (hasMinOilTemperature() != other.hasMinOilTemperature()) return false;
+      if (hasMinOilTemperature()) {
+        if (getMinOilTemperature()
+            != other.getMinOilTemperature()) return false;
+      }
+      if (hasMaxOilTemperature() != other.hasMaxOilTemperature()) return false;
+      if (hasMaxOilTemperature()) {
+        if (getMaxOilTemperature()
+            != other.getMaxOilTemperature()) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
     }
 
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasMinVolts()) {
+        hash = (37 * hash) + MIN_VOLTS_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getMinVolts()));
+      }
+      if (hasMaxVolts()) {
+        hash = (37 * hash) + MAX_VOLTS_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getMaxVolts()));
+      }
+      if (hasMaxExhaustGasTemperatureDifference()) {
+        hash = (37 * hash) + MAX_EXHAUST_GAS_TEMPERATURE_DIFFERENCE_FIELD_NUMBER;
+        hash = (53 * hash) + getMaxExhaustGasTemperatureDifference();
+      }
+      if (hasMaxCylinderHeadTemperature()) {
+        hash = (37 * hash) + MAX_CYLINDER_HEAD_TEMPERATURE_FIELD_NUMBER;
+        hash = (53 * hash) + getMaxCylinderHeadTemperature();
+      }
+      if (hasMaxCylinderHeadTemperatureCoolingRate()) {
+        hash = (37 * hash) + MAX_CYLINDER_HEAD_TEMPERATURE_COOLING_RATE_FIELD_NUMBER;
+        hash = (53 * hash) + getMaxCylinderHeadTemperatureCoolingRate();
+      }
+      if (hasMaxExhaustGasTemperature()) {
+        hash = (37 * hash) + MAX_EXHAUST_GAS_TEMPERATURE_FIELD_NUMBER;
+        hash = (53 * hash) + getMaxExhaustGasTemperature();
+      }
+      if (hasMinOilTemperature()) {
+        hash = (37 * hash) + MIN_OIL_TEMPERATURE_FIELD_NUMBER;
+        hash = (53 * hash) + getMinOilTemperature();
+      }
+      if (hasMaxOilTemperature()) {
+        hash = (37 * hash) + MAX_OIL_TEMPERATURE_FIELD_NUMBER;
+        hash = (53 * hash) + getMaxOilTemperature();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static edmtools.Proto.AlarmThresholds parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static edmtools.Proto.AlarmThresholds parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static edmtools.Proto.AlarmThresholds parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2499,58 +2807,71 @@ public final class Proto {
     }
     public static edmtools.Proto.AlarmThresholds parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static edmtools.Proto.AlarmThresholds parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static edmtools.Proto.AlarmThresholds parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static edmtools.Proto.AlarmThresholds parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static edmtools.Proto.AlarmThresholds parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static edmtools.Proto.AlarmThresholds parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(edmtools.Proto.AlarmThresholds prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(edmtools.Proto.AlarmThresholds prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
-     * Protobuf type {@code edmtools.AlarmThresholds}
-     *
      * <pre>
      * Configured alarm thresholds.
      * </pre>
+     *
+     * Protobuf type {@code edmtools.AlarmThresholds}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:edmtools.AlarmThresholds)
         edmtools.Proto.AlarmThresholdsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -2558,7 +2879,8 @@ public final class Proto {
         return edmtools.Proto.internal_static_edmtools_AlarmThresholds_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return edmtools.Proto.internal_static_edmtools_AlarmThresholds_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -2567,56 +2889,41 @@ public final class Proto {
 
       // Construct using edmtools.Proto.AlarmThresholds.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
 
+      }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         minVolts_ = 0D;
-        bitField0_ = (bitField0_ & ~0x00000001);
         maxVolts_ = 0D;
-        bitField0_ = (bitField0_ & ~0x00000002);
         maxExhaustGasTemperatureDifference_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000004);
         maxCylinderHeadTemperature_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000008);
         maxCylinderHeadTemperatureCoolingRate_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000010);
         maxExhaustGasTemperature_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000020);
         minOilTemperature_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000040);
         maxOilTemperature_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
 
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return edmtools.Proto.internal_static_edmtools_AlarmThresholds_descriptor;
       }
 
+      @java.lang.Override
       public edmtools.Proto.AlarmThresholds getDefaultInstanceForType() {
         return edmtools.Proto.AlarmThresholds.getDefaultInstance();
       }
 
+      @java.lang.Override
       public edmtools.Proto.AlarmThresholds build() {
         edmtools.Proto.AlarmThresholds result = buildPartial();
         if (!result.isInitialized()) {
@@ -2625,47 +2932,85 @@ public final class Proto {
         return result;
       }
 
+      @java.lang.Override
       public edmtools.Proto.AlarmThresholds buildPartial() {
         edmtools.Proto.AlarmThresholds result = new edmtools.Proto.AlarmThresholds(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.minVolts_ = minVolts_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.maxVolts_ = maxVolts_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        result.maxExhaustGasTemperatureDifference_ = maxExhaustGasTemperatureDifference_;
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000008;
-        }
-        result.maxCylinderHeadTemperature_ = maxCylinderHeadTemperature_;
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-          to_bitField0_ |= 0x00000010;
-        }
-        result.maxCylinderHeadTemperatureCoolingRate_ = maxCylinderHeadTemperatureCoolingRate_;
-        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
-          to_bitField0_ |= 0x00000020;
-        }
-        result.maxExhaustGasTemperature_ = maxExhaustGasTemperature_;
-        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
-          to_bitField0_ |= 0x00000040;
-        }
-        result.minOilTemperature_ = minOilTemperature_;
-        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
-          to_bitField0_ |= 0x00000080;
-        }
-        result.maxOilTemperature_ = maxOilTemperature_;
-        result.bitField0_ = to_bitField0_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
+      private void buildPartial0(edmtools.Proto.AlarmThresholds result) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.minVolts_ = minVolts_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.maxVolts_ = maxVolts_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.maxExhaustGasTemperatureDifference_ = maxExhaustGasTemperatureDifference_;
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.maxCylinderHeadTemperature_ = maxCylinderHeadTemperature_;
+          to_bitField0_ |= 0x00000008;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.maxCylinderHeadTemperatureCoolingRate_ = maxCylinderHeadTemperatureCoolingRate_;
+          to_bitField0_ |= 0x00000010;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.maxExhaustGasTemperature_ = maxExhaustGasTemperature_;
+          to_bitField0_ |= 0x00000020;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.minOilTemperature_ = minOilTemperature_;
+          to_bitField0_ |= 0x00000040;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.maxOilTemperature_ = maxOilTemperature_;
+          to_bitField0_ |= 0x00000080;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof edmtools.Proto.AlarmThresholds) {
           return mergeFrom((edmtools.Proto.AlarmThresholds)other);
@@ -2702,28 +3047,84 @@ public final class Proto {
           setMaxOilTemperature(other.getMaxOilTemperature());
         }
         this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        edmtools.Proto.AlarmThresholds parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (edmtools.Proto.AlarmThresholds) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
         }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 9: {
+                minVolts_ = input.readDouble();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 9
+              case 17: {
+                maxVolts_ = input.readDouble();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 17
+              case 24: {
+                maxExhaustGasTemperatureDifference_ = input.readInt32();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 32: {
+                maxCylinderHeadTemperature_ = input.readInt32();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 40: {
+                maxCylinderHeadTemperatureCoolingRate_ = input.readInt32();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              case 48: {
+                maxExhaustGasTemperature_ = input.readInt32();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 48
+              case 56: {
+                minOilTemperature_ = input.readInt32();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 56
+              case 64: {
+                maxOilTemperature_ = input.readInt32();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 64
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -2731,27 +3132,35 @@ public final class Proto {
       private double minVolts_ ;
       /**
        * <code>optional double min_volts = 1;</code>
+       * @return Whether the minVolts field is set.
        */
+      @java.lang.Override
       public boolean hasMinVolts() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <code>optional double min_volts = 1;</code>
+       * @return The minVolts.
        */
+      @java.lang.Override
       public double getMinVolts() {
         return minVolts_;
       }
       /**
        * <code>optional double min_volts = 1;</code>
+       * @param value The minVolts to set.
+       * @return This builder for chaining.
        */
       public Builder setMinVolts(double value) {
-        bitField0_ |= 0x00000001;
+        
         minVolts_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
        * <code>optional double min_volts = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearMinVolts() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -2763,27 +3172,35 @@ public final class Proto {
       private double maxVolts_ ;
       /**
        * <code>optional double max_volts = 2;</code>
+       * @return Whether the maxVolts field is set.
        */
+      @java.lang.Override
       public boolean hasMaxVolts() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <code>optional double max_volts = 2;</code>
+       * @return The maxVolts.
        */
+      @java.lang.Override
       public double getMaxVolts() {
         return maxVolts_;
       }
       /**
        * <code>optional double max_volts = 2;</code>
+       * @param value The maxVolts to set.
+       * @return This builder for chaining.
        */
       public Builder setMaxVolts(double value) {
-        bitField0_ |= 0x00000002;
+        
         maxVolts_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
        * <code>optional double max_volts = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearMaxVolts() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -2795,27 +3212,35 @@ public final class Proto {
       private int maxExhaustGasTemperatureDifference_ ;
       /**
        * <code>optional int32 max_exhaust_gas_temperature_difference = 3;</code>
+       * @return Whether the maxExhaustGasTemperatureDifference field is set.
        */
+      @java.lang.Override
       public boolean hasMaxExhaustGasTemperatureDifference() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <code>optional int32 max_exhaust_gas_temperature_difference = 3;</code>
+       * @return The maxExhaustGasTemperatureDifference.
        */
+      @java.lang.Override
       public int getMaxExhaustGasTemperatureDifference() {
         return maxExhaustGasTemperatureDifference_;
       }
       /**
        * <code>optional int32 max_exhaust_gas_temperature_difference = 3;</code>
+       * @param value The maxExhaustGasTemperatureDifference to set.
+       * @return This builder for chaining.
        */
       public Builder setMaxExhaustGasTemperatureDifference(int value) {
-        bitField0_ |= 0x00000004;
+        
         maxExhaustGasTemperatureDifference_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
       /**
        * <code>optional int32 max_exhaust_gas_temperature_difference = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearMaxExhaustGasTemperatureDifference() {
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -2827,27 +3252,35 @@ public final class Proto {
       private int maxCylinderHeadTemperature_ ;
       /**
        * <code>optional int32 max_cylinder_head_temperature = 4;</code>
+       * @return Whether the maxCylinderHeadTemperature field is set.
        */
+      @java.lang.Override
       public boolean hasMaxCylinderHeadTemperature() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <code>optional int32 max_cylinder_head_temperature = 4;</code>
+       * @return The maxCylinderHeadTemperature.
        */
+      @java.lang.Override
       public int getMaxCylinderHeadTemperature() {
         return maxCylinderHeadTemperature_;
       }
       /**
        * <code>optional int32 max_cylinder_head_temperature = 4;</code>
+       * @param value The maxCylinderHeadTemperature to set.
+       * @return This builder for chaining.
        */
       public Builder setMaxCylinderHeadTemperature(int value) {
-        bitField0_ |= 0x00000008;
+        
         maxCylinderHeadTemperature_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
       /**
        * <code>optional int32 max_cylinder_head_temperature = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearMaxCylinderHeadTemperature() {
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -2858,44 +3291,52 @@ public final class Proto {
 
       private int maxCylinderHeadTemperatureCoolingRate_ ;
       /**
-       * <code>optional int32 max_cylinder_head_temperature_cooling_rate = 5;</code>
-       *
        * <pre>
        * In degrees per minute.
        * </pre>
+       *
+       * <code>optional int32 max_cylinder_head_temperature_cooling_rate = 5;</code>
+       * @return Whether the maxCylinderHeadTemperatureCoolingRate field is set.
        */
+      @java.lang.Override
       public boolean hasMaxCylinderHeadTemperatureCoolingRate() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
-       * <code>optional int32 max_cylinder_head_temperature_cooling_rate = 5;</code>
-       *
        * <pre>
        * In degrees per minute.
        * </pre>
+       *
+       * <code>optional int32 max_cylinder_head_temperature_cooling_rate = 5;</code>
+       * @return The maxCylinderHeadTemperatureCoolingRate.
        */
+      @java.lang.Override
       public int getMaxCylinderHeadTemperatureCoolingRate() {
         return maxCylinderHeadTemperatureCoolingRate_;
       }
       /**
-       * <code>optional int32 max_cylinder_head_temperature_cooling_rate = 5;</code>
-       *
        * <pre>
        * In degrees per minute.
        * </pre>
+       *
+       * <code>optional int32 max_cylinder_head_temperature_cooling_rate = 5;</code>
+       * @param value The maxCylinderHeadTemperatureCoolingRate to set.
+       * @return This builder for chaining.
        */
       public Builder setMaxCylinderHeadTemperatureCoolingRate(int value) {
-        bitField0_ |= 0x00000010;
+        
         maxCylinderHeadTemperatureCoolingRate_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 max_cylinder_head_temperature_cooling_rate = 5;</code>
-       *
        * <pre>
        * In degrees per minute.
        * </pre>
+       *
+       * <code>optional int32 max_cylinder_head_temperature_cooling_rate = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearMaxCylinderHeadTemperatureCoolingRate() {
         bitField0_ = (bitField0_ & ~0x00000010);
@@ -2907,27 +3348,35 @@ public final class Proto {
       private int maxExhaustGasTemperature_ ;
       /**
        * <code>optional int32 max_exhaust_gas_temperature = 6;</code>
+       * @return Whether the maxExhaustGasTemperature field is set.
        */
+      @java.lang.Override
       public boolean hasMaxExhaustGasTemperature() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
        * <code>optional int32 max_exhaust_gas_temperature = 6;</code>
+       * @return The maxExhaustGasTemperature.
        */
+      @java.lang.Override
       public int getMaxExhaustGasTemperature() {
         return maxExhaustGasTemperature_;
       }
       /**
        * <code>optional int32 max_exhaust_gas_temperature = 6;</code>
+       * @param value The maxExhaustGasTemperature to set.
+       * @return This builder for chaining.
        */
       public Builder setMaxExhaustGasTemperature(int value) {
-        bitField0_ |= 0x00000020;
+        
         maxExhaustGasTemperature_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
       /**
        * <code>optional int32 max_exhaust_gas_temperature = 6;</code>
+       * @return This builder for chaining.
        */
       public Builder clearMaxExhaustGasTemperature() {
         bitField0_ = (bitField0_ & ~0x00000020);
@@ -2939,27 +3388,35 @@ public final class Proto {
       private int minOilTemperature_ ;
       /**
        * <code>optional int32 min_oil_temperature = 7;</code>
+       * @return Whether the minOilTemperature field is set.
        */
+      @java.lang.Override
       public boolean hasMinOilTemperature() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
+        return ((bitField0_ & 0x00000040) != 0);
       }
       /**
        * <code>optional int32 min_oil_temperature = 7;</code>
+       * @return The minOilTemperature.
        */
+      @java.lang.Override
       public int getMinOilTemperature() {
         return minOilTemperature_;
       }
       /**
        * <code>optional int32 min_oil_temperature = 7;</code>
+       * @param value The minOilTemperature to set.
+       * @return This builder for chaining.
        */
       public Builder setMinOilTemperature(int value) {
-        bitField0_ |= 0x00000040;
+        
         minOilTemperature_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
       /**
        * <code>optional int32 min_oil_temperature = 7;</code>
+       * @return This builder for chaining.
        */
       public Builder clearMinOilTemperature() {
         bitField0_ = (bitField0_ & ~0x00000040);
@@ -2971,27 +3428,35 @@ public final class Proto {
       private int maxOilTemperature_ ;
       /**
        * <code>optional int32 max_oil_temperature = 8;</code>
+       * @return Whether the maxOilTemperature field is set.
        */
+      @java.lang.Override
       public boolean hasMaxOilTemperature() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
+        return ((bitField0_ & 0x00000080) != 0);
       }
       /**
        * <code>optional int32 max_oil_temperature = 8;</code>
+       * @return The maxOilTemperature.
        */
+      @java.lang.Override
       public int getMaxOilTemperature() {
         return maxOilTemperature_;
       }
       /**
        * <code>optional int32 max_oil_temperature = 8;</code>
+       * @param value The maxOilTemperature to set.
+       * @return This builder for chaining.
        */
       public Builder setMaxOilTemperature(int value) {
-        bitField0_ |= 0x00000080;
+        
         maxOilTemperature_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
       /**
        * <code>optional int32 max_oil_temperature = 8;</code>
+       * @return This builder for chaining.
        */
       public Builder clearMaxOilTemperature() {
         bitField0_ = (bitField0_ & ~0x00000080);
@@ -2999,16 +3464,68 @@ public final class Proto {
         onChanged();
         return this;
       }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:edmtools.AlarmThresholds)
     }
 
+    // @@protoc_insertion_point(class_scope:edmtools.AlarmThresholds)
+    private static final edmtools.Proto.AlarmThresholds DEFAULT_INSTANCE;
     static {
-      defaultInstance = new AlarmThresholds(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new edmtools.Proto.AlarmThresholds();
     }
 
-    // @@protoc_insertion_point(class_scope:edmtools.AlarmThresholds)
+    public static edmtools.Proto.AlarmThresholds getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<AlarmThresholds>
+        PARSER = new com.google.protobuf.AbstractParser<AlarmThresholds>() {
+      @java.lang.Override
+      public AlarmThresholds parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<AlarmThresholds> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AlarmThresholds> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public edmtools.Proto.AlarmThresholds getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface FuelOrBuilder extends
@@ -3017,54 +3534,64 @@ public final class Proto {
 
     /**
      * <code>optional .edmtools.Fuel.FuelFlowUnits fuel_flow_units = 1;</code>
+     * @return Whether the fuelFlowUnits field is set.
      */
     boolean hasFuelFlowUnits();
     /**
      * <code>optional .edmtools.Fuel.FuelFlowUnits fuel_flow_units = 1;</code>
+     * @return The fuelFlowUnits.
      */
     edmtools.Proto.Fuel.FuelFlowUnits getFuelFlowUnits();
 
     /**
      * <code>optional int32 full_quantity = 2;</code>
+     * @return Whether the fullQuantity field is set.
      */
     boolean hasFullQuantity();
     /**
      * <code>optional int32 full_quantity = 2;</code>
+     * @return The fullQuantity.
      */
     int getFullQuantity();
 
     /**
-     * <code>optional int32 warning_quantity = 3;</code>
-     *
      * <pre>
      * TODO: should this bein alarm thresholds?
      * </pre>
+     *
+     * <code>optional int32 warning_quantity = 3;</code>
+     * @return Whether the warningQuantity field is set.
      */
     boolean hasWarningQuantity();
     /**
-     * <code>optional int32 warning_quantity = 3;</code>
-     *
      * <pre>
      * TODO: should this bein alarm thresholds?
      * </pre>
+     *
+     * <code>optional int32 warning_quantity = 3;</code>
+     * @return The warningQuantity.
      */
     int getWarningQuantity();
 
     /**
      * <code>optional int32 k_factor1 = 4;</code>
+     * @return Whether the kFactor1 field is set.
      */
     boolean hasKFactor1();
     /**
      * <code>optional int32 k_factor1 = 4;</code>
+     * @return The kFactor1.
      */
     int getKFactor1();
 
     /**
      * <code>optional int32 k_factor2 = 5;</code>
+     * @return Whether the kFactor2 field is set.
      */
     boolean hasKFactor2();
     /**
      * <code>optional int32 k_factor2 = 5;</code>
+     * @return The kFactor2.
      */
     int getKFactor2();
   }
@@ -3072,122 +3599,41 @@ public final class Proto {
    * Protobuf type {@code edmtools.Fuel}
    */
   public static final class Fuel extends
-      com.google.protobuf.GeneratedMessage implements
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:edmtools.Fuel)
       FuelOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use Fuel.newBuilder() to construct.
-    private Fuel(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private Fuel(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private Fuel(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final Fuel defaultInstance;
-    public static Fuel getDefaultInstance() {
-      return defaultInstance;
+    private Fuel() {
+      fuelFlowUnits_ = 1;
     }
 
-    public Fuel getDefaultInstanceForType() {
-      return defaultInstance;
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Fuel();
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
-    }
-    private Fuel(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 8: {
-              int rawValue = input.readEnum();
-              edmtools.Proto.Fuel.FuelFlowUnits value = edmtools.Proto.Fuel.FuelFlowUnits.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(1, rawValue);
-              } else {
-                bitField0_ |= 0x00000001;
-                fuelFlowUnits_ = value;
-              }
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              fullQuantity_ = input.readInt32();
-              break;
-            }
-            case 24: {
-              bitField0_ |= 0x00000004;
-              warningQuantity_ = input.readInt32();
-              break;
-            }
-            case 32: {
-              bitField0_ |= 0x00000008;
-              kFactor1_ = input.readInt32();
-              break;
-            }
-            case 40: {
-              bitField0_ |= 0x00000010;
-              kFactor2_ = input.readInt32();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return edmtools.Proto.internal_static_edmtools_Fuel_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return edmtools.Proto.internal_static_edmtools_Fuel_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               edmtools.Proto.Fuel.class, edmtools.Proto.Fuel.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<Fuel> PARSER =
-        new com.google.protobuf.AbstractParser<Fuel>() {
-      public Fuel parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Fuel(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Fuel> getParserForType() {
-      return PARSER;
     }
 
     /**
@@ -3198,19 +3644,19 @@ public final class Proto {
       /**
        * <code>GPH = 1;</code>
        */
-      GPH(0, 1),
+      GPH(1),
       /**
        * <code>PPH = 2;</code>
        */
-      PPH(1, 2),
+      PPH(2),
       /**
        * <code>LPH = 3;</code>
        */
-      LPH(2, 3),
+      LPH(3),
       /**
        * <code>KPH = 4;</code>
        */
-      KPH(3, 4),
+      KPH(4),
       ;
 
       /**
@@ -3231,9 +3677,25 @@ public final class Proto {
       public static final int KPH_VALUE = 4;
 
 
-      public final int getNumber() { return value; }
+      public final int getNumber() {
+        return value;
+      }
 
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
       public static FuelFlowUnits valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static FuelFlowUnits forNumber(int value) {
         switch (value) {
           case 1: return GPH;
           case 2: return PPH;
@@ -3247,17 +3709,17 @@ public final class Proto {
           internalGetValueMap() {
         return internalValueMap;
       }
-      private static com.google.protobuf.Internal.EnumLiteMap<FuelFlowUnits>
-          internalValueMap =
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          FuelFlowUnits> internalValueMap =
             new com.google.protobuf.Internal.EnumLiteMap<FuelFlowUnits>() {
               public FuelFlowUnits findValueByNumber(int number) {
-                return FuelFlowUnits.valueOf(number);
+                return FuelFlowUnits.forNumber(number);
               }
             };
 
       public final com.google.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
-        return getDescriptor().getValues().get(index);
+        return getDescriptor().getValues().get(ordinal());
       }
       public final com.google.protobuf.Descriptors.EnumDescriptor
           getDescriptorForType() {
@@ -3279,11 +3741,9 @@ public final class Proto {
         return VALUES[desc.getIndex()];
       }
 
-      private final int index;
       private final int value;
 
-      private FuelFlowUnits(int index, int value) {
-        this.index = index;
+      private FuelFlowUnits(int value) {
         this.value = value;
       }
 
@@ -3292,96 +3752,109 @@ public final class Proto {
 
     private int bitField0_;
     public static final int FUEL_FLOW_UNITS_FIELD_NUMBER = 1;
-    private edmtools.Proto.Fuel.FuelFlowUnits fuelFlowUnits_;
+    private int fuelFlowUnits_ = 1;
     /**
      * <code>optional .edmtools.Fuel.FuelFlowUnits fuel_flow_units = 1;</code>
+     * @return Whether the fuelFlowUnits field is set.
      */
-    public boolean hasFuelFlowUnits() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+    @java.lang.Override public boolean hasFuelFlowUnits() {
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>optional .edmtools.Fuel.FuelFlowUnits fuel_flow_units = 1;</code>
+     * @return The fuelFlowUnits.
      */
-    public edmtools.Proto.Fuel.FuelFlowUnits getFuelFlowUnits() {
-      return fuelFlowUnits_;
+    @java.lang.Override public edmtools.Proto.Fuel.FuelFlowUnits getFuelFlowUnits() {
+      edmtools.Proto.Fuel.FuelFlowUnits result = edmtools.Proto.Fuel.FuelFlowUnits.forNumber(fuelFlowUnits_);
+      return result == null ? edmtools.Proto.Fuel.FuelFlowUnits.GPH : result;
     }
 
     public static final int FULL_QUANTITY_FIELD_NUMBER = 2;
-    private int fullQuantity_;
+    private int fullQuantity_ = 0;
     /**
      * <code>optional int32 full_quantity = 2;</code>
+     * @return Whether the fullQuantity field is set.
      */
+    @java.lang.Override
     public boolean hasFullQuantity() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <code>optional int32 full_quantity = 2;</code>
+     * @return The fullQuantity.
      */
+    @java.lang.Override
     public int getFullQuantity() {
       return fullQuantity_;
     }
 
     public static final int WARNING_QUANTITY_FIELD_NUMBER = 3;
-    private int warningQuantity_;
+    private int warningQuantity_ = 0;
     /**
-     * <code>optional int32 warning_quantity = 3;</code>
-     *
      * <pre>
      * TODO: should this bein alarm thresholds?
      * </pre>
+     *
+     * <code>optional int32 warning_quantity = 3;</code>
+     * @return Whether the warningQuantity field is set.
      */
+    @java.lang.Override
     public boolean hasWarningQuantity() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
-     * <code>optional int32 warning_quantity = 3;</code>
-     *
      * <pre>
      * TODO: should this bein alarm thresholds?
      * </pre>
+     *
+     * <code>optional int32 warning_quantity = 3;</code>
+     * @return The warningQuantity.
      */
+    @java.lang.Override
     public int getWarningQuantity() {
       return warningQuantity_;
     }
 
     public static final int K_FACTOR1_FIELD_NUMBER = 4;
-    private int kFactor1_;
+    private int kFactor1_ = 0;
     /**
      * <code>optional int32 k_factor1 = 4;</code>
+     * @return Whether the kFactor1 field is set.
      */
+    @java.lang.Override
     public boolean hasKFactor1() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <code>optional int32 k_factor1 = 4;</code>
+     * @return The kFactor1.
      */
+    @java.lang.Override
     public int getKFactor1() {
       return kFactor1_;
     }
 
     public static final int K_FACTOR2_FIELD_NUMBER = 5;
-    private int kFactor2_;
+    private int kFactor2_ = 0;
     /**
      * <code>optional int32 k_factor2 = 5;</code>
+     * @return Whether the kFactor2 field is set.
      */
+    @java.lang.Override
     public boolean hasKFactor2() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <code>optional int32 k_factor2 = 5;</code>
+     * @return The kFactor2.
      */
+    @java.lang.Override
     public int getKFactor2() {
       return kFactor2_;
     }
 
-    private void initFields() {
-      fuelFlowUnits_ = edmtools.Proto.Fuel.FuelFlowUnits.GPH;
-      fullQuantity_ = 0;
-      warningQuantity_ = 0;
-      kFactor1_ = 0;
-      kFactor2_ = 0;
-    }
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -3391,65 +3864,139 @@ public final class Proto {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeEnum(1, fuelFlowUnits_.getNumber());
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeEnum(1, fuelFlowUnits_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         output.writeInt32(2, fullQuantity_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         output.writeInt32(3, warningQuantity_);
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         output.writeInt32(4, kFactor1_);
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         output.writeInt32(5, kFactor2_);
       }
       getUnknownFields().writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
+    @java.lang.Override
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, fuelFlowUnits_.getNumber());
+          .computeEnumSize(1, fuelFlowUnits_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, fullQuantity_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, warningQuantity_);
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(4, kFactor1_);
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(5, kFactor2_);
       }
       size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof edmtools.Proto.Fuel)) {
+        return super.equals(obj);
+      }
+      edmtools.Proto.Fuel other = (edmtools.Proto.Fuel) obj;
+
+      if (hasFuelFlowUnits() != other.hasFuelFlowUnits()) return false;
+      if (hasFuelFlowUnits()) {
+        if (fuelFlowUnits_ != other.fuelFlowUnits_) return false;
+      }
+      if (hasFullQuantity() != other.hasFullQuantity()) return false;
+      if (hasFullQuantity()) {
+        if (getFullQuantity()
+            != other.getFullQuantity()) return false;
+      }
+      if (hasWarningQuantity() != other.hasWarningQuantity()) return false;
+      if (hasWarningQuantity()) {
+        if (getWarningQuantity()
+            != other.getWarningQuantity()) return false;
+      }
+      if (hasKFactor1() != other.hasKFactor1()) return false;
+      if (hasKFactor1()) {
+        if (getKFactor1()
+            != other.getKFactor1()) return false;
+      }
+      if (hasKFactor2() != other.hasKFactor2()) return false;
+      if (hasKFactor2()) {
+        if (getKFactor2()
+            != other.getKFactor2()) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
     }
 
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasFuelFlowUnits()) {
+        hash = (37 * hash) + FUEL_FLOW_UNITS_FIELD_NUMBER;
+        hash = (53 * hash) + fuelFlowUnits_;
+      }
+      if (hasFullQuantity()) {
+        hash = (37 * hash) + FULL_QUANTITY_FIELD_NUMBER;
+        hash = (53 * hash) + getFullQuantity();
+      }
+      if (hasWarningQuantity()) {
+        hash = (37 * hash) + WARNING_QUANTITY_FIELD_NUMBER;
+        hash = (53 * hash) + getWarningQuantity();
+      }
+      if (hasKFactor1()) {
+        hash = (37 * hash) + K_FACTOR1_FIELD_NUMBER;
+        hash = (53 * hash) + getKFactor1();
+      }
+      if (hasKFactor2()) {
+        hash = (37 * hash) + K_FACTOR2_FIELD_NUMBER;
+        hash = (53 * hash) + getKFactor2();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static edmtools.Proto.Fuel parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static edmtools.Proto.Fuel parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static edmtools.Proto.Fuel parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3473,46 +4020,59 @@ public final class Proto {
     }
     public static edmtools.Proto.Fuel parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static edmtools.Proto.Fuel parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static edmtools.Proto.Fuel parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static edmtools.Proto.Fuel parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static edmtools.Proto.Fuel parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static edmtools.Proto.Fuel parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(edmtools.Proto.Fuel prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(edmtools.Proto.Fuel prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -3520,7 +4080,7 @@ public final class Proto {
      * Protobuf type {@code edmtools.Fuel}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:edmtools.Fuel)
         edmtools.Proto.FuelOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -3528,7 +4088,8 @@ public final class Proto {
         return edmtools.Proto.internal_static_edmtools_Fuel_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return edmtools.Proto.internal_static_edmtools_Fuel_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -3537,50 +4098,38 @@ public final class Proto {
 
       // Construct using edmtools.Proto.Fuel.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
 
+      }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
-        fuelFlowUnits_ = edmtools.Proto.Fuel.FuelFlowUnits.GPH;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = 0;
+        fuelFlowUnits_ = 1;
         fullQuantity_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
         warningQuantity_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000004);
         kFactor1_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000008);
         kFactor2_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return edmtools.Proto.internal_static_edmtools_Fuel_descriptor;
       }
 
+      @java.lang.Override
       public edmtools.Proto.Fuel getDefaultInstanceForType() {
         return edmtools.Proto.Fuel.getDefaultInstance();
       }
 
+      @java.lang.Override
       public edmtools.Proto.Fuel build() {
         edmtools.Proto.Fuel result = buildPartial();
         if (!result.isInitialized()) {
@@ -3589,35 +4138,73 @@ public final class Proto {
         return result;
       }
 
+      @java.lang.Override
       public edmtools.Proto.Fuel buildPartial() {
         edmtools.Proto.Fuel result = new edmtools.Proto.Fuel(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.fuelFlowUnits_ = fuelFlowUnits_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.fullQuantity_ = fullQuantity_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        result.warningQuantity_ = warningQuantity_;
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000008;
-        }
-        result.kFactor1_ = kFactor1_;
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-          to_bitField0_ |= 0x00000010;
-        }
-        result.kFactor2_ = kFactor2_;
-        result.bitField0_ = to_bitField0_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
+      private void buildPartial0(edmtools.Proto.Fuel result) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.fuelFlowUnits_ = fuelFlowUnits_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.fullQuantity_ = fullQuantity_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.warningQuantity_ = warningQuantity_;
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.kFactor1_ = kFactor1_;
+          to_bitField0_ |= 0x00000008;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.kFactor2_ = kFactor2_;
+          to_bitField0_ |= 0x00000010;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof edmtools.Proto.Fuel) {
           return mergeFrom((edmtools.Proto.Fuel)other);
@@ -3645,63 +4232,118 @@ public final class Proto {
           setKFactor2(other.getKFactor2());
         }
         this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        edmtools.Proto.Fuel parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (edmtools.Proto.Fuel) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
         }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                int tmpRaw = input.readEnum();
+                edmtools.Proto.Fuel.FuelFlowUnits tmpValue =
+                    edmtools.Proto.Fuel.FuelFlowUnits.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  mergeUnknownVarintField(1, tmpRaw);
+                } else {
+                  fuelFlowUnits_ = tmpRaw;
+                  bitField0_ |= 0x00000001;
+                }
+                break;
+              } // case 8
+              case 16: {
+                fullQuantity_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                warningQuantity_ = input.readInt32();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 32: {
+                kFactor1_ = input.readInt32();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 40: {
+                kFactor2_ = input.readInt32();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
 
-      private edmtools.Proto.Fuel.FuelFlowUnits fuelFlowUnits_ = edmtools.Proto.Fuel.FuelFlowUnits.GPH;
+      private int fuelFlowUnits_ = 1;
       /**
        * <code>optional .edmtools.Fuel.FuelFlowUnits fuel_flow_units = 1;</code>
+       * @return Whether the fuelFlowUnits field is set.
        */
-      public boolean hasFuelFlowUnits() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+      @java.lang.Override public boolean hasFuelFlowUnits() {
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <code>optional .edmtools.Fuel.FuelFlowUnits fuel_flow_units = 1;</code>
+       * @return The fuelFlowUnits.
        */
+      @java.lang.Override
       public edmtools.Proto.Fuel.FuelFlowUnits getFuelFlowUnits() {
-        return fuelFlowUnits_;
+        edmtools.Proto.Fuel.FuelFlowUnits result = edmtools.Proto.Fuel.FuelFlowUnits.forNumber(fuelFlowUnits_);
+        return result == null ? edmtools.Proto.Fuel.FuelFlowUnits.GPH : result;
       }
       /**
        * <code>optional .edmtools.Fuel.FuelFlowUnits fuel_flow_units = 1;</code>
+       * @param value The fuelFlowUnits to set.
+       * @return This builder for chaining.
        */
       public Builder setFuelFlowUnits(edmtools.Proto.Fuel.FuelFlowUnits value) {
         if (value == null) {
           throw new NullPointerException();
         }
         bitField0_ |= 0x00000001;
-        fuelFlowUnits_ = value;
+        fuelFlowUnits_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
        * <code>optional .edmtools.Fuel.FuelFlowUnits fuel_flow_units = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearFuelFlowUnits() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        fuelFlowUnits_ = edmtools.Proto.Fuel.FuelFlowUnits.GPH;
+        fuelFlowUnits_ = 1;
         onChanged();
         return this;
       }
@@ -3709,27 +4351,35 @@ public final class Proto {
       private int fullQuantity_ ;
       /**
        * <code>optional int32 full_quantity = 2;</code>
+       * @return Whether the fullQuantity field is set.
        */
+      @java.lang.Override
       public boolean hasFullQuantity() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <code>optional int32 full_quantity = 2;</code>
+       * @return The fullQuantity.
        */
+      @java.lang.Override
       public int getFullQuantity() {
         return fullQuantity_;
       }
       /**
        * <code>optional int32 full_quantity = 2;</code>
+       * @param value The fullQuantity to set.
+       * @return This builder for chaining.
        */
       public Builder setFullQuantity(int value) {
-        bitField0_ |= 0x00000002;
+        
         fullQuantity_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
        * <code>optional int32 full_quantity = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearFullQuantity() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -3740,44 +4390,52 @@ public final class Proto {
 
       private int warningQuantity_ ;
       /**
-       * <code>optional int32 warning_quantity = 3;</code>
-       *
        * <pre>
        * TODO: should this bein alarm thresholds?
        * </pre>
+       *
+       * <code>optional int32 warning_quantity = 3;</code>
+       * @return Whether the warningQuantity field is set.
        */
+      @java.lang.Override
       public boolean hasWarningQuantity() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
-       * <code>optional int32 warning_quantity = 3;</code>
-       *
        * <pre>
        * TODO: should this bein alarm thresholds?
        * </pre>
+       *
+       * <code>optional int32 warning_quantity = 3;</code>
+       * @return The warningQuantity.
        */
+      @java.lang.Override
       public int getWarningQuantity() {
         return warningQuantity_;
       }
       /**
-       * <code>optional int32 warning_quantity = 3;</code>
-       *
        * <pre>
        * TODO: should this bein alarm thresholds?
        * </pre>
+       *
+       * <code>optional int32 warning_quantity = 3;</code>
+       * @param value The warningQuantity to set.
+       * @return This builder for chaining.
        */
       public Builder setWarningQuantity(int value) {
-        bitField0_ |= 0x00000004;
+        
         warningQuantity_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 warning_quantity = 3;</code>
-       *
        * <pre>
        * TODO: should this bein alarm thresholds?
        * </pre>
+       *
+       * <code>optional int32 warning_quantity = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearWarningQuantity() {
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -3789,27 +4447,35 @@ public final class Proto {
       private int kFactor1_ ;
       /**
        * <code>optional int32 k_factor1 = 4;</code>
+       * @return Whether the kFactor1 field is set.
        */
+      @java.lang.Override
       public boolean hasKFactor1() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <code>optional int32 k_factor1 = 4;</code>
+       * @return The kFactor1.
        */
+      @java.lang.Override
       public int getKFactor1() {
         return kFactor1_;
       }
       /**
        * <code>optional int32 k_factor1 = 4;</code>
+       * @param value The kFactor1 to set.
+       * @return This builder for chaining.
        */
       public Builder setKFactor1(int value) {
-        bitField0_ |= 0x00000008;
+        
         kFactor1_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
       /**
        * <code>optional int32 k_factor1 = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearKFactor1() {
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -3821,27 +4487,35 @@ public final class Proto {
       private int kFactor2_ ;
       /**
        * <code>optional int32 k_factor2 = 5;</code>
+       * @return Whether the kFactor2 field is set.
        */
+      @java.lang.Override
       public boolean hasKFactor2() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <code>optional int32 k_factor2 = 5;</code>
+       * @return The kFactor2.
        */
+      @java.lang.Override
       public int getKFactor2() {
         return kFactor2_;
       }
       /**
        * <code>optional int32 k_factor2 = 5;</code>
+       * @param value The kFactor2 to set.
+       * @return This builder for chaining.
        */
       public Builder setKFactor2(int value) {
-        bitField0_ |= 0x00000010;
+        
         kFactor2_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
       /**
        * <code>optional int32 k_factor2 = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearKFactor2() {
         bitField0_ = (bitField0_ & ~0x00000010);
@@ -3849,16 +4523,68 @@ public final class Proto {
         onChanged();
         return this;
       }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:edmtools.Fuel)
     }
 
+    // @@protoc_insertion_point(class_scope:edmtools.Fuel)
+    private static final edmtools.Proto.Fuel DEFAULT_INSTANCE;
     static {
-      defaultInstance = new Fuel(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new edmtools.Proto.Fuel();
     }
 
-    // @@protoc_insertion_point(class_scope:edmtools.Fuel)
+    public static edmtools.Proto.Fuel getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<Fuel>
+        PARSER = new com.google.protobuf.AbstractParser<Fuel>() {
+      @java.lang.Override
+      public Fuel parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<Fuel> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Fuel> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public edmtools.Proto.Fuel getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface FeaturesOrBuilder extends
@@ -3866,45 +4592,51 @@ public final class Proto {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional int32 model_number = 1;</code>
-     *
      * <pre>
      * eg 700, 760, 800
      * </pre>
+     *
+     * <code>optional int32 model_number = 1;</code>
+     * @return Whether the modelNumber field is set.
      */
     boolean hasModelNumber();
     /**
-     * <code>optional int32 model_number = 1;</code>
-     *
      * <pre>
      * eg 700, 760, 800
      * </pre>
+     *
+     * <code>optional int32 model_number = 1;</code>
+     * @return The modelNumber.
      */
     int getModelNumber();
 
     /**
-     * <code>optional int32 firmware_version = 2;</code>
-     *
      * <pre>
      * N.NN * 100
      * </pre>
+     *
+     * <code>optional int32 firmware_version = 2;</code>
+     * @return Whether the firmwareVersion field is set.
      */
     boolean hasFirmwareVersion();
     /**
-     * <code>optional int32 firmware_version = 2;</code>
-     *
      * <pre>
      * N.NN * 100
      * </pre>
+     *
+     * <code>optional int32 firmware_version = 2;</code>
+     * @return The firmwareVersion.
      */
     int getFirmwareVersion();
 
     /**
      * <code>optional .edmtools.Sensors sensors = 3;</code>
+     * @return Whether the sensors field is set.
      */
     boolean hasSensors();
     /**
      * <code>optional .edmtools.Sensors sensors = 3;</code>
+     * @return The sensors.
      */
     edmtools.Proto.Sensors getSensors();
     /**
@@ -3914,28 +4646,34 @@ public final class Proto {
 
     /**
      * <code>optional .edmtools.Features.TemperatureUnit engine_temperature_unit = 4;</code>
+     * @return Whether the engineTemperatureUnit field is set.
      */
     boolean hasEngineTemperatureUnit();
     /**
      * <code>optional .edmtools.Features.TemperatureUnit engine_temperature_unit = 4;</code>
+     * @return The engineTemperatureUnit.
      */
     edmtools.Proto.Features.TemperatureUnit getEngineTemperatureUnit();
 
     /**
      * <code>optional int32 beta_number = 5;</code>
+     * @return Whether the betaNumber field is set.
      */
     boolean hasBetaNumber();
     /**
      * <code>optional int32 beta_number = 5;</code>
+     * @return The betaNumber.
      */
     int getBetaNumber();
 
     /**
      * <code>optional int32 build_number = 6;</code>
+     * @return Whether the buildNumber field is set.
      */
     boolean hasBuildNumber();
     /**
      * <code>optional int32 build_number = 6;</code>
+     * @return The buildNumber.
      */
     int getBuildNumber();
   }
@@ -3943,135 +4681,41 @@ public final class Proto {
    * Protobuf type {@code edmtools.Features}
    */
   public static final class Features extends
-      com.google.protobuf.GeneratedMessage implements
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:edmtools.Features)
       FeaturesOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use Features.newBuilder() to construct.
-    private Features(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private Features(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private Features(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final Features defaultInstance;
-    public static Features getDefaultInstance() {
-      return defaultInstance;
+    private Features() {
+      engineTemperatureUnit_ = 1;
     }
 
-    public Features getDefaultInstanceForType() {
-      return defaultInstance;
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Features();
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
-    }
-    private Features(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              modelNumber_ = input.readInt32();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              firmwareVersion_ = input.readInt32();
-              break;
-            }
-            case 26: {
-              edmtools.Proto.Sensors.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000004) == 0x00000004)) {
-                subBuilder = sensors_.toBuilder();
-              }
-              sensors_ = input.readMessage(edmtools.Proto.Sensors.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(sensors_);
-                sensors_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000004;
-              break;
-            }
-            case 32: {
-              int rawValue = input.readEnum();
-              edmtools.Proto.Features.TemperatureUnit value = edmtools.Proto.Features.TemperatureUnit.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(4, rawValue);
-              } else {
-                bitField0_ |= 0x00000008;
-                engineTemperatureUnit_ = value;
-              }
-              break;
-            }
-            case 40: {
-              bitField0_ |= 0x00000010;
-              betaNumber_ = input.readInt32();
-              break;
-            }
-            case 48: {
-              bitField0_ |= 0x00000020;
-              buildNumber_ = input.readInt32();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return edmtools.Proto.internal_static_edmtools_Features_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return edmtools.Proto.internal_static_edmtools_Features_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               edmtools.Proto.Features.class, edmtools.Proto.Features.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<Features> PARSER =
-        new com.google.protobuf.AbstractParser<Features>() {
-      public Features parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Features(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Features> getParserForType() {
-      return PARSER;
     }
 
     /**
@@ -4082,11 +4726,11 @@ public final class Proto {
       /**
        * <code>FAHRENHEIT = 1;</code>
        */
-      FAHRENHEIT(0, 1),
+      FAHRENHEIT(1),
       /**
        * <code>CELSIUS = 2;</code>
        */
-      CELSIUS(1, 2),
+      CELSIUS(2),
       ;
 
       /**
@@ -4099,9 +4743,25 @@ public final class Proto {
       public static final int CELSIUS_VALUE = 2;
 
 
-      public final int getNumber() { return value; }
+      public final int getNumber() {
+        return value;
+      }
 
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
       public static TemperatureUnit valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static TemperatureUnit forNumber(int value) {
         switch (value) {
           case 1: return FAHRENHEIT;
           case 2: return CELSIUS;
@@ -4113,17 +4773,17 @@ public final class Proto {
           internalGetValueMap() {
         return internalValueMap;
       }
-      private static com.google.protobuf.Internal.EnumLiteMap<TemperatureUnit>
-          internalValueMap =
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          TemperatureUnit> internalValueMap =
             new com.google.protobuf.Internal.EnumLiteMap<TemperatureUnit>() {
               public TemperatureUnit findValueByNumber(int number) {
-                return TemperatureUnit.valueOf(number);
+                return TemperatureUnit.forNumber(number);
               }
             };
 
       public final com.google.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
-        return getDescriptor().getValues().get(index);
+        return getDescriptor().getValues().get(ordinal());
       }
       public final com.google.protobuf.Descriptors.EnumDescriptor
           getDescriptorForType() {
@@ -4145,11 +4805,9 @@ public final class Proto {
         return VALUES[desc.getIndex()];
       }
 
-      private final int index;
       private final int value;
 
-      private TemperatureUnit(int index, int value) {
-        this.index = index;
+      private TemperatureUnit(int value) {
         this.value = value;
       }
 
@@ -4158,47 +4816,55 @@ public final class Proto {
 
     private int bitField0_;
     public static final int MODEL_NUMBER_FIELD_NUMBER = 1;
-    private int modelNumber_;
+    private int modelNumber_ = 0;
     /**
-     * <code>optional int32 model_number = 1;</code>
-     *
      * <pre>
      * eg 700, 760, 800
      * </pre>
+     *
+     * <code>optional int32 model_number = 1;</code>
+     * @return Whether the modelNumber field is set.
      */
+    @java.lang.Override
     public boolean hasModelNumber() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>optional int32 model_number = 1;</code>
-     *
      * <pre>
      * eg 700, 760, 800
      * </pre>
+     *
+     * <code>optional int32 model_number = 1;</code>
+     * @return The modelNumber.
      */
+    @java.lang.Override
     public int getModelNumber() {
       return modelNumber_;
     }
 
     public static final int FIRMWARE_VERSION_FIELD_NUMBER = 2;
-    private int firmwareVersion_;
+    private int firmwareVersion_ = 0;
     /**
-     * <code>optional int32 firmware_version = 2;</code>
-     *
      * <pre>
      * N.NN * 100
      * </pre>
+     *
+     * <code>optional int32 firmware_version = 2;</code>
+     * @return Whether the firmwareVersion field is set.
      */
+    @java.lang.Override
     public boolean hasFirmwareVersion() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>optional int32 firmware_version = 2;</code>
-     *
      * <pre>
      * N.NN * 100
      * </pre>
+     *
+     * <code>optional int32 firmware_version = 2;</code>
+     * @return The firmwareVersion.
      */
+    @java.lang.Override
     public int getFirmwareVersion() {
       return firmwareVersion_;
     }
@@ -4207,77 +4873,86 @@ public final class Proto {
     private edmtools.Proto.Sensors sensors_;
     /**
      * <code>optional .edmtools.Sensors sensors = 3;</code>
+     * @return Whether the sensors field is set.
      */
+    @java.lang.Override
     public boolean hasSensors() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <code>optional .edmtools.Sensors sensors = 3;</code>
+     * @return The sensors.
      */
+    @java.lang.Override
     public edmtools.Proto.Sensors getSensors() {
-      return sensors_;
+      return sensors_ == null ? edmtools.Proto.Sensors.getDefaultInstance() : sensors_;
     }
     /**
      * <code>optional .edmtools.Sensors sensors = 3;</code>
      */
+    @java.lang.Override
     public edmtools.Proto.SensorsOrBuilder getSensorsOrBuilder() {
-      return sensors_;
+      return sensors_ == null ? edmtools.Proto.Sensors.getDefaultInstance() : sensors_;
     }
 
     public static final int ENGINE_TEMPERATURE_UNIT_FIELD_NUMBER = 4;
-    private edmtools.Proto.Features.TemperatureUnit engineTemperatureUnit_;
+    private int engineTemperatureUnit_ = 1;
     /**
      * <code>optional .edmtools.Features.TemperatureUnit engine_temperature_unit = 4;</code>
+     * @return Whether the engineTemperatureUnit field is set.
      */
-    public boolean hasEngineTemperatureUnit() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+    @java.lang.Override public boolean hasEngineTemperatureUnit() {
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <code>optional .edmtools.Features.TemperatureUnit engine_temperature_unit = 4;</code>
+     * @return The engineTemperatureUnit.
      */
-    public edmtools.Proto.Features.TemperatureUnit getEngineTemperatureUnit() {
-      return engineTemperatureUnit_;
+    @java.lang.Override public edmtools.Proto.Features.TemperatureUnit getEngineTemperatureUnit() {
+      edmtools.Proto.Features.TemperatureUnit result = edmtools.Proto.Features.TemperatureUnit.forNumber(engineTemperatureUnit_);
+      return result == null ? edmtools.Proto.Features.TemperatureUnit.FAHRENHEIT : result;
     }
 
     public static final int BETA_NUMBER_FIELD_NUMBER = 5;
-    private int betaNumber_;
+    private int betaNumber_ = 0;
     /**
      * <code>optional int32 beta_number = 5;</code>
+     * @return Whether the betaNumber field is set.
      */
+    @java.lang.Override
     public boolean hasBetaNumber() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <code>optional int32 beta_number = 5;</code>
+     * @return The betaNumber.
      */
+    @java.lang.Override
     public int getBetaNumber() {
       return betaNumber_;
     }
 
     public static final int BUILD_NUMBER_FIELD_NUMBER = 6;
-    private int buildNumber_;
+    private int buildNumber_ = 0;
     /**
      * <code>optional int32 build_number = 6;</code>
+     * @return Whether the buildNumber field is set.
      */
+    @java.lang.Override
     public boolean hasBuildNumber() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <code>optional int32 build_number = 6;</code>
+     * @return The buildNumber.
      */
+    @java.lang.Override
     public int getBuildNumber() {
       return buildNumber_;
     }
 
-    private void initFields() {
-      modelNumber_ = 0;
-      firmwareVersion_ = 0;
-      sensors_ = edmtools.Proto.Sensors.getDefaultInstance();
-      engineTemperatureUnit_ = edmtools.Proto.Features.TemperatureUnit.FAHRENHEIT;
-      betaNumber_ = 0;
-      buildNumber_ = 0;
-    }
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -4287,72 +4962,155 @@ public final class Proto {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         output.writeInt32(1, modelNumber_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         output.writeInt32(2, firmwareVersion_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeMessage(3, sensors_);
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeMessage(3, getSensors());
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeEnum(4, engineTemperatureUnit_.getNumber());
+      if (((bitField0_ & 0x00000008) != 0)) {
+        output.writeEnum(4, engineTemperatureUnit_);
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         output.writeInt32(5, betaNumber_);
       }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+      if (((bitField0_ & 0x00000020) != 0)) {
         output.writeInt32(6, buildNumber_);
       }
       getUnknownFields().writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
+    @java.lang.Override
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, modelNumber_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, firmwareVersion_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, sensors_);
+          .computeMessageSize(3, getSensors());
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(4, engineTemperatureUnit_.getNumber());
+          .computeEnumSize(4, engineTemperatureUnit_);
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(5, betaNumber_);
       }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+      if (((bitField0_ & 0x00000020) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(6, buildNumber_);
       }
       size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof edmtools.Proto.Features)) {
+        return super.equals(obj);
+      }
+      edmtools.Proto.Features other = (edmtools.Proto.Features) obj;
+
+      if (hasModelNumber() != other.hasModelNumber()) return false;
+      if (hasModelNumber()) {
+        if (getModelNumber()
+            != other.getModelNumber()) return false;
+      }
+      if (hasFirmwareVersion() != other.hasFirmwareVersion()) return false;
+      if (hasFirmwareVersion()) {
+        if (getFirmwareVersion()
+            != other.getFirmwareVersion()) return false;
+      }
+      if (hasSensors() != other.hasSensors()) return false;
+      if (hasSensors()) {
+        if (!getSensors()
+            .equals(other.getSensors())) return false;
+      }
+      if (hasEngineTemperatureUnit() != other.hasEngineTemperatureUnit()) return false;
+      if (hasEngineTemperatureUnit()) {
+        if (engineTemperatureUnit_ != other.engineTemperatureUnit_) return false;
+      }
+      if (hasBetaNumber() != other.hasBetaNumber()) return false;
+      if (hasBetaNumber()) {
+        if (getBetaNumber()
+            != other.getBetaNumber()) return false;
+      }
+      if (hasBuildNumber() != other.hasBuildNumber()) return false;
+      if (hasBuildNumber()) {
+        if (getBuildNumber()
+            != other.getBuildNumber()) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
     }
 
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasModelNumber()) {
+        hash = (37 * hash) + MODEL_NUMBER_FIELD_NUMBER;
+        hash = (53 * hash) + getModelNumber();
+      }
+      if (hasFirmwareVersion()) {
+        hash = (37 * hash) + FIRMWARE_VERSION_FIELD_NUMBER;
+        hash = (53 * hash) + getFirmwareVersion();
+      }
+      if (hasSensors()) {
+        hash = (37 * hash) + SENSORS_FIELD_NUMBER;
+        hash = (53 * hash) + getSensors().hashCode();
+      }
+      if (hasEngineTemperatureUnit()) {
+        hash = (37 * hash) + ENGINE_TEMPERATURE_UNIT_FIELD_NUMBER;
+        hash = (53 * hash) + engineTemperatureUnit_;
+      }
+      if (hasBetaNumber()) {
+        hash = (37 * hash) + BETA_NUMBER_FIELD_NUMBER;
+        hash = (53 * hash) + getBetaNumber();
+      }
+      if (hasBuildNumber()) {
+        hash = (37 * hash) + BUILD_NUMBER_FIELD_NUMBER;
+        hash = (53 * hash) + getBuildNumber();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static edmtools.Proto.Features parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static edmtools.Proto.Features parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static edmtools.Proto.Features parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -4376,46 +5134,59 @@ public final class Proto {
     }
     public static edmtools.Proto.Features parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static edmtools.Proto.Features parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static edmtools.Proto.Features parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static edmtools.Proto.Features parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static edmtools.Proto.Features parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static edmtools.Proto.Features parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(edmtools.Proto.Features prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(edmtools.Proto.Features prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -4423,7 +5194,7 @@ public final class Proto {
      * Protobuf type {@code edmtools.Features}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:edmtools.Features)
         edmtools.Proto.FeaturesOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -4431,7 +5202,8 @@ public final class Proto {
         return edmtools.Proto.internal_static_edmtools_Features_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return edmtools.Proto.internal_static_edmtools_Features_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -4444,53 +5216,45 @@ public final class Proto {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
           getSensorsFieldBuilder();
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
+      @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         modelNumber_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
         firmwareVersion_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        if (sensorsBuilder_ == null) {
-          sensors_ = edmtools.Proto.Sensors.getDefaultInstance();
-        } else {
-          sensorsBuilder_.clear();
+        sensors_ = null;
+        if (sensorsBuilder_ != null) {
+          sensorsBuilder_.dispose();
+          sensorsBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
-        engineTemperatureUnit_ = edmtools.Proto.Features.TemperatureUnit.FAHRENHEIT;
-        bitField0_ = (bitField0_ & ~0x00000008);
+        engineTemperatureUnit_ = 1;
         betaNumber_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000010);
         buildNumber_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return edmtools.Proto.internal_static_edmtools_Features_descriptor;
       }
 
+      @java.lang.Override
       public edmtools.Proto.Features getDefaultInstanceForType() {
         return edmtools.Proto.Features.getDefaultInstance();
       }
 
+      @java.lang.Override
       public edmtools.Proto.Features build() {
         edmtools.Proto.Features result = buildPartial();
         if (!result.isInitialized()) {
@@ -4499,43 +5263,79 @@ public final class Proto {
         return result;
       }
 
+      @java.lang.Override
       public edmtools.Proto.Features buildPartial() {
         edmtools.Proto.Features result = new edmtools.Proto.Features(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.modelNumber_ = modelNumber_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.firmwareVersion_ = firmwareVersion_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        if (sensorsBuilder_ == null) {
-          result.sensors_ = sensors_;
-        } else {
-          result.sensors_ = sensorsBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000008;
-        }
-        result.engineTemperatureUnit_ = engineTemperatureUnit_;
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-          to_bitField0_ |= 0x00000010;
-        }
-        result.betaNumber_ = betaNumber_;
-        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
-          to_bitField0_ |= 0x00000020;
-        }
-        result.buildNumber_ = buildNumber_;
-        result.bitField0_ = to_bitField0_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
+      private void buildPartial0(edmtools.Proto.Features result) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.modelNumber_ = modelNumber_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.firmwareVersion_ = firmwareVersion_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.sensors_ = sensorsBuilder_ == null
+              ? sensors_
+              : sensorsBuilder_.build();
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.engineTemperatureUnit_ = engineTemperatureUnit_;
+          to_bitField0_ |= 0x00000008;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.betaNumber_ = betaNumber_;
+          to_bitField0_ |= 0x00000010;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.buildNumber_ = buildNumber_;
+          to_bitField0_ |= 0x00000020;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof edmtools.Proto.Features) {
           return mergeFrom((edmtools.Proto.Features)other);
@@ -4566,72 +5366,135 @@ public final class Proto {
           setBuildNumber(other.getBuildNumber());
         }
         this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        edmtools.Proto.Features parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (edmtools.Proto.Features) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
         }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                modelNumber_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                firmwareVersion_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                input.readMessage(
+                    getSensorsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 32: {
+                int tmpRaw = input.readEnum();
+                edmtools.Proto.Features.TemperatureUnit tmpValue =
+                    edmtools.Proto.Features.TemperatureUnit.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  mergeUnknownVarintField(4, tmpRaw);
+                } else {
+                  engineTemperatureUnit_ = tmpRaw;
+                  bitField0_ |= 0x00000008;
+                }
+                break;
+              } // case 32
+              case 40: {
+                betaNumber_ = input.readInt32();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              case 48: {
+                buildNumber_ = input.readInt32();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 48
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
 
       private int modelNumber_ ;
       /**
-       * <code>optional int32 model_number = 1;</code>
-       *
        * <pre>
        * eg 700, 760, 800
        * </pre>
+       *
+       * <code>optional int32 model_number = 1;</code>
+       * @return Whether the modelNumber field is set.
        */
+      @java.lang.Override
       public boolean hasModelNumber() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>optional int32 model_number = 1;</code>
-       *
        * <pre>
        * eg 700, 760, 800
        * </pre>
+       *
+       * <code>optional int32 model_number = 1;</code>
+       * @return The modelNumber.
        */
+      @java.lang.Override
       public int getModelNumber() {
         return modelNumber_;
       }
       /**
-       * <code>optional int32 model_number = 1;</code>
-       *
        * <pre>
        * eg 700, 760, 800
        * </pre>
+       *
+       * <code>optional int32 model_number = 1;</code>
+       * @param value The modelNumber to set.
+       * @return This builder for chaining.
        */
       public Builder setModelNumber(int value) {
-        bitField0_ |= 0x00000001;
+        
         modelNumber_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 model_number = 1;</code>
-       *
        * <pre>
        * eg 700, 760, 800
        * </pre>
+       *
+       * <code>optional int32 model_number = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearModelNumber() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -4642,44 +5505,52 @@ public final class Proto {
 
       private int firmwareVersion_ ;
       /**
-       * <code>optional int32 firmware_version = 2;</code>
-       *
        * <pre>
        * N.NN * 100
        * </pre>
+       *
+       * <code>optional int32 firmware_version = 2;</code>
+       * @return Whether the firmwareVersion field is set.
        */
+      @java.lang.Override
       public boolean hasFirmwareVersion() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>optional int32 firmware_version = 2;</code>
-       *
        * <pre>
        * N.NN * 100
        * </pre>
+       *
+       * <code>optional int32 firmware_version = 2;</code>
+       * @return The firmwareVersion.
        */
+      @java.lang.Override
       public int getFirmwareVersion() {
         return firmwareVersion_;
       }
       /**
-       * <code>optional int32 firmware_version = 2;</code>
-       *
        * <pre>
        * N.NN * 100
        * </pre>
+       *
+       * <code>optional int32 firmware_version = 2;</code>
+       * @param value The firmwareVersion to set.
+       * @return This builder for chaining.
        */
       public Builder setFirmwareVersion(int value) {
-        bitField0_ |= 0x00000002;
+        
         firmwareVersion_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 firmware_version = 2;</code>
-       *
        * <pre>
        * N.NN * 100
        * </pre>
+       *
+       * <code>optional int32 firmware_version = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearFirmwareVersion() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -4688,21 +5559,23 @@ public final class Proto {
         return this;
       }
 
-      private edmtools.Proto.Sensors sensors_ = edmtools.Proto.Sensors.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private edmtools.Proto.Sensors sensors_;
+      private com.google.protobuf.SingleFieldBuilderV3<
           edmtools.Proto.Sensors, edmtools.Proto.Sensors.Builder, edmtools.Proto.SensorsOrBuilder> sensorsBuilder_;
       /**
        * <code>optional .edmtools.Sensors sensors = 3;</code>
+       * @return Whether the sensors field is set.
        */
       public boolean hasSensors() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <code>optional .edmtools.Sensors sensors = 3;</code>
+       * @return The sensors.
        */
       public edmtools.Proto.Sensors getSensors() {
         if (sensorsBuilder_ == null) {
-          return sensors_;
+          return sensors_ == null ? edmtools.Proto.Sensors.getDefaultInstance() : sensors_;
         } else {
           return sensorsBuilder_.getMessage();
         }
@@ -4716,11 +5589,11 @@ public final class Proto {
             throw new NullPointerException();
           }
           sensors_ = value;
-          onChanged();
         } else {
           sensorsBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -4730,11 +5603,11 @@ public final class Proto {
           edmtools.Proto.Sensors.Builder builderForValue) {
         if (sensorsBuilder_ == null) {
           sensors_ = builderForValue.build();
-          onChanged();
         } else {
           sensorsBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -4742,31 +5615,31 @@ public final class Proto {
        */
       public Builder mergeSensors(edmtools.Proto.Sensors value) {
         if (sensorsBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004) &&
-              sensors_ != edmtools.Proto.Sensors.getDefaultInstance()) {
-            sensors_ =
-              edmtools.Proto.Sensors.newBuilder(sensors_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            sensors_ != null &&
+            sensors_ != edmtools.Proto.Sensors.getDefaultInstance()) {
+            getSensorsBuilder().mergeFrom(value);
           } else {
             sensors_ = value;
           }
-          onChanged();
         } else {
           sensorsBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
        * <code>optional .edmtools.Sensors sensors = 3;</code>
        */
       public Builder clearSensors() {
-        if (sensorsBuilder_ == null) {
-          sensors_ = edmtools.Proto.Sensors.getDefaultInstance();
-          onChanged();
-        } else {
-          sensorsBuilder_.clear();
-        }
         bitField0_ = (bitField0_ & ~0x00000004);
+        sensors_ = null;
+        if (sensorsBuilder_ != null) {
+          sensorsBuilder_.dispose();
+          sensorsBuilder_ = null;
+        }
+        onChanged();
         return this;
       }
       /**
@@ -4784,17 +5657,18 @@ public final class Proto {
         if (sensorsBuilder_ != null) {
           return sensorsBuilder_.getMessageOrBuilder();
         } else {
-          return sensors_;
+          return sensors_ == null ?
+              edmtools.Proto.Sensors.getDefaultInstance() : sensors_;
         }
       }
       /**
        * <code>optional .edmtools.Sensors sensors = 3;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           edmtools.Proto.Sensors, edmtools.Proto.Sensors.Builder, edmtools.Proto.SensorsOrBuilder> 
           getSensorsFieldBuilder() {
         if (sensorsBuilder_ == null) {
-          sensorsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          sensorsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               edmtools.Proto.Sensors, edmtools.Proto.Sensors.Builder, edmtools.Proto.SensorsOrBuilder>(
                   getSensors(),
                   getParentForChildren(),
@@ -4804,37 +5678,44 @@ public final class Proto {
         return sensorsBuilder_;
       }
 
-      private edmtools.Proto.Features.TemperatureUnit engineTemperatureUnit_ = edmtools.Proto.Features.TemperatureUnit.FAHRENHEIT;
+      private int engineTemperatureUnit_ = 1;
       /**
        * <code>optional .edmtools.Features.TemperatureUnit engine_temperature_unit = 4;</code>
+       * @return Whether the engineTemperatureUnit field is set.
        */
-      public boolean hasEngineTemperatureUnit() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+      @java.lang.Override public boolean hasEngineTemperatureUnit() {
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <code>optional .edmtools.Features.TemperatureUnit engine_temperature_unit = 4;</code>
+       * @return The engineTemperatureUnit.
        */
+      @java.lang.Override
       public edmtools.Proto.Features.TemperatureUnit getEngineTemperatureUnit() {
-        return engineTemperatureUnit_;
+        edmtools.Proto.Features.TemperatureUnit result = edmtools.Proto.Features.TemperatureUnit.forNumber(engineTemperatureUnit_);
+        return result == null ? edmtools.Proto.Features.TemperatureUnit.FAHRENHEIT : result;
       }
       /**
        * <code>optional .edmtools.Features.TemperatureUnit engine_temperature_unit = 4;</code>
+       * @param value The engineTemperatureUnit to set.
+       * @return This builder for chaining.
        */
       public Builder setEngineTemperatureUnit(edmtools.Proto.Features.TemperatureUnit value) {
         if (value == null) {
           throw new NullPointerException();
         }
         bitField0_ |= 0x00000008;
-        engineTemperatureUnit_ = value;
+        engineTemperatureUnit_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
        * <code>optional .edmtools.Features.TemperatureUnit engine_temperature_unit = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearEngineTemperatureUnit() {
         bitField0_ = (bitField0_ & ~0x00000008);
-        engineTemperatureUnit_ = edmtools.Proto.Features.TemperatureUnit.FAHRENHEIT;
+        engineTemperatureUnit_ = 1;
         onChanged();
         return this;
       }
@@ -4842,27 +5723,35 @@ public final class Proto {
       private int betaNumber_ ;
       /**
        * <code>optional int32 beta_number = 5;</code>
+       * @return Whether the betaNumber field is set.
        */
+      @java.lang.Override
       public boolean hasBetaNumber() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <code>optional int32 beta_number = 5;</code>
+       * @return The betaNumber.
        */
+      @java.lang.Override
       public int getBetaNumber() {
         return betaNumber_;
       }
       /**
        * <code>optional int32 beta_number = 5;</code>
+       * @param value The betaNumber to set.
+       * @return This builder for chaining.
        */
       public Builder setBetaNumber(int value) {
-        bitField0_ |= 0x00000010;
+        
         betaNumber_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
       /**
        * <code>optional int32 beta_number = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearBetaNumber() {
         bitField0_ = (bitField0_ & ~0x00000010);
@@ -4874,27 +5763,35 @@ public final class Proto {
       private int buildNumber_ ;
       /**
        * <code>optional int32 build_number = 6;</code>
+       * @return Whether the buildNumber field is set.
        */
+      @java.lang.Override
       public boolean hasBuildNumber() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
        * <code>optional int32 build_number = 6;</code>
+       * @return The buildNumber.
        */
+      @java.lang.Override
       public int getBuildNumber() {
         return buildNumber_;
       }
       /**
        * <code>optional int32 build_number = 6;</code>
+       * @param value The buildNumber to set.
+       * @return This builder for chaining.
        */
       public Builder setBuildNumber(int value) {
-        bitField0_ |= 0x00000020;
+        
         buildNumber_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
       /**
        * <code>optional int32 build_number = 6;</code>
+       * @return This builder for chaining.
        */
       public Builder clearBuildNumber() {
         bitField0_ = (bitField0_ & ~0x00000020);
@@ -4902,16 +5799,68 @@ public final class Proto {
         onChanged();
         return this;
       }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:edmtools.Features)
     }
 
+    // @@protoc_insertion_point(class_scope:edmtools.Features)
+    private static final edmtools.Proto.Features DEFAULT_INSTANCE;
     static {
-      defaultInstance = new Features(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new edmtools.Proto.Features();
     }
 
-    // @@protoc_insertion_point(class_scope:edmtools.Features)
+    public static edmtools.Proto.Features getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<Features>
+        PARSER = new com.google.protobuf.AbstractParser<Features>() {
+      @java.lang.Override
+      public Features parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<Features> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Features> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public edmtools.Proto.Features getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface SensorsOrBuilder extends
@@ -4920,157 +5869,181 @@ public final class Proto {
 
     /**
      * <code>optional int32 num_exhaust_gas_temperature = 3;</code>
+     * @return Whether the numExhaustGasTemperature field is set.
      */
     boolean hasNumExhaustGasTemperature();
     /**
      * <code>optional int32 num_exhaust_gas_temperature = 3;</code>
+     * @return The numExhaustGasTemperature.
      */
     int getNumExhaustGasTemperature();
 
     /**
      * <code>optional int32 num_cylinder_head_temperature = 4;</code>
+     * @return Whether the numCylinderHeadTemperature field is set.
      */
     boolean hasNumCylinderHeadTemperature();
     /**
      * <code>optional int32 num_cylinder_head_temperature = 4;</code>
+     * @return The numCylinderHeadTemperature.
      */
     int getNumCylinderHeadTemperature();
 
     /**
      * <code>optional bool voltage = 5;</code>
+     * @return Whether the voltage field is set.
      */
     boolean hasVoltage();
     /**
      * <code>optional bool voltage = 5;</code>
+     * @return The voltage.
      */
     boolean getVoltage();
 
     /**
      * <code>optional bool oil_temperature = 6;</code>
+     * @return Whether the oilTemperature field is set.
      */
     boolean hasOilTemperature();
     /**
      * <code>optional bool oil_temperature = 6;</code>
+     * @return The oilTemperature.
      */
     boolean getOilTemperature();
 
     /**
-     * <code>optional bool turbine_inlet_temperature1 = 7;</code>
-     *
      * <pre>
      * TIT1
      * </pre>
+     *
+     * <code>optional bool turbine_inlet_temperature1 = 7;</code>
+     * @return Whether the turbineInletTemperature1 field is set.
      */
     boolean hasTurbineInletTemperature1();
     /**
-     * <code>optional bool turbine_inlet_temperature1 = 7;</code>
-     *
      * <pre>
      * TIT1
      * </pre>
+     *
+     * <code>optional bool turbine_inlet_temperature1 = 7;</code>
+     * @return The turbineInletTemperature1.
      */
     boolean getTurbineInletTemperature1();
 
     /**
-     * <code>optional bool turbine_inlet_temperature2 = 8;</code>
-     *
      * <pre>
      * TIT2
      * </pre>
+     *
+     * <code>optional bool turbine_inlet_temperature2 = 8;</code>
+     * @return Whether the turbineInletTemperature2 field is set.
      */
     boolean hasTurbineInletTemperature2();
     /**
-     * <code>optional bool turbine_inlet_temperature2 = 8;</code>
-     *
      * <pre>
      * TIT2
      * </pre>
+     *
+     * <code>optional bool turbine_inlet_temperature2 = 8;</code>
+     * @return The turbineInletTemperature2.
      */
     boolean getTurbineInletTemperature2();
 
     /**
-     * <code>optional bool outside_air_temperature = 9;</code>
-     *
      * <pre>
      * OAT
      * </pre>
+     *
+     * <code>optional bool outside_air_temperature = 9;</code>
+     * @return Whether the outsideAirTemperature field is set.
      */
     boolean hasOutsideAirTemperature();
     /**
-     * <code>optional bool outside_air_temperature = 9;</code>
-     *
      * <pre>
      * OAT
      * </pre>
+     *
+     * <code>optional bool outside_air_temperature = 9;</code>
+     * @return The outsideAirTemperature.
      */
     boolean getOutsideAirTemperature();
 
     /**
      * <code>optional bool fuel_flow = 10;</code>
+     * @return Whether the fuelFlow field is set.
      */
     boolean hasFuelFlow();
     /**
      * <code>optional bool fuel_flow = 10;</code>
+     * @return The fuelFlow.
      */
     boolean getFuelFlow();
 
     /**
-     * <code>optional bool induction_air_temperature = 11;</code>
-     *
      * <pre>
      * IAT
      * </pre>
+     *
+     * <code>optional bool induction_air_temperature = 11;</code>
+     * @return Whether the inductionAirTemperature field is set.
      */
     boolean hasInductionAirTemperature();
     /**
-     * <code>optional bool induction_air_temperature = 11;</code>
-     *
      * <pre>
      * IAT
      * </pre>
+     *
+     * <code>optional bool induction_air_temperature = 11;</code>
+     * @return The inductionAirTemperature.
      */
     boolean getInductionAirTemperature();
 
     /**
-     * <code>optional bool compressor_discharge_temperature = 12;</code>
-     *
      * <pre>
      * CDT
      * </pre>
+     *
+     * <code>optional bool compressor_discharge_temperature = 12;</code>
+     * @return Whether the compressorDischargeTemperature field is set.
      */
     boolean hasCompressorDischargeTemperature();
     /**
-     * <code>optional bool compressor_discharge_temperature = 12;</code>
-     *
      * <pre>
      * CDT
      * </pre>
+     *
+     * <code>optional bool compressor_discharge_temperature = 12;</code>
+     * @return The compressorDischargeTemperature.
      */
     boolean getCompressorDischargeTemperature();
 
     /**
-     * <code>optional bool manifold_pressure = 13;</code>
-     *
      * <pre>
      * MAP
      * </pre>
+     *
+     * <code>optional bool manifold_pressure = 13;</code>
+     * @return Whether the manifoldPressure field is set.
      */
     boolean hasManifoldPressure();
     /**
-     * <code>optional bool manifold_pressure = 13;</code>
-     *
      * <pre>
      * MAP
      * </pre>
+     *
+     * <code>optional bool manifold_pressure = 13;</code>
+     * @return The manifoldPressure.
      */
     boolean getManifoldPressure();
 
     /**
      * <code>optional bool rpm = 14;</code>
+     * @return Whether the rpm field is set.
      */
     boolean hasRpm();
     /**
      * <code>optional bool rpm = 14;</code>
+     * @return The rpm.
      */
     boolean getRpm();
   }
@@ -5078,397 +6051,321 @@ public final class Proto {
    * Protobuf type {@code edmtools.Sensors}
    */
   public static final class Sensors extends
-      com.google.protobuf.GeneratedMessage implements
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:edmtools.Sensors)
       SensorsOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use Sensors.newBuilder() to construct.
-    private Sensors(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private Sensors(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private Sensors(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final Sensors defaultInstance;
-    public static Sensors getDefaultInstance() {
-      return defaultInstance;
+    private Sensors() {
     }
 
-    public Sensors getDefaultInstanceForType() {
-      return defaultInstance;
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Sensors();
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
-    }
-    private Sensors(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 24: {
-              bitField0_ |= 0x00000001;
-              numExhaustGasTemperature_ = input.readInt32();
-              break;
-            }
-            case 32: {
-              bitField0_ |= 0x00000002;
-              numCylinderHeadTemperature_ = input.readInt32();
-              break;
-            }
-            case 40: {
-              bitField0_ |= 0x00000004;
-              voltage_ = input.readBool();
-              break;
-            }
-            case 48: {
-              bitField0_ |= 0x00000008;
-              oilTemperature_ = input.readBool();
-              break;
-            }
-            case 56: {
-              bitField0_ |= 0x00000010;
-              turbineInletTemperature1_ = input.readBool();
-              break;
-            }
-            case 64: {
-              bitField0_ |= 0x00000020;
-              turbineInletTemperature2_ = input.readBool();
-              break;
-            }
-            case 72: {
-              bitField0_ |= 0x00000040;
-              outsideAirTemperature_ = input.readBool();
-              break;
-            }
-            case 80: {
-              bitField0_ |= 0x00000080;
-              fuelFlow_ = input.readBool();
-              break;
-            }
-            case 88: {
-              bitField0_ |= 0x00000100;
-              inductionAirTemperature_ = input.readBool();
-              break;
-            }
-            case 96: {
-              bitField0_ |= 0x00000200;
-              compressorDischargeTemperature_ = input.readBool();
-              break;
-            }
-            case 104: {
-              bitField0_ |= 0x00000400;
-              manifoldPressure_ = input.readBool();
-              break;
-            }
-            case 112: {
-              bitField0_ |= 0x00000800;
-              rpm_ = input.readBool();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return edmtools.Proto.internal_static_edmtools_Sensors_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return edmtools.Proto.internal_static_edmtools_Sensors_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               edmtools.Proto.Sensors.class, edmtools.Proto.Sensors.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<Sensors> PARSER =
-        new com.google.protobuf.AbstractParser<Sensors>() {
-      public Sensors parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Sensors(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Sensors> getParserForType() {
-      return PARSER;
-    }
-
     private int bitField0_;
     public static final int NUM_EXHAUST_GAS_TEMPERATURE_FIELD_NUMBER = 3;
-    private int numExhaustGasTemperature_;
+    private int numExhaustGasTemperature_ = 0;
     /**
      * <code>optional int32 num_exhaust_gas_temperature = 3;</code>
+     * @return Whether the numExhaustGasTemperature field is set.
      */
+    @java.lang.Override
     public boolean hasNumExhaustGasTemperature() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>optional int32 num_exhaust_gas_temperature = 3;</code>
+     * @return The numExhaustGasTemperature.
      */
+    @java.lang.Override
     public int getNumExhaustGasTemperature() {
       return numExhaustGasTemperature_;
     }
 
     public static final int NUM_CYLINDER_HEAD_TEMPERATURE_FIELD_NUMBER = 4;
-    private int numCylinderHeadTemperature_;
+    private int numCylinderHeadTemperature_ = 0;
     /**
      * <code>optional int32 num_cylinder_head_temperature = 4;</code>
+     * @return Whether the numCylinderHeadTemperature field is set.
      */
+    @java.lang.Override
     public boolean hasNumCylinderHeadTemperature() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <code>optional int32 num_cylinder_head_temperature = 4;</code>
+     * @return The numCylinderHeadTemperature.
      */
+    @java.lang.Override
     public int getNumCylinderHeadTemperature() {
       return numCylinderHeadTemperature_;
     }
 
     public static final int VOLTAGE_FIELD_NUMBER = 5;
-    private boolean voltage_;
+    private boolean voltage_ = false;
     /**
      * <code>optional bool voltage = 5;</code>
+     * @return Whether the voltage field is set.
      */
+    @java.lang.Override
     public boolean hasVoltage() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <code>optional bool voltage = 5;</code>
+     * @return The voltage.
      */
+    @java.lang.Override
     public boolean getVoltage() {
       return voltage_;
     }
 
     public static final int OIL_TEMPERATURE_FIELD_NUMBER = 6;
-    private boolean oilTemperature_;
+    private boolean oilTemperature_ = false;
     /**
      * <code>optional bool oil_temperature = 6;</code>
+     * @return Whether the oilTemperature field is set.
      */
+    @java.lang.Override
     public boolean hasOilTemperature() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <code>optional bool oil_temperature = 6;</code>
+     * @return The oilTemperature.
      */
+    @java.lang.Override
     public boolean getOilTemperature() {
       return oilTemperature_;
     }
 
     public static final int TURBINE_INLET_TEMPERATURE1_FIELD_NUMBER = 7;
-    private boolean turbineInletTemperature1_;
+    private boolean turbineInletTemperature1_ = false;
     /**
-     * <code>optional bool turbine_inlet_temperature1 = 7;</code>
-     *
      * <pre>
      * TIT1
      * </pre>
+     *
+     * <code>optional bool turbine_inlet_temperature1 = 7;</code>
+     * @return Whether the turbineInletTemperature1 field is set.
      */
+    @java.lang.Override
     public boolean hasTurbineInletTemperature1() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
-     * <code>optional bool turbine_inlet_temperature1 = 7;</code>
-     *
      * <pre>
      * TIT1
      * </pre>
+     *
+     * <code>optional bool turbine_inlet_temperature1 = 7;</code>
+     * @return The turbineInletTemperature1.
      */
+    @java.lang.Override
     public boolean getTurbineInletTemperature1() {
       return turbineInletTemperature1_;
     }
 
     public static final int TURBINE_INLET_TEMPERATURE2_FIELD_NUMBER = 8;
-    private boolean turbineInletTemperature2_;
+    private boolean turbineInletTemperature2_ = false;
     /**
-     * <code>optional bool turbine_inlet_temperature2 = 8;</code>
-     *
      * <pre>
      * TIT2
      * </pre>
+     *
+     * <code>optional bool turbine_inlet_temperature2 = 8;</code>
+     * @return Whether the turbineInletTemperature2 field is set.
      */
+    @java.lang.Override
     public boolean hasTurbineInletTemperature2() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
-     * <code>optional bool turbine_inlet_temperature2 = 8;</code>
-     *
      * <pre>
      * TIT2
      * </pre>
+     *
+     * <code>optional bool turbine_inlet_temperature2 = 8;</code>
+     * @return The turbineInletTemperature2.
      */
+    @java.lang.Override
     public boolean getTurbineInletTemperature2() {
       return turbineInletTemperature2_;
     }
 
     public static final int OUTSIDE_AIR_TEMPERATURE_FIELD_NUMBER = 9;
-    private boolean outsideAirTemperature_;
+    private boolean outsideAirTemperature_ = false;
     /**
-     * <code>optional bool outside_air_temperature = 9;</code>
-     *
      * <pre>
      * OAT
      * </pre>
+     *
+     * <code>optional bool outside_air_temperature = 9;</code>
+     * @return Whether the outsideAirTemperature field is set.
      */
+    @java.lang.Override
     public boolean hasOutsideAirTemperature() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
-     * <code>optional bool outside_air_temperature = 9;</code>
-     *
      * <pre>
      * OAT
      * </pre>
+     *
+     * <code>optional bool outside_air_temperature = 9;</code>
+     * @return The outsideAirTemperature.
      */
+    @java.lang.Override
     public boolean getOutsideAirTemperature() {
       return outsideAirTemperature_;
     }
 
     public static final int FUEL_FLOW_FIELD_NUMBER = 10;
-    private boolean fuelFlow_;
+    private boolean fuelFlow_ = false;
     /**
      * <code>optional bool fuel_flow = 10;</code>
+     * @return Whether the fuelFlow field is set.
      */
+    @java.lang.Override
     public boolean hasFuelFlow() {
-      return ((bitField0_ & 0x00000080) == 0x00000080);
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <code>optional bool fuel_flow = 10;</code>
+     * @return The fuelFlow.
      */
+    @java.lang.Override
     public boolean getFuelFlow() {
       return fuelFlow_;
     }
 
     public static final int INDUCTION_AIR_TEMPERATURE_FIELD_NUMBER = 11;
-    private boolean inductionAirTemperature_;
+    private boolean inductionAirTemperature_ = false;
     /**
-     * <code>optional bool induction_air_temperature = 11;</code>
-     *
      * <pre>
      * IAT
      * </pre>
+     *
+     * <code>optional bool induction_air_temperature = 11;</code>
+     * @return Whether the inductionAirTemperature field is set.
      */
+    @java.lang.Override
     public boolean hasInductionAirTemperature() {
-      return ((bitField0_ & 0x00000100) == 0x00000100);
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
-     * <code>optional bool induction_air_temperature = 11;</code>
-     *
      * <pre>
      * IAT
      * </pre>
+     *
+     * <code>optional bool induction_air_temperature = 11;</code>
+     * @return The inductionAirTemperature.
      */
+    @java.lang.Override
     public boolean getInductionAirTemperature() {
       return inductionAirTemperature_;
     }
 
     public static final int COMPRESSOR_DISCHARGE_TEMPERATURE_FIELD_NUMBER = 12;
-    private boolean compressorDischargeTemperature_;
+    private boolean compressorDischargeTemperature_ = false;
     /**
-     * <code>optional bool compressor_discharge_temperature = 12;</code>
-     *
      * <pre>
      * CDT
      * </pre>
+     *
+     * <code>optional bool compressor_discharge_temperature = 12;</code>
+     * @return Whether the compressorDischargeTemperature field is set.
      */
+    @java.lang.Override
     public boolean hasCompressorDischargeTemperature() {
-      return ((bitField0_ & 0x00000200) == 0x00000200);
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
-     * <code>optional bool compressor_discharge_temperature = 12;</code>
-     *
      * <pre>
      * CDT
      * </pre>
+     *
+     * <code>optional bool compressor_discharge_temperature = 12;</code>
+     * @return The compressorDischargeTemperature.
      */
+    @java.lang.Override
     public boolean getCompressorDischargeTemperature() {
       return compressorDischargeTemperature_;
     }
 
     public static final int MANIFOLD_PRESSURE_FIELD_NUMBER = 13;
-    private boolean manifoldPressure_;
+    private boolean manifoldPressure_ = false;
     /**
-     * <code>optional bool manifold_pressure = 13;</code>
-     *
      * <pre>
      * MAP
      * </pre>
+     *
+     * <code>optional bool manifold_pressure = 13;</code>
+     * @return Whether the manifoldPressure field is set.
      */
+    @java.lang.Override
     public boolean hasManifoldPressure() {
-      return ((bitField0_ & 0x00000400) == 0x00000400);
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
-     * <code>optional bool manifold_pressure = 13;</code>
-     *
      * <pre>
      * MAP
      * </pre>
+     *
+     * <code>optional bool manifold_pressure = 13;</code>
+     * @return The manifoldPressure.
      */
+    @java.lang.Override
     public boolean getManifoldPressure() {
       return manifoldPressure_;
     }
 
     public static final int RPM_FIELD_NUMBER = 14;
-    private boolean rpm_;
+    private boolean rpm_ = false;
     /**
      * <code>optional bool rpm = 14;</code>
+     * @return Whether the rpm field is set.
      */
+    @java.lang.Override
     public boolean hasRpm() {
-      return ((bitField0_ & 0x00000800) == 0x00000800);
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <code>optional bool rpm = 14;</code>
+     * @return The rpm.
      */
+    @java.lang.Override
     public boolean getRpm() {
       return rpm_;
     }
 
-    private void initFields() {
-      numExhaustGasTemperature_ = 0;
-      numCylinderHeadTemperature_ = 0;
-      voltage_ = false;
-      oilTemperature_ = false;
-      turbineInletTemperature1_ = false;
-      turbineInletTemperature2_ = false;
-      outsideAirTemperature_ = false;
-      fuelFlow_ = false;
-      inductionAirTemperature_ = false;
-      compressorDischargeTemperature_ = false;
-      manifoldPressure_ = false;
-      rpm_ = false;
-    }
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -5478,114 +6375,262 @@ public final class Proto {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         output.writeInt32(3, numExhaustGasTemperature_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         output.writeInt32(4, numCylinderHeadTemperature_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         output.writeBool(5, voltage_);
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         output.writeBool(6, oilTemperature_);
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         output.writeBool(7, turbineInletTemperature1_);
       }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+      if (((bitField0_ & 0x00000020) != 0)) {
         output.writeBool(8, turbineInletTemperature2_);
       }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+      if (((bitField0_ & 0x00000040) != 0)) {
         output.writeBool(9, outsideAirTemperature_);
       }
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+      if (((bitField0_ & 0x00000080) != 0)) {
         output.writeBool(10, fuelFlow_);
       }
-      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+      if (((bitField0_ & 0x00000100) != 0)) {
         output.writeBool(11, inductionAirTemperature_);
       }
-      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+      if (((bitField0_ & 0x00000200) != 0)) {
         output.writeBool(12, compressorDischargeTemperature_);
       }
-      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+      if (((bitField0_ & 0x00000400) != 0)) {
         output.writeBool(13, manifoldPressure_);
       }
-      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+      if (((bitField0_ & 0x00000800) != 0)) {
         output.writeBool(14, rpm_);
       }
       getUnknownFields().writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
+    @java.lang.Override
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, numExhaustGasTemperature_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(4, numCylinderHeadTemperature_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(5, voltage_);
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(6, oilTemperature_);
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(7, turbineInletTemperature1_);
       }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+      if (((bitField0_ & 0x00000020) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(8, turbineInletTemperature2_);
       }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+      if (((bitField0_ & 0x00000040) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(9, outsideAirTemperature_);
       }
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+      if (((bitField0_ & 0x00000080) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(10, fuelFlow_);
       }
-      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+      if (((bitField0_ & 0x00000100) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(11, inductionAirTemperature_);
       }
-      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+      if (((bitField0_ & 0x00000200) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(12, compressorDischargeTemperature_);
       }
-      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+      if (((bitField0_ & 0x00000400) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(13, manifoldPressure_);
       }
-      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+      if (((bitField0_ & 0x00000800) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(14, rpm_);
       }
       size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof edmtools.Proto.Sensors)) {
+        return super.equals(obj);
+      }
+      edmtools.Proto.Sensors other = (edmtools.Proto.Sensors) obj;
+
+      if (hasNumExhaustGasTemperature() != other.hasNumExhaustGasTemperature()) return false;
+      if (hasNumExhaustGasTemperature()) {
+        if (getNumExhaustGasTemperature()
+            != other.getNumExhaustGasTemperature()) return false;
+      }
+      if (hasNumCylinderHeadTemperature() != other.hasNumCylinderHeadTemperature()) return false;
+      if (hasNumCylinderHeadTemperature()) {
+        if (getNumCylinderHeadTemperature()
+            != other.getNumCylinderHeadTemperature()) return false;
+      }
+      if (hasVoltage() != other.hasVoltage()) return false;
+      if (hasVoltage()) {
+        if (getVoltage()
+            != other.getVoltage()) return false;
+      }
+      if (hasOilTemperature() != other.hasOilTemperature()) return false;
+      if (hasOilTemperature()) {
+        if (getOilTemperature()
+            != other.getOilTemperature()) return false;
+      }
+      if (hasTurbineInletTemperature1() != other.hasTurbineInletTemperature1()) return false;
+      if (hasTurbineInletTemperature1()) {
+        if (getTurbineInletTemperature1()
+            != other.getTurbineInletTemperature1()) return false;
+      }
+      if (hasTurbineInletTemperature2() != other.hasTurbineInletTemperature2()) return false;
+      if (hasTurbineInletTemperature2()) {
+        if (getTurbineInletTemperature2()
+            != other.getTurbineInletTemperature2()) return false;
+      }
+      if (hasOutsideAirTemperature() != other.hasOutsideAirTemperature()) return false;
+      if (hasOutsideAirTemperature()) {
+        if (getOutsideAirTemperature()
+            != other.getOutsideAirTemperature()) return false;
+      }
+      if (hasFuelFlow() != other.hasFuelFlow()) return false;
+      if (hasFuelFlow()) {
+        if (getFuelFlow()
+            != other.getFuelFlow()) return false;
+      }
+      if (hasInductionAirTemperature() != other.hasInductionAirTemperature()) return false;
+      if (hasInductionAirTemperature()) {
+        if (getInductionAirTemperature()
+            != other.getInductionAirTemperature()) return false;
+      }
+      if (hasCompressorDischargeTemperature() != other.hasCompressorDischargeTemperature()) return false;
+      if (hasCompressorDischargeTemperature()) {
+        if (getCompressorDischargeTemperature()
+            != other.getCompressorDischargeTemperature()) return false;
+      }
+      if (hasManifoldPressure() != other.hasManifoldPressure()) return false;
+      if (hasManifoldPressure()) {
+        if (getManifoldPressure()
+            != other.getManifoldPressure()) return false;
+      }
+      if (hasRpm() != other.hasRpm()) return false;
+      if (hasRpm()) {
+        if (getRpm()
+            != other.getRpm()) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
     }
 
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasNumExhaustGasTemperature()) {
+        hash = (37 * hash) + NUM_EXHAUST_GAS_TEMPERATURE_FIELD_NUMBER;
+        hash = (53 * hash) + getNumExhaustGasTemperature();
+      }
+      if (hasNumCylinderHeadTemperature()) {
+        hash = (37 * hash) + NUM_CYLINDER_HEAD_TEMPERATURE_FIELD_NUMBER;
+        hash = (53 * hash) + getNumCylinderHeadTemperature();
+      }
+      if (hasVoltage()) {
+        hash = (37 * hash) + VOLTAGE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getVoltage());
+      }
+      if (hasOilTemperature()) {
+        hash = (37 * hash) + OIL_TEMPERATURE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getOilTemperature());
+      }
+      if (hasTurbineInletTemperature1()) {
+        hash = (37 * hash) + TURBINE_INLET_TEMPERATURE1_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getTurbineInletTemperature1());
+      }
+      if (hasTurbineInletTemperature2()) {
+        hash = (37 * hash) + TURBINE_INLET_TEMPERATURE2_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getTurbineInletTemperature2());
+      }
+      if (hasOutsideAirTemperature()) {
+        hash = (37 * hash) + OUTSIDE_AIR_TEMPERATURE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getOutsideAirTemperature());
+      }
+      if (hasFuelFlow()) {
+        hash = (37 * hash) + FUEL_FLOW_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getFuelFlow());
+      }
+      if (hasInductionAirTemperature()) {
+        hash = (37 * hash) + INDUCTION_AIR_TEMPERATURE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getInductionAirTemperature());
+      }
+      if (hasCompressorDischargeTemperature()) {
+        hash = (37 * hash) + COMPRESSOR_DISCHARGE_TEMPERATURE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getCompressorDischargeTemperature());
+      }
+      if (hasManifoldPressure()) {
+        hash = (37 * hash) + MANIFOLD_PRESSURE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getManifoldPressure());
+      }
+      if (hasRpm()) {
+        hash = (37 * hash) + RPM_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getRpm());
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static edmtools.Proto.Sensors parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static edmtools.Proto.Sensors parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static edmtools.Proto.Sensors parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -5609,46 +6654,59 @@ public final class Proto {
     }
     public static edmtools.Proto.Sensors parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static edmtools.Proto.Sensors parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static edmtools.Proto.Sensors parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static edmtools.Proto.Sensors parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static edmtools.Proto.Sensors parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static edmtools.Proto.Sensors parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(edmtools.Proto.Sensors prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(edmtools.Proto.Sensors prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -5656,7 +6714,7 @@ public final class Proto {
      * Protobuf type {@code edmtools.Sensors}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:edmtools.Sensors)
         edmtools.Proto.SensorsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -5664,7 +6722,8 @@ public final class Proto {
         return edmtools.Proto.internal_static_edmtools_Sensors_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return edmtools.Proto.internal_static_edmtools_Sensors_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -5673,64 +6732,45 @@ public final class Proto {
 
       // Construct using edmtools.Proto.Sensors.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
 
+      }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         numExhaustGasTemperature_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
         numCylinderHeadTemperature_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
         voltage_ = false;
-        bitField0_ = (bitField0_ & ~0x00000004);
         oilTemperature_ = false;
-        bitField0_ = (bitField0_ & ~0x00000008);
         turbineInletTemperature1_ = false;
-        bitField0_ = (bitField0_ & ~0x00000010);
         turbineInletTemperature2_ = false;
-        bitField0_ = (bitField0_ & ~0x00000020);
         outsideAirTemperature_ = false;
-        bitField0_ = (bitField0_ & ~0x00000040);
         fuelFlow_ = false;
-        bitField0_ = (bitField0_ & ~0x00000080);
         inductionAirTemperature_ = false;
-        bitField0_ = (bitField0_ & ~0x00000100);
         compressorDischargeTemperature_ = false;
-        bitField0_ = (bitField0_ & ~0x00000200);
         manifoldPressure_ = false;
-        bitField0_ = (bitField0_ & ~0x00000400);
         rpm_ = false;
-        bitField0_ = (bitField0_ & ~0x00000800);
         return this;
       }
 
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return edmtools.Proto.internal_static_edmtools_Sensors_descriptor;
       }
 
+      @java.lang.Override
       public edmtools.Proto.Sensors getDefaultInstanceForType() {
         return edmtools.Proto.Sensors.getDefaultInstance();
       }
 
+      @java.lang.Override
       public edmtools.Proto.Sensors build() {
         edmtools.Proto.Sensors result = buildPartial();
         if (!result.isInitialized()) {
@@ -5739,63 +6779,101 @@ public final class Proto {
         return result;
       }
 
+      @java.lang.Override
       public edmtools.Proto.Sensors buildPartial() {
         edmtools.Proto.Sensors result = new edmtools.Proto.Sensors(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.numExhaustGasTemperature_ = numExhaustGasTemperature_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.numCylinderHeadTemperature_ = numCylinderHeadTemperature_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        result.voltage_ = voltage_;
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000008;
-        }
-        result.oilTemperature_ = oilTemperature_;
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-          to_bitField0_ |= 0x00000010;
-        }
-        result.turbineInletTemperature1_ = turbineInletTemperature1_;
-        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
-          to_bitField0_ |= 0x00000020;
-        }
-        result.turbineInletTemperature2_ = turbineInletTemperature2_;
-        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
-          to_bitField0_ |= 0x00000040;
-        }
-        result.outsideAirTemperature_ = outsideAirTemperature_;
-        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
-          to_bitField0_ |= 0x00000080;
-        }
-        result.fuelFlow_ = fuelFlow_;
-        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
-          to_bitField0_ |= 0x00000100;
-        }
-        result.inductionAirTemperature_ = inductionAirTemperature_;
-        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
-          to_bitField0_ |= 0x00000200;
-        }
-        result.compressorDischargeTemperature_ = compressorDischargeTemperature_;
-        if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
-          to_bitField0_ |= 0x00000400;
-        }
-        result.manifoldPressure_ = manifoldPressure_;
-        if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
-          to_bitField0_ |= 0x00000800;
-        }
-        result.rpm_ = rpm_;
-        result.bitField0_ = to_bitField0_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
+      private void buildPartial0(edmtools.Proto.Sensors result) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.numExhaustGasTemperature_ = numExhaustGasTemperature_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.numCylinderHeadTemperature_ = numCylinderHeadTemperature_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.voltage_ = voltage_;
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.oilTemperature_ = oilTemperature_;
+          to_bitField0_ |= 0x00000008;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.turbineInletTemperature1_ = turbineInletTemperature1_;
+          to_bitField0_ |= 0x00000010;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.turbineInletTemperature2_ = turbineInletTemperature2_;
+          to_bitField0_ |= 0x00000020;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.outsideAirTemperature_ = outsideAirTemperature_;
+          to_bitField0_ |= 0x00000040;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.fuelFlow_ = fuelFlow_;
+          to_bitField0_ |= 0x00000080;
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.inductionAirTemperature_ = inductionAirTemperature_;
+          to_bitField0_ |= 0x00000100;
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.compressorDischargeTemperature_ = compressorDischargeTemperature_;
+          to_bitField0_ |= 0x00000200;
+        }
+        if (((from_bitField0_ & 0x00000400) != 0)) {
+          result.manifoldPressure_ = manifoldPressure_;
+          to_bitField0_ |= 0x00000400;
+        }
+        if (((from_bitField0_ & 0x00000800) != 0)) {
+          result.rpm_ = rpm_;
+          to_bitField0_ |= 0x00000800;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof edmtools.Proto.Sensors) {
           return mergeFrom((edmtools.Proto.Sensors)other);
@@ -5844,28 +6922,104 @@ public final class Proto {
           setRpm(other.getRpm());
         }
         this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        edmtools.Proto.Sensors parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (edmtools.Proto.Sensors) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
         }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 24: {
+                numExhaustGasTemperature_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 24
+              case 32: {
+                numCylinderHeadTemperature_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 32
+              case 40: {
+                voltage_ = input.readBool();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 40
+              case 48: {
+                oilTemperature_ = input.readBool();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 48
+              case 56: {
+                turbineInletTemperature1_ = input.readBool();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 56
+              case 64: {
+                turbineInletTemperature2_ = input.readBool();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 64
+              case 72: {
+                outsideAirTemperature_ = input.readBool();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 72
+              case 80: {
+                fuelFlow_ = input.readBool();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 80
+              case 88: {
+                inductionAirTemperature_ = input.readBool();
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 88
+              case 96: {
+                compressorDischargeTemperature_ = input.readBool();
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 96
+              case 104: {
+                manifoldPressure_ = input.readBool();
+                bitField0_ |= 0x00000400;
+                break;
+              } // case 104
+              case 112: {
+                rpm_ = input.readBool();
+                bitField0_ |= 0x00000800;
+                break;
+              } // case 112
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -5873,27 +7027,35 @@ public final class Proto {
       private int numExhaustGasTemperature_ ;
       /**
        * <code>optional int32 num_exhaust_gas_temperature = 3;</code>
+       * @return Whether the numExhaustGasTemperature field is set.
        */
+      @java.lang.Override
       public boolean hasNumExhaustGasTemperature() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <code>optional int32 num_exhaust_gas_temperature = 3;</code>
+       * @return The numExhaustGasTemperature.
        */
+      @java.lang.Override
       public int getNumExhaustGasTemperature() {
         return numExhaustGasTemperature_;
       }
       /**
        * <code>optional int32 num_exhaust_gas_temperature = 3;</code>
+       * @param value The numExhaustGasTemperature to set.
+       * @return This builder for chaining.
        */
       public Builder setNumExhaustGasTemperature(int value) {
-        bitField0_ |= 0x00000001;
+        
         numExhaustGasTemperature_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
        * <code>optional int32 num_exhaust_gas_temperature = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearNumExhaustGasTemperature() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -5905,27 +7067,35 @@ public final class Proto {
       private int numCylinderHeadTemperature_ ;
       /**
        * <code>optional int32 num_cylinder_head_temperature = 4;</code>
+       * @return Whether the numCylinderHeadTemperature field is set.
        */
+      @java.lang.Override
       public boolean hasNumCylinderHeadTemperature() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <code>optional int32 num_cylinder_head_temperature = 4;</code>
+       * @return The numCylinderHeadTemperature.
        */
+      @java.lang.Override
       public int getNumCylinderHeadTemperature() {
         return numCylinderHeadTemperature_;
       }
       /**
        * <code>optional int32 num_cylinder_head_temperature = 4;</code>
+       * @param value The numCylinderHeadTemperature to set.
+       * @return This builder for chaining.
        */
       public Builder setNumCylinderHeadTemperature(int value) {
-        bitField0_ |= 0x00000002;
+        
         numCylinderHeadTemperature_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
        * <code>optional int32 num_cylinder_head_temperature = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearNumCylinderHeadTemperature() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -5937,27 +7107,35 @@ public final class Proto {
       private boolean voltage_ ;
       /**
        * <code>optional bool voltage = 5;</code>
+       * @return Whether the voltage field is set.
        */
+      @java.lang.Override
       public boolean hasVoltage() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <code>optional bool voltage = 5;</code>
+       * @return The voltage.
        */
+      @java.lang.Override
       public boolean getVoltage() {
         return voltage_;
       }
       /**
        * <code>optional bool voltage = 5;</code>
+       * @param value The voltage to set.
+       * @return This builder for chaining.
        */
       public Builder setVoltage(boolean value) {
-        bitField0_ |= 0x00000004;
+        
         voltage_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
       /**
        * <code>optional bool voltage = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVoltage() {
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -5969,27 +7147,35 @@ public final class Proto {
       private boolean oilTemperature_ ;
       /**
        * <code>optional bool oil_temperature = 6;</code>
+       * @return Whether the oilTemperature field is set.
        */
+      @java.lang.Override
       public boolean hasOilTemperature() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <code>optional bool oil_temperature = 6;</code>
+       * @return The oilTemperature.
        */
+      @java.lang.Override
       public boolean getOilTemperature() {
         return oilTemperature_;
       }
       /**
        * <code>optional bool oil_temperature = 6;</code>
+       * @param value The oilTemperature to set.
+       * @return This builder for chaining.
        */
       public Builder setOilTemperature(boolean value) {
-        bitField0_ |= 0x00000008;
+        
         oilTemperature_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
       /**
        * <code>optional bool oil_temperature = 6;</code>
+       * @return This builder for chaining.
        */
       public Builder clearOilTemperature() {
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -6000,44 +7186,52 @@ public final class Proto {
 
       private boolean turbineInletTemperature1_ ;
       /**
-       * <code>optional bool turbine_inlet_temperature1 = 7;</code>
-       *
        * <pre>
        * TIT1
        * </pre>
+       *
+       * <code>optional bool turbine_inlet_temperature1 = 7;</code>
+       * @return Whether the turbineInletTemperature1 field is set.
        */
+      @java.lang.Override
       public boolean hasTurbineInletTemperature1() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
-       * <code>optional bool turbine_inlet_temperature1 = 7;</code>
-       *
        * <pre>
        * TIT1
        * </pre>
+       *
+       * <code>optional bool turbine_inlet_temperature1 = 7;</code>
+       * @return The turbineInletTemperature1.
        */
+      @java.lang.Override
       public boolean getTurbineInletTemperature1() {
         return turbineInletTemperature1_;
       }
       /**
-       * <code>optional bool turbine_inlet_temperature1 = 7;</code>
-       *
        * <pre>
        * TIT1
        * </pre>
+       *
+       * <code>optional bool turbine_inlet_temperature1 = 7;</code>
+       * @param value The turbineInletTemperature1 to set.
+       * @return This builder for chaining.
        */
       public Builder setTurbineInletTemperature1(boolean value) {
-        bitField0_ |= 0x00000010;
+        
         turbineInletTemperature1_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
       /**
-       * <code>optional bool turbine_inlet_temperature1 = 7;</code>
-       *
        * <pre>
        * TIT1
        * </pre>
+       *
+       * <code>optional bool turbine_inlet_temperature1 = 7;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTurbineInletTemperature1() {
         bitField0_ = (bitField0_ & ~0x00000010);
@@ -6048,44 +7242,52 @@ public final class Proto {
 
       private boolean turbineInletTemperature2_ ;
       /**
-       * <code>optional bool turbine_inlet_temperature2 = 8;</code>
-       *
        * <pre>
        * TIT2
        * </pre>
+       *
+       * <code>optional bool turbine_inlet_temperature2 = 8;</code>
+       * @return Whether the turbineInletTemperature2 field is set.
        */
+      @java.lang.Override
       public boolean hasTurbineInletTemperature2() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
-       * <code>optional bool turbine_inlet_temperature2 = 8;</code>
-       *
        * <pre>
        * TIT2
        * </pre>
+       *
+       * <code>optional bool turbine_inlet_temperature2 = 8;</code>
+       * @return The turbineInletTemperature2.
        */
+      @java.lang.Override
       public boolean getTurbineInletTemperature2() {
         return turbineInletTemperature2_;
       }
       /**
-       * <code>optional bool turbine_inlet_temperature2 = 8;</code>
-       *
        * <pre>
        * TIT2
        * </pre>
+       *
+       * <code>optional bool turbine_inlet_temperature2 = 8;</code>
+       * @param value The turbineInletTemperature2 to set.
+       * @return This builder for chaining.
        */
       public Builder setTurbineInletTemperature2(boolean value) {
-        bitField0_ |= 0x00000020;
+        
         turbineInletTemperature2_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
       /**
-       * <code>optional bool turbine_inlet_temperature2 = 8;</code>
-       *
        * <pre>
        * TIT2
        * </pre>
+       *
+       * <code>optional bool turbine_inlet_temperature2 = 8;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTurbineInletTemperature2() {
         bitField0_ = (bitField0_ & ~0x00000020);
@@ -6096,44 +7298,52 @@ public final class Proto {
 
       private boolean outsideAirTemperature_ ;
       /**
-       * <code>optional bool outside_air_temperature = 9;</code>
-       *
        * <pre>
        * OAT
        * </pre>
+       *
+       * <code>optional bool outside_air_temperature = 9;</code>
+       * @return Whether the outsideAirTemperature field is set.
        */
+      @java.lang.Override
       public boolean hasOutsideAirTemperature() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
+        return ((bitField0_ & 0x00000040) != 0);
       }
       /**
-       * <code>optional bool outside_air_temperature = 9;</code>
-       *
        * <pre>
        * OAT
        * </pre>
+       *
+       * <code>optional bool outside_air_temperature = 9;</code>
+       * @return The outsideAirTemperature.
        */
+      @java.lang.Override
       public boolean getOutsideAirTemperature() {
         return outsideAirTemperature_;
       }
       /**
-       * <code>optional bool outside_air_temperature = 9;</code>
-       *
        * <pre>
        * OAT
        * </pre>
+       *
+       * <code>optional bool outside_air_temperature = 9;</code>
+       * @param value The outsideAirTemperature to set.
+       * @return This builder for chaining.
        */
       public Builder setOutsideAirTemperature(boolean value) {
-        bitField0_ |= 0x00000040;
+        
         outsideAirTemperature_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
       /**
-       * <code>optional bool outside_air_temperature = 9;</code>
-       *
        * <pre>
        * OAT
        * </pre>
+       *
+       * <code>optional bool outside_air_temperature = 9;</code>
+       * @return This builder for chaining.
        */
       public Builder clearOutsideAirTemperature() {
         bitField0_ = (bitField0_ & ~0x00000040);
@@ -6145,27 +7355,35 @@ public final class Proto {
       private boolean fuelFlow_ ;
       /**
        * <code>optional bool fuel_flow = 10;</code>
+       * @return Whether the fuelFlow field is set.
        */
+      @java.lang.Override
       public boolean hasFuelFlow() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
+        return ((bitField0_ & 0x00000080) != 0);
       }
       /**
        * <code>optional bool fuel_flow = 10;</code>
+       * @return The fuelFlow.
        */
+      @java.lang.Override
       public boolean getFuelFlow() {
         return fuelFlow_;
       }
       /**
        * <code>optional bool fuel_flow = 10;</code>
+       * @param value The fuelFlow to set.
+       * @return This builder for chaining.
        */
       public Builder setFuelFlow(boolean value) {
-        bitField0_ |= 0x00000080;
+        
         fuelFlow_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
       /**
        * <code>optional bool fuel_flow = 10;</code>
+       * @return This builder for chaining.
        */
       public Builder clearFuelFlow() {
         bitField0_ = (bitField0_ & ~0x00000080);
@@ -6176,44 +7394,52 @@ public final class Proto {
 
       private boolean inductionAirTemperature_ ;
       /**
-       * <code>optional bool induction_air_temperature = 11;</code>
-       *
        * <pre>
        * IAT
        * </pre>
+       *
+       * <code>optional bool induction_air_temperature = 11;</code>
+       * @return Whether the inductionAirTemperature field is set.
        */
+      @java.lang.Override
       public boolean hasInductionAirTemperature() {
-        return ((bitField0_ & 0x00000100) == 0x00000100);
+        return ((bitField0_ & 0x00000100) != 0);
       }
       /**
-       * <code>optional bool induction_air_temperature = 11;</code>
-       *
        * <pre>
        * IAT
        * </pre>
+       *
+       * <code>optional bool induction_air_temperature = 11;</code>
+       * @return The inductionAirTemperature.
        */
+      @java.lang.Override
       public boolean getInductionAirTemperature() {
         return inductionAirTemperature_;
       }
       /**
-       * <code>optional bool induction_air_temperature = 11;</code>
-       *
        * <pre>
        * IAT
        * </pre>
+       *
+       * <code>optional bool induction_air_temperature = 11;</code>
+       * @param value The inductionAirTemperature to set.
+       * @return This builder for chaining.
        */
       public Builder setInductionAirTemperature(boolean value) {
-        bitField0_ |= 0x00000100;
+        
         inductionAirTemperature_ = value;
+        bitField0_ |= 0x00000100;
         onChanged();
         return this;
       }
       /**
-       * <code>optional bool induction_air_temperature = 11;</code>
-       *
        * <pre>
        * IAT
        * </pre>
+       *
+       * <code>optional bool induction_air_temperature = 11;</code>
+       * @return This builder for chaining.
        */
       public Builder clearInductionAirTemperature() {
         bitField0_ = (bitField0_ & ~0x00000100);
@@ -6224,44 +7450,52 @@ public final class Proto {
 
       private boolean compressorDischargeTemperature_ ;
       /**
-       * <code>optional bool compressor_discharge_temperature = 12;</code>
-       *
        * <pre>
        * CDT
        * </pre>
+       *
+       * <code>optional bool compressor_discharge_temperature = 12;</code>
+       * @return Whether the compressorDischargeTemperature field is set.
        */
+      @java.lang.Override
       public boolean hasCompressorDischargeTemperature() {
-        return ((bitField0_ & 0x00000200) == 0x00000200);
+        return ((bitField0_ & 0x00000200) != 0);
       }
       /**
-       * <code>optional bool compressor_discharge_temperature = 12;</code>
-       *
        * <pre>
        * CDT
        * </pre>
+       *
+       * <code>optional bool compressor_discharge_temperature = 12;</code>
+       * @return The compressorDischargeTemperature.
        */
+      @java.lang.Override
       public boolean getCompressorDischargeTemperature() {
         return compressorDischargeTemperature_;
       }
       /**
-       * <code>optional bool compressor_discharge_temperature = 12;</code>
-       *
        * <pre>
        * CDT
        * </pre>
+       *
+       * <code>optional bool compressor_discharge_temperature = 12;</code>
+       * @param value The compressorDischargeTemperature to set.
+       * @return This builder for chaining.
        */
       public Builder setCompressorDischargeTemperature(boolean value) {
-        bitField0_ |= 0x00000200;
+        
         compressorDischargeTemperature_ = value;
+        bitField0_ |= 0x00000200;
         onChanged();
         return this;
       }
       /**
-       * <code>optional bool compressor_discharge_temperature = 12;</code>
-       *
        * <pre>
        * CDT
        * </pre>
+       *
+       * <code>optional bool compressor_discharge_temperature = 12;</code>
+       * @return This builder for chaining.
        */
       public Builder clearCompressorDischargeTemperature() {
         bitField0_ = (bitField0_ & ~0x00000200);
@@ -6272,44 +7506,52 @@ public final class Proto {
 
       private boolean manifoldPressure_ ;
       /**
-       * <code>optional bool manifold_pressure = 13;</code>
-       *
        * <pre>
        * MAP
        * </pre>
+       *
+       * <code>optional bool manifold_pressure = 13;</code>
+       * @return Whether the manifoldPressure field is set.
        */
+      @java.lang.Override
       public boolean hasManifoldPressure() {
-        return ((bitField0_ & 0x00000400) == 0x00000400);
+        return ((bitField0_ & 0x00000400) != 0);
       }
       /**
-       * <code>optional bool manifold_pressure = 13;</code>
-       *
        * <pre>
        * MAP
        * </pre>
+       *
+       * <code>optional bool manifold_pressure = 13;</code>
+       * @return The manifoldPressure.
        */
+      @java.lang.Override
       public boolean getManifoldPressure() {
         return manifoldPressure_;
       }
       /**
-       * <code>optional bool manifold_pressure = 13;</code>
-       *
        * <pre>
        * MAP
        * </pre>
+       *
+       * <code>optional bool manifold_pressure = 13;</code>
+       * @param value The manifoldPressure to set.
+       * @return This builder for chaining.
        */
       public Builder setManifoldPressure(boolean value) {
-        bitField0_ |= 0x00000400;
+        
         manifoldPressure_ = value;
+        bitField0_ |= 0x00000400;
         onChanged();
         return this;
       }
       /**
-       * <code>optional bool manifold_pressure = 13;</code>
-       *
        * <pre>
        * MAP
        * </pre>
+       *
+       * <code>optional bool manifold_pressure = 13;</code>
+       * @return This builder for chaining.
        */
       public Builder clearManifoldPressure() {
         bitField0_ = (bitField0_ & ~0x00000400);
@@ -6321,27 +7563,35 @@ public final class Proto {
       private boolean rpm_ ;
       /**
        * <code>optional bool rpm = 14;</code>
+       * @return Whether the rpm field is set.
        */
+      @java.lang.Override
       public boolean hasRpm() {
-        return ((bitField0_ & 0x00000800) == 0x00000800);
+        return ((bitField0_ & 0x00000800) != 0);
       }
       /**
        * <code>optional bool rpm = 14;</code>
+       * @return The rpm.
        */
+      @java.lang.Override
       public boolean getRpm() {
         return rpm_;
       }
       /**
        * <code>optional bool rpm = 14;</code>
+       * @param value The rpm to set.
+       * @return This builder for chaining.
        */
       public Builder setRpm(boolean value) {
-        bitField0_ |= 0x00000800;
+        
         rpm_ = value;
+        bitField0_ |= 0x00000800;
         onChanged();
         return this;
       }
       /**
        * <code>optional bool rpm = 14;</code>
+       * @return This builder for chaining.
        */
       public Builder clearRpm() {
         bitField0_ = (bitField0_ & ~0x00000800);
@@ -6349,16 +7599,68 @@ public final class Proto {
         onChanged();
         return this;
       }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:edmtools.Sensors)
     }
 
+    // @@protoc_insertion_point(class_scope:edmtools.Sensors)
+    private static final edmtools.Proto.Sensors DEFAULT_INSTANCE;
     static {
-      defaultInstance = new Sensors(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new edmtools.Proto.Sensors();
     }
 
-    // @@protoc_insertion_point(class_scope:edmtools.Sensors)
+    public static edmtools.Proto.Sensors getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<Sensors>
+        PARSER = new com.google.protobuf.AbstractParser<Sensors>() {
+      @java.lang.Override
+      public Sensors parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<Sensors> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Sensors> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public edmtools.Proto.Sensors getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface FlightMetadataOrBuilder extends
@@ -6367,29 +7669,33 @@ public final class Proto {
 
     /**
      * <code>optional int32 flight_number = 1;</code>
+     * @return Whether the flightNumber field is set.
      */
     boolean hasFlightNumber();
     /**
      * <code>optional int32 flight_number = 1;</code>
+     * @return The flightNumber.
      */
     int getFlightNumber();
 
     /**
-     * <code>optional int32 flight_data_length_words = 2;</code>
-     *
      * <pre>
      * The data records are not padded to word boundaries.  Consequently,
      * the record may be one byte less in length than this field indicates.
      * </pre>
+     *
+     * <code>optional int32 flight_data_length_words = 2;</code>
+     * @return Whether the flightDataLengthWords field is set.
      */
     boolean hasFlightDataLengthWords();
     /**
-     * <code>optional int32 flight_data_length_words = 2;</code>
-     *
      * <pre>
      * The data records are not padded to word boundaries.  Consequently,
      * the record may be one byte less in length than this field indicates.
      * </pre>
+     *
+     * <code>optional int32 flight_data_length_words = 2;</code>
+     * @return The flightDataLengthWords.
      */
     int getFlightDataLengthWords();
   }
@@ -6397,149 +7703,93 @@ public final class Proto {
    * Protobuf type {@code edmtools.FlightMetadata}
    */
   public static final class FlightMetadata extends
-      com.google.protobuf.GeneratedMessage implements
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:edmtools.FlightMetadata)
       FlightMetadataOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use FlightMetadata.newBuilder() to construct.
-    private FlightMetadata(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private FlightMetadata(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private FlightMetadata(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final FlightMetadata defaultInstance;
-    public static FlightMetadata getDefaultInstance() {
-      return defaultInstance;
+    private FlightMetadata() {
     }
 
-    public FlightMetadata getDefaultInstanceForType() {
-      return defaultInstance;
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new FlightMetadata();
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
-    }
-    private FlightMetadata(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              flightNumber_ = input.readInt32();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              flightDataLengthWords_ = input.readInt32();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return edmtools.Proto.internal_static_edmtools_FlightMetadata_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return edmtools.Proto.internal_static_edmtools_FlightMetadata_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               edmtools.Proto.FlightMetadata.class, edmtools.Proto.FlightMetadata.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<FlightMetadata> PARSER =
-        new com.google.protobuf.AbstractParser<FlightMetadata>() {
-      public FlightMetadata parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new FlightMetadata(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<FlightMetadata> getParserForType() {
-      return PARSER;
-    }
-
     private int bitField0_;
     public static final int FLIGHT_NUMBER_FIELD_NUMBER = 1;
-    private int flightNumber_;
+    private int flightNumber_ = 0;
     /**
      * <code>optional int32 flight_number = 1;</code>
+     * @return Whether the flightNumber field is set.
      */
+    @java.lang.Override
     public boolean hasFlightNumber() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>optional int32 flight_number = 1;</code>
+     * @return The flightNumber.
      */
+    @java.lang.Override
     public int getFlightNumber() {
       return flightNumber_;
     }
 
     public static final int FLIGHT_DATA_LENGTH_WORDS_FIELD_NUMBER = 2;
-    private int flightDataLengthWords_;
+    private int flightDataLengthWords_ = 0;
     /**
-     * <code>optional int32 flight_data_length_words = 2;</code>
-     *
      * <pre>
      * The data records are not padded to word boundaries.  Consequently,
      * the record may be one byte less in length than this field indicates.
      * </pre>
+     *
+     * <code>optional int32 flight_data_length_words = 2;</code>
+     * @return Whether the flightDataLengthWords field is set.
      */
+    @java.lang.Override
     public boolean hasFlightDataLengthWords() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>optional int32 flight_data_length_words = 2;</code>
-     *
      * <pre>
      * The data records are not padded to word boundaries.  Consequently,
      * the record may be one byte less in length than this field indicates.
      * </pre>
+     *
+     * <code>optional int32 flight_data_length_words = 2;</code>
+     * @return The flightDataLengthWords.
      */
+    @java.lang.Override
     public int getFlightDataLengthWords() {
       return flightDataLengthWords_;
     }
 
-    private void initFields() {
-      flightNumber_ = 0;
-      flightDataLengthWords_ = 0;
-    }
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -6549,44 +7799,92 @@ public final class Proto {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         output.writeInt32(1, flightNumber_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         output.writeInt32(2, flightDataLengthWords_);
       }
       getUnknownFields().writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
+    @java.lang.Override
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, flightNumber_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, flightDataLengthWords_);
       }
       size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof edmtools.Proto.FlightMetadata)) {
+        return super.equals(obj);
+      }
+      edmtools.Proto.FlightMetadata other = (edmtools.Proto.FlightMetadata) obj;
+
+      if (hasFlightNumber() != other.hasFlightNumber()) return false;
+      if (hasFlightNumber()) {
+        if (getFlightNumber()
+            != other.getFlightNumber()) return false;
+      }
+      if (hasFlightDataLengthWords() != other.hasFlightDataLengthWords()) return false;
+      if (hasFlightDataLengthWords()) {
+        if (getFlightDataLengthWords()
+            != other.getFlightDataLengthWords()) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
     }
 
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasFlightNumber()) {
+        hash = (37 * hash) + FLIGHT_NUMBER_FIELD_NUMBER;
+        hash = (53 * hash) + getFlightNumber();
+      }
+      if (hasFlightDataLengthWords()) {
+        hash = (37 * hash) + FLIGHT_DATA_LENGTH_WORDS_FIELD_NUMBER;
+        hash = (53 * hash) + getFlightDataLengthWords();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static edmtools.Proto.FlightMetadata parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static edmtools.Proto.FlightMetadata parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static edmtools.Proto.FlightMetadata parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -6610,46 +7908,59 @@ public final class Proto {
     }
     public static edmtools.Proto.FlightMetadata parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static edmtools.Proto.FlightMetadata parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static edmtools.Proto.FlightMetadata parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static edmtools.Proto.FlightMetadata parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static edmtools.Proto.FlightMetadata parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static edmtools.Proto.FlightMetadata parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(edmtools.Proto.FlightMetadata prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(edmtools.Proto.FlightMetadata prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -6657,7 +7968,7 @@ public final class Proto {
      * Protobuf type {@code edmtools.FlightMetadata}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:edmtools.FlightMetadata)
         edmtools.Proto.FlightMetadataOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -6665,7 +7976,8 @@ public final class Proto {
         return edmtools.Proto.internal_static_edmtools_FlightMetadata_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return edmtools.Proto.internal_static_edmtools_FlightMetadata_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -6674,44 +7986,35 @@ public final class Proto {
 
       // Construct using edmtools.Proto.FlightMetadata.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
 
+      }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         flightNumber_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
         flightDataLengthWords_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return edmtools.Proto.internal_static_edmtools_FlightMetadata_descriptor;
       }
 
+      @java.lang.Override
       public edmtools.Proto.FlightMetadata getDefaultInstanceForType() {
         return edmtools.Proto.FlightMetadata.getDefaultInstance();
       }
 
+      @java.lang.Override
       public edmtools.Proto.FlightMetadata build() {
         edmtools.Proto.FlightMetadata result = buildPartial();
         if (!result.isInitialized()) {
@@ -6720,23 +8023,61 @@ public final class Proto {
         return result;
       }
 
+      @java.lang.Override
       public edmtools.Proto.FlightMetadata buildPartial() {
         edmtools.Proto.FlightMetadata result = new edmtools.Proto.FlightMetadata(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.flightNumber_ = flightNumber_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.flightDataLengthWords_ = flightDataLengthWords_;
-        result.bitField0_ = to_bitField0_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
+      private void buildPartial0(edmtools.Proto.FlightMetadata result) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.flightNumber_ = flightNumber_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.flightDataLengthWords_ = flightDataLengthWords_;
+          to_bitField0_ |= 0x00000002;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof edmtools.Proto.FlightMetadata) {
           return mergeFrom((edmtools.Proto.FlightMetadata)other);
@@ -6755,28 +8096,54 @@ public final class Proto {
           setFlightDataLengthWords(other.getFlightDataLengthWords());
         }
         this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        edmtools.Proto.FlightMetadata parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (edmtools.Proto.FlightMetadata) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
         }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                flightNumber_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                flightDataLengthWords_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -6784,27 +8151,35 @@ public final class Proto {
       private int flightNumber_ ;
       /**
        * <code>optional int32 flight_number = 1;</code>
+       * @return Whether the flightNumber field is set.
        */
+      @java.lang.Override
       public boolean hasFlightNumber() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <code>optional int32 flight_number = 1;</code>
+       * @return The flightNumber.
        */
+      @java.lang.Override
       public int getFlightNumber() {
         return flightNumber_;
       }
       /**
        * <code>optional int32 flight_number = 1;</code>
+       * @param value The flightNumber to set.
+       * @return This builder for chaining.
        */
       public Builder setFlightNumber(int value) {
-        bitField0_ |= 0x00000001;
+        
         flightNumber_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
        * <code>optional int32 flight_number = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearFlightNumber() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -6815,48 +8190,56 @@ public final class Proto {
 
       private int flightDataLengthWords_ ;
       /**
-       * <code>optional int32 flight_data_length_words = 2;</code>
-       *
        * <pre>
        * The data records are not padded to word boundaries.  Consequently,
        * the record may be one byte less in length than this field indicates.
        * </pre>
+       *
+       * <code>optional int32 flight_data_length_words = 2;</code>
+       * @return Whether the flightDataLengthWords field is set.
        */
+      @java.lang.Override
       public boolean hasFlightDataLengthWords() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>optional int32 flight_data_length_words = 2;</code>
-       *
        * <pre>
        * The data records are not padded to word boundaries.  Consequently,
        * the record may be one byte less in length than this field indicates.
        * </pre>
+       *
+       * <code>optional int32 flight_data_length_words = 2;</code>
+       * @return The flightDataLengthWords.
        */
+      @java.lang.Override
       public int getFlightDataLengthWords() {
         return flightDataLengthWords_;
       }
       /**
-       * <code>optional int32 flight_data_length_words = 2;</code>
-       *
        * <pre>
        * The data records are not padded to word boundaries.  Consequently,
        * the record may be one byte less in length than this field indicates.
        * </pre>
+       *
+       * <code>optional int32 flight_data_length_words = 2;</code>
+       * @param value The flightDataLengthWords to set.
+       * @return This builder for chaining.
        */
       public Builder setFlightDataLengthWords(int value) {
-        bitField0_ |= 0x00000002;
+        
         flightDataLengthWords_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 flight_data_length_words = 2;</code>
-       *
        * <pre>
        * The data records are not padded to word boundaries.  Consequently,
        * the record may be one byte less in length than this field indicates.
        * </pre>
+       *
+       * <code>optional int32 flight_data_length_words = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearFlightDataLengthWords() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -6864,16 +8247,68 @@ public final class Proto {
         onChanged();
         return this;
       }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:edmtools.FlightMetadata)
     }
 
+    // @@protoc_insertion_point(class_scope:edmtools.FlightMetadata)
+    private static final edmtools.Proto.FlightMetadata DEFAULT_INSTANCE;
     static {
-      defaultInstance = new FlightMetadata(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new edmtools.Proto.FlightMetadata();
     }
 
-    // @@protoc_insertion_point(class_scope:edmtools.FlightMetadata)
+    public static edmtools.Proto.FlightMetadata getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<FlightMetadata>
+        PARSER = new com.google.protobuf.AbstractParser<FlightMetadata>() {
+      @java.lang.Override
+      public FlightMetadata parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<FlightMetadata> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<FlightMetadata> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public edmtools.Proto.FlightMetadata getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface FlightOrBuilder extends
@@ -6882,45 +8317,53 @@ public final class Proto {
 
     /**
      * <code>optional int32 flight_number = 1;</code>
+     * @return Whether the flightNumber field is set.
      */
     boolean hasFlightNumber();
     /**
      * <code>optional int32 flight_number = 1;</code>
+     * @return The flightNumber.
      */
     int getFlightNumber();
 
     /**
-     * <code>optional int64 start_timestamp = 2;</code>
-     *
      * <pre>
      * Unix timestamp of flight.
      * </pre>
+     *
+     * <code>optional int64 start_timestamp = 2;</code>
+     * @return Whether the startTimestamp field is set.
      */
     boolean hasStartTimestamp();
     /**
-     * <code>optional int64 start_timestamp = 2;</code>
-     *
      * <pre>
      * Unix timestamp of flight.
      * </pre>
+     *
+     * <code>optional int64 start_timestamp = 2;</code>
+     * @return The startTimestamp.
      */
     long getStartTimestamp();
 
     /**
      * <code>optional int32 recording_interval_secs = 3;</code>
+     * @return Whether the recordingIntervalSecs field is set.
      */
     boolean hasRecordingIntervalSecs();
     /**
      * <code>optional int32 recording_interval_secs = 3;</code>
+     * @return The recordingIntervalSecs.
      */
     int getRecordingIntervalSecs();
 
     /**
      * <code>optional .edmtools.Sensors sensors = 4;</code>
+     * @return Whether the sensors field is set.
      */
     boolean hasSensors();
     /**
      * <code>optional .edmtools.Sensors sensors = 4;</code>
+     * @return The sensors.
      */
     edmtools.Proto.Sensors getSensors();
     /**
@@ -6929,79 +8372,79 @@ public final class Proto {
     edmtools.Proto.SensorsOrBuilder getSensorsOrBuilder();
 
     /**
-     * <code>repeated .edmtools.DataRecord data = 5;</code>
-     *
      * <pre>
      * The beginning DataRecord represents the sensor state at
      * start_timestamp; each subsequent record represents the
      * sensor state recording_interval_secs later (except see Mark).
      * </pre>
+     *
+     * <code>repeated .edmtools.DataRecord data = 5;</code>
      */
     java.util.List<edmtools.Proto.DataRecord> 
         getDataList();
     /**
-     * <code>repeated .edmtools.DataRecord data = 5;</code>
-     *
      * <pre>
      * The beginning DataRecord represents the sensor state at
      * start_timestamp; each subsequent record represents the
      * sensor state recording_interval_secs later (except see Mark).
      * </pre>
+     *
+     * <code>repeated .edmtools.DataRecord data = 5;</code>
      */
     edmtools.Proto.DataRecord getData(int index);
     /**
-     * <code>repeated .edmtools.DataRecord data = 5;</code>
-     *
      * <pre>
      * The beginning DataRecord represents the sensor state at
      * start_timestamp; each subsequent record represents the
      * sensor state recording_interval_secs later (except see Mark).
      * </pre>
+     *
+     * <code>repeated .edmtools.DataRecord data = 5;</code>
      */
     int getDataCount();
     /**
-     * <code>repeated .edmtools.DataRecord data = 5;</code>
-     *
      * <pre>
      * The beginning DataRecord represents the sensor state at
      * start_timestamp; each subsequent record represents the
      * sensor state recording_interval_secs later (except see Mark).
      * </pre>
+     *
+     * <code>repeated .edmtools.DataRecord data = 5;</code>
      */
     java.util.List<? extends edmtools.Proto.DataRecordOrBuilder> 
         getDataOrBuilderList();
     /**
-     * <code>repeated .edmtools.DataRecord data = 5;</code>
-     *
      * <pre>
      * The beginning DataRecord represents the sensor state at
      * start_timestamp; each subsequent record represents the
      * sensor state recording_interval_secs later (except see Mark).
      * </pre>
+     *
+     * <code>repeated .edmtools.DataRecord data = 5;</code>
      */
     edmtools.Proto.DataRecordOrBuilder getDataOrBuilder(
         int index);
 
     /**
-     * <code>optional int32 header_length = 6;</code>
-     *
      * <pre>
      * Length of the flight header, in bytes, in the original JPI file.
      * </pre>
+     *
+     * <code>optional int32 header_length = 6;</code>
+     * @return Whether the headerLength field is set.
      */
     boolean hasHeaderLength();
     /**
-     * <code>optional int32 header_length = 6;</code>
-     *
      * <pre>
      * Length of the flight header, in bytes, in the original JPI file.
      * </pre>
+     *
+     * <code>optional int32 header_length = 6;</code>
+     * @return The headerLength.
      */
     int getHeaderLength();
 
     /**
-     * <code>optional int32 data_length = 7;</code>
-     *
      * <pre>
      * Length of data record data, in bytes, in the original JPI file.
      * This does not include header_length.
@@ -7009,11 +8452,12 @@ public final class Proto {
      * Note: this is the actual length in bytes (records are not padded to 
      * word boundaries). 
      * </pre>
+     *
+     * <code>optional int32 data_length = 7;</code>
+     * @return Whether the dataLength field is set.
      */
     boolean hasDataLength();
     /**
-     * <code>optional int32 data_length = 7;</code>
-     *
      * <pre>
      * Length of data record data, in bytes, in the original JPI file.
      * This does not include header_length.
@@ -7021,250 +8465,161 @@ public final class Proto {
      * Note: this is the actual length in bytes (records are not padded to 
      * word boundaries). 
      * </pre>
+     *
+     * <code>optional int32 data_length = 7;</code>
+     * @return The dataLength.
      */
     int getDataLength();
 
     /**
-     * <code>repeated string parse_warning = 8;</code>
-     *
      * <pre>
      * Non-fatal parse warnings.
      * </pre>
+     *
+     * <code>repeated string parse_warning = 8;</code>
+     * @return A list containing the parseWarning.
      */
-    com.google.protobuf.ProtocolStringList
+    java.util.List<java.lang.String>
         getParseWarningList();
     /**
-     * <code>repeated string parse_warning = 8;</code>
-     *
      * <pre>
      * Non-fatal parse warnings.
      * </pre>
+     *
+     * <code>repeated string parse_warning = 8;</code>
+     * @return The count of parseWarning.
      */
     int getParseWarningCount();
     /**
-     * <code>repeated string parse_warning = 8;</code>
-     *
      * <pre>
      * Non-fatal parse warnings.
      * </pre>
+     *
+     * <code>repeated string parse_warning = 8;</code>
+     * @param index The index of the element to return.
+     * @return The parseWarning at the given index.
      */
     java.lang.String getParseWarning(int index);
     /**
-     * <code>repeated string parse_warning = 8;</code>
-     *
      * <pre>
      * Non-fatal parse warnings.
      * </pre>
+     *
+     * <code>repeated string parse_warning = 8;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the parseWarning at the given index.
      */
     com.google.protobuf.ByteString
         getParseWarningBytes(int index);
   }
   /**
-   * Protobuf type {@code edmtools.Flight}
-   *
    * <pre>
    * Primary message for each flight in the binary data.
    * </pre>
+   *
+   * Protobuf type {@code edmtools.Flight}
    */
   public static final class Flight extends
-      com.google.protobuf.GeneratedMessage implements
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:edmtools.Flight)
       FlightOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use Flight.newBuilder() to construct.
-    private Flight(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private Flight(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private Flight(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final Flight defaultInstance;
-    public static Flight getDefaultInstance() {
-      return defaultInstance;
+    private Flight() {
+      data_ = java.util.Collections.emptyList();
+      parseWarning_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
-    public Flight getDefaultInstanceForType() {
-      return defaultInstance;
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Flight();
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
-    }
-    private Flight(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              flightNumber_ = input.readInt32();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              startTimestamp_ = input.readInt64();
-              break;
-            }
-            case 24: {
-              bitField0_ |= 0x00000004;
-              recordingIntervalSecs_ = input.readInt32();
-              break;
-            }
-            case 34: {
-              edmtools.Proto.Sensors.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000008) == 0x00000008)) {
-                subBuilder = sensors_.toBuilder();
-              }
-              sensors_ = input.readMessage(edmtools.Proto.Sensors.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(sensors_);
-                sensors_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000008;
-              break;
-            }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                data_ = new java.util.ArrayList<edmtools.Proto.DataRecord>();
-                mutable_bitField0_ |= 0x00000010;
-              }
-              data_.add(input.readMessage(edmtools.Proto.DataRecord.PARSER, extensionRegistry));
-              break;
-            }
-            case 48: {
-              bitField0_ |= 0x00000010;
-              headerLength_ = input.readInt32();
-              break;
-            }
-            case 56: {
-              bitField0_ |= 0x00000020;
-              dataLength_ = input.readInt32();
-              break;
-            }
-            case 66: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
-                parseWarning_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000080;
-              }
-              parseWarning_.add(bs);
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-          data_ = java.util.Collections.unmodifiableList(data_);
-        }
-        if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
-          parseWarning_ = parseWarning_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return edmtools.Proto.internal_static_edmtools_Flight_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return edmtools.Proto.internal_static_edmtools_Flight_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               edmtools.Proto.Flight.class, edmtools.Proto.Flight.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<Flight> PARSER =
-        new com.google.protobuf.AbstractParser<Flight>() {
-      public Flight parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Flight(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Flight> getParserForType() {
-      return PARSER;
-    }
-
     private int bitField0_;
     public static final int FLIGHT_NUMBER_FIELD_NUMBER = 1;
-    private int flightNumber_;
+    private int flightNumber_ = 0;
     /**
      * <code>optional int32 flight_number = 1;</code>
+     * @return Whether the flightNumber field is set.
      */
+    @java.lang.Override
     public boolean hasFlightNumber() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>optional int32 flight_number = 1;</code>
+     * @return The flightNumber.
      */
+    @java.lang.Override
     public int getFlightNumber() {
       return flightNumber_;
     }
 
     public static final int START_TIMESTAMP_FIELD_NUMBER = 2;
-    private long startTimestamp_;
+    private long startTimestamp_ = 0L;
     /**
-     * <code>optional int64 start_timestamp = 2;</code>
-     *
      * <pre>
      * Unix timestamp of flight.
      * </pre>
+     *
+     * <code>optional int64 start_timestamp = 2;</code>
+     * @return Whether the startTimestamp field is set.
      */
+    @java.lang.Override
     public boolean hasStartTimestamp() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>optional int64 start_timestamp = 2;</code>
-     *
      * <pre>
      * Unix timestamp of flight.
      * </pre>
+     *
+     * <code>optional int64 start_timestamp = 2;</code>
+     * @return The startTimestamp.
      */
+    @java.lang.Override
     public long getStartTimestamp() {
       return startTimestamp_;
     }
 
     public static final int RECORDING_INTERVAL_SECS_FIELD_NUMBER = 3;
-    private int recordingIntervalSecs_;
+    private int recordingIntervalSecs_ = 0;
     /**
      * <code>optional int32 recording_interval_secs = 3;</code>
+     * @return Whether the recordingIntervalSecs field is set.
      */
+    @java.lang.Override
     public boolean hasRecordingIntervalSecs() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <code>optional int32 recording_interval_secs = 3;</code>
+     * @return The recordingIntervalSecs.
      */
+    @java.lang.Override
     public int getRecordingIntervalSecs() {
       return recordingIntervalSecs_;
     }
@@ -7273,116 +8628,129 @@ public final class Proto {
     private edmtools.Proto.Sensors sensors_;
     /**
      * <code>optional .edmtools.Sensors sensors = 4;</code>
+     * @return Whether the sensors field is set.
      */
+    @java.lang.Override
     public boolean hasSensors() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <code>optional .edmtools.Sensors sensors = 4;</code>
+     * @return The sensors.
      */
+    @java.lang.Override
     public edmtools.Proto.Sensors getSensors() {
-      return sensors_;
+      return sensors_ == null ? edmtools.Proto.Sensors.getDefaultInstance() : sensors_;
     }
     /**
      * <code>optional .edmtools.Sensors sensors = 4;</code>
      */
+    @java.lang.Override
     public edmtools.Proto.SensorsOrBuilder getSensorsOrBuilder() {
-      return sensors_;
+      return sensors_ == null ? edmtools.Proto.Sensors.getDefaultInstance() : sensors_;
     }
 
     public static final int DATA_FIELD_NUMBER = 5;
+    @SuppressWarnings("serial")
     private java.util.List<edmtools.Proto.DataRecord> data_;
     /**
-     * <code>repeated .edmtools.DataRecord data = 5;</code>
-     *
      * <pre>
      * The beginning DataRecord represents the sensor state at
      * start_timestamp; each subsequent record represents the
      * sensor state recording_interval_secs later (except see Mark).
      * </pre>
+     *
+     * <code>repeated .edmtools.DataRecord data = 5;</code>
      */
+    @java.lang.Override
     public java.util.List<edmtools.Proto.DataRecord> getDataList() {
       return data_;
     }
     /**
-     * <code>repeated .edmtools.DataRecord data = 5;</code>
-     *
      * <pre>
      * The beginning DataRecord represents the sensor state at
      * start_timestamp; each subsequent record represents the
      * sensor state recording_interval_secs later (except see Mark).
      * </pre>
+     *
+     * <code>repeated .edmtools.DataRecord data = 5;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends edmtools.Proto.DataRecordOrBuilder> 
         getDataOrBuilderList() {
       return data_;
     }
     /**
-     * <code>repeated .edmtools.DataRecord data = 5;</code>
-     *
      * <pre>
      * The beginning DataRecord represents the sensor state at
      * start_timestamp; each subsequent record represents the
      * sensor state recording_interval_secs later (except see Mark).
      * </pre>
+     *
+     * <code>repeated .edmtools.DataRecord data = 5;</code>
      */
+    @java.lang.Override
     public int getDataCount() {
       return data_.size();
     }
     /**
-     * <code>repeated .edmtools.DataRecord data = 5;</code>
-     *
      * <pre>
      * The beginning DataRecord represents the sensor state at
      * start_timestamp; each subsequent record represents the
      * sensor state recording_interval_secs later (except see Mark).
      * </pre>
+     *
+     * <code>repeated .edmtools.DataRecord data = 5;</code>
      */
+    @java.lang.Override
     public edmtools.Proto.DataRecord getData(int index) {
       return data_.get(index);
     }
     /**
-     * <code>repeated .edmtools.DataRecord data = 5;</code>
-     *
      * <pre>
      * The beginning DataRecord represents the sensor state at
      * start_timestamp; each subsequent record represents the
      * sensor state recording_interval_secs later (except see Mark).
      * </pre>
+     *
+     * <code>repeated .edmtools.DataRecord data = 5;</code>
      */
+    @java.lang.Override
     public edmtools.Proto.DataRecordOrBuilder getDataOrBuilder(
         int index) {
       return data_.get(index);
     }
 
     public static final int HEADER_LENGTH_FIELD_NUMBER = 6;
-    private int headerLength_;
+    private int headerLength_ = 0;
     /**
-     * <code>optional int32 header_length = 6;</code>
-     *
      * <pre>
      * Length of the flight header, in bytes, in the original JPI file.
      * </pre>
+     *
+     * <code>optional int32 header_length = 6;</code>
+     * @return Whether the headerLength field is set.
      */
+    @java.lang.Override
     public boolean hasHeaderLength() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
-     * <code>optional int32 header_length = 6;</code>
-     *
      * <pre>
      * Length of the flight header, in bytes, in the original JPI file.
      * </pre>
+     *
+     * <code>optional int32 header_length = 6;</code>
+     * @return The headerLength.
      */
+    @java.lang.Override
     public int getHeaderLength() {
       return headerLength_;
     }
 
     public static final int DATA_LENGTH_FIELD_NUMBER = 7;
-    private int dataLength_;
+    private int dataLength_ = 0;
     /**
-     * <code>optional int32 data_length = 7;</code>
-     *
      * <pre>
      * Length of data record data, in bytes, in the original JPI file.
      * This does not include header_length.
@@ -7390,13 +8758,15 @@ public final class Proto {
      * Note: this is the actual length in bytes (records are not padded to 
      * word boundaries). 
      * </pre>
+     *
+     * <code>optional int32 data_length = 7;</code>
+     * @return Whether the dataLength field is set.
      */
+    @java.lang.Override
     public boolean hasDataLength() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
-     * <code>optional int32 data_length = 7;</code>
-     *
      * <pre>
      * Length of data record data, in bytes, in the original JPI file.
      * This does not include header_length.
@@ -7404,67 +8774,69 @@ public final class Proto {
      * Note: this is the actual length in bytes (records are not padded to 
      * word boundaries). 
      * </pre>
+     *
+     * <code>optional int32 data_length = 7;</code>
+     * @return The dataLength.
      */
+    @java.lang.Override
     public int getDataLength() {
       return dataLength_;
     }
 
     public static final int PARSE_WARNING_FIELD_NUMBER = 8;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList parseWarning_;
     /**
-     * <code>repeated string parse_warning = 8;</code>
-     *
      * <pre>
      * Non-fatal parse warnings.
      * </pre>
+     *
+     * <code>repeated string parse_warning = 8;</code>
+     * @return A list containing the parseWarning.
      */
     public com.google.protobuf.ProtocolStringList
         getParseWarningList() {
       return parseWarning_;
     }
     /**
-     * <code>repeated string parse_warning = 8;</code>
-     *
      * <pre>
      * Non-fatal parse warnings.
      * </pre>
+     *
+     * <code>repeated string parse_warning = 8;</code>
+     * @return The count of parseWarning.
      */
     public int getParseWarningCount() {
       return parseWarning_.size();
     }
     /**
-     * <code>repeated string parse_warning = 8;</code>
-     *
      * <pre>
      * Non-fatal parse warnings.
      * </pre>
+     *
+     * <code>repeated string parse_warning = 8;</code>
+     * @param index The index of the element to return.
+     * @return The parseWarning at the given index.
      */
     public java.lang.String getParseWarning(int index) {
       return parseWarning_.get(index);
     }
     /**
-     * <code>repeated string parse_warning = 8;</code>
-     *
      * <pre>
      * Non-fatal parse warnings.
      * </pre>
+     *
+     * <code>repeated string parse_warning = 8;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the parseWarning at the given index.
      */
     public com.google.protobuf.ByteString
         getParseWarningBytes(int index) {
       return parseWarning_.getByteString(index);
     }
 
-    private void initFields() {
-      flightNumber_ = 0;
-      startTimestamp_ = 0L;
-      recordingIntervalSecs_ = 0;
-      sensors_ = edmtools.Proto.Sensors.getDefaultInstance();
-      data_ = java.util.Collections.emptyList();
-      headerLength_ = 0;
-      dataLength_ = 0;
-      parseWarning_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-    }
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -7474,91 +8846,187 @@ public final class Proto {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         output.writeInt32(1, flightNumber_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         output.writeInt64(2, startTimestamp_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         output.writeInt32(3, recordingIntervalSecs_);
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeMessage(4, sensors_);
+      if (((bitField0_ & 0x00000008) != 0)) {
+        output.writeMessage(4, getSensors());
       }
       for (int i = 0; i < data_.size(); i++) {
         output.writeMessage(5, data_.get(i));
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         output.writeInt32(6, headerLength_);
       }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+      if (((bitField0_ & 0x00000020) != 0)) {
         output.writeInt32(7, dataLength_);
       }
       for (int i = 0; i < parseWarning_.size(); i++) {
-        output.writeBytes(8, parseWarning_.getByteString(i));
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, parseWarning_.getRaw(i));
       }
       getUnknownFields().writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
+    @java.lang.Override
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, flightNumber_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, startTimestamp_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, recordingIntervalSecs_);
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, sensors_);
+          .computeMessageSize(4, getSensors());
       }
       for (int i = 0; i < data_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, data_.get(i));
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(6, headerLength_);
       }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+      if (((bitField0_ & 0x00000020) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(7, dataLength_);
       }
       {
         int dataSize = 0;
         for (int i = 0; i < parseWarning_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeBytesSizeNoTag(parseWarning_.getByteString(i));
+          dataSize += computeStringSizeNoTag(parseWarning_.getRaw(i));
         }
         size += dataSize;
         size += 1 * getParseWarningList().size();
       }
       size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof edmtools.Proto.Flight)) {
+        return super.equals(obj);
+      }
+      edmtools.Proto.Flight other = (edmtools.Proto.Flight) obj;
+
+      if (hasFlightNumber() != other.hasFlightNumber()) return false;
+      if (hasFlightNumber()) {
+        if (getFlightNumber()
+            != other.getFlightNumber()) return false;
+      }
+      if (hasStartTimestamp() != other.hasStartTimestamp()) return false;
+      if (hasStartTimestamp()) {
+        if (getStartTimestamp()
+            != other.getStartTimestamp()) return false;
+      }
+      if (hasRecordingIntervalSecs() != other.hasRecordingIntervalSecs()) return false;
+      if (hasRecordingIntervalSecs()) {
+        if (getRecordingIntervalSecs()
+            != other.getRecordingIntervalSecs()) return false;
+      }
+      if (hasSensors() != other.hasSensors()) return false;
+      if (hasSensors()) {
+        if (!getSensors()
+            .equals(other.getSensors())) return false;
+      }
+      if (!getDataList()
+          .equals(other.getDataList())) return false;
+      if (hasHeaderLength() != other.hasHeaderLength()) return false;
+      if (hasHeaderLength()) {
+        if (getHeaderLength()
+            != other.getHeaderLength()) return false;
+      }
+      if (hasDataLength() != other.hasDataLength()) return false;
+      if (hasDataLength()) {
+        if (getDataLength()
+            != other.getDataLength()) return false;
+      }
+      if (!getParseWarningList()
+          .equals(other.getParseWarningList())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
     }
 
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasFlightNumber()) {
+        hash = (37 * hash) + FLIGHT_NUMBER_FIELD_NUMBER;
+        hash = (53 * hash) + getFlightNumber();
+      }
+      if (hasStartTimestamp()) {
+        hash = (37 * hash) + START_TIMESTAMP_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getStartTimestamp());
+      }
+      if (hasRecordingIntervalSecs()) {
+        hash = (37 * hash) + RECORDING_INTERVAL_SECS_FIELD_NUMBER;
+        hash = (53 * hash) + getRecordingIntervalSecs();
+      }
+      if (hasSensors()) {
+        hash = (37 * hash) + SENSORS_FIELD_NUMBER;
+        hash = (53 * hash) + getSensors().hashCode();
+      }
+      if (getDataCount() > 0) {
+        hash = (37 * hash) + DATA_FIELD_NUMBER;
+        hash = (53 * hash) + getDataList().hashCode();
+      }
+      if (hasHeaderLength()) {
+        hash = (37 * hash) + HEADER_LENGTH_FIELD_NUMBER;
+        hash = (53 * hash) + getHeaderLength();
+      }
+      if (hasDataLength()) {
+        hash = (37 * hash) + DATA_LENGTH_FIELD_NUMBER;
+        hash = (53 * hash) + getDataLength();
+      }
+      if (getParseWarningCount() > 0) {
+        hash = (37 * hash) + PARSE_WARNING_FIELD_NUMBER;
+        hash = (53 * hash) + getParseWarningList().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static edmtools.Proto.Flight parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static edmtools.Proto.Flight parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static edmtools.Proto.Flight parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -7582,58 +9050,71 @@ public final class Proto {
     }
     public static edmtools.Proto.Flight parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static edmtools.Proto.Flight parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static edmtools.Proto.Flight parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static edmtools.Proto.Flight parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static edmtools.Proto.Flight parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static edmtools.Proto.Flight parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(edmtools.Proto.Flight prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(edmtools.Proto.Flight prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
-     * Protobuf type {@code edmtools.Flight}
-     *
      * <pre>
      * Primary message for each flight in the binary data.
      * </pre>
+     *
+     * Protobuf type {@code edmtools.Flight}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:edmtools.Flight)
         edmtools.Proto.FlightOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -7641,7 +9122,8 @@ public final class Proto {
         return edmtools.Proto.internal_static_edmtools_Flight_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return edmtools.Proto.internal_static_edmtools_Flight_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -7654,62 +9136,55 @@ public final class Proto {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
           getSensorsFieldBuilder();
           getDataFieldBuilder();
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
+      @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         flightNumber_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
         startTimestamp_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000002);
         recordingIntervalSecs_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000004);
-        if (sensorsBuilder_ == null) {
-          sensors_ = edmtools.Proto.Sensors.getDefaultInstance();
-        } else {
-          sensorsBuilder_.clear();
+        sensors_ = null;
+        if (sensorsBuilder_ != null) {
+          sensorsBuilder_.dispose();
+          sensorsBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000008);
         if (dataBuilder_ == null) {
           data_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
+          data_ = null;
           dataBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000010);
         headerLength_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000020);
         dataLength_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000040);
         parseWarning_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
 
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return edmtools.Proto.internal_static_edmtools_Flight_descriptor;
       }
 
+      @java.lang.Override
       public edmtools.Proto.Flight getDefaultInstanceForType() {
         return edmtools.Proto.Flight.getDefaultInstance();
       }
 
+      @java.lang.Override
       public edmtools.Proto.Flight build() {
         edmtools.Proto.Flight result = buildPartial();
         if (!result.isInitialized()) {
@@ -7718,32 +9193,18 @@ public final class Proto {
         return result;
       }
 
+      @java.lang.Override
       public edmtools.Proto.Flight buildPartial() {
         edmtools.Proto.Flight result = new edmtools.Proto.Flight(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.flightNumber_ = flightNumber_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.startTimestamp_ = startTimestamp_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        result.recordingIntervalSecs_ = recordingIntervalSecs_;
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000008;
-        }
-        if (sensorsBuilder_ == null) {
-          result.sensors_ = sensors_;
-        } else {
-          result.sensors_ = sensorsBuilder_.build();
-        }
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(edmtools.Proto.Flight result) {
         if (dataBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) == 0x00000010)) {
+          if (((bitField0_ & 0x00000010) != 0)) {
             data_ = java.util.Collections.unmodifiableList(data_);
             bitField0_ = (bitField0_ & ~0x00000010);
           }
@@ -7751,24 +9212,78 @@ public final class Proto {
         } else {
           result.data_ = dataBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
-          to_bitField0_ |= 0x00000010;
-        }
-        result.headerLength_ = headerLength_;
-        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
-          to_bitField0_ |= 0x00000020;
-        }
-        result.dataLength_ = dataLength_;
-        if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        if (((bitField0_ & 0x00000080) != 0)) {
           parseWarning_ = parseWarning_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000080);
         }
         result.parseWarning_ = parseWarning_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
       }
 
+      private void buildPartial0(edmtools.Proto.Flight result) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.flightNumber_ = flightNumber_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.startTimestamp_ = startTimestamp_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.recordingIntervalSecs_ = recordingIntervalSecs_;
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.sensors_ = sensorsBuilder_ == null
+              ? sensors_
+              : sensorsBuilder_.build();
+          to_bitField0_ |= 0x00000008;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.headerLength_ = headerLength_;
+          to_bitField0_ |= 0x00000010;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.dataLength_ = dataLength_;
+          to_bitField0_ |= 0x00000020;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof edmtools.Proto.Flight) {
           return mergeFrom((edmtools.Proto.Flight)other);
@@ -7811,7 +9326,7 @@ public final class Proto {
               data_ = other.data_;
               bitField0_ = (bitField0_ & ~0x00000010);
               dataBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getDataFieldBuilder() : null;
             } else {
               dataBuilder_.addAllMessages(other.data_);
@@ -7835,28 +9350,95 @@ public final class Proto {
           onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        edmtools.Proto.Flight parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (edmtools.Proto.Flight) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
         }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                flightNumber_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                startTimestamp_ = input.readInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                recordingIntervalSecs_ = input.readInt32();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 34: {
+                input.readMessage(
+                    getSensorsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                edmtools.Proto.DataRecord m =
+                    input.readMessage(
+                        edmtools.Proto.DataRecord.PARSER,
+                        extensionRegistry);
+                if (dataBuilder_ == null) {
+                  ensureDataIsMutable();
+                  data_.add(m);
+                } else {
+                  dataBuilder_.addMessage(m);
+                }
+                break;
+              } // case 42
+              case 48: {
+                headerLength_ = input.readInt32();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 48
+              case 56: {
+                dataLength_ = input.readInt32();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 56
+              case 66: {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                ensureParseWarningIsMutable();
+                parseWarning_.add(bs);
+                break;
+              } // case 66
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -7864,27 +9446,35 @@ public final class Proto {
       private int flightNumber_ ;
       /**
        * <code>optional int32 flight_number = 1;</code>
+       * @return Whether the flightNumber field is set.
        */
+      @java.lang.Override
       public boolean hasFlightNumber() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <code>optional int32 flight_number = 1;</code>
+       * @return The flightNumber.
        */
+      @java.lang.Override
       public int getFlightNumber() {
         return flightNumber_;
       }
       /**
        * <code>optional int32 flight_number = 1;</code>
+       * @param value The flightNumber to set.
+       * @return This builder for chaining.
        */
       public Builder setFlightNumber(int value) {
-        bitField0_ |= 0x00000001;
+        
         flightNumber_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
        * <code>optional int32 flight_number = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearFlightNumber() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -7895,44 +9485,52 @@ public final class Proto {
 
       private long startTimestamp_ ;
       /**
-       * <code>optional int64 start_timestamp = 2;</code>
-       *
        * <pre>
        * Unix timestamp of flight.
        * </pre>
+       *
+       * <code>optional int64 start_timestamp = 2;</code>
+       * @return Whether the startTimestamp field is set.
        */
+      @java.lang.Override
       public boolean hasStartTimestamp() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>optional int64 start_timestamp = 2;</code>
-       *
        * <pre>
        * Unix timestamp of flight.
        * </pre>
+       *
+       * <code>optional int64 start_timestamp = 2;</code>
+       * @return The startTimestamp.
        */
+      @java.lang.Override
       public long getStartTimestamp() {
         return startTimestamp_;
       }
       /**
-       * <code>optional int64 start_timestamp = 2;</code>
-       *
        * <pre>
        * Unix timestamp of flight.
        * </pre>
+       *
+       * <code>optional int64 start_timestamp = 2;</code>
+       * @param value The startTimestamp to set.
+       * @return This builder for chaining.
        */
       public Builder setStartTimestamp(long value) {
-        bitField0_ |= 0x00000002;
+        
         startTimestamp_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int64 start_timestamp = 2;</code>
-       *
        * <pre>
        * Unix timestamp of flight.
        * </pre>
+       *
+       * <code>optional int64 start_timestamp = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearStartTimestamp() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -7944,27 +9542,35 @@ public final class Proto {
       private int recordingIntervalSecs_ ;
       /**
        * <code>optional int32 recording_interval_secs = 3;</code>
+       * @return Whether the recordingIntervalSecs field is set.
        */
+      @java.lang.Override
       public boolean hasRecordingIntervalSecs() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <code>optional int32 recording_interval_secs = 3;</code>
+       * @return The recordingIntervalSecs.
        */
+      @java.lang.Override
       public int getRecordingIntervalSecs() {
         return recordingIntervalSecs_;
       }
       /**
        * <code>optional int32 recording_interval_secs = 3;</code>
+       * @param value The recordingIntervalSecs to set.
+       * @return This builder for chaining.
        */
       public Builder setRecordingIntervalSecs(int value) {
-        bitField0_ |= 0x00000004;
+        
         recordingIntervalSecs_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
       /**
        * <code>optional int32 recording_interval_secs = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearRecordingIntervalSecs() {
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -7973,21 +9579,23 @@ public final class Proto {
         return this;
       }
 
-      private edmtools.Proto.Sensors sensors_ = edmtools.Proto.Sensors.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private edmtools.Proto.Sensors sensors_;
+      private com.google.protobuf.SingleFieldBuilderV3<
           edmtools.Proto.Sensors, edmtools.Proto.Sensors.Builder, edmtools.Proto.SensorsOrBuilder> sensorsBuilder_;
       /**
        * <code>optional .edmtools.Sensors sensors = 4;</code>
+       * @return Whether the sensors field is set.
        */
       public boolean hasSensors() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <code>optional .edmtools.Sensors sensors = 4;</code>
+       * @return The sensors.
        */
       public edmtools.Proto.Sensors getSensors() {
         if (sensorsBuilder_ == null) {
-          return sensors_;
+          return sensors_ == null ? edmtools.Proto.Sensors.getDefaultInstance() : sensors_;
         } else {
           return sensorsBuilder_.getMessage();
         }
@@ -8001,11 +9609,11 @@ public final class Proto {
             throw new NullPointerException();
           }
           sensors_ = value;
-          onChanged();
         } else {
           sensorsBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -8015,11 +9623,11 @@ public final class Proto {
           edmtools.Proto.Sensors.Builder builderForValue) {
         if (sensorsBuilder_ == null) {
           sensors_ = builderForValue.build();
-          onChanged();
         } else {
           sensorsBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -8027,31 +9635,31 @@ public final class Proto {
        */
       public Builder mergeSensors(edmtools.Proto.Sensors value) {
         if (sensorsBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) == 0x00000008) &&
-              sensors_ != edmtools.Proto.Sensors.getDefaultInstance()) {
-            sensors_ =
-              edmtools.Proto.Sensors.newBuilder(sensors_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000008) != 0) &&
+            sensors_ != null &&
+            sensors_ != edmtools.Proto.Sensors.getDefaultInstance()) {
+            getSensorsBuilder().mergeFrom(value);
           } else {
             sensors_ = value;
           }
-          onChanged();
         } else {
           sensorsBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
        * <code>optional .edmtools.Sensors sensors = 4;</code>
        */
       public Builder clearSensors() {
-        if (sensorsBuilder_ == null) {
-          sensors_ = edmtools.Proto.Sensors.getDefaultInstance();
-          onChanged();
-        } else {
-          sensorsBuilder_.clear();
-        }
         bitField0_ = (bitField0_ & ~0x00000008);
+        sensors_ = null;
+        if (sensorsBuilder_ != null) {
+          sensorsBuilder_.dispose();
+          sensorsBuilder_ = null;
+        }
+        onChanged();
         return this;
       }
       /**
@@ -8069,17 +9677,18 @@ public final class Proto {
         if (sensorsBuilder_ != null) {
           return sensorsBuilder_.getMessageOrBuilder();
         } else {
-          return sensors_;
+          return sensors_ == null ?
+              edmtools.Proto.Sensors.getDefaultInstance() : sensors_;
         }
       }
       /**
        * <code>optional .edmtools.Sensors sensors = 4;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           edmtools.Proto.Sensors, edmtools.Proto.Sensors.Builder, edmtools.Proto.SensorsOrBuilder> 
           getSensorsFieldBuilder() {
         if (sensorsBuilder_ == null) {
-          sensorsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          sensorsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               edmtools.Proto.Sensors, edmtools.Proto.Sensors.Builder, edmtools.Proto.SensorsOrBuilder>(
                   getSensors(),
                   getParentForChildren(),
@@ -8092,23 +9701,23 @@ public final class Proto {
       private java.util.List<edmtools.Proto.DataRecord> data_ =
         java.util.Collections.emptyList();
       private void ensureDataIsMutable() {
-        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+        if (!((bitField0_ & 0x00000010) != 0)) {
           data_ = new java.util.ArrayList<edmtools.Proto.DataRecord>(data_);
           bitField0_ |= 0x00000010;
          }
       }
 
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           edmtools.Proto.DataRecord, edmtools.Proto.DataRecord.Builder, edmtools.Proto.DataRecordOrBuilder> dataBuilder_;
 
       /**
-       * <code>repeated .edmtools.DataRecord data = 5;</code>
-       *
        * <pre>
        * The beginning DataRecord represents the sensor state at
        * start_timestamp; each subsequent record represents the
        * sensor state recording_interval_secs later (except see Mark).
        * </pre>
+       *
+       * <code>repeated .edmtools.DataRecord data = 5;</code>
        */
       public java.util.List<edmtools.Proto.DataRecord> getDataList() {
         if (dataBuilder_ == null) {
@@ -8118,13 +9727,13 @@ public final class Proto {
         }
       }
       /**
-       * <code>repeated .edmtools.DataRecord data = 5;</code>
-       *
        * <pre>
        * The beginning DataRecord represents the sensor state at
        * start_timestamp; each subsequent record represents the
        * sensor state recording_interval_secs later (except see Mark).
        * </pre>
+       *
+       * <code>repeated .edmtools.DataRecord data = 5;</code>
        */
       public int getDataCount() {
         if (dataBuilder_ == null) {
@@ -8134,13 +9743,13 @@ public final class Proto {
         }
       }
       /**
-       * <code>repeated .edmtools.DataRecord data = 5;</code>
-       *
        * <pre>
        * The beginning DataRecord represents the sensor state at
        * start_timestamp; each subsequent record represents the
        * sensor state recording_interval_secs later (except see Mark).
        * </pre>
+       *
+       * <code>repeated .edmtools.DataRecord data = 5;</code>
        */
       public edmtools.Proto.DataRecord getData(int index) {
         if (dataBuilder_ == null) {
@@ -8150,13 +9759,13 @@ public final class Proto {
         }
       }
       /**
-       * <code>repeated .edmtools.DataRecord data = 5;</code>
-       *
        * <pre>
        * The beginning DataRecord represents the sensor state at
        * start_timestamp; each subsequent record represents the
        * sensor state recording_interval_secs later (except see Mark).
        * </pre>
+       *
+       * <code>repeated .edmtools.DataRecord data = 5;</code>
        */
       public Builder setData(
           int index, edmtools.Proto.DataRecord value) {
@@ -8173,13 +9782,13 @@ public final class Proto {
         return this;
       }
       /**
-       * <code>repeated .edmtools.DataRecord data = 5;</code>
-       *
        * <pre>
        * The beginning DataRecord represents the sensor state at
        * start_timestamp; each subsequent record represents the
        * sensor state recording_interval_secs later (except see Mark).
        * </pre>
+       *
+       * <code>repeated .edmtools.DataRecord data = 5;</code>
        */
       public Builder setData(
           int index, edmtools.Proto.DataRecord.Builder builderForValue) {
@@ -8193,13 +9802,13 @@ public final class Proto {
         return this;
       }
       /**
-       * <code>repeated .edmtools.DataRecord data = 5;</code>
-       *
        * <pre>
        * The beginning DataRecord represents the sensor state at
        * start_timestamp; each subsequent record represents the
        * sensor state recording_interval_secs later (except see Mark).
        * </pre>
+       *
+       * <code>repeated .edmtools.DataRecord data = 5;</code>
        */
       public Builder addData(edmtools.Proto.DataRecord value) {
         if (dataBuilder_ == null) {
@@ -8215,13 +9824,13 @@ public final class Proto {
         return this;
       }
       /**
-       * <code>repeated .edmtools.DataRecord data = 5;</code>
-       *
        * <pre>
        * The beginning DataRecord represents the sensor state at
        * start_timestamp; each subsequent record represents the
        * sensor state recording_interval_secs later (except see Mark).
        * </pre>
+       *
+       * <code>repeated .edmtools.DataRecord data = 5;</code>
        */
       public Builder addData(
           int index, edmtools.Proto.DataRecord value) {
@@ -8238,13 +9847,13 @@ public final class Proto {
         return this;
       }
       /**
-       * <code>repeated .edmtools.DataRecord data = 5;</code>
-       *
        * <pre>
        * The beginning DataRecord represents the sensor state at
        * start_timestamp; each subsequent record represents the
        * sensor state recording_interval_secs later (except see Mark).
        * </pre>
+       *
+       * <code>repeated .edmtools.DataRecord data = 5;</code>
        */
       public Builder addData(
           edmtools.Proto.DataRecord.Builder builderForValue) {
@@ -8258,13 +9867,13 @@ public final class Proto {
         return this;
       }
       /**
-       * <code>repeated .edmtools.DataRecord data = 5;</code>
-       *
        * <pre>
        * The beginning DataRecord represents the sensor state at
        * start_timestamp; each subsequent record represents the
        * sensor state recording_interval_secs later (except see Mark).
        * </pre>
+       *
+       * <code>repeated .edmtools.DataRecord data = 5;</code>
        */
       public Builder addData(
           int index, edmtools.Proto.DataRecord.Builder builderForValue) {
@@ -8278,13 +9887,13 @@ public final class Proto {
         return this;
       }
       /**
-       * <code>repeated .edmtools.DataRecord data = 5;</code>
-       *
        * <pre>
        * The beginning DataRecord represents the sensor state at
        * start_timestamp; each subsequent record represents the
        * sensor state recording_interval_secs later (except see Mark).
        * </pre>
+       *
+       * <code>repeated .edmtools.DataRecord data = 5;</code>
        */
       public Builder addAllData(
           java.lang.Iterable<? extends edmtools.Proto.DataRecord> values) {
@@ -8299,13 +9908,13 @@ public final class Proto {
         return this;
       }
       /**
-       * <code>repeated .edmtools.DataRecord data = 5;</code>
-       *
        * <pre>
        * The beginning DataRecord represents the sensor state at
        * start_timestamp; each subsequent record represents the
        * sensor state recording_interval_secs later (except see Mark).
        * </pre>
+       *
+       * <code>repeated .edmtools.DataRecord data = 5;</code>
        */
       public Builder clearData() {
         if (dataBuilder_ == null) {
@@ -8318,13 +9927,13 @@ public final class Proto {
         return this;
       }
       /**
-       * <code>repeated .edmtools.DataRecord data = 5;</code>
-       *
        * <pre>
        * The beginning DataRecord represents the sensor state at
        * start_timestamp; each subsequent record represents the
        * sensor state recording_interval_secs later (except see Mark).
        * </pre>
+       *
+       * <code>repeated .edmtools.DataRecord data = 5;</code>
        */
       public Builder removeData(int index) {
         if (dataBuilder_ == null) {
@@ -8337,26 +9946,26 @@ public final class Proto {
         return this;
       }
       /**
-       * <code>repeated .edmtools.DataRecord data = 5;</code>
-       *
        * <pre>
        * The beginning DataRecord represents the sensor state at
        * start_timestamp; each subsequent record represents the
        * sensor state recording_interval_secs later (except see Mark).
        * </pre>
+       *
+       * <code>repeated .edmtools.DataRecord data = 5;</code>
        */
       public edmtools.Proto.DataRecord.Builder getDataBuilder(
           int index) {
         return getDataFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .edmtools.DataRecord data = 5;</code>
-       *
        * <pre>
        * The beginning DataRecord represents the sensor state at
        * start_timestamp; each subsequent record represents the
        * sensor state recording_interval_secs later (except see Mark).
        * </pre>
+       *
+       * <code>repeated .edmtools.DataRecord data = 5;</code>
        */
       public edmtools.Proto.DataRecordOrBuilder getDataOrBuilder(
           int index) {
@@ -8366,13 +9975,13 @@ public final class Proto {
         }
       }
       /**
-       * <code>repeated .edmtools.DataRecord data = 5;</code>
-       *
        * <pre>
        * The beginning DataRecord represents the sensor state at
        * start_timestamp; each subsequent record represents the
        * sensor state recording_interval_secs later (except see Mark).
        * </pre>
+       *
+       * <code>repeated .edmtools.DataRecord data = 5;</code>
        */
       public java.util.List<? extends edmtools.Proto.DataRecordOrBuilder> 
            getDataOrBuilderList() {
@@ -8383,26 +9992,26 @@ public final class Proto {
         }
       }
       /**
-       * <code>repeated .edmtools.DataRecord data = 5;</code>
-       *
        * <pre>
        * The beginning DataRecord represents the sensor state at
        * start_timestamp; each subsequent record represents the
        * sensor state recording_interval_secs later (except see Mark).
        * </pre>
+       *
+       * <code>repeated .edmtools.DataRecord data = 5;</code>
        */
       public edmtools.Proto.DataRecord.Builder addDataBuilder() {
         return getDataFieldBuilder().addBuilder(
             edmtools.Proto.DataRecord.getDefaultInstance());
       }
       /**
-       * <code>repeated .edmtools.DataRecord data = 5;</code>
-       *
        * <pre>
        * The beginning DataRecord represents the sensor state at
        * start_timestamp; each subsequent record represents the
        * sensor state recording_interval_secs later (except see Mark).
        * </pre>
+       *
+       * <code>repeated .edmtools.DataRecord data = 5;</code>
        */
       public edmtools.Proto.DataRecord.Builder addDataBuilder(
           int index) {
@@ -8410,26 +10019,26 @@ public final class Proto {
             index, edmtools.Proto.DataRecord.getDefaultInstance());
       }
       /**
-       * <code>repeated .edmtools.DataRecord data = 5;</code>
-       *
        * <pre>
        * The beginning DataRecord represents the sensor state at
        * start_timestamp; each subsequent record represents the
        * sensor state recording_interval_secs later (except see Mark).
        * </pre>
+       *
+       * <code>repeated .edmtools.DataRecord data = 5;</code>
        */
       public java.util.List<edmtools.Proto.DataRecord.Builder> 
            getDataBuilderList() {
         return getDataFieldBuilder().getBuilderList();
       }
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           edmtools.Proto.DataRecord, edmtools.Proto.DataRecord.Builder, edmtools.Proto.DataRecordOrBuilder> 
           getDataFieldBuilder() {
         if (dataBuilder_ == null) {
-          dataBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          dataBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               edmtools.Proto.DataRecord, edmtools.Proto.DataRecord.Builder, edmtools.Proto.DataRecordOrBuilder>(
                   data_,
-                  ((bitField0_ & 0x00000010) == 0x00000010),
+                  ((bitField0_ & 0x00000010) != 0),
                   getParentForChildren(),
                   isClean());
           data_ = null;
@@ -8439,44 +10048,52 @@ public final class Proto {
 
       private int headerLength_ ;
       /**
-       * <code>optional int32 header_length = 6;</code>
-       *
        * <pre>
        * Length of the flight header, in bytes, in the original JPI file.
        * </pre>
+       *
+       * <code>optional int32 header_length = 6;</code>
+       * @return Whether the headerLength field is set.
        */
+      @java.lang.Override
       public boolean hasHeaderLength() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
-       * <code>optional int32 header_length = 6;</code>
-       *
        * <pre>
        * Length of the flight header, in bytes, in the original JPI file.
        * </pre>
+       *
+       * <code>optional int32 header_length = 6;</code>
+       * @return The headerLength.
        */
+      @java.lang.Override
       public int getHeaderLength() {
         return headerLength_;
       }
       /**
-       * <code>optional int32 header_length = 6;</code>
-       *
        * <pre>
        * Length of the flight header, in bytes, in the original JPI file.
        * </pre>
+       *
+       * <code>optional int32 header_length = 6;</code>
+       * @param value The headerLength to set.
+       * @return This builder for chaining.
        */
       public Builder setHeaderLength(int value) {
-        bitField0_ |= 0x00000020;
+        
         headerLength_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 header_length = 6;</code>
-       *
        * <pre>
        * Length of the flight header, in bytes, in the original JPI file.
        * </pre>
+       *
+       * <code>optional int32 header_length = 6;</code>
+       * @return This builder for chaining.
        */
       public Builder clearHeaderLength() {
         bitField0_ = (bitField0_ & ~0x00000020);
@@ -8487,8 +10104,6 @@ public final class Proto {
 
       private int dataLength_ ;
       /**
-       * <code>optional int32 data_length = 7;</code>
-       *
        * <pre>
        * Length of data record data, in bytes, in the original JPI file.
        * This does not include header_length.
@@ -8496,13 +10111,15 @@ public final class Proto {
        * Note: this is the actual length in bytes (records are not padded to 
        * word boundaries). 
        * </pre>
+       *
+       * <code>optional int32 data_length = 7;</code>
+       * @return Whether the dataLength field is set.
        */
+      @java.lang.Override
       public boolean hasDataLength() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
+        return ((bitField0_ & 0x00000040) != 0);
       }
       /**
-       * <code>optional int32 data_length = 7;</code>
-       *
        * <pre>
        * Length of data record data, in bytes, in the original JPI file.
        * This does not include header_length.
@@ -8510,13 +10127,15 @@ public final class Proto {
        * Note: this is the actual length in bytes (records are not padded to 
        * word boundaries). 
        * </pre>
+       *
+       * <code>optional int32 data_length = 7;</code>
+       * @return The dataLength.
        */
+      @java.lang.Override
       public int getDataLength() {
         return dataLength_;
       }
       /**
-       * <code>optional int32 data_length = 7;</code>
-       *
        * <pre>
        * Length of data record data, in bytes, in the original JPI file.
        * This does not include header_length.
@@ -8524,16 +10143,19 @@ public final class Proto {
        * Note: this is the actual length in bytes (records are not padded to 
        * word boundaries). 
        * </pre>
+       *
+       * <code>optional int32 data_length = 7;</code>
+       * @param value The dataLength to set.
+       * @return This builder for chaining.
        */
       public Builder setDataLength(int value) {
-        bitField0_ |= 0x00000040;
+        
         dataLength_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 data_length = 7;</code>
-       *
        * <pre>
        * Length of data record data, in bytes, in the original JPI file.
        * This does not include header_length.
@@ -8541,6 +10163,9 @@ public final class Proto {
        * Note: this is the actual length in bytes (records are not padded to 
        * word boundaries). 
        * </pre>
+       *
+       * <code>optional int32 data_length = 7;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDataLength() {
         bitField0_ = (bitField0_ & ~0x00000040);
@@ -8551,93 +10176,102 @@ public final class Proto {
 
       private com.google.protobuf.LazyStringList parseWarning_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureParseWarningIsMutable() {
-        if (!((bitField0_ & 0x00000080) == 0x00000080)) {
+        if (!((bitField0_ & 0x00000080) != 0)) {
           parseWarning_ = new com.google.protobuf.LazyStringArrayList(parseWarning_);
           bitField0_ |= 0x00000080;
          }
       }
       /**
-       * <code>repeated string parse_warning = 8;</code>
-       *
        * <pre>
        * Non-fatal parse warnings.
        * </pre>
+       *
+       * <code>repeated string parse_warning = 8;</code>
+       * @return A list containing the parseWarning.
        */
       public com.google.protobuf.ProtocolStringList
           getParseWarningList() {
         return parseWarning_.getUnmodifiableView();
       }
       /**
-       * <code>repeated string parse_warning = 8;</code>
-       *
        * <pre>
        * Non-fatal parse warnings.
        * </pre>
+       *
+       * <code>repeated string parse_warning = 8;</code>
+       * @return The count of parseWarning.
        */
       public int getParseWarningCount() {
         return parseWarning_.size();
       }
       /**
-       * <code>repeated string parse_warning = 8;</code>
-       *
        * <pre>
        * Non-fatal parse warnings.
        * </pre>
+       *
+       * <code>repeated string parse_warning = 8;</code>
+       * @param index The index of the element to return.
+       * @return The parseWarning at the given index.
        */
       public java.lang.String getParseWarning(int index) {
         return parseWarning_.get(index);
       }
       /**
-       * <code>repeated string parse_warning = 8;</code>
-       *
        * <pre>
        * Non-fatal parse warnings.
        * </pre>
+       *
+       * <code>repeated string parse_warning = 8;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the parseWarning at the given index.
        */
       public com.google.protobuf.ByteString
           getParseWarningBytes(int index) {
         return parseWarning_.getByteString(index);
       }
       /**
-       * <code>repeated string parse_warning = 8;</code>
-       *
        * <pre>
        * Non-fatal parse warnings.
        * </pre>
+       *
+       * <code>repeated string parse_warning = 8;</code>
+       * @param index The index to set the value at.
+       * @param value The parseWarning to set.
+       * @return This builder for chaining.
        */
       public Builder setParseWarning(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureParseWarningIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureParseWarningIsMutable();
         parseWarning_.set(index, value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string parse_warning = 8;</code>
-       *
        * <pre>
        * Non-fatal parse warnings.
        * </pre>
+       *
+       * <code>repeated string parse_warning = 8;</code>
+       * @param value The parseWarning to add.
+       * @return This builder for chaining.
        */
       public Builder addParseWarning(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureParseWarningIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureParseWarningIsMutable();
         parseWarning_.add(value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string parse_warning = 8;</code>
-       *
        * <pre>
        * Non-fatal parse warnings.
        * </pre>
+       *
+       * <code>repeated string parse_warning = 8;</code>
+       * @param values The parseWarning to add.
+       * @return This builder for chaining.
        */
       public Builder addAllParseWarning(
           java.lang.Iterable<java.lang.String> values) {
@@ -8648,11 +10282,12 @@ public final class Proto {
         return this;
       }
       /**
-       * <code>repeated string parse_warning = 8;</code>
-       *
        * <pre>
        * Non-fatal parse warnings.
        * </pre>
+       *
+       * <code>repeated string parse_warning = 8;</code>
+       * @return This builder for chaining.
        */
       public Builder clearParseWarning() {
         parseWarning_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -8661,32 +10296,84 @@ public final class Proto {
         return this;
       }
       /**
-       * <code>repeated string parse_warning = 8;</code>
-       *
        * <pre>
        * Non-fatal parse warnings.
        * </pre>
+       *
+       * <code>repeated string parse_warning = 8;</code>
+       * @param value The bytes of the parseWarning to add.
+       * @return This builder for chaining.
        */
       public Builder addParseWarningBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureParseWarningIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureParseWarningIsMutable();
         parseWarning_.add(value);
         onChanged();
         return this;
       }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:edmtools.Flight)
     }
 
+    // @@protoc_insertion_point(class_scope:edmtools.Flight)
+    private static final edmtools.Proto.Flight DEFAULT_INSTANCE;
     static {
-      defaultInstance = new Flight(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new edmtools.Proto.Flight();
     }
 
-    // @@protoc_insertion_point(class_scope:edmtools.Flight)
+    public static edmtools.Proto.Flight getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<Flight>
+        PARSER = new com.google.protobuf.AbstractParser<Flight>() {
+      @java.lang.Override
+      public Flight parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<Flight> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Flight> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public edmtools.Proto.Flight getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface DataRecordOrBuilder extends
@@ -8695,123 +10382,141 @@ public final class Proto {
 
     /**
      * <code>repeated float voltage = 1;</code>
+     * @return A list containing the voltage.
      */
     java.util.List<java.lang.Float> getVoltageList();
     /**
      * <code>repeated float voltage = 1;</code>
+     * @return The count of voltage.
      */
     int getVoltageCount();
     /**
      * <code>repeated float voltage = 1;</code>
+     * @param index The index of the element to return.
+     * @return The voltage at the given index.
      */
     float getVoltage(int index);
 
     /**
      * <code>repeated int32 amperage = 2;</code>
+     * @return A list containing the amperage.
      */
     java.util.List<java.lang.Integer> getAmperageList();
     /**
      * <code>repeated int32 amperage = 2;</code>
+     * @return The count of amperage.
      */
     int getAmperageCount();
     /**
      * <code>repeated int32 amperage = 2;</code>
+     * @param index The index of the element to return.
+     * @return The amperage at the given index.
      */
     int getAmperage(int index);
 
     /**
      * <code>optional int32 outside_air_temperature = 3;</code>
+     * @return Whether the outsideAirTemperature field is set.
      */
     boolean hasOutsideAirTemperature();
     /**
      * <code>optional int32 outside_air_temperature = 3;</code>
+     * @return The outsideAirTemperature.
      */
     int getOutsideAirTemperature();
 
     /**
      * <code>optional .edmtools.DataRecord.Mark mark = 4;</code>
+     * @return Whether the mark field is set.
      */
     boolean hasMark();
     /**
      * <code>optional .edmtools.DataRecord.Mark mark = 4;</code>
+     * @return The mark.
      */
     edmtools.Proto.DataRecord.Mark getMark();
 
     /**
-     * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
-     *
      * <pre>
      * First record is left engine.
      * </pre>
+     *
+     * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
      */
     java.util.List<edmtools.Proto.EngineDataRecord> 
         getEngineList();
     /**
-     * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
-     *
      * <pre>
      * First record is left engine.
      * </pre>
+     *
+     * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
      */
     edmtools.Proto.EngineDataRecord getEngine(int index);
     /**
-     * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
-     *
      * <pre>
      * First record is left engine.
      * </pre>
+     *
+     * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
      */
     int getEngineCount();
     /**
-     * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
-     *
      * <pre>
      * First record is left engine.
      * </pre>
+     *
+     * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
      */
     java.util.List<? extends edmtools.Proto.EngineDataRecordOrBuilder> 
         getEngineOrBuilderList();
     /**
-     * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
-     *
      * <pre>
      * First record is left engine.
      * </pre>
+     *
+     * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
      */
     edmtools.Proto.EngineDataRecordOrBuilder getEngineOrBuilder(
         int index);
 
     /**
-     * <code>repeated string parse_warning = 6;</code>
-     *
      * <pre>
      * Non-fatal parse warnings.
      * </pre>
+     *
+     * <code>repeated string parse_warning = 6;</code>
+     * @return A list containing the parseWarning.
      */
-    com.google.protobuf.ProtocolStringList
+    java.util.List<java.lang.String>
         getParseWarningList();
     /**
-     * <code>repeated string parse_warning = 6;</code>
-     *
      * <pre>
      * Non-fatal parse warnings.
      * </pre>
+     *
+     * <code>repeated string parse_warning = 6;</code>
+     * @return The count of parseWarning.
      */
     int getParseWarningCount();
     /**
-     * <code>repeated string parse_warning = 6;</code>
-     *
      * <pre>
      * Non-fatal parse warnings.
      * </pre>
+     *
+     * <code>repeated string parse_warning = 6;</code>
+     * @param index The index of the element to return.
+     * @return The parseWarning at the given index.
      */
     java.lang.String getParseWarning(int index);
     /**
-     * <code>repeated string parse_warning = 6;</code>
-     *
      * <pre>
      * Non-fatal parse warnings.
      * </pre>
+     *
+     * <code>repeated string parse_warning = 6;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the parseWarning at the given index.
      */
     com.google.protobuf.ByteString
         getParseWarningBytes(int index);
@@ -8820,214 +10525,81 @@ public final class Proto {
    * Protobuf type {@code edmtools.DataRecord}
    */
   public static final class DataRecord extends
-      com.google.protobuf.GeneratedMessage implements
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:edmtools.DataRecord)
       DataRecordOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use DataRecord.newBuilder() to construct.
-    private DataRecord(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private DataRecord(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private DataRecord(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final DataRecord defaultInstance;
-    public static DataRecord getDefaultInstance() {
-      return defaultInstance;
-    }
-
-    public DataRecord getDefaultInstanceForType() {
-      return defaultInstance;
+    private DataRecord() {
+      voltage_ = emptyFloatList();
+      amperage_ = emptyIntList();
+      mark_ = 0;
+      engine_ = java.util.Collections.emptyList();
+      parseWarning_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DataRecord();
+    }
+
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
-    }
-    private DataRecord(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 13: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                voltage_ = new java.util.ArrayList<java.lang.Float>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              voltage_.add(input.readFloat());
-              break;
-            }
-            case 10: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001) && input.getBytesUntilLimit() > 0) {
-                voltage_ = new java.util.ArrayList<java.lang.Float>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                voltage_.add(input.readFloat());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 16: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                amperage_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              amperage_.add(input.readInt32());
-              break;
-            }
-            case 18: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002) && input.getBytesUntilLimit() > 0) {
-                amperage_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                amperage_.add(input.readInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 24: {
-              bitField0_ |= 0x00000001;
-              outsideAirTemperature_ = input.readInt32();
-              break;
-            }
-            case 32: {
-              int rawValue = input.readEnum();
-              edmtools.Proto.DataRecord.Mark value = edmtools.Proto.DataRecord.Mark.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(4, rawValue);
-              } else {
-                bitField0_ |= 0x00000002;
-                mark_ = value;
-              }
-              break;
-            }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                engine_ = new java.util.ArrayList<edmtools.Proto.EngineDataRecord>();
-                mutable_bitField0_ |= 0x00000010;
-              }
-              engine_.add(input.readMessage(edmtools.Proto.EngineDataRecord.PARSER, extensionRegistry));
-              break;
-            }
-            case 50: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-                parseWarning_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000020;
-              }
-              parseWarning_.add(bs);
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          voltage_ = java.util.Collections.unmodifiableList(voltage_);
-        }
-        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-          amperage_ = java.util.Collections.unmodifiableList(amperage_);
-        }
-        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-          engine_ = java.util.Collections.unmodifiableList(engine_);
-        }
-        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-          parseWarning_ = parseWarning_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return edmtools.Proto.internal_static_edmtools_DataRecord_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return edmtools.Proto.internal_static_edmtools_DataRecord_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               edmtools.Proto.DataRecord.class, edmtools.Proto.DataRecord.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<DataRecord> PARSER =
-        new com.google.protobuf.AbstractParser<DataRecord>() {
-      public DataRecord parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DataRecord(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<DataRecord> getParserForType() {
-      return PARSER;
-    }
-
     /**
-     * Protobuf enum {@code edmtools.DataRecord.Mark}
-     *
      * <pre>
      * Note: during lean- or rich-finding, the interval of records
      * is one second, not recording_interval_secs.
      * </pre>
+     *
+     * Protobuf enum {@code edmtools.DataRecord.Mark}
      */
     public enum Mark
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
        * <code>NOT_MARKED = 0;</code>
        */
-      NOT_MARKED(0, 0),
+      NOT_MARKED(0),
       /**
        * <code>MARKED = 1;</code>
        */
-      MARKED(1, 1),
+      MARKED(1),
       /**
        * <code>RICH_START = 2;</code>
        */
-      RICH_START(2, 2),
+      RICH_START(2),
       /**
        * <code>RICH_END = 3;</code>
        */
-      RICH_END(3, 3),
+      RICH_END(3),
       /**
        * <code>LEAN_START = 4;</code>
        */
-      LEAN_START(4, 4),
+      LEAN_START(4),
       /**
        * <code>LEAN_END = 5;</code>
        */
-      LEAN_END(5, 5),
+      LEAN_END(5),
       ;
 
       /**
@@ -9056,9 +10628,25 @@ public final class Proto {
       public static final int LEAN_END_VALUE = 5;
 
 
-      public final int getNumber() { return value; }
+      public final int getNumber() {
+        return value;
+      }
 
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
       public static Mark valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static Mark forNumber(int value) {
         switch (value) {
           case 0: return NOT_MARKED;
           case 1: return MARKED;
@@ -9074,17 +10662,17 @@ public final class Proto {
           internalGetValueMap() {
         return internalValueMap;
       }
-      private static com.google.protobuf.Internal.EnumLiteMap<Mark>
-          internalValueMap =
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          Mark> internalValueMap =
             new com.google.protobuf.Internal.EnumLiteMap<Mark>() {
               public Mark findValueByNumber(int number) {
-                return Mark.valueOf(number);
+                return Mark.forNumber(number);
               }
             };
 
       public final com.google.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
-        return getDescriptor().getValues().get(index);
+        return getDescriptor().getValues().get(ordinal());
       }
       public final com.google.protobuf.Descriptors.EnumDescriptor
           getDescriptorForType() {
@@ -9106,11 +10694,9 @@ public final class Proto {
         return VALUES[desc.getIndex()];
       }
 
-      private final int index;
       private final int value;
 
-      private Mark(int index, int value) {
-        this.index = index;
+      private Mark(int value) {
         this.value = value;
       }
 
@@ -9119,188 +10705,213 @@ public final class Proto {
 
     private int bitField0_;
     public static final int VOLTAGE_FIELD_NUMBER = 1;
-    private java.util.List<java.lang.Float> voltage_;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.Internal.FloatList voltage_;
     /**
      * <code>repeated float voltage = 1;</code>
+     * @return A list containing the voltage.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Float>
         getVoltageList() {
       return voltage_;
     }
     /**
      * <code>repeated float voltage = 1;</code>
+     * @return The count of voltage.
      */
     public int getVoltageCount() {
       return voltage_.size();
     }
     /**
      * <code>repeated float voltage = 1;</code>
+     * @param index The index of the element to return.
+     * @return The voltage at the given index.
      */
     public float getVoltage(int index) {
-      return voltage_.get(index);
+      return voltage_.getFloat(index);
     }
 
     public static final int AMPERAGE_FIELD_NUMBER = 2;
-    private java.util.List<java.lang.Integer> amperage_;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.Internal.IntList amperage_;
     /**
      * <code>repeated int32 amperage = 2;</code>
+     * @return A list containing the amperage.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getAmperageList() {
       return amperage_;
     }
     /**
      * <code>repeated int32 amperage = 2;</code>
+     * @return The count of amperage.
      */
     public int getAmperageCount() {
       return amperage_.size();
     }
     /**
      * <code>repeated int32 amperage = 2;</code>
+     * @param index The index of the element to return.
+     * @return The amperage at the given index.
      */
     public int getAmperage(int index) {
-      return amperage_.get(index);
+      return amperage_.getInt(index);
     }
 
     public static final int OUTSIDE_AIR_TEMPERATURE_FIELD_NUMBER = 3;
-    private int outsideAirTemperature_;
+    private int outsideAirTemperature_ = 0;
     /**
      * <code>optional int32 outside_air_temperature = 3;</code>
+     * @return Whether the outsideAirTemperature field is set.
      */
+    @java.lang.Override
     public boolean hasOutsideAirTemperature() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>optional int32 outside_air_temperature = 3;</code>
+     * @return The outsideAirTemperature.
      */
+    @java.lang.Override
     public int getOutsideAirTemperature() {
       return outsideAirTemperature_;
     }
 
     public static final int MARK_FIELD_NUMBER = 4;
-    private edmtools.Proto.DataRecord.Mark mark_;
+    private int mark_ = 0;
     /**
      * <code>optional .edmtools.DataRecord.Mark mark = 4;</code>
+     * @return Whether the mark field is set.
      */
-    public boolean hasMark() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+    @java.lang.Override public boolean hasMark() {
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <code>optional .edmtools.DataRecord.Mark mark = 4;</code>
+     * @return The mark.
      */
-    public edmtools.Proto.DataRecord.Mark getMark() {
-      return mark_;
+    @java.lang.Override public edmtools.Proto.DataRecord.Mark getMark() {
+      edmtools.Proto.DataRecord.Mark result = edmtools.Proto.DataRecord.Mark.forNumber(mark_);
+      return result == null ? edmtools.Proto.DataRecord.Mark.NOT_MARKED : result;
     }
 
     public static final int ENGINE_FIELD_NUMBER = 5;
+    @SuppressWarnings("serial")
     private java.util.List<edmtools.Proto.EngineDataRecord> engine_;
     /**
-     * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
-     *
      * <pre>
      * First record is left engine.
      * </pre>
+     *
+     * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
      */
+    @java.lang.Override
     public java.util.List<edmtools.Proto.EngineDataRecord> getEngineList() {
       return engine_;
     }
     /**
-     * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
-     *
      * <pre>
      * First record is left engine.
      * </pre>
+     *
+     * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends edmtools.Proto.EngineDataRecordOrBuilder> 
         getEngineOrBuilderList() {
       return engine_;
     }
     /**
-     * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
-     *
      * <pre>
      * First record is left engine.
      * </pre>
+     *
+     * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
      */
+    @java.lang.Override
     public int getEngineCount() {
       return engine_.size();
     }
     /**
-     * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
-     *
      * <pre>
      * First record is left engine.
      * </pre>
+     *
+     * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
      */
+    @java.lang.Override
     public edmtools.Proto.EngineDataRecord getEngine(int index) {
       return engine_.get(index);
     }
     /**
-     * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
-     *
      * <pre>
      * First record is left engine.
      * </pre>
+     *
+     * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
      */
+    @java.lang.Override
     public edmtools.Proto.EngineDataRecordOrBuilder getEngineOrBuilder(
         int index) {
       return engine_.get(index);
     }
 
     public static final int PARSE_WARNING_FIELD_NUMBER = 6;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList parseWarning_;
     /**
-     * <code>repeated string parse_warning = 6;</code>
-     *
      * <pre>
      * Non-fatal parse warnings.
      * </pre>
+     *
+     * <code>repeated string parse_warning = 6;</code>
+     * @return A list containing the parseWarning.
      */
     public com.google.protobuf.ProtocolStringList
         getParseWarningList() {
       return parseWarning_;
     }
     /**
-     * <code>repeated string parse_warning = 6;</code>
-     *
      * <pre>
      * Non-fatal parse warnings.
      * </pre>
+     *
+     * <code>repeated string parse_warning = 6;</code>
+     * @return The count of parseWarning.
      */
     public int getParseWarningCount() {
       return parseWarning_.size();
     }
     /**
-     * <code>repeated string parse_warning = 6;</code>
-     *
      * <pre>
      * Non-fatal parse warnings.
      * </pre>
+     *
+     * <code>repeated string parse_warning = 6;</code>
+     * @param index The index of the element to return.
+     * @return The parseWarning at the given index.
      */
     public java.lang.String getParseWarning(int index) {
       return parseWarning_.get(index);
     }
     /**
-     * <code>repeated string parse_warning = 6;</code>
-     *
      * <pre>
      * Non-fatal parse warnings.
      * </pre>
+     *
+     * <code>repeated string parse_warning = 6;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the parseWarning at the given index.
      */
     public com.google.protobuf.ByteString
         getParseWarningBytes(int index) {
       return parseWarning_.getByteString(index);
     }
 
-    private void initFields() {
-      voltage_ = java.util.Collections.emptyList();
-      amperage_ = java.util.Collections.emptyList();
-      outsideAirTemperature_ = 0;
-      mark_ = edmtools.Proto.DataRecord.Mark.NOT_MARKED;
-      engine_ = java.util.Collections.emptyList();
-      parseWarning_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-    }
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -9310,33 +10921,33 @@ public final class Proto {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       for (int i = 0; i < voltage_.size(); i++) {
-        output.writeFloat(1, voltage_.get(i));
+        output.writeFloat(1, voltage_.getFloat(i));
       }
       for (int i = 0; i < amperage_.size(); i++) {
-        output.writeInt32(2, amperage_.get(i));
+        output.writeInt32(2, amperage_.getInt(i));
       }
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         output.writeInt32(3, outsideAirTemperature_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeEnum(4, mark_.getNumber());
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeEnum(4, mark_);
       }
       for (int i = 0; i < engine_.size(); i++) {
         output.writeMessage(5, engine_.get(i));
       }
       for (int i = 0; i < parseWarning_.size(); i++) {
-        output.writeBytes(6, parseWarning_.getByteString(i));
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, parseWarning_.getRaw(i));
       }
       getUnknownFields().writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
+    @java.lang.Override
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
@@ -9350,18 +10961,18 @@ public final class Proto {
         int dataSize = 0;
         for (int i = 0; i < amperage_.size(); i++) {
           dataSize += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(amperage_.get(i));
+            .computeInt32SizeNoTag(amperage_.getInt(i));
         }
         size += dataSize;
         size += 1 * getAmperageList().size();
       }
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, outsideAirTemperature_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(4, mark_.getNumber());
+          .computeEnumSize(4, mark_);
       }
       for (int i = 0; i < engine_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
@@ -9370,24 +10981,94 @@ public final class Proto {
       {
         int dataSize = 0;
         for (int i = 0; i < parseWarning_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeBytesSizeNoTag(parseWarning_.getByteString(i));
+          dataSize += computeStringSizeNoTag(parseWarning_.getRaw(i));
         }
         size += dataSize;
         size += 1 * getParseWarningList().size();
       }
       size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof edmtools.Proto.DataRecord)) {
+        return super.equals(obj);
+      }
+      edmtools.Proto.DataRecord other = (edmtools.Proto.DataRecord) obj;
+
+      if (!getVoltageList()
+          .equals(other.getVoltageList())) return false;
+      if (!getAmperageList()
+          .equals(other.getAmperageList())) return false;
+      if (hasOutsideAirTemperature() != other.hasOutsideAirTemperature()) return false;
+      if (hasOutsideAirTemperature()) {
+        if (getOutsideAirTemperature()
+            != other.getOutsideAirTemperature()) return false;
+      }
+      if (hasMark() != other.hasMark()) return false;
+      if (hasMark()) {
+        if (mark_ != other.mark_) return false;
+      }
+      if (!getEngineList()
+          .equals(other.getEngineList())) return false;
+      if (!getParseWarningList()
+          .equals(other.getParseWarningList())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
     }
 
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getVoltageCount() > 0) {
+        hash = (37 * hash) + VOLTAGE_FIELD_NUMBER;
+        hash = (53 * hash) + getVoltageList().hashCode();
+      }
+      if (getAmperageCount() > 0) {
+        hash = (37 * hash) + AMPERAGE_FIELD_NUMBER;
+        hash = (53 * hash) + getAmperageList().hashCode();
+      }
+      if (hasOutsideAirTemperature()) {
+        hash = (37 * hash) + OUTSIDE_AIR_TEMPERATURE_FIELD_NUMBER;
+        hash = (53 * hash) + getOutsideAirTemperature();
+      }
+      if (hasMark()) {
+        hash = (37 * hash) + MARK_FIELD_NUMBER;
+        hash = (53 * hash) + mark_;
+      }
+      if (getEngineCount() > 0) {
+        hash = (37 * hash) + ENGINE_FIELD_NUMBER;
+        hash = (53 * hash) + getEngineList().hashCode();
+      }
+      if (getParseWarningCount() > 0) {
+        hash = (37 * hash) + PARSE_WARNING_FIELD_NUMBER;
+        hash = (53 * hash) + getParseWarningList().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static edmtools.Proto.DataRecord parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static edmtools.Proto.DataRecord parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static edmtools.Proto.DataRecord parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -9411,46 +11092,59 @@ public final class Proto {
     }
     public static edmtools.Proto.DataRecord parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static edmtools.Proto.DataRecord parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static edmtools.Proto.DataRecord parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static edmtools.Proto.DataRecord parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static edmtools.Proto.DataRecord parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static edmtools.Proto.DataRecord parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(edmtools.Proto.DataRecord prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(edmtools.Proto.DataRecord prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -9458,7 +11152,7 @@ public final class Proto {
      * Protobuf type {@code edmtools.DataRecord}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:edmtools.DataRecord)
         edmtools.Proto.DataRecordOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -9466,7 +11160,8 @@ public final class Proto {
         return edmtools.Proto.internal_static_edmtools_DataRecord_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return edmtools.Proto.internal_static_edmtools_DataRecord_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -9475,57 +11170,46 @@ public final class Proto {
 
       // Construct using edmtools.Proto.DataRecord.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          getEngineFieldBuilder();
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
 
+      }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
-        voltage_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
-        amperage_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = 0;
+        voltage_ = emptyFloatList();
+        amperage_ = emptyIntList();
         outsideAirTemperature_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000004);
-        mark_ = edmtools.Proto.DataRecord.Mark.NOT_MARKED;
-        bitField0_ = (bitField0_ & ~0x00000008);
+        mark_ = 0;
         if (engineBuilder_ == null) {
           engine_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
+          engine_ = null;
           engineBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000010);
         parseWarning_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return edmtools.Proto.internal_static_edmtools_DataRecord_descriptor;
       }
 
+      @java.lang.Override
       public edmtools.Proto.DataRecord getDefaultInstanceForType() {
         return edmtools.Proto.DataRecord.getDefaultInstance();
       }
 
+      @java.lang.Override
       public edmtools.Proto.DataRecord build() {
         edmtools.Proto.DataRecord result = buildPartial();
         if (!result.isInitialized()) {
@@ -9534,30 +11218,28 @@ public final class Proto {
         return result;
       }
 
+      @java.lang.Override
       public edmtools.Proto.DataRecord buildPartial() {
         edmtools.Proto.DataRecord result = new edmtools.Proto.DataRecord(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          voltage_ = java.util.Collections.unmodifiableList(voltage_);
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(edmtools.Proto.DataRecord result) {
+        if (((bitField0_ & 0x00000001) != 0)) {
+          voltage_.makeImmutable();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.voltage_ = voltage_;
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          amperage_ = java.util.Collections.unmodifiableList(amperage_);
+        if (((bitField0_ & 0x00000002) != 0)) {
+          amperage_.makeImmutable();
           bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.amperage_ = amperage_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.outsideAirTemperature_ = outsideAirTemperature_;
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.mark_ = mark_;
         if (engineBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) == 0x00000010)) {
+          if (((bitField0_ & 0x00000010) != 0)) {
             engine_ = java.util.Collections.unmodifiableList(engine_);
             bitField0_ = (bitField0_ & ~0x00000010);
           }
@@ -9565,16 +11247,60 @@ public final class Proto {
         } else {
           result.engine_ = engineBuilder_.build();
         }
-        if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           parseWarning_ = parseWarning_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.parseWarning_ = parseWarning_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
       }
 
+      private void buildPartial0(edmtools.Proto.DataRecord result) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.outsideAirTemperature_ = outsideAirTemperature_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.mark_ = mark_;
+          to_bitField0_ |= 0x00000002;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof edmtools.Proto.DataRecord) {
           return mergeFrom((edmtools.Proto.DataRecord)other);
@@ -9631,7 +11357,7 @@ public final class Proto {
               engine_ = other.engine_;
               bitField0_ = (bitField0_ & ~0x00000010);
               engineBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getEngineFieldBuilder() : null;
             } else {
               engineBuilder_.addAllMessages(other.engine_);
@@ -9649,79 +11375,177 @@ public final class Proto {
           onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        edmtools.Proto.DataRecord parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (edmtools.Proto.DataRecord) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
         }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 13: {
+                float v = input.readFloat();
+                ensureVoltageIsMutable();
+                voltage_.addFloat(v);
+                break;
+              } // case 13
+              case 10: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureVoltageIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  voltage_.addFloat(input.readFloat());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 10
+              case 16: {
+                int v = input.readInt32();
+                ensureAmperageIsMutable();
+                amperage_.addInt(v);
+                break;
+              } // case 16
+              case 18: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureAmperageIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  amperage_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 18
+              case 24: {
+                outsideAirTemperature_ = input.readInt32();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 32: {
+                int tmpRaw = input.readEnum();
+                edmtools.Proto.DataRecord.Mark tmpValue =
+                    edmtools.Proto.DataRecord.Mark.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  mergeUnknownVarintField(4, tmpRaw);
+                } else {
+                  mark_ = tmpRaw;
+                  bitField0_ |= 0x00000008;
+                }
+                break;
+              } // case 32
+              case 42: {
+                edmtools.Proto.EngineDataRecord m =
+                    input.readMessage(
+                        edmtools.Proto.EngineDataRecord.PARSER,
+                        extensionRegistry);
+                if (engineBuilder_ == null) {
+                  ensureEngineIsMutable();
+                  engine_.add(m);
+                } else {
+                  engineBuilder_.addMessage(m);
+                }
+                break;
+              } // case 42
+              case 50: {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                ensureParseWarningIsMutable();
+                parseWarning_.add(bs);
+                break;
+              } // case 50
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
 
-      private java.util.List<java.lang.Float> voltage_ = java.util.Collections.emptyList();
+      private com.google.protobuf.Internal.FloatList voltage_ = emptyFloatList();
       private void ensureVoltageIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          voltage_ = new java.util.ArrayList<java.lang.Float>(voltage_);
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          voltage_ = mutableCopy(voltage_);
           bitField0_ |= 0x00000001;
-         }
+        }
       }
       /**
        * <code>repeated float voltage = 1;</code>
+       * @return A list containing the voltage.
        */
       public java.util.List<java.lang.Float>
           getVoltageList() {
-        return java.util.Collections.unmodifiableList(voltage_);
+        return ((bitField0_ & 0x00000001) != 0) ?
+                 java.util.Collections.unmodifiableList(voltage_) : voltage_;
       }
       /**
        * <code>repeated float voltage = 1;</code>
+       * @return The count of voltage.
        */
       public int getVoltageCount() {
         return voltage_.size();
       }
       /**
        * <code>repeated float voltage = 1;</code>
+       * @param index The index of the element to return.
+       * @return The voltage at the given index.
        */
       public float getVoltage(int index) {
-        return voltage_.get(index);
+        return voltage_.getFloat(index);
       }
       /**
        * <code>repeated float voltage = 1;</code>
+       * @param index The index to set the value at.
+       * @param value The voltage to set.
+       * @return This builder for chaining.
        */
       public Builder setVoltage(
           int index, float value) {
+        
         ensureVoltageIsMutable();
-        voltage_.set(index, value);
+        voltage_.setFloat(index, value);
         onChanged();
         return this;
       }
       /**
        * <code>repeated float voltage = 1;</code>
+       * @param value The voltage to add.
+       * @return This builder for chaining.
        */
       public Builder addVoltage(float value) {
+        
         ensureVoltageIsMutable();
-        voltage_.add(value);
+        voltage_.addFloat(value);
         onChanged();
         return this;
       }
       /**
        * <code>repeated float voltage = 1;</code>
+       * @param values The voltage to add.
+       * @return This builder for chaining.
        */
       public Builder addAllVoltage(
           java.lang.Iterable<? extends java.lang.Float> values) {
@@ -9733,61 +11557,76 @@ public final class Proto {
       }
       /**
        * <code>repeated float voltage = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVoltage() {
-        voltage_ = java.util.Collections.emptyList();
+        voltage_ = emptyFloatList();
         bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
 
-      private java.util.List<java.lang.Integer> amperage_ = java.util.Collections.emptyList();
+      private com.google.protobuf.Internal.IntList amperage_ = emptyIntList();
       private void ensureAmperageIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          amperage_ = new java.util.ArrayList<java.lang.Integer>(amperage_);
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          amperage_ = mutableCopy(amperage_);
           bitField0_ |= 0x00000002;
-         }
+        }
       }
       /**
        * <code>repeated int32 amperage = 2;</code>
+       * @return A list containing the amperage.
        */
       public java.util.List<java.lang.Integer>
           getAmperageList() {
-        return java.util.Collections.unmodifiableList(amperage_);
+        return ((bitField0_ & 0x00000002) != 0) ?
+                 java.util.Collections.unmodifiableList(amperage_) : amperage_;
       }
       /**
        * <code>repeated int32 amperage = 2;</code>
+       * @return The count of amperage.
        */
       public int getAmperageCount() {
         return amperage_.size();
       }
       /**
        * <code>repeated int32 amperage = 2;</code>
+       * @param index The index of the element to return.
+       * @return The amperage at the given index.
        */
       public int getAmperage(int index) {
-        return amperage_.get(index);
+        return amperage_.getInt(index);
       }
       /**
        * <code>repeated int32 amperage = 2;</code>
+       * @param index The index to set the value at.
+       * @param value The amperage to set.
+       * @return This builder for chaining.
        */
       public Builder setAmperage(
           int index, int value) {
+        
         ensureAmperageIsMutable();
-        amperage_.set(index, value);
+        amperage_.setInt(index, value);
         onChanged();
         return this;
       }
       /**
        * <code>repeated int32 amperage = 2;</code>
+       * @param value The amperage to add.
+       * @return This builder for chaining.
        */
       public Builder addAmperage(int value) {
+        
         ensureAmperageIsMutable();
-        amperage_.add(value);
+        amperage_.addInt(value);
         onChanged();
         return this;
       }
       /**
        * <code>repeated int32 amperage = 2;</code>
+       * @param values The amperage to add.
+       * @return This builder for chaining.
        */
       public Builder addAllAmperage(
           java.lang.Iterable<? extends java.lang.Integer> values) {
@@ -9799,9 +11638,10 @@ public final class Proto {
       }
       /**
        * <code>repeated int32 amperage = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAmperage() {
-        amperage_ = java.util.Collections.emptyList();
+        amperage_ = emptyIntList();
         bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
@@ -9810,27 +11650,35 @@ public final class Proto {
       private int outsideAirTemperature_ ;
       /**
        * <code>optional int32 outside_air_temperature = 3;</code>
+       * @return Whether the outsideAirTemperature field is set.
        */
+      @java.lang.Override
       public boolean hasOutsideAirTemperature() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <code>optional int32 outside_air_temperature = 3;</code>
+       * @return The outsideAirTemperature.
        */
+      @java.lang.Override
       public int getOutsideAirTemperature() {
         return outsideAirTemperature_;
       }
       /**
        * <code>optional int32 outside_air_temperature = 3;</code>
+       * @param value The outsideAirTemperature to set.
+       * @return This builder for chaining.
        */
       public Builder setOutsideAirTemperature(int value) {
-        bitField0_ |= 0x00000004;
+        
         outsideAirTemperature_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
       /**
        * <code>optional int32 outside_air_temperature = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearOutsideAirTemperature() {
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -9839,37 +11687,44 @@ public final class Proto {
         return this;
       }
 
-      private edmtools.Proto.DataRecord.Mark mark_ = edmtools.Proto.DataRecord.Mark.NOT_MARKED;
+      private int mark_ = 0;
       /**
        * <code>optional .edmtools.DataRecord.Mark mark = 4;</code>
+       * @return Whether the mark field is set.
        */
-      public boolean hasMark() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+      @java.lang.Override public boolean hasMark() {
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <code>optional .edmtools.DataRecord.Mark mark = 4;</code>
+       * @return The mark.
        */
+      @java.lang.Override
       public edmtools.Proto.DataRecord.Mark getMark() {
-        return mark_;
+        edmtools.Proto.DataRecord.Mark result = edmtools.Proto.DataRecord.Mark.forNumber(mark_);
+        return result == null ? edmtools.Proto.DataRecord.Mark.NOT_MARKED : result;
       }
       /**
        * <code>optional .edmtools.DataRecord.Mark mark = 4;</code>
+       * @param value The mark to set.
+       * @return This builder for chaining.
        */
       public Builder setMark(edmtools.Proto.DataRecord.Mark value) {
         if (value == null) {
           throw new NullPointerException();
         }
         bitField0_ |= 0x00000008;
-        mark_ = value;
+        mark_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
        * <code>optional .edmtools.DataRecord.Mark mark = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearMark() {
         bitField0_ = (bitField0_ & ~0x00000008);
-        mark_ = edmtools.Proto.DataRecord.Mark.NOT_MARKED;
+        mark_ = 0;
         onChanged();
         return this;
       }
@@ -9877,21 +11732,21 @@ public final class Proto {
       private java.util.List<edmtools.Proto.EngineDataRecord> engine_ =
         java.util.Collections.emptyList();
       private void ensureEngineIsMutable() {
-        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+        if (!((bitField0_ & 0x00000010) != 0)) {
           engine_ = new java.util.ArrayList<edmtools.Proto.EngineDataRecord>(engine_);
           bitField0_ |= 0x00000010;
          }
       }
 
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           edmtools.Proto.EngineDataRecord, edmtools.Proto.EngineDataRecord.Builder, edmtools.Proto.EngineDataRecordOrBuilder> engineBuilder_;
 
       /**
-       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
-       *
        * <pre>
        * First record is left engine.
        * </pre>
+       *
+       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
        */
       public java.util.List<edmtools.Proto.EngineDataRecord> getEngineList() {
         if (engineBuilder_ == null) {
@@ -9901,11 +11756,11 @@ public final class Proto {
         }
       }
       /**
-       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
-       *
        * <pre>
        * First record is left engine.
        * </pre>
+       *
+       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
        */
       public int getEngineCount() {
         if (engineBuilder_ == null) {
@@ -9915,11 +11770,11 @@ public final class Proto {
         }
       }
       /**
-       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
-       *
        * <pre>
        * First record is left engine.
        * </pre>
+       *
+       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
        */
       public edmtools.Proto.EngineDataRecord getEngine(int index) {
         if (engineBuilder_ == null) {
@@ -9929,11 +11784,11 @@ public final class Proto {
         }
       }
       /**
-       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
-       *
        * <pre>
        * First record is left engine.
        * </pre>
+       *
+       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
        */
       public Builder setEngine(
           int index, edmtools.Proto.EngineDataRecord value) {
@@ -9950,11 +11805,11 @@ public final class Proto {
         return this;
       }
       /**
-       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
-       *
        * <pre>
        * First record is left engine.
        * </pre>
+       *
+       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
        */
       public Builder setEngine(
           int index, edmtools.Proto.EngineDataRecord.Builder builderForValue) {
@@ -9968,11 +11823,11 @@ public final class Proto {
         return this;
       }
       /**
-       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
-       *
        * <pre>
        * First record is left engine.
        * </pre>
+       *
+       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
        */
       public Builder addEngine(edmtools.Proto.EngineDataRecord value) {
         if (engineBuilder_ == null) {
@@ -9988,11 +11843,11 @@ public final class Proto {
         return this;
       }
       /**
-       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
-       *
        * <pre>
        * First record is left engine.
        * </pre>
+       *
+       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
        */
       public Builder addEngine(
           int index, edmtools.Proto.EngineDataRecord value) {
@@ -10009,11 +11864,11 @@ public final class Proto {
         return this;
       }
       /**
-       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
-       *
        * <pre>
        * First record is left engine.
        * </pre>
+       *
+       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
        */
       public Builder addEngine(
           edmtools.Proto.EngineDataRecord.Builder builderForValue) {
@@ -10027,11 +11882,11 @@ public final class Proto {
         return this;
       }
       /**
-       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
-       *
        * <pre>
        * First record is left engine.
        * </pre>
+       *
+       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
        */
       public Builder addEngine(
           int index, edmtools.Proto.EngineDataRecord.Builder builderForValue) {
@@ -10045,11 +11900,11 @@ public final class Proto {
         return this;
       }
       /**
-       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
-       *
        * <pre>
        * First record is left engine.
        * </pre>
+       *
+       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
        */
       public Builder addAllEngine(
           java.lang.Iterable<? extends edmtools.Proto.EngineDataRecord> values) {
@@ -10064,11 +11919,11 @@ public final class Proto {
         return this;
       }
       /**
-       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
-       *
        * <pre>
        * First record is left engine.
        * </pre>
+       *
+       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
        */
       public Builder clearEngine() {
         if (engineBuilder_ == null) {
@@ -10081,11 +11936,11 @@ public final class Proto {
         return this;
       }
       /**
-       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
-       *
        * <pre>
        * First record is left engine.
        * </pre>
+       *
+       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
        */
       public Builder removeEngine(int index) {
         if (engineBuilder_ == null) {
@@ -10098,22 +11953,22 @@ public final class Proto {
         return this;
       }
       /**
-       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
-       *
        * <pre>
        * First record is left engine.
        * </pre>
+       *
+       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
        */
       public edmtools.Proto.EngineDataRecord.Builder getEngineBuilder(
           int index) {
         return getEngineFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
-       *
        * <pre>
        * First record is left engine.
        * </pre>
+       *
+       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
        */
       public edmtools.Proto.EngineDataRecordOrBuilder getEngineOrBuilder(
           int index) {
@@ -10123,11 +11978,11 @@ public final class Proto {
         }
       }
       /**
-       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
-       *
        * <pre>
        * First record is left engine.
        * </pre>
+       *
+       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
        */
       public java.util.List<? extends edmtools.Proto.EngineDataRecordOrBuilder> 
            getEngineOrBuilderList() {
@@ -10138,22 +11993,22 @@ public final class Proto {
         }
       }
       /**
-       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
-       *
        * <pre>
        * First record is left engine.
        * </pre>
+       *
+       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
        */
       public edmtools.Proto.EngineDataRecord.Builder addEngineBuilder() {
         return getEngineFieldBuilder().addBuilder(
             edmtools.Proto.EngineDataRecord.getDefaultInstance());
       }
       /**
-       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
-       *
        * <pre>
        * First record is left engine.
        * </pre>
+       *
+       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
        */
       public edmtools.Proto.EngineDataRecord.Builder addEngineBuilder(
           int index) {
@@ -10161,24 +12016,24 @@ public final class Proto {
             index, edmtools.Proto.EngineDataRecord.getDefaultInstance());
       }
       /**
-       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
-       *
        * <pre>
        * First record is left engine.
        * </pre>
+       *
+       * <code>repeated .edmtools.EngineDataRecord engine = 5;</code>
        */
       public java.util.List<edmtools.Proto.EngineDataRecord.Builder> 
            getEngineBuilderList() {
         return getEngineFieldBuilder().getBuilderList();
       }
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           edmtools.Proto.EngineDataRecord, edmtools.Proto.EngineDataRecord.Builder, edmtools.Proto.EngineDataRecordOrBuilder> 
           getEngineFieldBuilder() {
         if (engineBuilder_ == null) {
-          engineBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          engineBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               edmtools.Proto.EngineDataRecord, edmtools.Proto.EngineDataRecord.Builder, edmtools.Proto.EngineDataRecordOrBuilder>(
                   engine_,
-                  ((bitField0_ & 0x00000010) == 0x00000010),
+                  ((bitField0_ & 0x00000010) != 0),
                   getParentForChildren(),
                   isClean());
           engine_ = null;
@@ -10188,93 +12043,102 @@ public final class Proto {
 
       private com.google.protobuf.LazyStringList parseWarning_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureParseWarningIsMutable() {
-        if (!((bitField0_ & 0x00000020) == 0x00000020)) {
+        if (!((bitField0_ & 0x00000020) != 0)) {
           parseWarning_ = new com.google.protobuf.LazyStringArrayList(parseWarning_);
           bitField0_ |= 0x00000020;
          }
       }
       /**
-       * <code>repeated string parse_warning = 6;</code>
-       *
        * <pre>
        * Non-fatal parse warnings.
        * </pre>
+       *
+       * <code>repeated string parse_warning = 6;</code>
+       * @return A list containing the parseWarning.
        */
       public com.google.protobuf.ProtocolStringList
           getParseWarningList() {
         return parseWarning_.getUnmodifiableView();
       }
       /**
-       * <code>repeated string parse_warning = 6;</code>
-       *
        * <pre>
        * Non-fatal parse warnings.
        * </pre>
+       *
+       * <code>repeated string parse_warning = 6;</code>
+       * @return The count of parseWarning.
        */
       public int getParseWarningCount() {
         return parseWarning_.size();
       }
       /**
-       * <code>repeated string parse_warning = 6;</code>
-       *
        * <pre>
        * Non-fatal parse warnings.
        * </pre>
+       *
+       * <code>repeated string parse_warning = 6;</code>
+       * @param index The index of the element to return.
+       * @return The parseWarning at the given index.
        */
       public java.lang.String getParseWarning(int index) {
         return parseWarning_.get(index);
       }
       /**
-       * <code>repeated string parse_warning = 6;</code>
-       *
        * <pre>
        * Non-fatal parse warnings.
        * </pre>
+       *
+       * <code>repeated string parse_warning = 6;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the parseWarning at the given index.
        */
       public com.google.protobuf.ByteString
           getParseWarningBytes(int index) {
         return parseWarning_.getByteString(index);
       }
       /**
-       * <code>repeated string parse_warning = 6;</code>
-       *
        * <pre>
        * Non-fatal parse warnings.
        * </pre>
+       *
+       * <code>repeated string parse_warning = 6;</code>
+       * @param index The index to set the value at.
+       * @param value The parseWarning to set.
+       * @return This builder for chaining.
        */
       public Builder setParseWarning(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureParseWarningIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureParseWarningIsMutable();
         parseWarning_.set(index, value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string parse_warning = 6;</code>
-       *
        * <pre>
        * Non-fatal parse warnings.
        * </pre>
+       *
+       * <code>repeated string parse_warning = 6;</code>
+       * @param value The parseWarning to add.
+       * @return This builder for chaining.
        */
       public Builder addParseWarning(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureParseWarningIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureParseWarningIsMutable();
         parseWarning_.add(value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string parse_warning = 6;</code>
-       *
        * <pre>
        * Non-fatal parse warnings.
        * </pre>
+       *
+       * <code>repeated string parse_warning = 6;</code>
+       * @param values The parseWarning to add.
+       * @return This builder for chaining.
        */
       public Builder addAllParseWarning(
           java.lang.Iterable<java.lang.String> values) {
@@ -10285,11 +12149,12 @@ public final class Proto {
         return this;
       }
       /**
-       * <code>repeated string parse_warning = 6;</code>
-       *
        * <pre>
        * Non-fatal parse warnings.
        * </pre>
+       *
+       * <code>repeated string parse_warning = 6;</code>
+       * @return This builder for chaining.
        */
       public Builder clearParseWarning() {
         parseWarning_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -10298,32 +12163,84 @@ public final class Proto {
         return this;
       }
       /**
-       * <code>repeated string parse_warning = 6;</code>
-       *
        * <pre>
        * Non-fatal parse warnings.
        * </pre>
+       *
+       * <code>repeated string parse_warning = 6;</code>
+       * @param value The bytes of the parseWarning to add.
+       * @return This builder for chaining.
        */
       public Builder addParseWarningBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureParseWarningIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureParseWarningIsMutable();
         parseWarning_.add(value);
         onChanged();
         return this;
       }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:edmtools.DataRecord)
     }
 
+    // @@protoc_insertion_point(class_scope:edmtools.DataRecord)
+    private static final edmtools.Proto.DataRecord DEFAULT_INSTANCE;
     static {
-      defaultInstance = new DataRecord(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new edmtools.Proto.DataRecord();
     }
 
-    // @@protoc_insertion_point(class_scope:edmtools.DataRecord)
+    public static edmtools.Proto.DataRecord getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<DataRecord>
+        PARSER = new com.google.protobuf.AbstractParser<DataRecord>() {
+      @java.lang.Override
+      public DataRecord parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<DataRecord> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DataRecord> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public edmtools.Proto.DataRecord getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface EngineDataRecordOrBuilder extends
@@ -10332,229 +12249,283 @@ public final class Proto {
 
     /**
      * <code>repeated int32 exhaust_gas_temperature = 1;</code>
+     * @return A list containing the exhaustGasTemperature.
      */
     java.util.List<java.lang.Integer> getExhaustGasTemperatureList();
     /**
      * <code>repeated int32 exhaust_gas_temperature = 1;</code>
+     * @return The count of exhaustGasTemperature.
      */
     int getExhaustGasTemperatureCount();
     /**
      * <code>repeated int32 exhaust_gas_temperature = 1;</code>
+     * @param index The index of the element to return.
+     * @return The exhaustGasTemperature at the given index.
      */
     int getExhaustGasTemperature(int index);
 
     /**
      * <code>optional int32 max_exhaust_gas_temperature_difference = 2;</code>
+     * @return Whether the maxExhaustGasTemperatureDifference field is set.
      */
     boolean hasMaxExhaustGasTemperatureDifference();
     /**
      * <code>optional int32 max_exhaust_gas_temperature_difference = 2;</code>
+     * @return The maxExhaustGasTemperatureDifference.
      */
     int getMaxExhaustGasTemperatureDifference();
 
     /**
      * <code>repeated int32 turbine_inlet_temperature = 3;</code>
+     * @return A list containing the turbineInletTemperature.
      */
     java.util.List<java.lang.Integer> getTurbineInletTemperatureList();
     /**
      * <code>repeated int32 turbine_inlet_temperature = 3;</code>
+     * @return The count of turbineInletTemperature.
      */
     int getTurbineInletTemperatureCount();
     /**
      * <code>repeated int32 turbine_inlet_temperature = 3;</code>
+     * @param index The index of the element to return.
+     * @return The turbineInletTemperature at the given index.
      */
     int getTurbineInletTemperature(int index);
 
     /**
      * <code>repeated int32 cylinder_head_temperature = 4;</code>
+     * @return A list containing the cylinderHeadTemperature.
      */
     java.util.List<java.lang.Integer> getCylinderHeadTemperatureList();
     /**
      * <code>repeated int32 cylinder_head_temperature = 4;</code>
+     * @return The count of cylinderHeadTemperature.
      */
     int getCylinderHeadTemperatureCount();
     /**
      * <code>repeated int32 cylinder_head_temperature = 4;</code>
+     * @param index The index of the element to return.
+     * @return The cylinderHeadTemperature at the given index.
      */
     int getCylinderHeadTemperature(int index);
 
     /**
-     * <code>optional int32 cylinder_head_temperature_cooling_rate = 5;</code>
-     *
      * <pre>
      * Degrees per minute.
      * </pre>
+     *
+     * <code>optional int32 cylinder_head_temperature_cooling_rate = 5;</code>
+     * @return Whether the cylinderHeadTemperatureCoolingRate field is set.
      */
     boolean hasCylinderHeadTemperatureCoolingRate();
     /**
-     * <code>optional int32 cylinder_head_temperature_cooling_rate = 5;</code>
-     *
      * <pre>
      * Degrees per minute.
      * </pre>
+     *
+     * <code>optional int32 cylinder_head_temperature_cooling_rate = 5;</code>
+     * @return The cylinderHeadTemperatureCoolingRate.
      */
     int getCylinderHeadTemperatureCoolingRate();
 
     /**
      * <code>optional int32 oil_temperature = 6;</code>
+     * @return Whether the oilTemperature field is set.
      */
     boolean hasOilTemperature();
     /**
      * <code>optional int32 oil_temperature = 6;</code>
+     * @return The oilTemperature.
      */
     int getOilTemperature();
 
     /**
      * <code>optional int32 compressor_discharge_temperature = 7;</code>
+     * @return Whether the compressorDischargeTemperature field is set.
      */
     boolean hasCompressorDischargeTemperature();
     /**
      * <code>optional int32 compressor_discharge_temperature = 7;</code>
+     * @return The compressorDischargeTemperature.
      */
     int getCompressorDischargeTemperature();
 
     /**
      * <code>optional int32 induction_air_temperature = 8;</code>
+     * @return Whether the inductionAirTemperature field is set.
      */
     boolean hasInductionAirTemperature();
     /**
      * <code>optional int32 induction_air_temperature = 8;</code>
+     * @return The inductionAirTemperature.
      */
     int getInductionAirTemperature();
 
     /**
      * <code>optional int32 interstage_turbine_temperature = 9;</code>
+     * @return Whether the interstageTurbineTemperature field is set.
      */
     boolean hasInterstageTurbineTemperature();
     /**
      * <code>optional int32 interstage_turbine_temperature = 9;</code>
+     * @return The interstageTurbineTemperature.
      */
     int getInterstageTurbineTemperature();
 
     /**
      * <code>repeated float fuel_used = 10;</code>
+     * @return A list containing the fuelUsed.
      */
     java.util.List<java.lang.Float> getFuelUsedList();
     /**
      * <code>repeated float fuel_used = 10;</code>
+     * @return The count of fuelUsed.
      */
     int getFuelUsedCount();
     /**
      * <code>repeated float fuel_used = 10;</code>
+     * @param index The index of the element to return.
+     * @return The fuelUsed at the given index.
      */
     float getFuelUsed(int index);
 
     /**
      * <code>repeated float fuel_flow = 11;</code>
+     * @return A list containing the fuelFlow.
      */
     java.util.List<java.lang.Float> getFuelFlowList();
     /**
      * <code>repeated float fuel_flow = 11;</code>
+     * @return The count of fuelFlow.
      */
     int getFuelFlowCount();
     /**
      * <code>repeated float fuel_flow = 11;</code>
+     * @param index The index of the element to return.
+     * @return The fuelFlow at the given index.
      */
     float getFuelFlow(int index);
 
     /**
      * <code>optional float fuel_pressure = 12;</code>
+     * @return Whether the fuelPressure field is set.
      */
     boolean hasFuelPressure();
     /**
      * <code>optional float fuel_pressure = 12;</code>
+     * @return The fuelPressure.
      */
     float getFuelPressure();
 
     /**
-     * <code>repeated float fuel_level = 13;</code>
-     *
      * <pre>
      * TODO: unsure - verify this is really fuel level.
      * </pre>
+     *
+     * <code>repeated float fuel_level = 13;</code>
+     * @return A list containing the fuelLevel.
      */
     java.util.List<java.lang.Float> getFuelLevelList();
     /**
-     * <code>repeated float fuel_level = 13;</code>
-     *
      * <pre>
      * TODO: unsure - verify this is really fuel level.
      * </pre>
+     *
+     * <code>repeated float fuel_level = 13;</code>
+     * @return The count of fuelLevel.
      */
     int getFuelLevelCount();
     /**
-     * <code>repeated float fuel_level = 13;</code>
-     *
      * <pre>
      * TODO: unsure - verify this is really fuel level.
      * </pre>
+     *
+     * <code>repeated float fuel_level = 13;</code>
+     * @param index The index of the element to return.
+     * @return The fuelLevel at the given index.
      */
     float getFuelLevel(int index);
 
     /**
      * <code>optional int32 oil_pressure = 14;</code>
+     * @return Whether the oilPressure field is set.
      */
     boolean hasOilPressure();
     /**
      * <code>optional int32 oil_pressure = 14;</code>
+     * @return The oilPressure.
      */
     int getOilPressure();
 
     /**
      * <code>optional float manifold_pressure = 15;</code>
+     * @return Whether the manifoldPressure field is set.
      */
     boolean hasManifoldPressure();
     /**
      * <code>optional float manifold_pressure = 15;</code>
+     * @return The manifoldPressure.
      */
     float getManifoldPressure();
 
     /**
      * <code>repeated int32 hydraulic_pressure = 16;</code>
+     * @return A list containing the hydraulicPressure.
      */
     java.util.List<java.lang.Integer> getHydraulicPressureList();
     /**
      * <code>repeated int32 hydraulic_pressure = 16;</code>
+     * @return The count of hydraulicPressure.
      */
     int getHydraulicPressureCount();
     /**
      * <code>repeated int32 hydraulic_pressure = 16;</code>
+     * @param index The index of the element to return.
+     * @return The hydraulicPressure at the given index.
      */
     int getHydraulicPressure(int index);
 
     /**
      * <code>optional int32 horsepower = 17;</code>
+     * @return Whether the horsepower field is set.
      */
     boolean hasHorsepower();
     /**
      * <code>optional int32 horsepower = 17;</code>
+     * @return The horsepower.
      */
     int getHorsepower();
 
     /**
      * <code>optional int32 rpm = 18;</code>
+     * @return Whether the rpm field is set.
      */
     boolean hasRpm();
     /**
      * <code>optional int32 rpm = 18;</code>
+     * @return The rpm.
      */
     int getRpm();
 
     /**
      * <code>optional int32 torque = 19;</code>
+     * @return Whether the torque field is set.
      */
     boolean hasTorque();
     /**
      * <code>optional int32 torque = 19;</code>
+     * @return The torque.
      */
     int getTorque();
 
     /**
      * <code>optional float hours = 20;</code>
+     * @return Whether the hours field is set.
      */
     boolean hasHours();
     /**
      * <code>optional float hours = 20;</code>
+     * @return The hours.
      */
     float getHours();
   }
@@ -10562,719 +12533,515 @@ public final class Proto {
    * Protobuf type {@code edmtools.EngineDataRecord}
    */
   public static final class EngineDataRecord extends
-      com.google.protobuf.GeneratedMessage implements
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:edmtools.EngineDataRecord)
       EngineDataRecordOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use EngineDataRecord.newBuilder() to construct.
-    private EngineDataRecord(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private EngineDataRecord(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private EngineDataRecord(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final EngineDataRecord defaultInstance;
-    public static EngineDataRecord getDefaultInstance() {
-      return defaultInstance;
-    }
-
-    public EngineDataRecord getDefaultInstanceForType() {
-      return defaultInstance;
+    private EngineDataRecord() {
+      exhaustGasTemperature_ = emptyIntList();
+      turbineInletTemperature_ = emptyIntList();
+      cylinderHeadTemperature_ = emptyIntList();
+      fuelUsed_ = emptyFloatList();
+      fuelFlow_ = emptyFloatList();
+      fuelLevel_ = emptyFloatList();
+      hydraulicPressure_ = emptyIntList();
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new EngineDataRecord();
+    }
+
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
-    }
-    private EngineDataRecord(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 8: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                exhaustGasTemperature_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              exhaustGasTemperature_.add(input.readInt32());
-              break;
-            }
-            case 10: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001) && input.getBytesUntilLimit() > 0) {
-                exhaustGasTemperature_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                exhaustGasTemperature_.add(input.readInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000001;
-              maxExhaustGasTemperatureDifference_ = input.readInt32();
-              break;
-            }
-            case 24: {
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                turbineInletTemperature_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              turbineInletTemperature_.add(input.readInt32());
-              break;
-            }
-            case 26: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004) && input.getBytesUntilLimit() > 0) {
-                turbineInletTemperature_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                turbineInletTemperature_.add(input.readInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 32: {
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                cylinderHeadTemperature_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              cylinderHeadTemperature_.add(input.readInt32());
-              break;
-            }
-            case 34: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008) && input.getBytesUntilLimit() > 0) {
-                cylinderHeadTemperature_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                cylinderHeadTemperature_.add(input.readInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 40: {
-              bitField0_ |= 0x00000002;
-              cylinderHeadTemperatureCoolingRate_ = input.readInt32();
-              break;
-            }
-            case 48: {
-              bitField0_ |= 0x00000004;
-              oilTemperature_ = input.readInt32();
-              break;
-            }
-            case 56: {
-              bitField0_ |= 0x00000008;
-              compressorDischargeTemperature_ = input.readInt32();
-              break;
-            }
-            case 64: {
-              bitField0_ |= 0x00000010;
-              inductionAirTemperature_ = input.readInt32();
-              break;
-            }
-            case 72: {
-              bitField0_ |= 0x00000020;
-              interstageTurbineTemperature_ = input.readInt32();
-              break;
-            }
-            case 85: {
-              if (!((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
-                fuelUsed_ = new java.util.ArrayList<java.lang.Float>();
-                mutable_bitField0_ |= 0x00000200;
-              }
-              fuelUsed_.add(input.readFloat());
-              break;
-            }
-            case 82: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000200) == 0x00000200) && input.getBytesUntilLimit() > 0) {
-                fuelUsed_ = new java.util.ArrayList<java.lang.Float>();
-                mutable_bitField0_ |= 0x00000200;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                fuelUsed_.add(input.readFloat());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 93: {
-              if (!((mutable_bitField0_ & 0x00000400) == 0x00000400)) {
-                fuelFlow_ = new java.util.ArrayList<java.lang.Float>();
-                mutable_bitField0_ |= 0x00000400;
-              }
-              fuelFlow_.add(input.readFloat());
-              break;
-            }
-            case 90: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000400) == 0x00000400) && input.getBytesUntilLimit() > 0) {
-                fuelFlow_ = new java.util.ArrayList<java.lang.Float>();
-                mutable_bitField0_ |= 0x00000400;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                fuelFlow_.add(input.readFloat());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 101: {
-              bitField0_ |= 0x00000040;
-              fuelPressure_ = input.readFloat();
-              break;
-            }
-            case 109: {
-              if (!((mutable_bitField0_ & 0x00001000) == 0x00001000)) {
-                fuelLevel_ = new java.util.ArrayList<java.lang.Float>();
-                mutable_bitField0_ |= 0x00001000;
-              }
-              fuelLevel_.add(input.readFloat());
-              break;
-            }
-            case 106: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00001000) == 0x00001000) && input.getBytesUntilLimit() > 0) {
-                fuelLevel_ = new java.util.ArrayList<java.lang.Float>();
-                mutable_bitField0_ |= 0x00001000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                fuelLevel_.add(input.readFloat());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 112: {
-              bitField0_ |= 0x00000080;
-              oilPressure_ = input.readInt32();
-              break;
-            }
-            case 125: {
-              bitField0_ |= 0x00000100;
-              manifoldPressure_ = input.readFloat();
-              break;
-            }
-            case 128: {
-              if (!((mutable_bitField0_ & 0x00008000) == 0x00008000)) {
-                hydraulicPressure_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00008000;
-              }
-              hydraulicPressure_.add(input.readInt32());
-              break;
-            }
-            case 130: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00008000) == 0x00008000) && input.getBytesUntilLimit() > 0) {
-                hydraulicPressure_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00008000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                hydraulicPressure_.add(input.readInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 136: {
-              bitField0_ |= 0x00000200;
-              horsepower_ = input.readInt32();
-              break;
-            }
-            case 144: {
-              bitField0_ |= 0x00000400;
-              rpm_ = input.readInt32();
-              break;
-            }
-            case 152: {
-              bitField0_ |= 0x00000800;
-              torque_ = input.readInt32();
-              break;
-            }
-            case 165: {
-              bitField0_ |= 0x00001000;
-              hours_ = input.readFloat();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          exhaustGasTemperature_ = java.util.Collections.unmodifiableList(exhaustGasTemperature_);
-        }
-        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-          turbineInletTemperature_ = java.util.Collections.unmodifiableList(turbineInletTemperature_);
-        }
-        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-          cylinderHeadTemperature_ = java.util.Collections.unmodifiableList(cylinderHeadTemperature_);
-        }
-        if (((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
-          fuelUsed_ = java.util.Collections.unmodifiableList(fuelUsed_);
-        }
-        if (((mutable_bitField0_ & 0x00000400) == 0x00000400)) {
-          fuelFlow_ = java.util.Collections.unmodifiableList(fuelFlow_);
-        }
-        if (((mutable_bitField0_ & 0x00001000) == 0x00001000)) {
-          fuelLevel_ = java.util.Collections.unmodifiableList(fuelLevel_);
-        }
-        if (((mutable_bitField0_ & 0x00008000) == 0x00008000)) {
-          hydraulicPressure_ = java.util.Collections.unmodifiableList(hydraulicPressure_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return edmtools.Proto.internal_static_edmtools_EngineDataRecord_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return edmtools.Proto.internal_static_edmtools_EngineDataRecord_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               edmtools.Proto.EngineDataRecord.class, edmtools.Proto.EngineDataRecord.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<EngineDataRecord> PARSER =
-        new com.google.protobuf.AbstractParser<EngineDataRecord>() {
-      public EngineDataRecord parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new EngineDataRecord(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<EngineDataRecord> getParserForType() {
-      return PARSER;
-    }
-
     private int bitField0_;
     public static final int EXHAUST_GAS_TEMPERATURE_FIELD_NUMBER = 1;
-    private java.util.List<java.lang.Integer> exhaustGasTemperature_;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.Internal.IntList exhaustGasTemperature_;
     /**
      * <code>repeated int32 exhaust_gas_temperature = 1;</code>
+     * @return A list containing the exhaustGasTemperature.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getExhaustGasTemperatureList() {
       return exhaustGasTemperature_;
     }
     /**
      * <code>repeated int32 exhaust_gas_temperature = 1;</code>
+     * @return The count of exhaustGasTemperature.
      */
     public int getExhaustGasTemperatureCount() {
       return exhaustGasTemperature_.size();
     }
     /**
      * <code>repeated int32 exhaust_gas_temperature = 1;</code>
+     * @param index The index of the element to return.
+     * @return The exhaustGasTemperature at the given index.
      */
     public int getExhaustGasTemperature(int index) {
-      return exhaustGasTemperature_.get(index);
+      return exhaustGasTemperature_.getInt(index);
     }
 
     public static final int MAX_EXHAUST_GAS_TEMPERATURE_DIFFERENCE_FIELD_NUMBER = 2;
-    private int maxExhaustGasTemperatureDifference_;
+    private int maxExhaustGasTemperatureDifference_ = 0;
     /**
      * <code>optional int32 max_exhaust_gas_temperature_difference = 2;</code>
+     * @return Whether the maxExhaustGasTemperatureDifference field is set.
      */
+    @java.lang.Override
     public boolean hasMaxExhaustGasTemperatureDifference() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>optional int32 max_exhaust_gas_temperature_difference = 2;</code>
+     * @return The maxExhaustGasTemperatureDifference.
      */
+    @java.lang.Override
     public int getMaxExhaustGasTemperatureDifference() {
       return maxExhaustGasTemperatureDifference_;
     }
 
     public static final int TURBINE_INLET_TEMPERATURE_FIELD_NUMBER = 3;
-    private java.util.List<java.lang.Integer> turbineInletTemperature_;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.Internal.IntList turbineInletTemperature_;
     /**
      * <code>repeated int32 turbine_inlet_temperature = 3;</code>
+     * @return A list containing the turbineInletTemperature.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getTurbineInletTemperatureList() {
       return turbineInletTemperature_;
     }
     /**
      * <code>repeated int32 turbine_inlet_temperature = 3;</code>
+     * @return The count of turbineInletTemperature.
      */
     public int getTurbineInletTemperatureCount() {
       return turbineInletTemperature_.size();
     }
     /**
      * <code>repeated int32 turbine_inlet_temperature = 3;</code>
+     * @param index The index of the element to return.
+     * @return The turbineInletTemperature at the given index.
      */
     public int getTurbineInletTemperature(int index) {
-      return turbineInletTemperature_.get(index);
+      return turbineInletTemperature_.getInt(index);
     }
 
     public static final int CYLINDER_HEAD_TEMPERATURE_FIELD_NUMBER = 4;
-    private java.util.List<java.lang.Integer> cylinderHeadTemperature_;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.Internal.IntList cylinderHeadTemperature_;
     /**
      * <code>repeated int32 cylinder_head_temperature = 4;</code>
+     * @return A list containing the cylinderHeadTemperature.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getCylinderHeadTemperatureList() {
       return cylinderHeadTemperature_;
     }
     /**
      * <code>repeated int32 cylinder_head_temperature = 4;</code>
+     * @return The count of cylinderHeadTemperature.
      */
     public int getCylinderHeadTemperatureCount() {
       return cylinderHeadTemperature_.size();
     }
     /**
      * <code>repeated int32 cylinder_head_temperature = 4;</code>
+     * @param index The index of the element to return.
+     * @return The cylinderHeadTemperature at the given index.
      */
     public int getCylinderHeadTemperature(int index) {
-      return cylinderHeadTemperature_.get(index);
+      return cylinderHeadTemperature_.getInt(index);
     }
 
     public static final int CYLINDER_HEAD_TEMPERATURE_COOLING_RATE_FIELD_NUMBER = 5;
-    private int cylinderHeadTemperatureCoolingRate_;
+    private int cylinderHeadTemperatureCoolingRate_ = 0;
     /**
-     * <code>optional int32 cylinder_head_temperature_cooling_rate = 5;</code>
-     *
      * <pre>
      * Degrees per minute.
      * </pre>
+     *
+     * <code>optional int32 cylinder_head_temperature_cooling_rate = 5;</code>
+     * @return Whether the cylinderHeadTemperatureCoolingRate field is set.
      */
+    @java.lang.Override
     public boolean hasCylinderHeadTemperatureCoolingRate() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>optional int32 cylinder_head_temperature_cooling_rate = 5;</code>
-     *
      * <pre>
      * Degrees per minute.
      * </pre>
+     *
+     * <code>optional int32 cylinder_head_temperature_cooling_rate = 5;</code>
+     * @return The cylinderHeadTemperatureCoolingRate.
      */
+    @java.lang.Override
     public int getCylinderHeadTemperatureCoolingRate() {
       return cylinderHeadTemperatureCoolingRate_;
     }
 
     public static final int OIL_TEMPERATURE_FIELD_NUMBER = 6;
-    private int oilTemperature_;
+    private int oilTemperature_ = 0;
     /**
      * <code>optional int32 oil_temperature = 6;</code>
+     * @return Whether the oilTemperature field is set.
      */
+    @java.lang.Override
     public boolean hasOilTemperature() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <code>optional int32 oil_temperature = 6;</code>
+     * @return The oilTemperature.
      */
+    @java.lang.Override
     public int getOilTemperature() {
       return oilTemperature_;
     }
 
     public static final int COMPRESSOR_DISCHARGE_TEMPERATURE_FIELD_NUMBER = 7;
-    private int compressorDischargeTemperature_;
+    private int compressorDischargeTemperature_ = 0;
     /**
      * <code>optional int32 compressor_discharge_temperature = 7;</code>
+     * @return Whether the compressorDischargeTemperature field is set.
      */
+    @java.lang.Override
     public boolean hasCompressorDischargeTemperature() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <code>optional int32 compressor_discharge_temperature = 7;</code>
+     * @return The compressorDischargeTemperature.
      */
+    @java.lang.Override
     public int getCompressorDischargeTemperature() {
       return compressorDischargeTemperature_;
     }
 
     public static final int INDUCTION_AIR_TEMPERATURE_FIELD_NUMBER = 8;
-    private int inductionAirTemperature_;
+    private int inductionAirTemperature_ = 0;
     /**
      * <code>optional int32 induction_air_temperature = 8;</code>
+     * @return Whether the inductionAirTemperature field is set.
      */
+    @java.lang.Override
     public boolean hasInductionAirTemperature() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <code>optional int32 induction_air_temperature = 8;</code>
+     * @return The inductionAirTemperature.
      */
+    @java.lang.Override
     public int getInductionAirTemperature() {
       return inductionAirTemperature_;
     }
 
     public static final int INTERSTAGE_TURBINE_TEMPERATURE_FIELD_NUMBER = 9;
-    private int interstageTurbineTemperature_;
+    private int interstageTurbineTemperature_ = 0;
     /**
      * <code>optional int32 interstage_turbine_temperature = 9;</code>
+     * @return Whether the interstageTurbineTemperature field is set.
      */
+    @java.lang.Override
     public boolean hasInterstageTurbineTemperature() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <code>optional int32 interstage_turbine_temperature = 9;</code>
+     * @return The interstageTurbineTemperature.
      */
+    @java.lang.Override
     public int getInterstageTurbineTemperature() {
       return interstageTurbineTemperature_;
     }
 
     public static final int FUEL_USED_FIELD_NUMBER = 10;
-    private java.util.List<java.lang.Float> fuelUsed_;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.Internal.FloatList fuelUsed_;
     /**
      * <code>repeated float fuel_used = 10;</code>
+     * @return A list containing the fuelUsed.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Float>
         getFuelUsedList() {
       return fuelUsed_;
     }
     /**
      * <code>repeated float fuel_used = 10;</code>
+     * @return The count of fuelUsed.
      */
     public int getFuelUsedCount() {
       return fuelUsed_.size();
     }
     /**
      * <code>repeated float fuel_used = 10;</code>
+     * @param index The index of the element to return.
+     * @return The fuelUsed at the given index.
      */
     public float getFuelUsed(int index) {
-      return fuelUsed_.get(index);
+      return fuelUsed_.getFloat(index);
     }
 
     public static final int FUEL_FLOW_FIELD_NUMBER = 11;
-    private java.util.List<java.lang.Float> fuelFlow_;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.Internal.FloatList fuelFlow_;
     /**
      * <code>repeated float fuel_flow = 11;</code>
+     * @return A list containing the fuelFlow.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Float>
         getFuelFlowList() {
       return fuelFlow_;
     }
     /**
      * <code>repeated float fuel_flow = 11;</code>
+     * @return The count of fuelFlow.
      */
     public int getFuelFlowCount() {
       return fuelFlow_.size();
     }
     /**
      * <code>repeated float fuel_flow = 11;</code>
+     * @param index The index of the element to return.
+     * @return The fuelFlow at the given index.
      */
     public float getFuelFlow(int index) {
-      return fuelFlow_.get(index);
+      return fuelFlow_.getFloat(index);
     }
 
     public static final int FUEL_PRESSURE_FIELD_NUMBER = 12;
-    private float fuelPressure_;
+    private float fuelPressure_ = 0F;
     /**
      * <code>optional float fuel_pressure = 12;</code>
+     * @return Whether the fuelPressure field is set.
      */
+    @java.lang.Override
     public boolean hasFuelPressure() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <code>optional float fuel_pressure = 12;</code>
+     * @return The fuelPressure.
      */
+    @java.lang.Override
     public float getFuelPressure() {
       return fuelPressure_;
     }
 
     public static final int FUEL_LEVEL_FIELD_NUMBER = 13;
-    private java.util.List<java.lang.Float> fuelLevel_;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.Internal.FloatList fuelLevel_;
     /**
-     * <code>repeated float fuel_level = 13;</code>
-     *
      * <pre>
      * TODO: unsure - verify this is really fuel level.
      * </pre>
+     *
+     * <code>repeated float fuel_level = 13;</code>
+     * @return A list containing the fuelLevel.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Float>
         getFuelLevelList() {
       return fuelLevel_;
     }
     /**
-     * <code>repeated float fuel_level = 13;</code>
-     *
      * <pre>
      * TODO: unsure - verify this is really fuel level.
      * </pre>
+     *
+     * <code>repeated float fuel_level = 13;</code>
+     * @return The count of fuelLevel.
      */
     public int getFuelLevelCount() {
       return fuelLevel_.size();
     }
     /**
-     * <code>repeated float fuel_level = 13;</code>
-     *
      * <pre>
      * TODO: unsure - verify this is really fuel level.
      * </pre>
+     *
+     * <code>repeated float fuel_level = 13;</code>
+     * @param index The index of the element to return.
+     * @return The fuelLevel at the given index.
      */
     public float getFuelLevel(int index) {
-      return fuelLevel_.get(index);
+      return fuelLevel_.getFloat(index);
     }
 
     public static final int OIL_PRESSURE_FIELD_NUMBER = 14;
-    private int oilPressure_;
+    private int oilPressure_ = 0;
     /**
      * <code>optional int32 oil_pressure = 14;</code>
+     * @return Whether the oilPressure field is set.
      */
+    @java.lang.Override
     public boolean hasOilPressure() {
-      return ((bitField0_ & 0x00000080) == 0x00000080);
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <code>optional int32 oil_pressure = 14;</code>
+     * @return The oilPressure.
      */
+    @java.lang.Override
     public int getOilPressure() {
       return oilPressure_;
     }
 
     public static final int MANIFOLD_PRESSURE_FIELD_NUMBER = 15;
-    private float manifoldPressure_;
+    private float manifoldPressure_ = 0F;
     /**
      * <code>optional float manifold_pressure = 15;</code>
+     * @return Whether the manifoldPressure field is set.
      */
+    @java.lang.Override
     public boolean hasManifoldPressure() {
-      return ((bitField0_ & 0x00000100) == 0x00000100);
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <code>optional float manifold_pressure = 15;</code>
+     * @return The manifoldPressure.
      */
+    @java.lang.Override
     public float getManifoldPressure() {
       return manifoldPressure_;
     }
 
     public static final int HYDRAULIC_PRESSURE_FIELD_NUMBER = 16;
-    private java.util.List<java.lang.Integer> hydraulicPressure_;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.Internal.IntList hydraulicPressure_;
     /**
      * <code>repeated int32 hydraulic_pressure = 16;</code>
+     * @return A list containing the hydraulicPressure.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Integer>
         getHydraulicPressureList() {
       return hydraulicPressure_;
     }
     /**
      * <code>repeated int32 hydraulic_pressure = 16;</code>
+     * @return The count of hydraulicPressure.
      */
     public int getHydraulicPressureCount() {
       return hydraulicPressure_.size();
     }
     /**
      * <code>repeated int32 hydraulic_pressure = 16;</code>
+     * @param index The index of the element to return.
+     * @return The hydraulicPressure at the given index.
      */
     public int getHydraulicPressure(int index) {
-      return hydraulicPressure_.get(index);
+      return hydraulicPressure_.getInt(index);
     }
 
     public static final int HORSEPOWER_FIELD_NUMBER = 17;
-    private int horsepower_;
+    private int horsepower_ = 0;
     /**
      * <code>optional int32 horsepower = 17;</code>
+     * @return Whether the horsepower field is set.
      */
+    @java.lang.Override
     public boolean hasHorsepower() {
-      return ((bitField0_ & 0x00000200) == 0x00000200);
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <code>optional int32 horsepower = 17;</code>
+     * @return The horsepower.
      */
+    @java.lang.Override
     public int getHorsepower() {
       return horsepower_;
     }
 
     public static final int RPM_FIELD_NUMBER = 18;
-    private int rpm_;
+    private int rpm_ = 0;
     /**
      * <code>optional int32 rpm = 18;</code>
+     * @return Whether the rpm field is set.
      */
+    @java.lang.Override
     public boolean hasRpm() {
-      return ((bitField0_ & 0x00000400) == 0x00000400);
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <code>optional int32 rpm = 18;</code>
+     * @return The rpm.
      */
+    @java.lang.Override
     public int getRpm() {
       return rpm_;
     }
 
     public static final int TORQUE_FIELD_NUMBER = 19;
-    private int torque_;
+    private int torque_ = 0;
     /**
      * <code>optional int32 torque = 19;</code>
+     * @return Whether the torque field is set.
      */
+    @java.lang.Override
     public boolean hasTorque() {
-      return ((bitField0_ & 0x00000800) == 0x00000800);
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <code>optional int32 torque = 19;</code>
+     * @return The torque.
      */
+    @java.lang.Override
     public int getTorque() {
       return torque_;
     }
 
     public static final int HOURS_FIELD_NUMBER = 20;
-    private float hours_;
+    private float hours_ = 0F;
     /**
      * <code>optional float hours = 20;</code>
+     * @return Whether the hours field is set.
      */
+    @java.lang.Override
     public boolean hasHours() {
-      return ((bitField0_ & 0x00001000) == 0x00001000);
+      return ((bitField0_ & 0x00001000) != 0);
     }
     /**
      * <code>optional float hours = 20;</code>
+     * @return The hours.
      */
+    @java.lang.Override
     public float getHours() {
       return hours_;
     }
 
-    private void initFields() {
-      exhaustGasTemperature_ = java.util.Collections.emptyList();
-      maxExhaustGasTemperatureDifference_ = 0;
-      turbineInletTemperature_ = java.util.Collections.emptyList();
-      cylinderHeadTemperature_ = java.util.Collections.emptyList();
-      cylinderHeadTemperatureCoolingRate_ = 0;
-      oilTemperature_ = 0;
-      compressorDischargeTemperature_ = 0;
-      inductionAirTemperature_ = 0;
-      interstageTurbineTemperature_ = 0;
-      fuelUsed_ = java.util.Collections.emptyList();
-      fuelFlow_ = java.util.Collections.emptyList();
-      fuelPressure_ = 0F;
-      fuelLevel_ = java.util.Collections.emptyList();
-      oilPressure_ = 0;
-      manifoldPressure_ = 0F;
-      hydraulicPressure_ = java.util.Collections.emptyList();
-      horsepower_ = 0;
-      rpm_ = 0;
-      torque_ = 0;
-      hours_ = 0F;
-    }
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -11284,75 +13051,75 @@ public final class Proto {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       for (int i = 0; i < exhaustGasTemperature_.size(); i++) {
-        output.writeInt32(1, exhaustGasTemperature_.get(i));
+        output.writeInt32(1, exhaustGasTemperature_.getInt(i));
       }
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         output.writeInt32(2, maxExhaustGasTemperatureDifference_);
       }
       for (int i = 0; i < turbineInletTemperature_.size(); i++) {
-        output.writeInt32(3, turbineInletTemperature_.get(i));
+        output.writeInt32(3, turbineInletTemperature_.getInt(i));
       }
       for (int i = 0; i < cylinderHeadTemperature_.size(); i++) {
-        output.writeInt32(4, cylinderHeadTemperature_.get(i));
+        output.writeInt32(4, cylinderHeadTemperature_.getInt(i));
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         output.writeInt32(5, cylinderHeadTemperatureCoolingRate_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         output.writeInt32(6, oilTemperature_);
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         output.writeInt32(7, compressorDischargeTemperature_);
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         output.writeInt32(8, inductionAirTemperature_);
       }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+      if (((bitField0_ & 0x00000020) != 0)) {
         output.writeInt32(9, interstageTurbineTemperature_);
       }
       for (int i = 0; i < fuelUsed_.size(); i++) {
-        output.writeFloat(10, fuelUsed_.get(i));
+        output.writeFloat(10, fuelUsed_.getFloat(i));
       }
       for (int i = 0; i < fuelFlow_.size(); i++) {
-        output.writeFloat(11, fuelFlow_.get(i));
+        output.writeFloat(11, fuelFlow_.getFloat(i));
       }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+      if (((bitField0_ & 0x00000040) != 0)) {
         output.writeFloat(12, fuelPressure_);
       }
       for (int i = 0; i < fuelLevel_.size(); i++) {
-        output.writeFloat(13, fuelLevel_.get(i));
+        output.writeFloat(13, fuelLevel_.getFloat(i));
       }
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+      if (((bitField0_ & 0x00000080) != 0)) {
         output.writeInt32(14, oilPressure_);
       }
-      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+      if (((bitField0_ & 0x00000100) != 0)) {
         output.writeFloat(15, manifoldPressure_);
       }
       for (int i = 0; i < hydraulicPressure_.size(); i++) {
-        output.writeInt32(16, hydraulicPressure_.get(i));
+        output.writeInt32(16, hydraulicPressure_.getInt(i));
       }
-      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+      if (((bitField0_ & 0x00000200) != 0)) {
         output.writeInt32(17, horsepower_);
       }
-      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+      if (((bitField0_ & 0x00000400) != 0)) {
         output.writeInt32(18, rpm_);
       }
-      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+      if (((bitField0_ & 0x00000800) != 0)) {
         output.writeInt32(19, torque_);
       }
-      if (((bitField0_ & 0x00001000) == 0x00001000)) {
+      if (((bitField0_ & 0x00001000) != 0)) {
         output.writeFloat(20, hours_);
       }
       getUnknownFields().writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
+    @java.lang.Override
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
@@ -11360,12 +13127,12 @@ public final class Proto {
         int dataSize = 0;
         for (int i = 0; i < exhaustGasTemperature_.size(); i++) {
           dataSize += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(exhaustGasTemperature_.get(i));
+            .computeInt32SizeNoTag(exhaustGasTemperature_.getInt(i));
         }
         size += dataSize;
         size += 1 * getExhaustGasTemperatureList().size();
       }
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, maxExhaustGasTemperatureDifference_);
       }
@@ -11373,7 +13140,7 @@ public final class Proto {
         int dataSize = 0;
         for (int i = 0; i < turbineInletTemperature_.size(); i++) {
           dataSize += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(turbineInletTemperature_.get(i));
+            .computeInt32SizeNoTag(turbineInletTemperature_.getInt(i));
         }
         size += dataSize;
         size += 1 * getTurbineInletTemperatureList().size();
@@ -11382,28 +13149,28 @@ public final class Proto {
         int dataSize = 0;
         for (int i = 0; i < cylinderHeadTemperature_.size(); i++) {
           dataSize += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(cylinderHeadTemperature_.get(i));
+            .computeInt32SizeNoTag(cylinderHeadTemperature_.getInt(i));
         }
         size += dataSize;
         size += 1 * getCylinderHeadTemperatureList().size();
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(5, cylinderHeadTemperatureCoolingRate_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(6, oilTemperature_);
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(7, compressorDischargeTemperature_);
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(8, inductionAirTemperature_);
       }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+      if (((bitField0_ & 0x00000020) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(9, interstageTurbineTemperature_);
       }
@@ -11419,7 +13186,7 @@ public final class Proto {
         size += dataSize;
         size += 1 * getFuelFlowList().size();
       }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+      if (((bitField0_ & 0x00000040) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(12, fuelPressure_);
       }
@@ -11429,11 +13196,11 @@ public final class Proto {
         size += dataSize;
         size += 1 * getFuelLevelList().size();
       }
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+      if (((bitField0_ & 0x00000080) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(14, oilPressure_);
       }
-      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+      if (((bitField0_ & 0x00000100) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(15, manifoldPressure_);
       }
@@ -11441,39 +13208,234 @@ public final class Proto {
         int dataSize = 0;
         for (int i = 0; i < hydraulicPressure_.size(); i++) {
           dataSize += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(hydraulicPressure_.get(i));
+            .computeInt32SizeNoTag(hydraulicPressure_.getInt(i));
         }
         size += dataSize;
         size += 2 * getHydraulicPressureList().size();
       }
-      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+      if (((bitField0_ & 0x00000200) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(17, horsepower_);
       }
-      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+      if (((bitField0_ & 0x00000400) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(18, rpm_);
       }
-      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+      if (((bitField0_ & 0x00000800) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(19, torque_);
       }
-      if (((bitField0_ & 0x00001000) == 0x00001000)) {
+      if (((bitField0_ & 0x00001000) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(20, hours_);
       }
       size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof edmtools.Proto.EngineDataRecord)) {
+        return super.equals(obj);
+      }
+      edmtools.Proto.EngineDataRecord other = (edmtools.Proto.EngineDataRecord) obj;
+
+      if (!getExhaustGasTemperatureList()
+          .equals(other.getExhaustGasTemperatureList())) return false;
+      if (hasMaxExhaustGasTemperatureDifference() != other.hasMaxExhaustGasTemperatureDifference()) return false;
+      if (hasMaxExhaustGasTemperatureDifference()) {
+        if (getMaxExhaustGasTemperatureDifference()
+            != other.getMaxExhaustGasTemperatureDifference()) return false;
+      }
+      if (!getTurbineInletTemperatureList()
+          .equals(other.getTurbineInletTemperatureList())) return false;
+      if (!getCylinderHeadTemperatureList()
+          .equals(other.getCylinderHeadTemperatureList())) return false;
+      if (hasCylinderHeadTemperatureCoolingRate() != other.hasCylinderHeadTemperatureCoolingRate()) return false;
+      if (hasCylinderHeadTemperatureCoolingRate()) {
+        if (getCylinderHeadTemperatureCoolingRate()
+            != other.getCylinderHeadTemperatureCoolingRate()) return false;
+      }
+      if (hasOilTemperature() != other.hasOilTemperature()) return false;
+      if (hasOilTemperature()) {
+        if (getOilTemperature()
+            != other.getOilTemperature()) return false;
+      }
+      if (hasCompressorDischargeTemperature() != other.hasCompressorDischargeTemperature()) return false;
+      if (hasCompressorDischargeTemperature()) {
+        if (getCompressorDischargeTemperature()
+            != other.getCompressorDischargeTemperature()) return false;
+      }
+      if (hasInductionAirTemperature() != other.hasInductionAirTemperature()) return false;
+      if (hasInductionAirTemperature()) {
+        if (getInductionAirTemperature()
+            != other.getInductionAirTemperature()) return false;
+      }
+      if (hasInterstageTurbineTemperature() != other.hasInterstageTurbineTemperature()) return false;
+      if (hasInterstageTurbineTemperature()) {
+        if (getInterstageTurbineTemperature()
+            != other.getInterstageTurbineTemperature()) return false;
+      }
+      if (!getFuelUsedList()
+          .equals(other.getFuelUsedList())) return false;
+      if (!getFuelFlowList()
+          .equals(other.getFuelFlowList())) return false;
+      if (hasFuelPressure() != other.hasFuelPressure()) return false;
+      if (hasFuelPressure()) {
+        if (java.lang.Float.floatToIntBits(getFuelPressure())
+            != java.lang.Float.floatToIntBits(
+                other.getFuelPressure())) return false;
+      }
+      if (!getFuelLevelList()
+          .equals(other.getFuelLevelList())) return false;
+      if (hasOilPressure() != other.hasOilPressure()) return false;
+      if (hasOilPressure()) {
+        if (getOilPressure()
+            != other.getOilPressure()) return false;
+      }
+      if (hasManifoldPressure() != other.hasManifoldPressure()) return false;
+      if (hasManifoldPressure()) {
+        if (java.lang.Float.floatToIntBits(getManifoldPressure())
+            != java.lang.Float.floatToIntBits(
+                other.getManifoldPressure())) return false;
+      }
+      if (!getHydraulicPressureList()
+          .equals(other.getHydraulicPressureList())) return false;
+      if (hasHorsepower() != other.hasHorsepower()) return false;
+      if (hasHorsepower()) {
+        if (getHorsepower()
+            != other.getHorsepower()) return false;
+      }
+      if (hasRpm() != other.hasRpm()) return false;
+      if (hasRpm()) {
+        if (getRpm()
+            != other.getRpm()) return false;
+      }
+      if (hasTorque() != other.hasTorque()) return false;
+      if (hasTorque()) {
+        if (getTorque()
+            != other.getTorque()) return false;
+      }
+      if (hasHours() != other.hasHours()) return false;
+      if (hasHours()) {
+        if (java.lang.Float.floatToIntBits(getHours())
+            != java.lang.Float.floatToIntBits(
+                other.getHours())) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
     }
 
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getExhaustGasTemperatureCount() > 0) {
+        hash = (37 * hash) + EXHAUST_GAS_TEMPERATURE_FIELD_NUMBER;
+        hash = (53 * hash) + getExhaustGasTemperatureList().hashCode();
+      }
+      if (hasMaxExhaustGasTemperatureDifference()) {
+        hash = (37 * hash) + MAX_EXHAUST_GAS_TEMPERATURE_DIFFERENCE_FIELD_NUMBER;
+        hash = (53 * hash) + getMaxExhaustGasTemperatureDifference();
+      }
+      if (getTurbineInletTemperatureCount() > 0) {
+        hash = (37 * hash) + TURBINE_INLET_TEMPERATURE_FIELD_NUMBER;
+        hash = (53 * hash) + getTurbineInletTemperatureList().hashCode();
+      }
+      if (getCylinderHeadTemperatureCount() > 0) {
+        hash = (37 * hash) + CYLINDER_HEAD_TEMPERATURE_FIELD_NUMBER;
+        hash = (53 * hash) + getCylinderHeadTemperatureList().hashCode();
+      }
+      if (hasCylinderHeadTemperatureCoolingRate()) {
+        hash = (37 * hash) + CYLINDER_HEAD_TEMPERATURE_COOLING_RATE_FIELD_NUMBER;
+        hash = (53 * hash) + getCylinderHeadTemperatureCoolingRate();
+      }
+      if (hasOilTemperature()) {
+        hash = (37 * hash) + OIL_TEMPERATURE_FIELD_NUMBER;
+        hash = (53 * hash) + getOilTemperature();
+      }
+      if (hasCompressorDischargeTemperature()) {
+        hash = (37 * hash) + COMPRESSOR_DISCHARGE_TEMPERATURE_FIELD_NUMBER;
+        hash = (53 * hash) + getCompressorDischargeTemperature();
+      }
+      if (hasInductionAirTemperature()) {
+        hash = (37 * hash) + INDUCTION_AIR_TEMPERATURE_FIELD_NUMBER;
+        hash = (53 * hash) + getInductionAirTemperature();
+      }
+      if (hasInterstageTurbineTemperature()) {
+        hash = (37 * hash) + INTERSTAGE_TURBINE_TEMPERATURE_FIELD_NUMBER;
+        hash = (53 * hash) + getInterstageTurbineTemperature();
+      }
+      if (getFuelUsedCount() > 0) {
+        hash = (37 * hash) + FUEL_USED_FIELD_NUMBER;
+        hash = (53 * hash) + getFuelUsedList().hashCode();
+      }
+      if (getFuelFlowCount() > 0) {
+        hash = (37 * hash) + FUEL_FLOW_FIELD_NUMBER;
+        hash = (53 * hash) + getFuelFlowList().hashCode();
+      }
+      if (hasFuelPressure()) {
+        hash = (37 * hash) + FUEL_PRESSURE_FIELD_NUMBER;
+        hash = (53 * hash) + java.lang.Float.floatToIntBits(
+            getFuelPressure());
+      }
+      if (getFuelLevelCount() > 0) {
+        hash = (37 * hash) + FUEL_LEVEL_FIELD_NUMBER;
+        hash = (53 * hash) + getFuelLevelList().hashCode();
+      }
+      if (hasOilPressure()) {
+        hash = (37 * hash) + OIL_PRESSURE_FIELD_NUMBER;
+        hash = (53 * hash) + getOilPressure();
+      }
+      if (hasManifoldPressure()) {
+        hash = (37 * hash) + MANIFOLD_PRESSURE_FIELD_NUMBER;
+        hash = (53 * hash) + java.lang.Float.floatToIntBits(
+            getManifoldPressure());
+      }
+      if (getHydraulicPressureCount() > 0) {
+        hash = (37 * hash) + HYDRAULIC_PRESSURE_FIELD_NUMBER;
+        hash = (53 * hash) + getHydraulicPressureList().hashCode();
+      }
+      if (hasHorsepower()) {
+        hash = (37 * hash) + HORSEPOWER_FIELD_NUMBER;
+        hash = (53 * hash) + getHorsepower();
+      }
+      if (hasRpm()) {
+        hash = (37 * hash) + RPM_FIELD_NUMBER;
+        hash = (53 * hash) + getRpm();
+      }
+      if (hasTorque()) {
+        hash = (37 * hash) + TORQUE_FIELD_NUMBER;
+        hash = (53 * hash) + getTorque();
+      }
+      if (hasHours()) {
+        hash = (37 * hash) + HOURS_FIELD_NUMBER;
+        hash = (53 * hash) + java.lang.Float.floatToIntBits(
+            getHours());
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static edmtools.Proto.EngineDataRecord parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static edmtools.Proto.EngineDataRecord parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static edmtools.Proto.EngineDataRecord parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -11497,46 +13459,59 @@ public final class Proto {
     }
     public static edmtools.Proto.EngineDataRecord parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static edmtools.Proto.EngineDataRecord parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static edmtools.Proto.EngineDataRecord parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static edmtools.Proto.EngineDataRecord parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static edmtools.Proto.EngineDataRecord parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static edmtools.Proto.EngineDataRecord parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(edmtools.Proto.EngineDataRecord prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(edmtools.Proto.EngineDataRecord prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -11544,7 +13519,7 @@ public final class Proto {
      * Protobuf type {@code edmtools.EngineDataRecord}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:edmtools.EngineDataRecord)
         edmtools.Proto.EngineDataRecordOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -11552,7 +13527,8 @@ public final class Proto {
         return edmtools.Proto.internal_static_edmtools_EngineDataRecord_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return edmtools.Proto.internal_static_edmtools_EngineDataRecord_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -11561,80 +13537,53 @@ public final class Proto {
 
       // Construct using edmtools.Proto.EngineDataRecord.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
 
+      }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
-        exhaustGasTemperature_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = 0;
+        exhaustGasTemperature_ = emptyIntList();
         maxExhaustGasTemperatureDifference_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        turbineInletTemperature_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
-        cylinderHeadTemperature_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        turbineInletTemperature_ = emptyIntList();
+        cylinderHeadTemperature_ = emptyIntList();
         cylinderHeadTemperatureCoolingRate_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000010);
         oilTemperature_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000020);
         compressorDischargeTemperature_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000040);
         inductionAirTemperature_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000080);
         interstageTurbineTemperature_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000100);
-        fuelUsed_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000200);
-        fuelFlow_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000400);
+        fuelUsed_ = emptyFloatList();
+        fuelFlow_ = emptyFloatList();
         fuelPressure_ = 0F;
-        bitField0_ = (bitField0_ & ~0x00000800);
-        fuelLevel_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00001000);
+        fuelLevel_ = emptyFloatList();
         oilPressure_ = 0;
-        bitField0_ = (bitField0_ & ~0x00002000);
         manifoldPressure_ = 0F;
-        bitField0_ = (bitField0_ & ~0x00004000);
-        hydraulicPressure_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00008000);
+        hydraulicPressure_ = emptyIntList();
         horsepower_ = 0;
-        bitField0_ = (bitField0_ & ~0x00010000);
         rpm_ = 0;
-        bitField0_ = (bitField0_ & ~0x00020000);
         torque_ = 0;
-        bitField0_ = (bitField0_ & ~0x00040000);
         hours_ = 0F;
-        bitField0_ = (bitField0_ & ~0x00080000);
         return this;
       }
 
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return edmtools.Proto.internal_static_edmtools_EngineDataRecord_descriptor;
       }
 
+      @java.lang.Override
       public edmtools.Proto.EngineDataRecord getDefaultInstanceForType() {
         return edmtools.Proto.EngineDataRecord.getDefaultInstance();
       }
 
+      @java.lang.Override
       public edmtools.Proto.EngineDataRecord build() {
         edmtools.Proto.EngineDataRecord result = buildPartial();
         if (!result.isInitialized()) {
@@ -11643,102 +13592,144 @@ public final class Proto {
         return result;
       }
 
+      @java.lang.Override
       public edmtools.Proto.EngineDataRecord buildPartial() {
         edmtools.Proto.EngineDataRecord result = new edmtools.Proto.EngineDataRecord(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          exhaustGasTemperature_ = java.util.Collections.unmodifiableList(exhaustGasTemperature_);
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.exhaustGasTemperature_ = exhaustGasTemperature_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.maxExhaustGasTemperatureDifference_ = maxExhaustGasTemperatureDifference_;
-        if (((bitField0_ & 0x00000004) == 0x00000004)) {
-          turbineInletTemperature_ = java.util.Collections.unmodifiableList(turbineInletTemperature_);
-          bitField0_ = (bitField0_ & ~0x00000004);
-        }
-        result.turbineInletTemperature_ = turbineInletTemperature_;
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
-          cylinderHeadTemperature_ = java.util.Collections.unmodifiableList(cylinderHeadTemperature_);
-          bitField0_ = (bitField0_ & ~0x00000008);
-        }
-        result.cylinderHeadTemperature_ = cylinderHeadTemperature_;
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.cylinderHeadTemperatureCoolingRate_ = cylinderHeadTemperatureCoolingRate_;
-        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        result.oilTemperature_ = oilTemperature_;
-        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
-          to_bitField0_ |= 0x00000008;
-        }
-        result.compressorDischargeTemperature_ = compressorDischargeTemperature_;
-        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
-          to_bitField0_ |= 0x00000010;
-        }
-        result.inductionAirTemperature_ = inductionAirTemperature_;
-        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
-          to_bitField0_ |= 0x00000020;
-        }
-        result.interstageTurbineTemperature_ = interstageTurbineTemperature_;
-        if (((bitField0_ & 0x00000200) == 0x00000200)) {
-          fuelUsed_ = java.util.Collections.unmodifiableList(fuelUsed_);
-          bitField0_ = (bitField0_ & ~0x00000200);
-        }
-        result.fuelUsed_ = fuelUsed_;
-        if (((bitField0_ & 0x00000400) == 0x00000400)) {
-          fuelFlow_ = java.util.Collections.unmodifiableList(fuelFlow_);
-          bitField0_ = (bitField0_ & ~0x00000400);
-        }
-        result.fuelFlow_ = fuelFlow_;
-        if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
-          to_bitField0_ |= 0x00000040;
-        }
-        result.fuelPressure_ = fuelPressure_;
-        if (((bitField0_ & 0x00001000) == 0x00001000)) {
-          fuelLevel_ = java.util.Collections.unmodifiableList(fuelLevel_);
-          bitField0_ = (bitField0_ & ~0x00001000);
-        }
-        result.fuelLevel_ = fuelLevel_;
-        if (((from_bitField0_ & 0x00002000) == 0x00002000)) {
-          to_bitField0_ |= 0x00000080;
-        }
-        result.oilPressure_ = oilPressure_;
-        if (((from_bitField0_ & 0x00004000) == 0x00004000)) {
-          to_bitField0_ |= 0x00000100;
-        }
-        result.manifoldPressure_ = manifoldPressure_;
-        if (((bitField0_ & 0x00008000) == 0x00008000)) {
-          hydraulicPressure_ = java.util.Collections.unmodifiableList(hydraulicPressure_);
-          bitField0_ = (bitField0_ & ~0x00008000);
-        }
-        result.hydraulicPressure_ = hydraulicPressure_;
-        if (((from_bitField0_ & 0x00010000) == 0x00010000)) {
-          to_bitField0_ |= 0x00000200;
-        }
-        result.horsepower_ = horsepower_;
-        if (((from_bitField0_ & 0x00020000) == 0x00020000)) {
-          to_bitField0_ |= 0x00000400;
-        }
-        result.rpm_ = rpm_;
-        if (((from_bitField0_ & 0x00040000) == 0x00040000)) {
-          to_bitField0_ |= 0x00000800;
-        }
-        result.torque_ = torque_;
-        if (((from_bitField0_ & 0x00080000) == 0x00080000)) {
-          to_bitField0_ |= 0x00001000;
-        }
-        result.hours_ = hours_;
-        result.bitField0_ = to_bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
+      private void buildPartialRepeatedFields(edmtools.Proto.EngineDataRecord result) {
+        if (((bitField0_ & 0x00000001) != 0)) {
+          exhaustGasTemperature_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.exhaustGasTemperature_ = exhaustGasTemperature_;
+        if (((bitField0_ & 0x00000004) != 0)) {
+          turbineInletTemperature_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.turbineInletTemperature_ = turbineInletTemperature_;
+        if (((bitField0_ & 0x00000008) != 0)) {
+          cylinderHeadTemperature_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.cylinderHeadTemperature_ = cylinderHeadTemperature_;
+        if (((bitField0_ & 0x00000200) != 0)) {
+          fuelUsed_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000200);
+        }
+        result.fuelUsed_ = fuelUsed_;
+        if (((bitField0_ & 0x00000400) != 0)) {
+          fuelFlow_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000400);
+        }
+        result.fuelFlow_ = fuelFlow_;
+        if (((bitField0_ & 0x00001000) != 0)) {
+          fuelLevel_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00001000);
+        }
+        result.fuelLevel_ = fuelLevel_;
+        if (((bitField0_ & 0x00008000) != 0)) {
+          hydraulicPressure_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00008000);
+        }
+        result.hydraulicPressure_ = hydraulicPressure_;
+      }
+
+      private void buildPartial0(edmtools.Proto.EngineDataRecord result) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.maxExhaustGasTemperatureDifference_ = maxExhaustGasTemperatureDifference_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.cylinderHeadTemperatureCoolingRate_ = cylinderHeadTemperatureCoolingRate_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.oilTemperature_ = oilTemperature_;
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.compressorDischargeTemperature_ = compressorDischargeTemperature_;
+          to_bitField0_ |= 0x00000008;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.inductionAirTemperature_ = inductionAirTemperature_;
+          to_bitField0_ |= 0x00000010;
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.interstageTurbineTemperature_ = interstageTurbineTemperature_;
+          to_bitField0_ |= 0x00000020;
+        }
+        if (((from_bitField0_ & 0x00000800) != 0)) {
+          result.fuelPressure_ = fuelPressure_;
+          to_bitField0_ |= 0x00000040;
+        }
+        if (((from_bitField0_ & 0x00002000) != 0)) {
+          result.oilPressure_ = oilPressure_;
+          to_bitField0_ |= 0x00000080;
+        }
+        if (((from_bitField0_ & 0x00004000) != 0)) {
+          result.manifoldPressure_ = manifoldPressure_;
+          to_bitField0_ |= 0x00000100;
+        }
+        if (((from_bitField0_ & 0x00010000) != 0)) {
+          result.horsepower_ = horsepower_;
+          to_bitField0_ |= 0x00000200;
+        }
+        if (((from_bitField0_ & 0x00020000) != 0)) {
+          result.rpm_ = rpm_;
+          to_bitField0_ |= 0x00000400;
+        }
+        if (((from_bitField0_ & 0x00040000) != 0)) {
+          result.torque_ = torque_;
+          to_bitField0_ |= 0x00000800;
+        }
+        if (((from_bitField0_ & 0x00080000) != 0)) {
+          result.hours_ = hours_;
+          to_bitField0_ |= 0x00001000;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof edmtools.Proto.EngineDataRecord) {
           return mergeFrom((edmtools.Proto.EngineDataRecord)other);
@@ -11860,79 +13851,286 @@ public final class Proto {
           setHours(other.getHours());
         }
         this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        edmtools.Proto.EngineDataRecord parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (edmtools.Proto.EngineDataRecord) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
         }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                int v = input.readInt32();
+                ensureExhaustGasTemperatureIsMutable();
+                exhaustGasTemperature_.addInt(v);
+                break;
+              } // case 8
+              case 10: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureExhaustGasTemperatureIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  exhaustGasTemperature_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 10
+              case 16: {
+                maxExhaustGasTemperatureDifference_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                int v = input.readInt32();
+                ensureTurbineInletTemperatureIsMutable();
+                turbineInletTemperature_.addInt(v);
+                break;
+              } // case 24
+              case 26: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureTurbineInletTemperatureIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  turbineInletTemperature_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 26
+              case 32: {
+                int v = input.readInt32();
+                ensureCylinderHeadTemperatureIsMutable();
+                cylinderHeadTemperature_.addInt(v);
+                break;
+              } // case 32
+              case 34: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureCylinderHeadTemperatureIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  cylinderHeadTemperature_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 34
+              case 40: {
+                cylinderHeadTemperatureCoolingRate_ = input.readInt32();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              case 48: {
+                oilTemperature_ = input.readInt32();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 48
+              case 56: {
+                compressorDischargeTemperature_ = input.readInt32();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 56
+              case 64: {
+                inductionAirTemperature_ = input.readInt32();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 64
+              case 72: {
+                interstageTurbineTemperature_ = input.readInt32();
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 72
+              case 85: {
+                float v = input.readFloat();
+                ensureFuelUsedIsMutable();
+                fuelUsed_.addFloat(v);
+                break;
+              } // case 85
+              case 82: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureFuelUsedIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  fuelUsed_.addFloat(input.readFloat());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 82
+              case 93: {
+                float v = input.readFloat();
+                ensureFuelFlowIsMutable();
+                fuelFlow_.addFloat(v);
+                break;
+              } // case 93
+              case 90: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureFuelFlowIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  fuelFlow_.addFloat(input.readFloat());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 90
+              case 101: {
+                fuelPressure_ = input.readFloat();
+                bitField0_ |= 0x00000800;
+                break;
+              } // case 101
+              case 109: {
+                float v = input.readFloat();
+                ensureFuelLevelIsMutable();
+                fuelLevel_.addFloat(v);
+                break;
+              } // case 109
+              case 106: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureFuelLevelIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  fuelLevel_.addFloat(input.readFloat());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 106
+              case 112: {
+                oilPressure_ = input.readInt32();
+                bitField0_ |= 0x00002000;
+                break;
+              } // case 112
+              case 125: {
+                manifoldPressure_ = input.readFloat();
+                bitField0_ |= 0x00004000;
+                break;
+              } // case 125
+              case 128: {
+                int v = input.readInt32();
+                ensureHydraulicPressureIsMutable();
+                hydraulicPressure_.addInt(v);
+                break;
+              } // case 128
+              case 130: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureHydraulicPressureIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  hydraulicPressure_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 130
+              case 136: {
+                horsepower_ = input.readInt32();
+                bitField0_ |= 0x00010000;
+                break;
+              } // case 136
+              case 144: {
+                rpm_ = input.readInt32();
+                bitField0_ |= 0x00020000;
+                break;
+              } // case 144
+              case 152: {
+                torque_ = input.readInt32();
+                bitField0_ |= 0x00040000;
+                break;
+              } // case 152
+              case 165: {
+                hours_ = input.readFloat();
+                bitField0_ |= 0x00080000;
+                break;
+              } // case 165
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
 
-      private java.util.List<java.lang.Integer> exhaustGasTemperature_ = java.util.Collections.emptyList();
+      private com.google.protobuf.Internal.IntList exhaustGasTemperature_ = emptyIntList();
       private void ensureExhaustGasTemperatureIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          exhaustGasTemperature_ = new java.util.ArrayList<java.lang.Integer>(exhaustGasTemperature_);
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          exhaustGasTemperature_ = mutableCopy(exhaustGasTemperature_);
           bitField0_ |= 0x00000001;
-         }
+        }
       }
       /**
        * <code>repeated int32 exhaust_gas_temperature = 1;</code>
+       * @return A list containing the exhaustGasTemperature.
        */
       public java.util.List<java.lang.Integer>
           getExhaustGasTemperatureList() {
-        return java.util.Collections.unmodifiableList(exhaustGasTemperature_);
+        return ((bitField0_ & 0x00000001) != 0) ?
+                 java.util.Collections.unmodifiableList(exhaustGasTemperature_) : exhaustGasTemperature_;
       }
       /**
        * <code>repeated int32 exhaust_gas_temperature = 1;</code>
+       * @return The count of exhaustGasTemperature.
        */
       public int getExhaustGasTemperatureCount() {
         return exhaustGasTemperature_.size();
       }
       /**
        * <code>repeated int32 exhaust_gas_temperature = 1;</code>
+       * @param index The index of the element to return.
+       * @return The exhaustGasTemperature at the given index.
        */
       public int getExhaustGasTemperature(int index) {
-        return exhaustGasTemperature_.get(index);
+        return exhaustGasTemperature_.getInt(index);
       }
       /**
        * <code>repeated int32 exhaust_gas_temperature = 1;</code>
+       * @param index The index to set the value at.
+       * @param value The exhaustGasTemperature to set.
+       * @return This builder for chaining.
        */
       public Builder setExhaustGasTemperature(
           int index, int value) {
+        
         ensureExhaustGasTemperatureIsMutable();
-        exhaustGasTemperature_.set(index, value);
+        exhaustGasTemperature_.setInt(index, value);
         onChanged();
         return this;
       }
       /**
        * <code>repeated int32 exhaust_gas_temperature = 1;</code>
+       * @param value The exhaustGasTemperature to add.
+       * @return This builder for chaining.
        */
       public Builder addExhaustGasTemperature(int value) {
+        
         ensureExhaustGasTemperatureIsMutable();
-        exhaustGasTemperature_.add(value);
+        exhaustGasTemperature_.addInt(value);
         onChanged();
         return this;
       }
       /**
        * <code>repeated int32 exhaust_gas_temperature = 1;</code>
+       * @param values The exhaustGasTemperature to add.
+       * @return This builder for chaining.
        */
       public Builder addAllExhaustGasTemperature(
           java.lang.Iterable<? extends java.lang.Integer> values) {
@@ -11944,9 +14142,10 @@ public final class Proto {
       }
       /**
        * <code>repeated int32 exhaust_gas_temperature = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearExhaustGasTemperature() {
-        exhaustGasTemperature_ = java.util.Collections.emptyList();
+        exhaustGasTemperature_ = emptyIntList();
         bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
@@ -11955,27 +14154,35 @@ public final class Proto {
       private int maxExhaustGasTemperatureDifference_ ;
       /**
        * <code>optional int32 max_exhaust_gas_temperature_difference = 2;</code>
+       * @return Whether the maxExhaustGasTemperatureDifference field is set.
        */
+      @java.lang.Override
       public boolean hasMaxExhaustGasTemperatureDifference() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <code>optional int32 max_exhaust_gas_temperature_difference = 2;</code>
+       * @return The maxExhaustGasTemperatureDifference.
        */
+      @java.lang.Override
       public int getMaxExhaustGasTemperatureDifference() {
         return maxExhaustGasTemperatureDifference_;
       }
       /**
        * <code>optional int32 max_exhaust_gas_temperature_difference = 2;</code>
+       * @param value The maxExhaustGasTemperatureDifference to set.
+       * @return This builder for chaining.
        */
       public Builder setMaxExhaustGasTemperatureDifference(int value) {
-        bitField0_ |= 0x00000002;
+        
         maxExhaustGasTemperatureDifference_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
        * <code>optional int32 max_exhaust_gas_temperature_difference = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearMaxExhaustGasTemperatureDifference() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -11984,53 +14191,67 @@ public final class Proto {
         return this;
       }
 
-      private java.util.List<java.lang.Integer> turbineInletTemperature_ = java.util.Collections.emptyList();
+      private com.google.protobuf.Internal.IntList turbineInletTemperature_ = emptyIntList();
       private void ensureTurbineInletTemperatureIsMutable() {
-        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-          turbineInletTemperature_ = new java.util.ArrayList<java.lang.Integer>(turbineInletTemperature_);
+        if (!((bitField0_ & 0x00000004) != 0)) {
+          turbineInletTemperature_ = mutableCopy(turbineInletTemperature_);
           bitField0_ |= 0x00000004;
-         }
+        }
       }
       /**
        * <code>repeated int32 turbine_inlet_temperature = 3;</code>
+       * @return A list containing the turbineInletTemperature.
        */
       public java.util.List<java.lang.Integer>
           getTurbineInletTemperatureList() {
-        return java.util.Collections.unmodifiableList(turbineInletTemperature_);
+        return ((bitField0_ & 0x00000004) != 0) ?
+                 java.util.Collections.unmodifiableList(turbineInletTemperature_) : turbineInletTemperature_;
       }
       /**
        * <code>repeated int32 turbine_inlet_temperature = 3;</code>
+       * @return The count of turbineInletTemperature.
        */
       public int getTurbineInletTemperatureCount() {
         return turbineInletTemperature_.size();
       }
       /**
        * <code>repeated int32 turbine_inlet_temperature = 3;</code>
+       * @param index The index of the element to return.
+       * @return The turbineInletTemperature at the given index.
        */
       public int getTurbineInletTemperature(int index) {
-        return turbineInletTemperature_.get(index);
+        return turbineInletTemperature_.getInt(index);
       }
       /**
        * <code>repeated int32 turbine_inlet_temperature = 3;</code>
+       * @param index The index to set the value at.
+       * @param value The turbineInletTemperature to set.
+       * @return This builder for chaining.
        */
       public Builder setTurbineInletTemperature(
           int index, int value) {
+        
         ensureTurbineInletTemperatureIsMutable();
-        turbineInletTemperature_.set(index, value);
+        turbineInletTemperature_.setInt(index, value);
         onChanged();
         return this;
       }
       /**
        * <code>repeated int32 turbine_inlet_temperature = 3;</code>
+       * @param value The turbineInletTemperature to add.
+       * @return This builder for chaining.
        */
       public Builder addTurbineInletTemperature(int value) {
+        
         ensureTurbineInletTemperatureIsMutable();
-        turbineInletTemperature_.add(value);
+        turbineInletTemperature_.addInt(value);
         onChanged();
         return this;
       }
       /**
        * <code>repeated int32 turbine_inlet_temperature = 3;</code>
+       * @param values The turbineInletTemperature to add.
+       * @return This builder for chaining.
        */
       public Builder addAllTurbineInletTemperature(
           java.lang.Iterable<? extends java.lang.Integer> values) {
@@ -12042,61 +14263,76 @@ public final class Proto {
       }
       /**
        * <code>repeated int32 turbine_inlet_temperature = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTurbineInletTemperature() {
-        turbineInletTemperature_ = java.util.Collections.emptyList();
+        turbineInletTemperature_ = emptyIntList();
         bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
 
-      private java.util.List<java.lang.Integer> cylinderHeadTemperature_ = java.util.Collections.emptyList();
+      private com.google.protobuf.Internal.IntList cylinderHeadTemperature_ = emptyIntList();
       private void ensureCylinderHeadTemperatureIsMutable() {
-        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-          cylinderHeadTemperature_ = new java.util.ArrayList<java.lang.Integer>(cylinderHeadTemperature_);
+        if (!((bitField0_ & 0x00000008) != 0)) {
+          cylinderHeadTemperature_ = mutableCopy(cylinderHeadTemperature_);
           bitField0_ |= 0x00000008;
-         }
+        }
       }
       /**
        * <code>repeated int32 cylinder_head_temperature = 4;</code>
+       * @return A list containing the cylinderHeadTemperature.
        */
       public java.util.List<java.lang.Integer>
           getCylinderHeadTemperatureList() {
-        return java.util.Collections.unmodifiableList(cylinderHeadTemperature_);
+        return ((bitField0_ & 0x00000008) != 0) ?
+                 java.util.Collections.unmodifiableList(cylinderHeadTemperature_) : cylinderHeadTemperature_;
       }
       /**
        * <code>repeated int32 cylinder_head_temperature = 4;</code>
+       * @return The count of cylinderHeadTemperature.
        */
       public int getCylinderHeadTemperatureCount() {
         return cylinderHeadTemperature_.size();
       }
       /**
        * <code>repeated int32 cylinder_head_temperature = 4;</code>
+       * @param index The index of the element to return.
+       * @return The cylinderHeadTemperature at the given index.
        */
       public int getCylinderHeadTemperature(int index) {
-        return cylinderHeadTemperature_.get(index);
+        return cylinderHeadTemperature_.getInt(index);
       }
       /**
        * <code>repeated int32 cylinder_head_temperature = 4;</code>
+       * @param index The index to set the value at.
+       * @param value The cylinderHeadTemperature to set.
+       * @return This builder for chaining.
        */
       public Builder setCylinderHeadTemperature(
           int index, int value) {
+        
         ensureCylinderHeadTemperatureIsMutable();
-        cylinderHeadTemperature_.set(index, value);
+        cylinderHeadTemperature_.setInt(index, value);
         onChanged();
         return this;
       }
       /**
        * <code>repeated int32 cylinder_head_temperature = 4;</code>
+       * @param value The cylinderHeadTemperature to add.
+       * @return This builder for chaining.
        */
       public Builder addCylinderHeadTemperature(int value) {
+        
         ensureCylinderHeadTemperatureIsMutable();
-        cylinderHeadTemperature_.add(value);
+        cylinderHeadTemperature_.addInt(value);
         onChanged();
         return this;
       }
       /**
        * <code>repeated int32 cylinder_head_temperature = 4;</code>
+       * @param values The cylinderHeadTemperature to add.
+       * @return This builder for chaining.
        */
       public Builder addAllCylinderHeadTemperature(
           java.lang.Iterable<? extends java.lang.Integer> values) {
@@ -12108,9 +14344,10 @@ public final class Proto {
       }
       /**
        * <code>repeated int32 cylinder_head_temperature = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearCylinderHeadTemperature() {
-        cylinderHeadTemperature_ = java.util.Collections.emptyList();
+        cylinderHeadTemperature_ = emptyIntList();
         bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
@@ -12118,44 +14355,52 @@ public final class Proto {
 
       private int cylinderHeadTemperatureCoolingRate_ ;
       /**
-       * <code>optional int32 cylinder_head_temperature_cooling_rate = 5;</code>
-       *
        * <pre>
        * Degrees per minute.
        * </pre>
+       *
+       * <code>optional int32 cylinder_head_temperature_cooling_rate = 5;</code>
+       * @return Whether the cylinderHeadTemperatureCoolingRate field is set.
        */
+      @java.lang.Override
       public boolean hasCylinderHeadTemperatureCoolingRate() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
-       * <code>optional int32 cylinder_head_temperature_cooling_rate = 5;</code>
-       *
        * <pre>
        * Degrees per minute.
        * </pre>
+       *
+       * <code>optional int32 cylinder_head_temperature_cooling_rate = 5;</code>
+       * @return The cylinderHeadTemperatureCoolingRate.
        */
+      @java.lang.Override
       public int getCylinderHeadTemperatureCoolingRate() {
         return cylinderHeadTemperatureCoolingRate_;
       }
       /**
-       * <code>optional int32 cylinder_head_temperature_cooling_rate = 5;</code>
-       *
        * <pre>
        * Degrees per minute.
        * </pre>
+       *
+       * <code>optional int32 cylinder_head_temperature_cooling_rate = 5;</code>
+       * @param value The cylinderHeadTemperatureCoolingRate to set.
+       * @return This builder for chaining.
        */
       public Builder setCylinderHeadTemperatureCoolingRate(int value) {
-        bitField0_ |= 0x00000010;
+        
         cylinderHeadTemperatureCoolingRate_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 cylinder_head_temperature_cooling_rate = 5;</code>
-       *
        * <pre>
        * Degrees per minute.
        * </pre>
+       *
+       * <code>optional int32 cylinder_head_temperature_cooling_rate = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearCylinderHeadTemperatureCoolingRate() {
         bitField0_ = (bitField0_ & ~0x00000010);
@@ -12167,27 +14412,35 @@ public final class Proto {
       private int oilTemperature_ ;
       /**
        * <code>optional int32 oil_temperature = 6;</code>
+       * @return Whether the oilTemperature field is set.
        */
+      @java.lang.Override
       public boolean hasOilTemperature() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
        * <code>optional int32 oil_temperature = 6;</code>
+       * @return The oilTemperature.
        */
+      @java.lang.Override
       public int getOilTemperature() {
         return oilTemperature_;
       }
       /**
        * <code>optional int32 oil_temperature = 6;</code>
+       * @param value The oilTemperature to set.
+       * @return This builder for chaining.
        */
       public Builder setOilTemperature(int value) {
-        bitField0_ |= 0x00000020;
+        
         oilTemperature_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
       /**
        * <code>optional int32 oil_temperature = 6;</code>
+       * @return This builder for chaining.
        */
       public Builder clearOilTemperature() {
         bitField0_ = (bitField0_ & ~0x00000020);
@@ -12199,27 +14452,35 @@ public final class Proto {
       private int compressorDischargeTemperature_ ;
       /**
        * <code>optional int32 compressor_discharge_temperature = 7;</code>
+       * @return Whether the compressorDischargeTemperature field is set.
        */
+      @java.lang.Override
       public boolean hasCompressorDischargeTemperature() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
+        return ((bitField0_ & 0x00000040) != 0);
       }
       /**
        * <code>optional int32 compressor_discharge_temperature = 7;</code>
+       * @return The compressorDischargeTemperature.
        */
+      @java.lang.Override
       public int getCompressorDischargeTemperature() {
         return compressorDischargeTemperature_;
       }
       /**
        * <code>optional int32 compressor_discharge_temperature = 7;</code>
+       * @param value The compressorDischargeTemperature to set.
+       * @return This builder for chaining.
        */
       public Builder setCompressorDischargeTemperature(int value) {
-        bitField0_ |= 0x00000040;
+        
         compressorDischargeTemperature_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
       /**
        * <code>optional int32 compressor_discharge_temperature = 7;</code>
+       * @return This builder for chaining.
        */
       public Builder clearCompressorDischargeTemperature() {
         bitField0_ = (bitField0_ & ~0x00000040);
@@ -12231,27 +14492,35 @@ public final class Proto {
       private int inductionAirTemperature_ ;
       /**
        * <code>optional int32 induction_air_temperature = 8;</code>
+       * @return Whether the inductionAirTemperature field is set.
        */
+      @java.lang.Override
       public boolean hasInductionAirTemperature() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
+        return ((bitField0_ & 0x00000080) != 0);
       }
       /**
        * <code>optional int32 induction_air_temperature = 8;</code>
+       * @return The inductionAirTemperature.
        */
+      @java.lang.Override
       public int getInductionAirTemperature() {
         return inductionAirTemperature_;
       }
       /**
        * <code>optional int32 induction_air_temperature = 8;</code>
+       * @param value The inductionAirTemperature to set.
+       * @return This builder for chaining.
        */
       public Builder setInductionAirTemperature(int value) {
-        bitField0_ |= 0x00000080;
+        
         inductionAirTemperature_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
       /**
        * <code>optional int32 induction_air_temperature = 8;</code>
+       * @return This builder for chaining.
        */
       public Builder clearInductionAirTemperature() {
         bitField0_ = (bitField0_ & ~0x00000080);
@@ -12263,27 +14532,35 @@ public final class Proto {
       private int interstageTurbineTemperature_ ;
       /**
        * <code>optional int32 interstage_turbine_temperature = 9;</code>
+       * @return Whether the interstageTurbineTemperature field is set.
        */
+      @java.lang.Override
       public boolean hasInterstageTurbineTemperature() {
-        return ((bitField0_ & 0x00000100) == 0x00000100);
+        return ((bitField0_ & 0x00000100) != 0);
       }
       /**
        * <code>optional int32 interstage_turbine_temperature = 9;</code>
+       * @return The interstageTurbineTemperature.
        */
+      @java.lang.Override
       public int getInterstageTurbineTemperature() {
         return interstageTurbineTemperature_;
       }
       /**
        * <code>optional int32 interstage_turbine_temperature = 9;</code>
+       * @param value The interstageTurbineTemperature to set.
+       * @return This builder for chaining.
        */
       public Builder setInterstageTurbineTemperature(int value) {
-        bitField0_ |= 0x00000100;
+        
         interstageTurbineTemperature_ = value;
+        bitField0_ |= 0x00000100;
         onChanged();
         return this;
       }
       /**
        * <code>optional int32 interstage_turbine_temperature = 9;</code>
+       * @return This builder for chaining.
        */
       public Builder clearInterstageTurbineTemperature() {
         bitField0_ = (bitField0_ & ~0x00000100);
@@ -12292,53 +14569,67 @@ public final class Proto {
         return this;
       }
 
-      private java.util.List<java.lang.Float> fuelUsed_ = java.util.Collections.emptyList();
+      private com.google.protobuf.Internal.FloatList fuelUsed_ = emptyFloatList();
       private void ensureFuelUsedIsMutable() {
-        if (!((bitField0_ & 0x00000200) == 0x00000200)) {
-          fuelUsed_ = new java.util.ArrayList<java.lang.Float>(fuelUsed_);
+        if (!((bitField0_ & 0x00000200) != 0)) {
+          fuelUsed_ = mutableCopy(fuelUsed_);
           bitField0_ |= 0x00000200;
-         }
+        }
       }
       /**
        * <code>repeated float fuel_used = 10;</code>
+       * @return A list containing the fuelUsed.
        */
       public java.util.List<java.lang.Float>
           getFuelUsedList() {
-        return java.util.Collections.unmodifiableList(fuelUsed_);
+        return ((bitField0_ & 0x00000200) != 0) ?
+                 java.util.Collections.unmodifiableList(fuelUsed_) : fuelUsed_;
       }
       /**
        * <code>repeated float fuel_used = 10;</code>
+       * @return The count of fuelUsed.
        */
       public int getFuelUsedCount() {
         return fuelUsed_.size();
       }
       /**
        * <code>repeated float fuel_used = 10;</code>
+       * @param index The index of the element to return.
+       * @return The fuelUsed at the given index.
        */
       public float getFuelUsed(int index) {
-        return fuelUsed_.get(index);
+        return fuelUsed_.getFloat(index);
       }
       /**
        * <code>repeated float fuel_used = 10;</code>
+       * @param index The index to set the value at.
+       * @param value The fuelUsed to set.
+       * @return This builder for chaining.
        */
       public Builder setFuelUsed(
           int index, float value) {
+        
         ensureFuelUsedIsMutable();
-        fuelUsed_.set(index, value);
+        fuelUsed_.setFloat(index, value);
         onChanged();
         return this;
       }
       /**
        * <code>repeated float fuel_used = 10;</code>
+       * @param value The fuelUsed to add.
+       * @return This builder for chaining.
        */
       public Builder addFuelUsed(float value) {
+        
         ensureFuelUsedIsMutable();
-        fuelUsed_.add(value);
+        fuelUsed_.addFloat(value);
         onChanged();
         return this;
       }
       /**
        * <code>repeated float fuel_used = 10;</code>
+       * @param values The fuelUsed to add.
+       * @return This builder for chaining.
        */
       public Builder addAllFuelUsed(
           java.lang.Iterable<? extends java.lang.Float> values) {
@@ -12350,61 +14641,76 @@ public final class Proto {
       }
       /**
        * <code>repeated float fuel_used = 10;</code>
+       * @return This builder for chaining.
        */
       public Builder clearFuelUsed() {
-        fuelUsed_ = java.util.Collections.emptyList();
+        fuelUsed_ = emptyFloatList();
         bitField0_ = (bitField0_ & ~0x00000200);
         onChanged();
         return this;
       }
 
-      private java.util.List<java.lang.Float> fuelFlow_ = java.util.Collections.emptyList();
+      private com.google.protobuf.Internal.FloatList fuelFlow_ = emptyFloatList();
       private void ensureFuelFlowIsMutable() {
-        if (!((bitField0_ & 0x00000400) == 0x00000400)) {
-          fuelFlow_ = new java.util.ArrayList<java.lang.Float>(fuelFlow_);
+        if (!((bitField0_ & 0x00000400) != 0)) {
+          fuelFlow_ = mutableCopy(fuelFlow_);
           bitField0_ |= 0x00000400;
-         }
+        }
       }
       /**
        * <code>repeated float fuel_flow = 11;</code>
+       * @return A list containing the fuelFlow.
        */
       public java.util.List<java.lang.Float>
           getFuelFlowList() {
-        return java.util.Collections.unmodifiableList(fuelFlow_);
+        return ((bitField0_ & 0x00000400) != 0) ?
+                 java.util.Collections.unmodifiableList(fuelFlow_) : fuelFlow_;
       }
       /**
        * <code>repeated float fuel_flow = 11;</code>
+       * @return The count of fuelFlow.
        */
       public int getFuelFlowCount() {
         return fuelFlow_.size();
       }
       /**
        * <code>repeated float fuel_flow = 11;</code>
+       * @param index The index of the element to return.
+       * @return The fuelFlow at the given index.
        */
       public float getFuelFlow(int index) {
-        return fuelFlow_.get(index);
+        return fuelFlow_.getFloat(index);
       }
       /**
        * <code>repeated float fuel_flow = 11;</code>
+       * @param index The index to set the value at.
+       * @param value The fuelFlow to set.
+       * @return This builder for chaining.
        */
       public Builder setFuelFlow(
           int index, float value) {
+        
         ensureFuelFlowIsMutable();
-        fuelFlow_.set(index, value);
+        fuelFlow_.setFloat(index, value);
         onChanged();
         return this;
       }
       /**
        * <code>repeated float fuel_flow = 11;</code>
+       * @param value The fuelFlow to add.
+       * @return This builder for chaining.
        */
       public Builder addFuelFlow(float value) {
+        
         ensureFuelFlowIsMutable();
-        fuelFlow_.add(value);
+        fuelFlow_.addFloat(value);
         onChanged();
         return this;
       }
       /**
        * <code>repeated float fuel_flow = 11;</code>
+       * @param values The fuelFlow to add.
+       * @return This builder for chaining.
        */
       public Builder addAllFuelFlow(
           java.lang.Iterable<? extends java.lang.Float> values) {
@@ -12416,9 +14722,10 @@ public final class Proto {
       }
       /**
        * <code>repeated float fuel_flow = 11;</code>
+       * @return This builder for chaining.
        */
       public Builder clearFuelFlow() {
-        fuelFlow_ = java.util.Collections.emptyList();
+        fuelFlow_ = emptyFloatList();
         bitField0_ = (bitField0_ & ~0x00000400);
         onChanged();
         return this;
@@ -12427,27 +14734,35 @@ public final class Proto {
       private float fuelPressure_ ;
       /**
        * <code>optional float fuel_pressure = 12;</code>
+       * @return Whether the fuelPressure field is set.
        */
+      @java.lang.Override
       public boolean hasFuelPressure() {
-        return ((bitField0_ & 0x00000800) == 0x00000800);
+        return ((bitField0_ & 0x00000800) != 0);
       }
       /**
        * <code>optional float fuel_pressure = 12;</code>
+       * @return The fuelPressure.
        */
+      @java.lang.Override
       public float getFuelPressure() {
         return fuelPressure_;
       }
       /**
        * <code>optional float fuel_pressure = 12;</code>
+       * @param value The fuelPressure to set.
+       * @return This builder for chaining.
        */
       public Builder setFuelPressure(float value) {
-        bitField0_ |= 0x00000800;
+        
         fuelPressure_ = value;
+        bitField0_ |= 0x00000800;
         onChanged();
         return this;
       }
       /**
        * <code>optional float fuel_pressure = 12;</code>
+       * @return This builder for chaining.
        */
       public Builder clearFuelPressure() {
         bitField0_ = (bitField0_ & ~0x00000800);
@@ -12456,77 +14771,91 @@ public final class Proto {
         return this;
       }
 
-      private java.util.List<java.lang.Float> fuelLevel_ = java.util.Collections.emptyList();
+      private com.google.protobuf.Internal.FloatList fuelLevel_ = emptyFloatList();
       private void ensureFuelLevelIsMutable() {
-        if (!((bitField0_ & 0x00001000) == 0x00001000)) {
-          fuelLevel_ = new java.util.ArrayList<java.lang.Float>(fuelLevel_);
+        if (!((bitField0_ & 0x00001000) != 0)) {
+          fuelLevel_ = mutableCopy(fuelLevel_);
           bitField0_ |= 0x00001000;
-         }
+        }
       }
       /**
-       * <code>repeated float fuel_level = 13;</code>
-       *
        * <pre>
        * TODO: unsure - verify this is really fuel level.
        * </pre>
+       *
+       * <code>repeated float fuel_level = 13;</code>
+       * @return A list containing the fuelLevel.
        */
       public java.util.List<java.lang.Float>
           getFuelLevelList() {
-        return java.util.Collections.unmodifiableList(fuelLevel_);
+        return ((bitField0_ & 0x00001000) != 0) ?
+                 java.util.Collections.unmodifiableList(fuelLevel_) : fuelLevel_;
       }
       /**
-       * <code>repeated float fuel_level = 13;</code>
-       *
        * <pre>
        * TODO: unsure - verify this is really fuel level.
        * </pre>
+       *
+       * <code>repeated float fuel_level = 13;</code>
+       * @return The count of fuelLevel.
        */
       public int getFuelLevelCount() {
         return fuelLevel_.size();
       }
       /**
-       * <code>repeated float fuel_level = 13;</code>
-       *
        * <pre>
        * TODO: unsure - verify this is really fuel level.
        * </pre>
+       *
+       * <code>repeated float fuel_level = 13;</code>
+       * @param index The index of the element to return.
+       * @return The fuelLevel at the given index.
        */
       public float getFuelLevel(int index) {
-        return fuelLevel_.get(index);
+        return fuelLevel_.getFloat(index);
       }
       /**
-       * <code>repeated float fuel_level = 13;</code>
-       *
        * <pre>
        * TODO: unsure - verify this is really fuel level.
        * </pre>
+       *
+       * <code>repeated float fuel_level = 13;</code>
+       * @param index The index to set the value at.
+       * @param value The fuelLevel to set.
+       * @return This builder for chaining.
        */
       public Builder setFuelLevel(
           int index, float value) {
+        
         ensureFuelLevelIsMutable();
-        fuelLevel_.set(index, value);
+        fuelLevel_.setFloat(index, value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated float fuel_level = 13;</code>
-       *
        * <pre>
        * TODO: unsure - verify this is really fuel level.
        * </pre>
+       *
+       * <code>repeated float fuel_level = 13;</code>
+       * @param value The fuelLevel to add.
+       * @return This builder for chaining.
        */
       public Builder addFuelLevel(float value) {
+        
         ensureFuelLevelIsMutable();
-        fuelLevel_.add(value);
+        fuelLevel_.addFloat(value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated float fuel_level = 13;</code>
-       *
        * <pre>
        * TODO: unsure - verify this is really fuel level.
        * </pre>
+       *
+       * <code>repeated float fuel_level = 13;</code>
+       * @param values The fuelLevel to add.
+       * @return This builder for chaining.
        */
       public Builder addAllFuelLevel(
           java.lang.Iterable<? extends java.lang.Float> values) {
@@ -12537,14 +14866,15 @@ public final class Proto {
         return this;
       }
       /**
-       * <code>repeated float fuel_level = 13;</code>
-       *
        * <pre>
        * TODO: unsure - verify this is really fuel level.
        * </pre>
+       *
+       * <code>repeated float fuel_level = 13;</code>
+       * @return This builder for chaining.
        */
       public Builder clearFuelLevel() {
-        fuelLevel_ = java.util.Collections.emptyList();
+        fuelLevel_ = emptyFloatList();
         bitField0_ = (bitField0_ & ~0x00001000);
         onChanged();
         return this;
@@ -12553,27 +14883,35 @@ public final class Proto {
       private int oilPressure_ ;
       /**
        * <code>optional int32 oil_pressure = 14;</code>
+       * @return Whether the oilPressure field is set.
        */
+      @java.lang.Override
       public boolean hasOilPressure() {
-        return ((bitField0_ & 0x00002000) == 0x00002000);
+        return ((bitField0_ & 0x00002000) != 0);
       }
       /**
        * <code>optional int32 oil_pressure = 14;</code>
+       * @return The oilPressure.
        */
+      @java.lang.Override
       public int getOilPressure() {
         return oilPressure_;
       }
       /**
        * <code>optional int32 oil_pressure = 14;</code>
+       * @param value The oilPressure to set.
+       * @return This builder for chaining.
        */
       public Builder setOilPressure(int value) {
-        bitField0_ |= 0x00002000;
+        
         oilPressure_ = value;
+        bitField0_ |= 0x00002000;
         onChanged();
         return this;
       }
       /**
        * <code>optional int32 oil_pressure = 14;</code>
+       * @return This builder for chaining.
        */
       public Builder clearOilPressure() {
         bitField0_ = (bitField0_ & ~0x00002000);
@@ -12585,27 +14923,35 @@ public final class Proto {
       private float manifoldPressure_ ;
       /**
        * <code>optional float manifold_pressure = 15;</code>
+       * @return Whether the manifoldPressure field is set.
        */
+      @java.lang.Override
       public boolean hasManifoldPressure() {
-        return ((bitField0_ & 0x00004000) == 0x00004000);
+        return ((bitField0_ & 0x00004000) != 0);
       }
       /**
        * <code>optional float manifold_pressure = 15;</code>
+       * @return The manifoldPressure.
        */
+      @java.lang.Override
       public float getManifoldPressure() {
         return manifoldPressure_;
       }
       /**
        * <code>optional float manifold_pressure = 15;</code>
+       * @param value The manifoldPressure to set.
+       * @return This builder for chaining.
        */
       public Builder setManifoldPressure(float value) {
-        bitField0_ |= 0x00004000;
+        
         manifoldPressure_ = value;
+        bitField0_ |= 0x00004000;
         onChanged();
         return this;
       }
       /**
        * <code>optional float manifold_pressure = 15;</code>
+       * @return This builder for chaining.
        */
       public Builder clearManifoldPressure() {
         bitField0_ = (bitField0_ & ~0x00004000);
@@ -12614,53 +14960,67 @@ public final class Proto {
         return this;
       }
 
-      private java.util.List<java.lang.Integer> hydraulicPressure_ = java.util.Collections.emptyList();
+      private com.google.protobuf.Internal.IntList hydraulicPressure_ = emptyIntList();
       private void ensureHydraulicPressureIsMutable() {
-        if (!((bitField0_ & 0x00008000) == 0x00008000)) {
-          hydraulicPressure_ = new java.util.ArrayList<java.lang.Integer>(hydraulicPressure_);
+        if (!((bitField0_ & 0x00008000) != 0)) {
+          hydraulicPressure_ = mutableCopy(hydraulicPressure_);
           bitField0_ |= 0x00008000;
-         }
+        }
       }
       /**
        * <code>repeated int32 hydraulic_pressure = 16;</code>
+       * @return A list containing the hydraulicPressure.
        */
       public java.util.List<java.lang.Integer>
           getHydraulicPressureList() {
-        return java.util.Collections.unmodifiableList(hydraulicPressure_);
+        return ((bitField0_ & 0x00008000) != 0) ?
+                 java.util.Collections.unmodifiableList(hydraulicPressure_) : hydraulicPressure_;
       }
       /**
        * <code>repeated int32 hydraulic_pressure = 16;</code>
+       * @return The count of hydraulicPressure.
        */
       public int getHydraulicPressureCount() {
         return hydraulicPressure_.size();
       }
       /**
        * <code>repeated int32 hydraulic_pressure = 16;</code>
+       * @param index The index of the element to return.
+       * @return The hydraulicPressure at the given index.
        */
       public int getHydraulicPressure(int index) {
-        return hydraulicPressure_.get(index);
+        return hydraulicPressure_.getInt(index);
       }
       /**
        * <code>repeated int32 hydraulic_pressure = 16;</code>
+       * @param index The index to set the value at.
+       * @param value The hydraulicPressure to set.
+       * @return This builder for chaining.
        */
       public Builder setHydraulicPressure(
           int index, int value) {
+        
         ensureHydraulicPressureIsMutable();
-        hydraulicPressure_.set(index, value);
+        hydraulicPressure_.setInt(index, value);
         onChanged();
         return this;
       }
       /**
        * <code>repeated int32 hydraulic_pressure = 16;</code>
+       * @param value The hydraulicPressure to add.
+       * @return This builder for chaining.
        */
       public Builder addHydraulicPressure(int value) {
+        
         ensureHydraulicPressureIsMutable();
-        hydraulicPressure_.add(value);
+        hydraulicPressure_.addInt(value);
         onChanged();
         return this;
       }
       /**
        * <code>repeated int32 hydraulic_pressure = 16;</code>
+       * @param values The hydraulicPressure to add.
+       * @return This builder for chaining.
        */
       public Builder addAllHydraulicPressure(
           java.lang.Iterable<? extends java.lang.Integer> values) {
@@ -12672,9 +15032,10 @@ public final class Proto {
       }
       /**
        * <code>repeated int32 hydraulic_pressure = 16;</code>
+       * @return This builder for chaining.
        */
       public Builder clearHydraulicPressure() {
-        hydraulicPressure_ = java.util.Collections.emptyList();
+        hydraulicPressure_ = emptyIntList();
         bitField0_ = (bitField0_ & ~0x00008000);
         onChanged();
         return this;
@@ -12683,27 +15044,35 @@ public final class Proto {
       private int horsepower_ ;
       /**
        * <code>optional int32 horsepower = 17;</code>
+       * @return Whether the horsepower field is set.
        */
+      @java.lang.Override
       public boolean hasHorsepower() {
-        return ((bitField0_ & 0x00010000) == 0x00010000);
+        return ((bitField0_ & 0x00010000) != 0);
       }
       /**
        * <code>optional int32 horsepower = 17;</code>
+       * @return The horsepower.
        */
+      @java.lang.Override
       public int getHorsepower() {
         return horsepower_;
       }
       /**
        * <code>optional int32 horsepower = 17;</code>
+       * @param value The horsepower to set.
+       * @return This builder for chaining.
        */
       public Builder setHorsepower(int value) {
-        bitField0_ |= 0x00010000;
+        
         horsepower_ = value;
+        bitField0_ |= 0x00010000;
         onChanged();
         return this;
       }
       /**
        * <code>optional int32 horsepower = 17;</code>
+       * @return This builder for chaining.
        */
       public Builder clearHorsepower() {
         bitField0_ = (bitField0_ & ~0x00010000);
@@ -12715,27 +15084,35 @@ public final class Proto {
       private int rpm_ ;
       /**
        * <code>optional int32 rpm = 18;</code>
+       * @return Whether the rpm field is set.
        */
+      @java.lang.Override
       public boolean hasRpm() {
-        return ((bitField0_ & 0x00020000) == 0x00020000);
+        return ((bitField0_ & 0x00020000) != 0);
       }
       /**
        * <code>optional int32 rpm = 18;</code>
+       * @return The rpm.
        */
+      @java.lang.Override
       public int getRpm() {
         return rpm_;
       }
       /**
        * <code>optional int32 rpm = 18;</code>
+       * @param value The rpm to set.
+       * @return This builder for chaining.
        */
       public Builder setRpm(int value) {
-        bitField0_ |= 0x00020000;
+        
         rpm_ = value;
+        bitField0_ |= 0x00020000;
         onChanged();
         return this;
       }
       /**
        * <code>optional int32 rpm = 18;</code>
+       * @return This builder for chaining.
        */
       public Builder clearRpm() {
         bitField0_ = (bitField0_ & ~0x00020000);
@@ -12747,27 +15124,35 @@ public final class Proto {
       private int torque_ ;
       /**
        * <code>optional int32 torque = 19;</code>
+       * @return Whether the torque field is set.
        */
+      @java.lang.Override
       public boolean hasTorque() {
-        return ((bitField0_ & 0x00040000) == 0x00040000);
+        return ((bitField0_ & 0x00040000) != 0);
       }
       /**
        * <code>optional int32 torque = 19;</code>
+       * @return The torque.
        */
+      @java.lang.Override
       public int getTorque() {
         return torque_;
       }
       /**
        * <code>optional int32 torque = 19;</code>
+       * @param value The torque to set.
+       * @return This builder for chaining.
        */
       public Builder setTorque(int value) {
-        bitField0_ |= 0x00040000;
+        
         torque_ = value;
+        bitField0_ |= 0x00040000;
         onChanged();
         return this;
       }
       /**
        * <code>optional int32 torque = 19;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTorque() {
         bitField0_ = (bitField0_ & ~0x00040000);
@@ -12779,27 +15164,35 @@ public final class Proto {
       private float hours_ ;
       /**
        * <code>optional float hours = 20;</code>
+       * @return Whether the hours field is set.
        */
+      @java.lang.Override
       public boolean hasHours() {
-        return ((bitField0_ & 0x00080000) == 0x00080000);
+        return ((bitField0_ & 0x00080000) != 0);
       }
       /**
        * <code>optional float hours = 20;</code>
+       * @return The hours.
        */
+      @java.lang.Override
       public float getHours() {
         return hours_;
       }
       /**
        * <code>optional float hours = 20;</code>
+       * @param value The hours to set.
+       * @return This builder for chaining.
        */
       public Builder setHours(float value) {
-        bitField0_ |= 0x00080000;
+        
         hours_ = value;
+        bitField0_ |= 0x00080000;
         onChanged();
         return this;
       }
       /**
        * <code>optional float hours = 20;</code>
+       * @return This builder for chaining.
        */
       public Builder clearHours() {
         bitField0_ = (bitField0_ & ~0x00080000);
@@ -12807,16 +15200,68 @@ public final class Proto {
         onChanged();
         return this;
       }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:edmtools.EngineDataRecord)
     }
 
+    // @@protoc_insertion_point(class_scope:edmtools.EngineDataRecord)
+    private static final edmtools.Proto.EngineDataRecord DEFAULT_INSTANCE;
     static {
-      defaultInstance = new EngineDataRecord(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new edmtools.Proto.EngineDataRecord();
     }
 
-    // @@protoc_insertion_point(class_scope:edmtools.EngineDataRecord)
+    public static edmtools.Proto.EngineDataRecord getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<EngineDataRecord>
+        PARSER = new com.google.protobuf.AbstractParser<EngineDataRecord>() {
+      @java.lang.Override
+      public EngineDataRecord parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<EngineDataRecord> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<EngineDataRecord> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public edmtools.Proto.EngineDataRecord getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface JpiFileOrBuilder extends
@@ -12825,10 +15270,12 @@ public final class Proto {
 
     /**
      * <code>optional .edmtools.Metadata metadata = 1;</code>
+     * @return Whether the metadata field is set.
      */
     boolean hasMetadata();
     /**
      * <code>optional .edmtools.Metadata metadata = 1;</code>
+     * @return The metadata.
      */
     edmtools.Proto.Metadata getMetadata();
     /**
@@ -12861,122 +15308,48 @@ public final class Proto {
         int index);
   }
   /**
-   * Protobuf type {@code edmtools.JpiFile}
-   *
    * <pre>
    * Container message when converting a JPI file to proto format.
    * </pre>
+   *
+   * Protobuf type {@code edmtools.JpiFile}
    */
   public static final class JpiFile extends
-      com.google.protobuf.GeneratedMessage implements
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:edmtools.JpiFile)
       JpiFileOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use JpiFile.newBuilder() to construct.
-    private JpiFile(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private JpiFile(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private JpiFile(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final JpiFile defaultInstance;
-    public static JpiFile getDefaultInstance() {
-      return defaultInstance;
+    private JpiFile() {
+      flight_ = java.util.Collections.emptyList();
     }
 
-    public JpiFile getDefaultInstanceForType() {
-      return defaultInstance;
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new JpiFile();
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
-    }
-    private JpiFile(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              edmtools.Proto.Metadata.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                subBuilder = metadata_.toBuilder();
-              }
-              metadata_ = input.readMessage(edmtools.Proto.Metadata.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(metadata_);
-                metadata_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000001;
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                flight_ = new java.util.ArrayList<edmtools.Proto.Flight>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              flight_.add(input.readMessage(edmtools.Proto.Flight.PARSER, extensionRegistry));
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-          flight_ = java.util.Collections.unmodifiableList(flight_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return edmtools.Proto.internal_static_edmtools_JpiFile_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return edmtools.Proto.internal_static_edmtools_JpiFile_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               edmtools.Proto.JpiFile.class, edmtools.Proto.JpiFile.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<JpiFile> PARSER =
-        new com.google.protobuf.AbstractParser<JpiFile>() {
-      public JpiFile parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new JpiFile(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<JpiFile> getParserForType() {
-      return PARSER;
     }
 
     private int bitField0_;
@@ -12984,34 +15357,42 @@ public final class Proto {
     private edmtools.Proto.Metadata metadata_;
     /**
      * <code>optional .edmtools.Metadata metadata = 1;</code>
+     * @return Whether the metadata field is set.
      */
+    @java.lang.Override
     public boolean hasMetadata() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>optional .edmtools.Metadata metadata = 1;</code>
+     * @return The metadata.
      */
+    @java.lang.Override
     public edmtools.Proto.Metadata getMetadata() {
-      return metadata_;
+      return metadata_ == null ? edmtools.Proto.Metadata.getDefaultInstance() : metadata_;
     }
     /**
      * <code>optional .edmtools.Metadata metadata = 1;</code>
      */
+    @java.lang.Override
     public edmtools.Proto.MetadataOrBuilder getMetadataOrBuilder() {
-      return metadata_;
+      return metadata_ == null ? edmtools.Proto.Metadata.getDefaultInstance() : metadata_;
     }
 
     public static final int FLIGHT_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<edmtools.Proto.Flight> flight_;
     /**
      * <code>repeated .edmtools.Flight flight = 2;</code>
      */
+    @java.lang.Override
     public java.util.List<edmtools.Proto.Flight> getFlightList() {
       return flight_;
     }
     /**
      * <code>repeated .edmtools.Flight flight = 2;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends edmtools.Proto.FlightOrBuilder> 
         getFlightOrBuilderList() {
       return flight_;
@@ -13019,28 +15400,28 @@ public final class Proto {
     /**
      * <code>repeated .edmtools.Flight flight = 2;</code>
      */
+    @java.lang.Override
     public int getFlightCount() {
       return flight_.size();
     }
     /**
      * <code>repeated .edmtools.Flight flight = 2;</code>
      */
+    @java.lang.Override
     public edmtools.Proto.Flight getFlight(int index) {
       return flight_.get(index);
     }
     /**
      * <code>repeated .edmtools.Flight flight = 2;</code>
      */
+    @java.lang.Override
     public edmtools.Proto.FlightOrBuilder getFlightOrBuilder(
         int index) {
       return flight_.get(index);
     }
 
-    private void initFields() {
-      metadata_ = edmtools.Proto.Metadata.getDefaultInstance();
-      flight_ = java.util.Collections.emptyList();
-    }
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -13050,11 +15431,11 @@ public final class Proto {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeMessage(1, metadata_);
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeMessage(1, getMetadata());
       }
       for (int i = 0; i < flight_.size(); i++) {
         output.writeMessage(2, flight_.get(i));
@@ -13062,32 +15443,77 @@ public final class Proto {
       getUnknownFields().writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
+    @java.lang.Override
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, metadata_);
+          .computeMessageSize(1, getMetadata());
       }
       for (int i = 0; i < flight_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, flight_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof edmtools.Proto.JpiFile)) {
+        return super.equals(obj);
+      }
+      edmtools.Proto.JpiFile other = (edmtools.Proto.JpiFile) obj;
+
+      if (hasMetadata() != other.hasMetadata()) return false;
+      if (hasMetadata()) {
+        if (!getMetadata()
+            .equals(other.getMetadata())) return false;
+      }
+      if (!getFlightList()
+          .equals(other.getFlightList())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
     }
 
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasMetadata()) {
+        hash = (37 * hash) + METADATA_FIELD_NUMBER;
+        hash = (53 * hash) + getMetadata().hashCode();
+      }
+      if (getFlightCount() > 0) {
+        hash = (37 * hash) + FLIGHT_FIELD_NUMBER;
+        hash = (53 * hash) + getFlightList().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static edmtools.Proto.JpiFile parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static edmtools.Proto.JpiFile parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static edmtools.Proto.JpiFile parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -13111,58 +15537,71 @@ public final class Proto {
     }
     public static edmtools.Proto.JpiFile parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static edmtools.Proto.JpiFile parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static edmtools.Proto.JpiFile parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static edmtools.Proto.JpiFile parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static edmtools.Proto.JpiFile parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static edmtools.Proto.JpiFile parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(edmtools.Proto.JpiFile prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(edmtools.Proto.JpiFile prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
-     * Protobuf type {@code edmtools.JpiFile}
-     *
      * <pre>
      * Container message when converting a JPI file to proto format.
      * </pre>
+     *
+     * Protobuf type {@code edmtools.JpiFile}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:edmtools.JpiFile)
         edmtools.Proto.JpiFileOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -13170,7 +15609,8 @@ public final class Proto {
         return edmtools.Proto.internal_static_edmtools_JpiFile_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return edmtools.Proto.internal_static_edmtools_JpiFile_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -13183,50 +15623,48 @@ public final class Proto {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
           getMetadataFieldBuilder();
           getFlightFieldBuilder();
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
+      @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (metadataBuilder_ == null) {
-          metadata_ = edmtools.Proto.Metadata.getDefaultInstance();
-        } else {
-          metadataBuilder_.clear();
+        bitField0_ = 0;
+        metadata_ = null;
+        if (metadataBuilder_ != null) {
+          metadataBuilder_.dispose();
+          metadataBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         if (flightBuilder_ == null) {
           flight_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
+          flight_ = null;
           flightBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return edmtools.Proto.internal_static_edmtools_JpiFile_descriptor;
       }
 
+      @java.lang.Override
       public edmtools.Proto.JpiFile getDefaultInstanceForType() {
         return edmtools.Proto.JpiFile.getDefaultInstance();
       }
 
+      @java.lang.Override
       public edmtools.Proto.JpiFile build() {
         edmtools.Proto.JpiFile result = buildPartial();
         if (!result.isInitialized()) {
@@ -13235,20 +15673,18 @@ public final class Proto {
         return result;
       }
 
+      @java.lang.Override
       public edmtools.Proto.JpiFile buildPartial() {
         edmtools.Proto.JpiFile result = new edmtools.Proto.JpiFile(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        if (metadataBuilder_ == null) {
-          result.metadata_ = metadata_;
-        } else {
-          result.metadata_ = metadataBuilder_.build();
-        }
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(edmtools.Proto.JpiFile result) {
         if (flightBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             flight_ = java.util.Collections.unmodifiableList(flight_);
             bitField0_ = (bitField0_ & ~0x00000002);
           }
@@ -13256,11 +15692,53 @@ public final class Proto {
         } else {
           result.flight_ = flightBuilder_.build();
         }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
       }
 
+      private void buildPartial0(edmtools.Proto.JpiFile result) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.metadata_ = metadataBuilder_ == null
+              ? metadata_
+              : metadataBuilder_.build();
+          to_bitField0_ |= 0x00000001;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof edmtools.Proto.JpiFile) {
           return mergeFrom((edmtools.Proto.JpiFile)other);
@@ -13294,7 +15772,7 @@ public final class Proto {
               flight_ = other.flight_;
               bitField0_ = (bitField0_ & ~0x00000002);
               flightBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getFlightFieldBuilder() : null;
             } else {
               flightBuilder_.addAllMessages(other.flight_);
@@ -13302,47 +15780,85 @@ public final class Proto {
           }
         }
         this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        edmtools.Proto.JpiFile parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (edmtools.Proto.JpiFile) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
         }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getMetadataFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                edmtools.Proto.Flight m =
+                    input.readMessage(
+                        edmtools.Proto.Flight.PARSER,
+                        extensionRegistry);
+                if (flightBuilder_ == null) {
+                  ensureFlightIsMutable();
+                  flight_.add(m);
+                } else {
+                  flightBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
 
-      private edmtools.Proto.Metadata metadata_ = edmtools.Proto.Metadata.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private edmtools.Proto.Metadata metadata_;
+      private com.google.protobuf.SingleFieldBuilderV3<
           edmtools.Proto.Metadata, edmtools.Proto.Metadata.Builder, edmtools.Proto.MetadataOrBuilder> metadataBuilder_;
       /**
        * <code>optional .edmtools.Metadata metadata = 1;</code>
+       * @return Whether the metadata field is set.
        */
       public boolean hasMetadata() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <code>optional .edmtools.Metadata metadata = 1;</code>
+       * @return The metadata.
        */
       public edmtools.Proto.Metadata getMetadata() {
         if (metadataBuilder_ == null) {
-          return metadata_;
+          return metadata_ == null ? edmtools.Proto.Metadata.getDefaultInstance() : metadata_;
         } else {
           return metadataBuilder_.getMessage();
         }
@@ -13356,11 +15872,11 @@ public final class Proto {
             throw new NullPointerException();
           }
           metadata_ = value;
-          onChanged();
         } else {
           metadataBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -13370,11 +15886,11 @@ public final class Proto {
           edmtools.Proto.Metadata.Builder builderForValue) {
         if (metadataBuilder_ == null) {
           metadata_ = builderForValue.build();
-          onChanged();
         } else {
           metadataBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -13382,31 +15898,31 @@ public final class Proto {
        */
       public Builder mergeMetadata(edmtools.Proto.Metadata value) {
         if (metadataBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001) &&
-              metadata_ != edmtools.Proto.Metadata.getDefaultInstance()) {
-            metadata_ =
-              edmtools.Proto.Metadata.newBuilder(metadata_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            metadata_ != null &&
+            metadata_ != edmtools.Proto.Metadata.getDefaultInstance()) {
+            getMetadataBuilder().mergeFrom(value);
           } else {
             metadata_ = value;
           }
-          onChanged();
         } else {
           metadataBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <code>optional .edmtools.Metadata metadata = 1;</code>
        */
       public Builder clearMetadata() {
-        if (metadataBuilder_ == null) {
-          metadata_ = edmtools.Proto.Metadata.getDefaultInstance();
-          onChanged();
-        } else {
-          metadataBuilder_.clear();
-        }
         bitField0_ = (bitField0_ & ~0x00000001);
+        metadata_ = null;
+        if (metadataBuilder_ != null) {
+          metadataBuilder_.dispose();
+          metadataBuilder_ = null;
+        }
+        onChanged();
         return this;
       }
       /**
@@ -13424,17 +15940,18 @@ public final class Proto {
         if (metadataBuilder_ != null) {
           return metadataBuilder_.getMessageOrBuilder();
         } else {
-          return metadata_;
+          return metadata_ == null ?
+              edmtools.Proto.Metadata.getDefaultInstance() : metadata_;
         }
       }
       /**
        * <code>optional .edmtools.Metadata metadata = 1;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           edmtools.Proto.Metadata, edmtools.Proto.Metadata.Builder, edmtools.Proto.MetadataOrBuilder> 
           getMetadataFieldBuilder() {
         if (metadataBuilder_ == null) {
-          metadataBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          metadataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               edmtools.Proto.Metadata, edmtools.Proto.Metadata.Builder, edmtools.Proto.MetadataOrBuilder>(
                   getMetadata(),
                   getParentForChildren(),
@@ -13447,13 +15964,13 @@ public final class Proto {
       private java.util.List<edmtools.Proto.Flight> flight_ =
         java.util.Collections.emptyList();
       private void ensureFlightIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           flight_ = new java.util.ArrayList<edmtools.Proto.Flight>(flight_);
           bitField0_ |= 0x00000002;
          }
       }
 
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           edmtools.Proto.Flight, edmtools.Proto.Flight.Builder, edmtools.Proto.FlightOrBuilder> flightBuilder_;
 
       /**
@@ -13669,88 +16186,140 @@ public final class Proto {
            getFlightBuilderList() {
         return getFlightFieldBuilder().getBuilderList();
       }
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           edmtools.Proto.Flight, edmtools.Proto.Flight.Builder, edmtools.Proto.FlightOrBuilder> 
           getFlightFieldBuilder() {
         if (flightBuilder_ == null) {
-          flightBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          flightBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               edmtools.Proto.Flight, edmtools.Proto.Flight.Builder, edmtools.Proto.FlightOrBuilder>(
                   flight_,
-                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           flight_ = null;
         }
         return flightBuilder_;
       }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:edmtools.JpiFile)
     }
 
+    // @@protoc_insertion_point(class_scope:edmtools.JpiFile)
+    private static final edmtools.Proto.JpiFile DEFAULT_INSTANCE;
     static {
-      defaultInstance = new JpiFile(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new edmtools.Proto.JpiFile();
     }
 
-    // @@protoc_insertion_point(class_scope:edmtools.JpiFile)
+    public static edmtools.Proto.JpiFile getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<JpiFile>
+        PARSER = new com.google.protobuf.AbstractParser<JpiFile>() {
+      @java.lang.Override
+      public JpiFile parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<JpiFile> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<JpiFile> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public edmtools.Proto.JpiFile getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_edmtools_Metadata_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_edmtools_Metadata_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_edmtools_AlarmThresholds_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_edmtools_AlarmThresholds_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_edmtools_Fuel_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_edmtools_Fuel_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_edmtools_Features_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_edmtools_Features_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_edmtools_Sensors_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_edmtools_Sensors_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_edmtools_FlightMetadata_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_edmtools_FlightMetadata_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_edmtools_Flight_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_edmtools_Flight_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_edmtools_DataRecord_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_edmtools_DataRecord_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_edmtools_EngineDataRecord_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_edmtools_EngineDataRecord_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_edmtools_JpiFile_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_edmtools_JpiFile_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
     return descriptor;
   }
-  private static com.google.protobuf.Descriptors.FileDescriptor
+  private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
     java.lang.String[] descriptorData = {
@@ -13763,7 +16332,7 @@ public final class Proto {
       "s\0221\n\017flight_metadata\030\007 \003(\0132\030.edmtools.Fl" +
       "ightMetadata\022\016\n\006length\030\010 \001(\005\022\025\n\rparse_wa" +
       "rning\030\t \003(\t\"\241\002\n\017AlarmThresholds\022\021\n\tmin_v" +
-      "olts\030\001 \001(\001\022\021\n\tmax_volts\030\002 \001(\001\022.\n&max_exh",
+      "olts\030\001 \001(\001\022\021\n\tmax_volts\030\002 \001(\001\022.\n&max_exh" +
       "aust_gas_temperature_difference\030\003 \001(\005\022%\n" +
       "\035max_cylinder_head_temperature\030\004 \001(\005\0222\n*" +
       "max_cylinder_head_temperature_cooling_ra" +
@@ -13773,7 +16342,7 @@ public final class Proto {
       "_flow_units\030\001 \001(\0162\034.edmtools.Fuel.FuelFl" +
       "owUnits\022\025\n\rfull_quantity\030\002 \001(\005\022\030\n\020warnin" +
       "g_quantity\030\003 \001(\005\022\021\n\tk_factor1\030\004 \001(\005\022\021\n\tk" +
-      "_factor2\030\005 \001(\005\"3\n\rFuelFlowUnits\022\007\n\003GPH\020\001",
+      "_factor2\030\005 \001(\005\"3\n\rFuelFlowUnits\022\007\n\003GPH\020\001" +
       "\022\007\n\003PPH\020\002\022\007\n\003LPH\020\003\022\007\n\003KPH\020\004\"\376\001\n\010Features" +
       "\022\024\n\014model_number\030\001 \001(\005\022\030\n\020firmware_versi" +
       "on\030\002 \001(\005\022\"\n\007sensors\030\003 \001(\0132\021.edmtools.Sen" +
@@ -13783,7 +16352,7 @@ public final class Proto {
       "TemperatureUnit\022\016\n\nFAHRENHEIT\020\001\022\013\n\007CELSI" +
       "US\020\002\"\360\002\n\007Sensors\022#\n\033num_exhaust_gas_temp" +
       "erature\030\003 \001(\005\022%\n\035num_cylinder_head_tempe" +
-      "rature\030\004 \001(\005\022\017\n\007voltage\030\005 \001(\010\022\027\n\017oil_tem",
+      "rature\030\004 \001(\005\022\017\n\007voltage\030\005 \001(\010\022\027\n\017oil_tem" +
       "perature\030\006 \001(\010\022\"\n\032turbine_inlet_temperat" +
       "ure1\030\007 \001(\010\022\"\n\032turbine_inlet_temperature2" +
       "\030\010 \001(\010\022\037\n\027outside_air_temperature\030\t \001(\010\022" +
@@ -13793,7 +16362,7 @@ public final class Proto {
       "(\010\022\013\n\003rpm\030\016 \001(\010\"I\n\016FlightMetadata\022\025\n\rfli" +
       "ght_number\030\001 \001(\005\022 \n\030flight_data_length_w" +
       "ords\030\002 \001(\005\"\344\001\n\006Flight\022\025\n\rflight_number\030\001" +
-      " \001(\005\022\027\n\017start_timestamp\030\002 \001(\003\022\037\n\027recordi",
+      " \001(\005\022\027\n\017start_timestamp\030\002 \001(\003\022\037\n\027recordi" +
       "ng_interval_secs\030\003 \001(\005\022\"\n\007sensors\030\004 \001(\0132" +
       "\021.edmtools.Sensors\022\"\n\004data\030\005 \003(\0132\024.edmto" +
       "ols.DataRecord\022\025\n\rheader_length\030\006 \001(\005\022\023\n" +
@@ -13803,7 +16372,7 @@ public final class Proto {
       " \001(\005\022\'\n\004mark\030\004 \001(\0162\031.edmtools.DataRecord" +
       ".Mark\022*\n\006engine\030\005 \003(\0132\032.edmtools.EngineD" +
       "ataRecord\022\025\n\rparse_warning\030\006 \003(\t\"^\n\004Mark" +
-      "\022\016\n\nNOT_MARKED\020\000\022\n\n\006MARKED\020\001\022\016\n\nRICH_STA",
+      "\022\016\n\nNOT_MARKED\020\000\022\n\n\006MARKED\020\001\022\016\n\nRICH_STA" +
       "RT\020\002\022\014\n\010RICH_END\020\003\022\016\n\nLEAN_START\020\004\022\014\n\010LE" +
       "AN_END\020\005\"\305\004\n\020EngineDataRecord\022\037\n\027exhaust" +
       "_gas_temperature\030\001 \003(\005\022.\n&max_exhaust_ga" +
@@ -13813,7 +16382,7 @@ public final class Proto {
       "mperature_cooling_rate\030\005 \001(\005\022\027\n\017oil_temp" +
       "erature\030\006 \001(\005\022(\n compressor_discharge_te" +
       "mperature\030\007 \001(\005\022!\n\031induction_air_tempera" +
-      "ture\030\010 \001(\005\022&\n\036interstage_turbine_tempera",
+      "ture\030\010 \001(\005\022&\n\036interstage_turbine_tempera" +
       "ture\030\t \001(\005\022\021\n\tfuel_used\030\n \003(\002\022\021\n\tfuel_fl" +
       "ow\030\013 \003(\002\022\025\n\rfuel_pressure\030\014 \001(\002\022\022\n\nfuel_" +
       "level\030\r \003(\002\022\024\n\014oil_pressure\030\016 \001(\005\022\031\n\021man" +
@@ -13824,76 +16393,68 @@ public final class Proto {
       "a\022 \n\006flight\030\002 \003(\0132\020.edmtools.FlightB\021\n\010e" +
       "dmtoolsB\005Proto"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-        }, assigner);
+        });
     internal_static_edmtools_Metadata_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_edmtools_Metadata_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_edmtools_Metadata_descriptor,
         new java.lang.String[] { "Registration", "AlarmThresholds", "Fuel", "DownloadTimestamp", "ProtocolVersion", "Features", "FlightMetadata", "Length", "ParseWarning", });
     internal_static_edmtools_AlarmThresholds_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_edmtools_AlarmThresholds_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_edmtools_AlarmThresholds_descriptor,
         new java.lang.String[] { "MinVolts", "MaxVolts", "MaxExhaustGasTemperatureDifference", "MaxCylinderHeadTemperature", "MaxCylinderHeadTemperatureCoolingRate", "MaxExhaustGasTemperature", "MinOilTemperature", "MaxOilTemperature", });
     internal_static_edmtools_Fuel_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_edmtools_Fuel_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_edmtools_Fuel_descriptor,
         new java.lang.String[] { "FuelFlowUnits", "FullQuantity", "WarningQuantity", "KFactor1", "KFactor2", });
     internal_static_edmtools_Features_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_edmtools_Features_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_edmtools_Features_descriptor,
         new java.lang.String[] { "ModelNumber", "FirmwareVersion", "Sensors", "EngineTemperatureUnit", "BetaNumber", "BuildNumber", });
     internal_static_edmtools_Sensors_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_edmtools_Sensors_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_edmtools_Sensors_descriptor,
         new java.lang.String[] { "NumExhaustGasTemperature", "NumCylinderHeadTemperature", "Voltage", "OilTemperature", "TurbineInletTemperature1", "TurbineInletTemperature2", "OutsideAirTemperature", "FuelFlow", "InductionAirTemperature", "CompressorDischargeTemperature", "ManifoldPressure", "Rpm", });
     internal_static_edmtools_FlightMetadata_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_edmtools_FlightMetadata_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_edmtools_FlightMetadata_descriptor,
         new java.lang.String[] { "FlightNumber", "FlightDataLengthWords", });
     internal_static_edmtools_Flight_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_edmtools_Flight_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_edmtools_Flight_descriptor,
         new java.lang.String[] { "FlightNumber", "StartTimestamp", "RecordingIntervalSecs", "Sensors", "Data", "HeaderLength", "DataLength", "ParseWarning", });
     internal_static_edmtools_DataRecord_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_edmtools_DataRecord_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_edmtools_DataRecord_descriptor,
         new java.lang.String[] { "Voltage", "Amperage", "OutsideAirTemperature", "Mark", "Engine", "ParseWarning", });
     internal_static_edmtools_EngineDataRecord_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_edmtools_EngineDataRecord_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_edmtools_EngineDataRecord_descriptor,
         new java.lang.String[] { "ExhaustGasTemperature", "MaxExhaustGasTemperatureDifference", "TurbineInletTemperature", "CylinderHeadTemperature", "CylinderHeadTemperatureCoolingRate", "OilTemperature", "CompressorDischargeTemperature", "InductionAirTemperature", "InterstageTurbineTemperature", "FuelUsed", "FuelFlow", "FuelPressure", "FuelLevel", "OilPressure", "ManifoldPressure", "HydraulicPressure", "Horsepower", "Rpm", "Torque", "Hours", });
     internal_static_edmtools_JpiFile_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_edmtools_JpiFile_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_edmtools_JpiFile_descriptor,
         new java.lang.String[] { "Metadata", "Flight", });
   }
