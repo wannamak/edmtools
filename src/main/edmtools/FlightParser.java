@@ -106,6 +106,37 @@ class FlightParser {
     return numSkip;
   }
 
+  private boolean detectNewHeader() throws IOException {
+    // Heuristic copied from EzTrends2.  Frankly embarrassing.
+    byte[] buf = inputStream.peek(25);
+    byte[] prev = inputStream.getAlreadyReadRing();
+    logger.fine(String.format("Comparing +19/+21 %2x/%2x and +20/+22 %2x/%2x",
+        buf[19], buf[21], buf[20], buf[22]));
+    if (buf[19] == buf[21] && buf[20] == buf[22]) {
+      return true;
+    }
+    if (prev.length == 8) {
+      logger.fine(String.format(
+          "Comparing +21/-8 %2x/%2x and +22/-7 %2x/%2x and +23/-6 %2x/%2x and +24/-5 %2x/%2x",
+          buf[21], prev[0], buf[22], prev[1], buf[23], prev[2], buf[24], prev[3]));
+      // 21 == -8, 22 == -7, 23 == -6, 24 == -5
+      if (buf[21] == prev[0] && buf[22] == prev[1] && buf[23] == prev[2] && buf[24] == prev[3]) {
+        return true;
+      }
+    } else {
+      logger.warning("Unexpectedly short previous buffer");
+    }
+    logger.fine(String.format("Comparing +11/+13 %2x/%2x", buf[11], buf[13]));
+    if (buf[11] == buf[13]) {
+      return true;
+    }
+    logger.fine(String.format("Comparing +12/+14 %2x/%2x", buf[12], buf[14]));
+    if (buf[12] == buf[14]) {
+      return true;
+    }
+    return false;
+  }
+
   private void parseFlightHeader(Flight.Builder builder) throws IOException {
     inputStream.resetCounter();
     inputStream.clearCurrentRecord();
@@ -126,14 +157,22 @@ class FlightParser {
       int unusedConfigLow = inputStream.readWord();
       @SuppressWarnings("unused")
       int unusedConfigHigh = inputStream.readWord();
-      if (metadataUtil.isBuildNumberAtLeast(880)) {
+
+      boolean isNewHeader = detectNewHeader();
+      if (isNewHeader) {
         @SuppressWarnings("unused")
         int unusedConfig = inputStream.readWord();
+        if (metadataUtil.isWideModel()) {
+          builder.setStartLatitude(inputStream.readDoubleWord());
+          builder.setStartLongitude(inputStream.readDoubleWord());
+        }
       }
     }
 
     @SuppressWarnings("unused")
-    int unknown = inputStream.readWord();
+    int fuelUnitByte = inputStream.read();
+    @SuppressWarnings("unused")
+    int horsepowerByte = inputStream.read();
 
     int recordingInterval = inputStream.readWord();
 

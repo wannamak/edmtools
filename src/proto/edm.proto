@@ -126,6 +126,9 @@ message Flight {
 
   // Non-fatal parse warnings.
   repeated string parse_warning = 8;
+
+  optional int64 start_latitude = 9;
+  optional int64 start_longitude = 10;
 }
 
 message DataRecord {

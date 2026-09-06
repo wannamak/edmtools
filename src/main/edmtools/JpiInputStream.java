@@ -35,6 +35,12 @@ public class JpiInputStream {
 
   private final List<Integer> currentRecord;
 
+  /** Retains the last RING_CAPACITY bytes read from the stream. */
+  private static final int RING_CAPACITY = 8;
+  private final byte[] alreadyReadRing = new byte[RING_CAPACITY];
+  int ringWritePosition = 0;
+  int numBytesInRing = 0;
+
   /** Current byte counter, independent of currentRecord. */
   private int counter;
 
@@ -90,6 +96,12 @@ public class JpiInputStream {
     return result | read();
   }
 
+  /** Reads four bytes.  If the stream is at EOF, throw an {@link IOException}. */
+  public int readDoubleWord() throws IOException {
+    int result = readWord() << 16;
+    return result | readWord();
+  }
+
   /** Reads a byte.  If the stream is at EOF, throw an {@link IOException}. */
   public int read() throws IOException {
     int read = stream.read();
@@ -97,6 +109,7 @@ public class JpiInputStream {
       throw new IOException("Unexpected EOF");
     }
     read = read & 0xff;
+    record((byte) read);
     counter++;
     currentRecord.add(read);
     return read;
@@ -150,5 +163,20 @@ public class JpiInputStream {
       result += String.format("%2X", b).replace(' ', '0') + " ";
     }
     return result.trim();
+  }
+
+  private void record(byte b) {
+    alreadyReadRing[ringWritePosition] = b;
+    ringWritePosition = (ringWritePosition + 1) % RING_CAPACITY;
+    numBytesInRing = Math.min(numBytesInRing + 1, RING_CAPACITY);
+  }
+
+  public byte[] getAlreadyReadRing() {
+    byte[] result = new byte[numBytesInRing];
+    int start = (ringWritePosition - numBytesInRing + RING_CAPACITY) % RING_CAPACITY;
+    for (int i = 0; i < numBytesInRing; i++) {
+      result[i] = alreadyReadRing[(start + i) % RING_CAPACITY];
+    }
+    return result;
   }
 }

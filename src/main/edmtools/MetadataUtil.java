@@ -18,9 +18,11 @@ package edmtools;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import com.google.common.base.Function;
 
+import com.google.common.collect.Sets;
 import edmtools.Proto.FlightMetadata;
 import edmtools.Proto.Fuel.FuelFlowUnits;
 import edmtools.Proto.Metadata;
@@ -28,6 +30,8 @@ import edmtools.Proto.Metadata;
 public class MetadataUtil {
   private Metadata metadata;
   private List<Integer> flightNumbers;
+
+  private static final Set<Integer> WIDE_MODELS = Sets.newHashSet(711, 730, 740, 830, 831);
 
   public MetadataUtil(Metadata metadata) {
     this.metadata = metadata;
@@ -55,6 +59,10 @@ public class MetadataUtil {
 
   public boolean isModelNumberAtLeast(int modelNumber) {
     return metadata.getFeatures().getModelNumber() >= modelNumber;
+  }
+
+  public boolean isWideModel() {
+    return WIDE_MODELS.contains(metadata.getFeatures().getModelNumber());
   }
 
   public boolean isBuildNumberAtLeast(int buildNumber) {

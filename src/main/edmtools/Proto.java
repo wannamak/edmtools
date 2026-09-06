@@ -8511,6 +8511,28 @@ public final class Proto {
      */
     com.google.protobuf.ByteString
         getParseWarningBytes(int index);
+
+    /**
+     * <code>optional int64 start_latitude = 9;</code>
+     * @return Whether the startLatitude field is set.
+     */
+    boolean hasStartLatitude();
+    /**
+     * <code>optional int64 start_latitude = 9;</code>
+     * @return The startLatitude.
+     */
+    long getStartLatitude();
+
+    /**
+     * <code>optional int64 start_longitude = 10;</code>
+     * @return Whether the startLongitude field is set.
+     */
+    boolean hasStartLongitude();
+    /**
+     * <code>optional int64 start_longitude = 10;</code>
+     * @return The startLongitude.
+     */
+    long getStartLongitude();
   }
   /**
    * <pre>
@@ -8835,6 +8857,44 @@ public final class Proto {
       return parseWarning_.getByteString(index);
     }
 
+    public static final int START_LATITUDE_FIELD_NUMBER = 9;
+    private long startLatitude_ = 0L;
+    /**
+     * <code>optional int64 start_latitude = 9;</code>
+     * @return Whether the startLatitude field is set.
+     */
+    @java.lang.Override
+    public boolean hasStartLatitude() {
+      return ((bitField0_ & 0x00000040) != 0);
+    }
+    /**
+     * <code>optional int64 start_latitude = 9;</code>
+     * @return The startLatitude.
+     */
+    @java.lang.Override
+    public long getStartLatitude() {
+      return startLatitude_;
+    }
+
+    public static final int START_LONGITUDE_FIELD_NUMBER = 10;
+    private long startLongitude_ = 0L;
+    /**
+     * <code>optional int64 start_longitude = 10;</code>
+     * @return Whether the startLongitude field is set.
+     */
+    @java.lang.Override
+    public boolean hasStartLongitude() {
+      return ((bitField0_ & 0x00000080) != 0);
+    }
+    /**
+     * <code>optional int64 start_longitude = 10;</code>
+     * @return The startLongitude.
+     */
+    @java.lang.Override
+    public long getStartLongitude() {
+      return startLongitude_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -8872,6 +8932,12 @@ public final class Proto {
       }
       for (int i = 0; i < parseWarning_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 8, parseWarning_.getRaw(i));
+      }
+      if (((bitField0_ & 0x00000040) != 0)) {
+        output.writeInt64(9, startLatitude_);
+      }
+      if (((bitField0_ & 0x00000080) != 0)) {
+        output.writeInt64(10, startLongitude_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -8917,6 +8983,14 @@ public final class Proto {
         }
         size += dataSize;
         size += 1 * getParseWarningList().size();
+      }
+      if (((bitField0_ & 0x00000040) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(9, startLatitude_);
+      }
+      if (((bitField0_ & 0x00000080) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(10, startLongitude_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -8967,6 +9041,16 @@ public final class Proto {
       }
       if (!getParseWarningList()
           .equals(other.getParseWarningList())) return false;
+      if (hasStartLatitude() != other.hasStartLatitude()) return false;
+      if (hasStartLatitude()) {
+        if (getStartLatitude()
+            != other.getStartLatitude()) return false;
+      }
+      if (hasStartLongitude() != other.hasStartLongitude()) return false;
+      if (hasStartLongitude()) {
+        if (getStartLongitude()
+            != other.getStartLongitude()) return false;
+      }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -9010,6 +9094,16 @@ public final class Proto {
       if (getParseWarningCount() > 0) {
         hash = (37 * hash) + PARSE_WARNING_FIELD_NUMBER;
         hash = (53 * hash) + getParseWarningList().hashCode();
+      }
+      if (hasStartLatitude()) {
+        hash = (37 * hash) + START_LATITUDE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getStartLatitude());
+      }
+      if (hasStartLongitude()) {
+        hash = (37 * hash) + START_LONGITUDE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getStartLongitude());
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -9170,6 +9264,8 @@ public final class Proto {
         dataLength_ = 0;
         parseWarning_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000080);
+        startLatitude_ = 0L;
+        startLongitude_ = 0L;
         return this;
       }
 
@@ -9247,6 +9343,14 @@ public final class Proto {
         if (((from_bitField0_ & 0x00000040) != 0)) {
           result.dataLength_ = dataLength_;
           to_bitField0_ |= 0x00000020;
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.startLatitude_ = startLatitude_;
+          to_bitField0_ |= 0x00000040;
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.startLongitude_ = startLongitude_;
+          to_bitField0_ |= 0x00000080;
         }
         result.bitField0_ |= to_bitField0_;
       }
@@ -9349,6 +9453,12 @@ public final class Proto {
           }
           onChanged();
         }
+        if (other.hasStartLatitude()) {
+          setStartLatitude(other.getStartLatitude());
+        }
+        if (other.hasStartLongitude()) {
+          setStartLongitude(other.getStartLongitude());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
@@ -9426,6 +9536,16 @@ public final class Proto {
                 parseWarning_.add(bs);
                 break;
               } // case 66
+              case 72: {
+                startLatitude_ = input.readInt64();
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 72
+              case 80: {
+                startLongitude_ = input.readInt64();
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 80
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -10309,6 +10429,86 @@ public final class Proto {
         if (value == null) { throw new NullPointerException(); }
         ensureParseWarningIsMutable();
         parseWarning_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private long startLatitude_ ;
+      /**
+       * <code>optional int64 start_latitude = 9;</code>
+       * @return Whether the startLatitude field is set.
+       */
+      @java.lang.Override
+      public boolean hasStartLatitude() {
+        return ((bitField0_ & 0x00000100) != 0);
+      }
+      /**
+       * <code>optional int64 start_latitude = 9;</code>
+       * @return The startLatitude.
+       */
+      @java.lang.Override
+      public long getStartLatitude() {
+        return startLatitude_;
+      }
+      /**
+       * <code>optional int64 start_latitude = 9;</code>
+       * @param value The startLatitude to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStartLatitude(long value) {
+        
+        startLatitude_ = value;
+        bitField0_ |= 0x00000100;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 start_latitude = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStartLatitude() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        startLatitude_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long startLongitude_ ;
+      /**
+       * <code>optional int64 start_longitude = 10;</code>
+       * @return Whether the startLongitude field is set.
+       */
+      @java.lang.Override
+      public boolean hasStartLongitude() {
+        return ((bitField0_ & 0x00000200) != 0);
+      }
+      /**
+       * <code>optional int64 start_longitude = 10;</code>
+       * @return The startLongitude.
+       */
+      @java.lang.Override
+      public long getStartLongitude() {
+        return startLongitude_;
+      }
+      /**
+       * <code>optional int64 start_longitude = 10;</code>
+       * @param value The startLongitude to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStartLongitude(long value) {
+        
+        startLongitude_ = value;
+        bitField0_ |= 0x00000200;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 start_longitude = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStartLongitude() {
+        bitField0_ = (bitField0_ & ~0x00000200);
+        startLongitude_ = 0L;
         onChanged();
         return this;
       }
@@ -16361,37 +16561,38 @@ public final class Proto {
       "mperature\030\014 \001(\010\022\031\n\021manifold_pressure\030\r \001" +
       "(\010\022\013\n\003rpm\030\016 \001(\010\"I\n\016FlightMetadata\022\025\n\rfli" +
       "ght_number\030\001 \001(\005\022 \n\030flight_data_length_w" +
-      "ords\030\002 \001(\005\"\344\001\n\006Flight\022\025\n\rflight_number\030\001" +
+      "ords\030\002 \001(\005\"\225\002\n\006Flight\022\025\n\rflight_number\030\001" +
       " \001(\005\022\027\n\017start_timestamp\030\002 \001(\003\022\037\n\027recordi" +
       "ng_interval_secs\030\003 \001(\005\022\"\n\007sensors\030\004 \001(\0132" +
       "\021.edmtools.Sensors\022\"\n\004data\030\005 \003(\0132\024.edmto" +
       "ols.DataRecord\022\025\n\rheader_length\030\006 \001(\005\022\023\n" +
       "\013data_length\030\007 \001(\005\022\025\n\rparse_warning\030\010 \003(" +
-      "\t\"\234\002\n\nDataRecord\022\017\n\007voltage\030\001 \003(\002\022\020\n\010amp" +
-      "erage\030\002 \003(\005\022\037\n\027outside_air_temperature\030\003" +
-      " \001(\005\022\'\n\004mark\030\004 \001(\0162\031.edmtools.DataRecord" +
-      ".Mark\022*\n\006engine\030\005 \003(\0132\032.edmtools.EngineD" +
-      "ataRecord\022\025\n\rparse_warning\030\006 \003(\t\"^\n\004Mark" +
-      "\022\016\n\nNOT_MARKED\020\000\022\n\n\006MARKED\020\001\022\016\n\nRICH_STA" +
-      "RT\020\002\022\014\n\010RICH_END\020\003\022\016\n\nLEAN_START\020\004\022\014\n\010LE" +
-      "AN_END\020\005\"\305\004\n\020EngineDataRecord\022\037\n\027exhaust" +
-      "_gas_temperature\030\001 \003(\005\022.\n&max_exhaust_ga" +
-      "s_temperature_difference\030\002 \001(\005\022!\n\031turbin" +
-      "e_inlet_temperature\030\003 \003(\005\022!\n\031cylinder_he" +
-      "ad_temperature\030\004 \003(\005\022.\n&cylinder_head_te" +
-      "mperature_cooling_rate\030\005 \001(\005\022\027\n\017oil_temp" +
-      "erature\030\006 \001(\005\022(\n compressor_discharge_te" +
-      "mperature\030\007 \001(\005\022!\n\031induction_air_tempera" +
-      "ture\030\010 \001(\005\022&\n\036interstage_turbine_tempera" +
-      "ture\030\t \001(\005\022\021\n\tfuel_used\030\n \003(\002\022\021\n\tfuel_fl" +
-      "ow\030\013 \003(\002\022\025\n\rfuel_pressure\030\014 \001(\002\022\022\n\nfuel_" +
-      "level\030\r \003(\002\022\024\n\014oil_pressure\030\016 \001(\005\022\031\n\021man" +
-      "ifold_pressure\030\017 \001(\002\022\032\n\022hydraulic_pressu" +
-      "re\030\020 \003(\005\022\022\n\nhorsepower\030\021 \001(\005\022\013\n\003rpm\030\022 \001(" +
-      "\005\022\016\n\006torque\030\023 \001(\005\022\r\n\005hours\030\024 \001(\002\"Q\n\007JpiF" +
-      "ile\022$\n\010metadata\030\001 \001(\0132\022.edmtools.Metadat" +
-      "a\022 \n\006flight\030\002 \003(\0132\020.edmtools.FlightB\021\n\010e" +
-      "dmtoolsB\005Proto"
+      "\t\022\026\n\016start_latitude\030\t \001(\003\022\027\n\017start_longi" +
+      "tude\030\n \001(\003\"\234\002\n\nDataRecord\022\017\n\007voltage\030\001 \003" +
+      "(\002\022\020\n\010amperage\030\002 \003(\005\022\037\n\027outside_air_temp" +
+      "erature\030\003 \001(\005\022\'\n\004mark\030\004 \001(\0162\031.edmtools.D" +
+      "ataRecord.Mark\022*\n\006engine\030\005 \003(\0132\032.edmtool" +
+      "s.EngineDataRecord\022\025\n\rparse_warning\030\006 \003(" +
+      "\t\"^\n\004Mark\022\016\n\nNOT_MARKED\020\000\022\n\n\006MARKED\020\001\022\016\n" +
+      "\nRICH_START\020\002\022\014\n\010RICH_END\020\003\022\016\n\nLEAN_STAR" +
+      "T\020\004\022\014\n\010LEAN_END\020\005\"\305\004\n\020EngineDataRecord\022\037" +
+      "\n\027exhaust_gas_temperature\030\001 \003(\005\022.\n&max_e" +
+      "xhaust_gas_temperature_difference\030\002 \001(\005\022" +
+      "!\n\031turbine_inlet_temperature\030\003 \003(\005\022!\n\031cy" +
+      "linder_head_temperature\030\004 \003(\005\022.\n&cylinde" +
+      "r_head_temperature_cooling_rate\030\005 \001(\005\022\027\n" +
+      "\017oil_temperature\030\006 \001(\005\022(\n compressor_dis" +
+      "charge_temperature\030\007 \001(\005\022!\n\031induction_ai" +
+      "r_temperature\030\010 \001(\005\022&\n\036interstage_turbin" +
+      "e_temperature\030\t \001(\005\022\021\n\tfuel_used\030\n \003(\002\022\021" +
+      "\n\tfuel_flow\030\013 \003(\002\022\025\n\rfuel_pressure\030\014 \001(\002" +
+      "\022\022\n\nfuel_level\030\r \003(\002\022\024\n\014oil_pressure\030\016 \001" +
+      "(\005\022\031\n\021manifold_pressure\030\017 \001(\002\022\032\n\022hydraul" +
+      "ic_pressure\030\020 \003(\005\022\022\n\nhorsepower\030\021 \001(\005\022\013\n" +
+      "\003rpm\030\022 \001(\005\022\016\n\006torque\030\023 \001(\005\022\r\n\005hours\030\024 \001(" +
+      "\002\"Q\n\007JpiFile\022$\n\010metadata\030\001 \001(\0132\022.edmtool" +
+      "s.Metadata\022 \n\006flight\030\002 \003(\0132\020.edmtools.Fl" +
+      "ightB\021\n\010edmtoolsB\005Proto"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -16438,7 +16639,7 @@ public final class Proto {
     internal_static_edmtools_Flight_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_edmtools_Flight_descriptor,
-        new java.lang.String[] { "FlightNumber", "StartTimestamp", "RecordingIntervalSecs", "Sensors", "Data", "HeaderLength", "DataLength", "ParseWarning", });
+        new java.lang.String[] { "FlightNumber", "StartTimestamp", "RecordingIntervalSecs", "Sensors", "Data", "HeaderLength", "DataLength", "ParseWarning", "StartLatitude", "StartLongitude", });
     internal_static_edmtools_DataRecord_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_edmtools_DataRecord_fieldAccessorTable = new
